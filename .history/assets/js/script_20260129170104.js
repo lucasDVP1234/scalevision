@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         onEnter: () => {
             document.querySelectorAll('.counter-anim').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const suffix = target === 99 ? '%' : (target === 40 ? '%' : '+');
+                const suffix = target === 100 ? '%' : (target === 15 ? 'x' : '+');
                 gsap.to(counter, { innerText: target, duration: 2, snap: { innerText: 1 }, onUpdate: function() { this.targets()[0].innerHTML = Math.ceil(this.targets()[0].innerText) + suffix; } });
             });
         }
