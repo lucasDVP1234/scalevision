@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision | Agence N°1 du Snack Content & UGC</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        scaleBlue: '#251EAF', 
+                        scalePink: '#CE0089', 
+                        scaleDark: '#050520',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-scaleBlue text-white overflow-x-hidden selection:bg-scalePink selection:text-white">
+
+    <header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] transition-all duration-300">
+        
+        <div class="bg-[#251EAF]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.3)] px-6 py-3 flex items-center justify-between hover:border-white/20 hover:shadow-[0_15px_40px_rgba(37,30,175,0.4)] transition-all duration-500">
+          
+            <a href="/" class="group flex flex-col justify-center leading-none select-none hover:opacity-90 transition-opacity pl-2">
+                <span class="text-2xl md:text-3xl font-black tracking-tighter text-white group-hover:text-scalePink transition-colors duration-300">
+                    SCALEVISION<span class="text-scalePink group-hover:text-white transition-colors duration-300"></span>
+                </span>
+                <span class="text-[0.65rem] font-bold text-blue-300 tracking-[0.3em] uppercase ml-0.5 group-hover:text-white transition-colors">
+                    CREATIVE AGENCY🇫🇷
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-8 text-xs font-bold uppercase tracking-widest text-white/70 items-center">
+                <a href="#work" class="hover:text-white hover:scale-105 transition-all">Réalisations</a>
+                <a href="#process" class="hover:text-white hover:scale-105 transition-all">Méthode</a>
+                <a href="#packs" class="hover:text-white hover:scale-105 transition-all">Offres</a>
+                <a href="#agence" class="hover:text-white hover:scale-105 transition-all">L'Agence</a>
+                <a href="#faq" class="hover:text-white hover:scale-105 transition-all">FAQ</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-6 pr-2">
+                
+                <a href="https://ugcademie.fr" target="_blank" title="Devenir Créateur (UGCadémie)" class="relative group flex items-center gap-3 pr-6 border-r border-white/10">
+                    <div class="text-right hidden xl:block">
+                        <span class="block text-[9px] font-bold text-blue-200 uppercase tracking-widest">Je suis créateur ?</span>
+                        <span class="block text-[10px] font-black text-white group-hover:text-scalePink transition">REJOINDRE L'ACADÉMIE</span>
+                    </div>
+                    
+                    <div class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center overflow-hidden group-hover:border-scalePink transition-colors duration-300">
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png" 
+                             alt="UGCademie" 
+                             class="w-6 h-6 object-contain animate-spin-slow brightness-0 invert">
+                    </div>
+                </a>
+
+                <a href="#contact" class="px-6 py-3 rounded-full bg-white text-[#251EAF] text-xs font-black uppercase tracking-widest hover:bg-scalePink hover:text-white transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(206,0,137,0.4)]">
+                    Prendre Contact
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4 lg:hidden">
+                <a href="#contact" class="text-[10px] font-black uppercase tracking-widest bg-scalePink text-white px-4 py-2 rounded-full shadow-lg shadow-scalePink/30">
+                    Start
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="hero" class="relative h-screen w-full flex justify-between items-center overflow-hidden bg-scaleBlue z-0">
+        
+        <div class="bg-noise"></div> <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-scalePink/20 rounded-full blur-[180px] -z-10 animate-pulse"></div>
+
+        <div class="hidden lg:block z-10 video-column-wrapper -rotate-3 ml-4 opacity-80">
+            <div class="video-column scroll-up gap-6">
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/video1.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d2ahkzba9leo8q.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/cfc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/clc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="hhttps://d3qck34svcw0mn.cloudfront.net/gymlib.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/leclerc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+            </div>
+        </div>
+
+        <div class="relative z-20 flex-1 h-full flex flex-col items-center justify-center text-center px-4">
+            
+            <div class="flex flex-col items-center justify-center w-full max-w-4xl">
+                
+                <div class="inline-flex items-center gap-2 border border-white/10 bg-black/20 backdrop-blur-md px-5 py-2 rounded-full mb-8 hover:scale-105 transition duration-300 cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.25em] text-white">Agence Créative N°1 de France</span>
+                </div>
+
+                <h1 class="hero-title text-7xl md:text-8xl lg:text-[10rem] font-black text-white mb-6 relative">
+                    <div class="relative z-10">WE MAKE</div>
+                    <div class="text-stroke relative z-10">VIDEOS</div>
+                    <div class="flex items-center justify-center gap-4 relative z-10">
+                        <span>THAT</span>
+                        <span class="text-scalePink">SCALE.</span>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[50%] bg-gradient-to-r from-transparent via-scaleBlue/80 to-transparent blur-xl -z-0"></div>
+                </h1>
+
+                <p class="text-lg md:text-2xl text-blue-100/90 max-w-xl font-medium mb-10 leading-relaxed">
+                    Stop aux vidéos chiantes. On produit du <strong class="text-white border-b-2 border-scalePink">Snack Content</strong> qui arrête le scroll et convertit.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5 mb-16">
+                    <a href="#contact" class="btn-pulse bg-scalePink text-white text-lg font-black px-10 py-5 rounded-full shadow-[0_20px_50px_-10px_rgba(206,0,137,0.6)] hover:shadow-[0_20px_80px_-10px_rgba(206,0,137,0.8)] hover:-translate-y-1 transition duration-300 border border-white/10">
+                        Lancer un projet 🚀
+                    </a>
+                    <a href="#work" class="group flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 text-white text-lg font-bold px-10 py-5 rounded-full hover:bg-white hover:text-scaleBlue transition duration-300">
+                        Voir les exemples
+                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 w-full max-w-5xl border-t border-white/5 pt-6">
+                <div class="flex justify-center gap-8 md:gap-16 opacity-40 hover:opacity-100 transition duration-500 items-center grayscale hover:grayscale-0">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-6 md:h-8 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-8 md:h-10 object-contain brightness-0 invert">
+                     <div class="hidden md:block h-1 w-1 bg-white/20 rounded-full"></div>
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-6 md:h-8 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-5 md:h-6 object-contain brightness-0 invert">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hidden lg:block z-10 video-column-wrapper rotate-3 mr-4 opacity-80">
+            <div class="video-column scroll-down gap-6">
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/combray.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/born.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/orni1.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/scaleinfo.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/wecandoo2.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+            </div>
+        </div>
+
+    </section>
+    <section id="work" class="py-32 bg-[#251EAF] relative overflow-hidden min-h-screen flex flex-col justify-center">
+        
+        <div class="big-marquee-wrapper">
+            <div class="big-marquee-content">
+                UGC • ADS • SCROLL STOPPER • UGC • ADS • SCROLL STOPPER • UGC • ADS • SCROLL STOPPER •
+            </div>
+        </div>
+        
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-scalePink/20 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black uppercase text-white leading-none mb-2">
+                    NOS CRÉATIONS
+                </h2>
+                <p class="text-blue-200 text-sm md:text-base tracking-widest uppercase font-bold">
+                    Choisissez votre industrie 👇
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-12">
+                <div class="glass-control-bar flex-wrap justify-center">
+                    <button onclick="filterVideos('ecom')" class="filter-btn-neon active px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="ecom">
+                        🛍️ Produits
+                    </button>
+                    <button onclick="filterVideos('app')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="app">
+                        📱 Applications
+                    </button>
+                    <button onclick="filterVideos('saas')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="saas">
+                        💻 Software
+                    </button>
+                    <button onclick="filterVideos('info')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="info">
+                        🧠 Infopreneur
+                    </button>
+                </div>
+            </div>
+
+            <div id="gallery-grid" class="hover-focus-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[500px]">
+                </div>
+
+            <div class="mt-16 border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 whitespace-nowrap">
+                        Trusted by top brands in this niche
+                    </div>
+                    <div class="w-full overflow-hidden relative mask-linear">
+                        <div class="marquee-container w-full">
+                            <div id="logo-track" class="marquee-content flex gap-12 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                 <a href="#contact" class="group relative inline-flex items-center gap-2 text-xs font-bold text-white hover:text-scalePink transition pb-1">
+                    <span>VOIR PLUS D'ÉTUDES DE CAS</span>
+                    <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                 </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="micro" class="py-16 bg-[#251EAF] relative overflow-hidden">
+        
+        <div class="bg-noise"></div>
+
+        <div class="absolute top-1/2 left-0 w-full h-32 bg-scalePink/10 -rotate-3 transform -translate-y-1/2 pointer-events-none border-y border-scalePink/30 flex items-center overflow-hidden">
+            <div class="whitespace-nowrap text-[80px] font-black text-transparent opacity-30 animate-marquee" style="-webkit-text-stroke: 2px rgba(255,255,255,0.2);">
+                STREET INTERVIEW • VIRAL • STREET INTERVIEW • VIRAL • STREET INTERVIEW • VIRAL •
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 mb-16">
+            
+            <div class="flex flex-col md:flex-row items-end justify-between gap-8 border-b border-white/10 pb-8">
+                
+                <div class="text-left">
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-scalePink font-bold tracking-[0.3em] uppercase text-xs animate-pulse">● REC</span>
+                        <span class="text-white/50 text-xs font-mono">FRAME: 00:01:45</span>
+                    </div>
+                    
+                    <h2 class="text-5xl md:text-8xl font-black text-white uppercase leading-[0.85]">
+                        🎤 KING OF <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-scalePink">MICRO-TROTTOIR.</span>
+                    </h2>
+                </div>
+
+                <div class="text-right md:text-right relative">
+                    <p class="text-white text-sm font-bold mb-4 uppercase tracking-widest">Sponsorisé par</p>
+                    
+                    <div class="relative group cursor-pointer">
+                        <div class="partner-sticker">
+                            🌭 Le Micro Saucisse
+                        </div>
+                        <div class="absolute -bottom-6 right-0 text-[10px] text-white/60 font-mono mt-2">
+                            Partenaire Officiel
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="viral-stream-wrapper">
+            <div class="viral-track">
+                
+                <div class="micro-card group">
+                    <video 
+                        data-src="https://d3qck34svcw0mn.cloudfront.net/khune1.mp4" 
+                        class="w-full h-full object-cover"
+                        muted 
+                        loop 
+                        preload="none"
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
+                    </video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 1.2M</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">
+                            Micro Saucisse
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video 
+                        data-src="https://d3qck34svcw0mn.cloudfront.net/japhy2.mp4" 
+                        class="w-full h-full object-cover" 
+                        muted 
+                        loop 
+                        preload="none"
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
+                </video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 850K</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
+                            Happn
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/freegun.mp4" 
+                    class="w-full h-full object-cover"
+                    muted 
+                    loop 
+                    preload="none"
+                    onmouseover="lazyPlay(this)" 
+                    onmouseout="this.pause()">
+                    </video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 2.4M</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">
+                            TikTok
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/orni2.mp4"
+                    class="w-full h-full object-cover"
+                    muted 
+                    loop 
+                    preload="none"
+                    onmouseover="lazyPlay(this)" 
+                    onmouseout="this.pause()">
+                    </video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">
+                            LGD
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/coupon2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
+                     <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
+                            Cuisinella
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/born.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 1.2M</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">
+                            Micro Saucisse
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 850K</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
+                            Happn
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/qualiretraite.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 2.4M</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">
+                            TikTok
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/smash.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">
+                            LGD
+                        </div>
+                    </div>
+                </div>
+
+                <div class="micro-card group">
+                    <video src="https://d3qck34svcw0mn.cloudfront.net/tealer.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
+                     <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
+                            Cuisinella
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+             <a href="#contact" class="text-xs font-bold text-white/30 hover:text-white transition uppercase tracking-[0.2em] border-b border-transparent hover:border-white pb-1">
+                Lancer une campagne Micro-Trottoir
+             </a>
+        </div>
+
+    </section>
+    
+    <section id="process" class="py-32 bg-scaleBlue relative overflow-hidden">
+        
+        <div class="process-line-container hidden md:block">
+            <div id="line-fill" class="process-line-fill"></div>
+            <div id="line-head" class="process-line-head"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative">
+            
+            <div class="text-center mb-32 relative z-20">
+                <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block">Process Agence</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white uppercase leading-none">
+                    LA MÉCANIQUE <br> <span class="text-stroke">SCALEVISION</span>
+                </h2>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-16 items-center group" data-index="1">
+                <div class="text-right pr-12 hidden md:block order-1">
+                    <h3 class="text-4xl font-black mb-4 text-white">1. Data First</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed font-medium">
+                        On ne devine pas. On analyse ce qui perce dans votre niche.
+                        <br>Micro-trottoir viral ou Scénario UGC scripté ?
+                    </p>
+                </div>
+                <div class="relative h-[250px] flex items-center justify-center md:justify-start pl-0 md:pl-12 order-2">
+                    <div id="card-left" class="concept-card -rotate-12 translate-x-[-30px] z-0 opacity-60 group-hover:opacity-80 transition">
+                        Micro-Trottoir
+                    </div>
+                    <div id="card-right" class="concept-card rotate-12 translate-x-[30px] z-10 border-4 border-scalePink scale-110 shadow-[0_0_30px_rgba(206,0,137,0.4)]">
+                        <i class="fas fa-check-circle text-scalePink text-3xl mb-2 block"></i>
+                        Scénario UGC
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-16 items-center group" data-index="2">
+                <div class="flex justify-center md:justify-end pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="relative w-48 h-48 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-scalePink/20 rounded-full animate-ping"></div>
+                        <div class="absolute inset-4 bg-scalePink/40 rounded-full animate-pulse"></div>
+                        
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" class="w-32 h-32 rounded-full border-4 border-white shadow-2xl relative z-10 object-cover">
+                        
+                        <div class="absolute -bottom-4 bg-green-500 text-white text-xs font-black px-4 py-1.5 rounded-full border-2 border-white z-20 shadow-lg uppercase tracking-wide flex items-center gap-2">
+                            <i class="fas fa-certificate"></i> Certifié 100%
+                        </div>
+                    </div>
+                </div>
+                <div class="text-left pl-0 md:pl-12 order-1 md:order-2">
+                    <h3 class="text-4xl font-black mb-4 text-white">2. Casting Elite</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed mb-4 font-medium">
+                        On pioche directement dans notre <span class="text-scalePink font-bold">UGCadémie</span>.
+                        <br>Pas d'acteurs bidons, que des créateurs formés à la perf.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-16 items-center" data-index="3">
+                <div class="text-right pr-12 hidden md:block order-1">
+                    <h3 class="text-4xl font-black mb-4 text-white">3. Tournage Pro</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed font-medium">
+                        iPhone 15 Pro Max, micros cravates, stabilisateurs. <br>
+                        Rendu "amateur" pour la trust, qualité cinéma pour la brand.
+                    </p>
+                </div>
+                <div class="flex justify-center md:justify-start pl-0 md:pl-12 order-2">
+                    <div class="rec-interface relative w-72 h-48 bg-black shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/Les+CEOs-5.png" class="absolute inset-0 w-full h-full object-cover opacity-70">
+                        <div class="absolute top-4 left-4 z-10 flex items-center bg-black/50 px-2 py-1 rounded">
+                            <span class="rec-dot"></span> <span class="text-white text-xs font-mono font-bold">REC</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4 z-10 text-white text-xs font-mono font-bold bg-black/50 px-2 py-1 rounded">
+                            4K 60FPS
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-12 h-12 border border-white/30"></div>
+                            <div class="w-1 h-4 bg-white/50 absolute"></div>
+                            <div class="w-4 h-1 bg-white/50 absolute"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-16 items-center" data-index="4">
+                <div class="flex justify-center md:justify-end pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="w-72 space-y-3 bg-black/40 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1 font-mono"><span>00:00</span><span>00:15</span><span>00:30</span></div>
+                        <div class="h-8 bg-white/5 rounded relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-[0%] bg-scalePink animate-[widthGrow_2s_infinite]"></div></div>
+                        <div class="h-8 bg-white/5 rounded relative overflow-hidden ml-8"><div class="absolute top-0 left-0 h-full w-[0%] bg-blue-400 animate-[widthGrow_2s_infinite_0.5s]"></div></div>
+                        <div class="h-8 bg-white/5 rounded relative overflow-hidden"><div class="absolute top-0 left-0 h-full w-[0%] bg-yellow-400 animate-[widthGrow_2s_infinite_1s]"></div></div>
+                    </div>
+                </div>
+                <div class="text-left pl-0 md:pl-12 order-1 md:order-2">
+                    <h3 class="text-4xl font-black mb-4 text-white">4. Montage Snack</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed font-medium">
+                        Hooks visuels, sous-titres dynamiques, sound design ASMR. <br>
+                        On retient l'attention à la seconde près.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-step text-center mt-32" data-index="5">
+                <h3 class="text-6xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-transparent opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full">RESULTS</h3>
+                
+                <div class="relative z-10">
+                    <h3 class="text-4xl md:text-6xl font-black text-white mb-8">TADAAAA 🎉</h3>
+                    <p class="text-xl text-blue-200 mb-12 max-w-xl mx-auto font-medium">
+                        Les vidéos sont livrées. Vous lancez les Ads.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+                        <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl transform hover:scale-105 transition duration-300">
+                            <div class="text-4xl md:text-6xl font-black text-scalePink mb-2 counter-anim" data-target="15">0</div>
+                            <div class="text-[10px] md:text-xs uppercase font-bold tracking-widest text-white/60">ROAS Moyen</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl transform hover:scale-105 transition duration-300 delay-100">
+                            <div class="text-4xl md:text-6xl font-black text-blue-400 mb-2 counter-anim" data-target="350">0</div>
+                            <div class="text-[10px] md:text-xs uppercase font-bold tracking-widest text-white/60">Achats / Jour</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl transform hover:scale-105 transition duration-300 delay-200">
+                            <div class="text-4xl md:text-6xl font-black text-yellow-400 mb-2 counter-anim" data-target="100">0</div>
+                            <div class="text-[10px] md:text-xs uppercase font-bold tracking-widest text-white/60">% Satisfait</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="showcase" class="py-24 bg-[#251EAF] relative overflow-hidden">
+        
+        <div class="absolute inset-0 pointer-events-none">
+            <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-transparent opacity-10 whitespace-nowrap" style="-webkit-text-stroke: 2px rgba(255,255,255,0.3);">
+                WALL OF FAME
+            </h2>
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-scalePink/20 rounded-full blur-[150px]"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <div class="text-center mb-16">
+                <div class="inline-block transform -rotate-2 bg-white text-[#251EAF] font-black uppercase text-sm px-4 py-1 mb-4 shadow-[5px_5px_0px_#CE0089]">
+                    +1500 Vidéos produites
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white uppercase leading-none drop-shadow-lg">
+                    LE MUR DES <span class="text-transparent bg-clip-text bg-gradient-to-r from-scalePink to-purple-400">VIDÉOS</span> 🔊
+                </h2>
+            </div>
+
+            <div class="vertical-stream-container">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+                    
+                    <div class="vertical-track scroll-y-up">
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/khune.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Horace</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/orni1.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Happn</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/smash.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">TikTok</span></div></div>
+                        
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/coupon1.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Horace</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/combray.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Happn</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/gymlib2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">TikTok</span></div></div>
+                    </div>
+
+                    <div class="vertical-track scroll-y-down hidden md:flex">
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/clc.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">LGD</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/anne.mov" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Cuisinella</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/Anne_Reconversion_3.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">CPF</span></div></div>
+
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/pulse1.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">LGD</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Cuisinella</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/wecandoo2" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">CPF</span></div></div>
+                    </div>
+
+                    <div class="vertical-track scroll-y-up pt-12"> 
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/scaleinfo.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">ESDES</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/qualiretraite.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Relance</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/ugcademie2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Babbel</span></div></div>
+
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/clc2.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">ESDES</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/coupon1.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Relance</span></div></div>
+                        <div class="showcase-card-vertical group"><video src="https://d3qck34svcw0mn.cloudfront.net/tealer.mp4" class="w-full h-full object-cover" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video><div class="brand-pill"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" class="h-3 brightness-0 invert"><span class="text-[10px] font-bold text-white uppercase">Babbel</span></div></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <div class="text-center mt-12">
+                <p class="text-blue-200 text-xs uppercase tracking-widest animate-pulse">Scroll down for more</p>
+                <i class="fas fa-arrow-down text-scalePink mt-2"></i>
+            </div> -->
+
+        </div>
+    </section>
+    <section id="packs" class="py-32 bg-scaleBlue relative overflow-hidden perspective-1000">
+        
+        <div class="bg-noise"></div>
+
+        <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-scalePink/20 rounded-full blur-[150px] -z-0 pointer-events-none mix-blend-screen"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-20">
+                <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block">Investissement</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white uppercase mb-4">
+                    NOS OFFRES <span class="text-stroke">UGC</span>
+                </h2>
+                <p class="text-blue-200 text-lg max-w-2xl mx-auto">
+                    Une tarification simple. Des résultats complexes. <br>
+                    Choisissez la vitesse de votre croissance.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                
+                <div class="pricing-card group hover:z-20">
+                    <div class="absolute -top-6 left-8 w-16 h-16 bg-scaleBlue border-4 border-[#2a25b5] rounded-2xl flex items-center justify-center text-3xl shadow-xl z-20 transform -rotate-6 group-hover:rotate-0 transition duration-500">
+                        🚀
+                    </div>
+
+                    <div class="mt-8 mb-8 pl-4">
+                        <h3 class="text-2xl font-black uppercase tracking-widest mb-2">Pack • One Shot</h3>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-5xl md:text-6xl font-black text-white">3 500€</span>
+                            <span class="text-xl font-bold text-white/50">HT</span>
+                        </div>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">7 Concepts • 21 Vidéos</p>
+                        <div class="inline-block bg-white/5 border border-white/10 px-3 py-1 rounded text-xs font-bold text-white/70">
+                            500€ / concept
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/10 my-8"></div>
+
+                    <ul class="pricing-list space-y-4">
+                        <li><span class="check-icon">1</span> <span><strong>Choix des concepts :</strong> UGC, Facecam, Micro-trottoirs...</span></li>
+                        <li><span class="check-icon">2</span> <span><strong>Sélection Créateurs :</strong> Casting sur mesure</span></li>
+                        <li><span class="check-icon">3</span> <span><strong>Scripts & Storyboard :</strong> Validés par vous</span></li>
+                        <li><span class="check-icon">4</span> <span><strong>Tournage & Montage :</strong> Qualité Agence</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>3 Hooks par concept :</strong> A/B Testing inclus</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Retours Illimités :</strong> Jusqu'à satisfaction</span></li>
+                        <li><span class="check-icon"><i class="fas fa-gift"></i></span> <span><strong>Reporting de livraison</strong></span></li>
+                    </ul>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="block w-full py-4 rounded-xl border border-white/30 text-center font-bold uppercase tracking-widest hover:bg-white hover:text-scaleBlue transition duration-300">
+                            Prendre RDV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured group hover:z-20">
+                    
+                    <div class="absolute top-0 right-0 bg-scalePink text-white text-[10px] font-black uppercase px-6 py-2 rounded-bl-2xl tracking-widest shadow-lg">
+                        Best Seller
+                    </div>
+
+                    <div class="absolute -top-6 left-8 w-16 h-16 bg-gradient-to-br from-scalePink to-purple-600 border-4 border-[#2a25b5] rounded-2xl flex items-center justify-center text-3xl shadow-xl z-20 transform rotate-6 group-hover:rotate-0 transition duration-500">
+                        💎
+                    </div>
+
+                    <div class="mt-8 mb-8 pl-4">
+                        <h3 class="text-2xl font-black uppercase tracking-widest mb-2 text-scalePink">Pack • 3 Mois</h3>
+                        <div class="flex items-baseline gap-2 mb-2">
+                            <span class="text-5xl md:text-6xl font-black text-white">2 000€</span>
+                            <span class="text-xl font-bold text-white/50">HT / MOIS</span>
+                        </div>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">5 Concepts / mois • 15 Vidéos</p>
+                        <div class="inline-block bg-scalePink/10 border border-scalePink/30 px-3 py-1 rounded text-xs font-bold text-white">
+                            <span class="price-strike mr-2 text-white/50">500€</span> <span class="text-scalePink">400€ / concept</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/10 my-8"></div>
+
+                    <ul class="pricing-list space-y-4">
+                        <li><span class="check-icon"><i class="fas fa-infinity"></i></span> <span class="text-white font-bold">Tout du Pack One Shot +</span></li>
+                        <li><span class="check-icon"><i class="fas fa-sync-alt"></i></span> <span><strong>5 Nouveaux Concepts</strong> chaque mois</span></li>
+                        <li><span class="check-icon"><i class="fas fa-chart-line"></i></span> <span><strong>Optimisation Mensuelle :</strong> On itère sur ce qui marche</span></li>
+                        <li><span class="check-icon"><i class="fas fa-search"></i></span> <span><strong>Analyse Tunnel :</strong> Audit de votre conversion</span></li>
+                        <li class="bg-scalePink/10 p-2 rounded-lg border border-scalePink/20"><span class="check-icon"><i class="fas fa-star"></i></span> <span class="text-scalePink font-bold">Prix Dégressif (-20%)</span></li>
+                    </ul>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="block w-full py-4 rounded-xl bg-scalePink text-white text-center font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(206,0,137,0.4)] hover:shadow-[0_0_50px_rgba(206,0,137,0.6)] transition duration-300 transform group-hover:scale-105">
+                            Je veux scaler 🚀
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="agence" class="py-32 bg-scaleBlue relative overflow-hidden">
+        
+        <div class="bg-noise"></div>
+        
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-5">
+            <h2 class="text-[20vw] font-black text-white leading-none">PARIS</h2>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="order-2 lg:order-1">
+                    <div class="photo-stack-container cursor-pointer group">
+                        
+                        <div class="polaroid-card p-1 transform -rotate-6 translate-y-4 z-10">
+                            <img src="https://scalevision.s3.eu-north-1.amazonaws.com/video_site/bureaup.HEIC" alt="Team Scalevision">
+                            <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-black font-bold text-xs">La Team</div>
+                        </div>
+
+                        <div class="polaroid-card p-2 transform rotate-2 z-20">
+                            <img src="https://scalevision.s3.eu-north-1.amazonaws.com/video_site/bureau1.HEIC" alt="Constantin Founder">
+                            <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-black font-bold text-xs">Constantin (CEO)</div>
+                        </div>
+
+                        <div class="polaroid-card p-3 transform rotate-12 translate-x-4 translate-y-8 z-30">
+                            <img src="https://scalevision.s3.eu-north-1.amazonaws.com/video_site/bureau2.HEIC" alt="Lucas Creative">
+                            <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-black font-bold text-xs">Lucas (Head of Crea)</div>
+                        </div>
+
+                        <div class="absolute top-10 right-10 bg-scalePink text-white font-black text-xl px-4 py-2 rounded-full transform rotate-12 shadow-xl z-40 group-hover:scale-125 transition">
+                            IRL !
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 text-center lg:text-left">
+                    <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block">Headquarters</span>
+                    
+                    <h2 class="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">
+                        PAS UNE AGENCE <br> <span class="text-stroke">FANTÔME.</span>
+                    </h2>
+                    
+                    <p class="text-xl text-blue-100 mb-10 font-medium">
+                        On n'est pas à Dubaï. On est au cœur de Paris. <br>
+                        Venez voir où la magie opère.
+                    </p>
+
+                    <div class="inline-flex items-center gap-4 border-l-4 border-scalePink pl-6 mb-12">
+                        <div>
+                            <p class="text-4xl font-black text-white">4 RUE MARTEL</p>
+                            <p class="text-xl font-bold text-white/50 uppercase tracking-widest">75010 PARIS</p>
+                        </div>
+                    </div>
+
+                    <div class="coffee-ticket inline-block transform rotate-2 hover:rotate-0 transition duration-300 cursor-pointer group">
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-2xl">
+                                ☕️
+                            </div>
+                            <div class="text-left">
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Valid for one</p>
+                                <p class="text-xl font-black text-black">CAFÉ (OU DÉCA) OFFERT</p>
+                                <p class="text-xs text-gray-500 mt-1 group-hover:text-scalePink transition">Cliquez pour réserver votre visite →</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="py-32 bg-[#251EAF] relative overflow-hidden">
+        
+        <div class="bg-noise"></div>
+        
+        <div class="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-scaleBlue to-transparent opacity-20 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            
+            <div class="mb-20 text-center md:text-left">
+                <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block">No Bullshit</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white uppercase leading-none">
+                    QUESTIONS <br> <span class="text-stroke">FRÉQUENTES</span>
+                </h2>
+            </div>
+
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <div class="faq-question flex justify-between items-center group">
+                        <h3 class="text-xl md:text-3xl font-black uppercase text-white w-[90%]">Combien de temps faut-il pour recevoir les vidéos finalisées ?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-4">Il faut compter <strong class="text-white">2 à 3 semaines</strong> à partir du lancement de la collaboration pour recevoir l’ensemble des vidéos.</p>
+                            <p class="text-sm opacity-70">Cela comprend tout le process Scalevision : la réflexion sur les concepts, la rédaction des scripts, l’activation des acteurs, le tournage et le montage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question flex justify-between items-center group">
+                        <h3 class="text-xl md:text-3xl font-black uppercase text-white w-[90%]">Avez-vous des preuves ou des garanties de vos résultats ?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-4">Nous avons des dizaines et des dizaines d’études de cas disponibles sur notre site web (voir section Portfolio plus haut).</p>
+                            <p>De plus, <strong class="text-scalePink">il n’y a aucun engagement sur nos offres</strong>. Nous sommes donc dans l’obligation d’apporter des résultats à chacun de nos clients pour continuer à travailler avec eux. C'est notre meilleure garantie.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question flex justify-between items-center group">
+                        <h3 class="text-xl md:text-3xl font-black uppercase text-white w-[90%]">Comment se déroule la collaboration ?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <ul class="faq-list space-y-2">
+                                <li><strong class="text-white">Onboarding :</strong> Nous vous envoyons un formulaire pour tout savoir sur votre marque.</li>
+                                <li><strong class="text-white">Concepts (J+3) :</strong> Une fois le virement reçu, nous vous proposons les concepts sous 2 à 3 jours.</li>
+                                <li><strong class="text-white">Scripts (J+7) :</strong> Vous validez, nous rédigeons les scripts sous 3 à 4 jours max.</li>
+                                <li><strong class="text-white">Production :</strong> Validation des acteurs et activation du tournage.</li>
+                                <li><strong class="text-white">Livraison (J+15 à J+20) :</strong> Réception des vidéos finalisées (2 à 10 jours après tournage) avec modifs illimitées.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question flex justify-between items-center group">
+                        <h3 class="text-xl md:text-3xl font-black uppercase text-white w-[90%]">Vos packs conviennent-ils à mon secteur ?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-4">Absolument. Nous avons accompagné <strong class="text-white">+300 entreprises</strong> dans tous types de secteurs :</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-sm">
+                                <div>
+                                    <p class="text-scalePink font-bold uppercase text-xs mb-1">SaaS B2B</p>
+                                    <p class="opacity-70">Abby, Youdji, Wizbii, Quicktalk, Spliiit.</p>
+                                </div>
+                                <div>
+                                    <p class="text-scalePink font-bold uppercase text-xs mb-1">E-commerce</p>
+                                    <p class="opacity-70">Caats, Epycure, Bloon, Repeat.</p>
+                                </div>
+                                <div>
+                                    <p class="text-scalePink font-bold uppercase text-xs mb-1">Applications</p>
+                                    <p class="opacity-70">Explorz, Insight, digiSchool, EXO.</p>
+                                </div>
+                                <div>
+                                    <p class="text-scalePink font-bold uppercase text-xs mb-1">Formation</p>
+                                    <p class="opacity-70">FitnessCamp, Le Charbon, Hugues Trijasse.</p>
+                                </div>
+                            </div>
+
+                            <p class="text-sm opacity-70">Peu importe votre cible, grâce à notre académie de <strong class="text-white">+150 créateurs formés</strong>, nous avons le profil parfait pour incarner votre marque.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question flex justify-between items-center group">
+                        <h3 class="text-xl md:text-3xl font-black uppercase text-white w-[90%]">Pourquoi ça va marcher pour moi ?</h3>
+                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-4">Parce qu'on ne joue pas aux devinettes. Nous sommes spécialisés depuis 2020 sur ce format.</p>
+                            <ul class="faq-list space-y-2 mb-4">
+                                <li>L’équipe créative est dirigée par <strong class="text-white">Lucas Daval-Pommier et Constantin Kovriga</strong> (Fondateur).</li>
+                                <li>L’équipe de tournage (3 personnes) est 100% experte format 9:16.</li>
+                                <li>Nous produisons <strong class="text-white">+50 vidéos par semaine</strong> et testons des concepts inédits tous les jours.</li>
+                            </ul>
+                            <p class="font-bold text-white italic">Forcément, nous savons exactement comment structurer une vidéo pour qu’elle explose vos performances.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-20 text-center">
+                <p class="text-blue-200 mb-6 font-bold">Encore une question en tête ?</p>
+                <a href="#contact" class="inline-block border border-white/20 hover:border-scalePink bg-white/5 hover:bg-scalePink/20 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest transition duration-300">
+                    Réserver un appel
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="contact" class="py-32 bg-[#251EAF] relative overflow-hidden">
+        
+        <div class="bg-noise"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-scalePink/20 rounded-full blur-[150px] -z-10 animate-pulse"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tight uppercase leading-[0.9]">
+                    VOTRE CROISSANCE <br>
+                    <span class="text-stroke">COMMENCE ICI.</span>
+                </h2>
+                
+                <p class="text-xl text-blue-100 mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
+                    Ne laissez pas vos concurrents prendre le lead sur l'UGC. <br>
+                    Réservez votre audit offert et repartez avec une stratégie claire.
+                </p>
+
+                <div class="relative inline-block group hover:scale-105 transition-transform duration-300">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-scalePink to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                    
+                    <a href="javascript:void(0)" 
+                    data-tally-open="J9112R"
+                    data-tally-layout="modal"
+                    data-tally-width="600"
+                    data-tally-hide-title="1"
+                    data-tally-emoji-text="👋" 
+                    data-tally-emoji-animation="wave"
+                    class="relative bg-white text-[#251EAF] text-xl md:text-2xl font-black px-12 py-6 rounded-full shadow-2xl flex items-center gap-4 cursor-pointer border-4 border-transparent bg-clip-padding">
+                        <span>RÉSERVER MON APPEL OFFERT</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="mt-16 flex flex-col items-center gap-4">
+                    <div class="flex items-center gap-3 text-sm font-bold text-white uppercase tracking-widest">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                        </span>
+                        Places limitées pour Février
+                    </div>
+                    
+                    <div class="w-72 h-3 bg-black/30 rounded-full overflow-hidden border border-white/10 backdrop-blur">
+                        <div class="h-full bg-gradient-to-r from-scalePink to-purple-500 w-[85%] rounded-full shadow-[0_0_10px_#CE0089]"></div>
+                    </div>
+                    <p class="text-xs text-blue-200/60 font-mono">85% des créneaux d'appel réservés</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#251EAF] relative overflow-hidden border-t border-white/5">
+        
+        <div class="bg-noise"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-scalePink font-bold uppercase tracking-widest text-xs mb-2 block">L'Écosystème</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white uppercase">
+                    REJOIGNEZ LE <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-scalePink">MOUVEMENT</span> 🚀
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <a href="https://www.linkedin.com/company/scalevision/" target="_blank" class="social-card group rounded-[2.5rem] p-1 relative">
+                    <div class="absolute inset-0 bg-[#0077b5] rounded-[2.5rem] opacity-0 group-hover:opacity-20 transition duration-500 blur-xl"></div>
+                    
+                    <div class="rounded-[2.3rem] p-8 h-full flex flex-col items-center text-center relative z-10">
+                        <div class="w-20 h-20 bg-[#0077b5]/20 text-[#0077b5] border border-[#0077b5]/30 rounded-3xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-[#0077b5] group-hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h3 class="font-black text-2xl text-white mb-1">Scalevision</h3>
+                        <p class="text-blue-200 text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Agence Corporate</p>
+                        <p class="text-white/60 text-sm mb-8 leading-relaxed">Suivez les coulisses de l'agence N°1 et nos offres d'emploi exclusives.</p>
+                        <span class="mt-auto px-8 py-3 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest group-hover:bg-[#0077b5] group-hover:border-[#0077b5] transition shadow-lg">Se connecter</span>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/scalevision/" target="_blank" class="social-card group rounded-[2.5rem] p-1 relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 rounded-[2.5rem] opacity-0 group-hover:opacity-20 transition duration-500 blur-xl"></div>
+                    
+                    <div class="rounded-[2.3rem] p-8 h-full flex flex-col items-center text-center relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-tr from-yellow-400/20 via-red-500/20 to-purple-500/20 border border-white/10 rounded-3xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition duration-300 text-white group-hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 class="font-black text-2xl text-white mb-1">@scalevision</h3>
+                        <p class="text-blue-200 text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Lifestyle Agence</p>
+                        <p class="text-white/60 text-sm mb-8 leading-relaxed">La vie de l'agence, les tournages et les résultats clients en direct.</p>
+                        <span class="mt-auto px-8 py-3 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest group-hover:bg-gradient-to-r from-orange-500 to-pink-500 group-hover:border-transparent transition shadow-lg">S'abonner</span>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/ugcademie/" target="_blank" class="social-card group rounded-[2.5rem] p-1 relative">
+                    <div class="absolute inset-0 bg-scalePink rounded-[2.5rem] opacity-0 group-hover:opacity-20 transition duration-500 blur-xl"></div>
+                    
+                    <div class="rounded-[2.3rem] p-8 h-full flex flex-col items-center text-center relative z-10">
+                        <div class="w-20 h-20 bg-scalePink/20 text-scalePink border border-scalePink/30 rounded-3xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-scalePink group-hover:text-white">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-black text-2xl text-white mb-1">@ugcademie</h3>
+                        <p class="text-blue-200 text-[10px] uppercase font-bold tracking-[0.2em] mb-4">Formation & Tips</p>
+                        <p class="text-white/60 text-sm mb-8 leading-relaxed">Conseils gratuits, résultats des élèves et motivation quotidienne.</p>
+                        <span class="mt-auto px-8 py-3 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest group-hover:bg-scalePink group-hover:border-scalePink transition shadow-lg">Rejoindre</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="bg-[#251EAF] text-white pt-24 pb-12 border-t border-white/10 relative overflow-hidden">
+        
+        <div class="bg-noise"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="inline-block group">
+                        <span class="text-3xl font-black tracking-tighter text-white">
+                            SCALEVISION<span class="text-scalePink">.</span>
+                        </span>
+                        <span class="block text-[0.65rem] font-bold text-blue-300 tracking-[0.3em] uppercase mt-1 group-hover:text-white transition">
+                            AGENCY
+                        </span>
+                    </a>
+                    
+                    <p class="mt-6 text-blue-200/70 text-sm leading-relaxed max-w-sm">
+                        Propulsé par la passion du contenu. <br>
+                        L'agence N°1 en France spécialisée dans la performance et le contenu UGC. Nous transformons les vues en revenus.
+                    </p>
+                    
+                    <div class="flex items-center gap-3 mt-8 text-white font-bold text-sm bg-white/5 w-fit px-5 py-3 rounded-xl border border-white/10 hover:border-scalePink/50 transition cursor-pointer group">
+                        <i class="fas fa-map-marker-alt text-scalePink group-hover:animate-bounce"></i> 
+                        <span>4 rue Martel, 75010 Paris</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-black mb-8 uppercase text-xs tracking-[0.2em] opacity-50">Explorer</h4>
+                    <ul class="space-y-4 text-sm font-medium text-blue-200/80">
+                        <li><a href="#work" class="hover:text-white hover:translate-x-2 transition-all inline-block">Nos Réalisations</a></li>
+                        <li><a href="#packs" class="hover:text-white hover:translate-x-2 transition-all inline-block">Offres & Tarifs</a></li>
+                        <li><a href="#process" class="hover:text-white hover:translate-x-2 transition-all inline-block">La Méthode</a></li>
+                        <li><a href="#temoignages" class="hover:text-white hover:translate-x-2 transition-all inline-block">Avis Clients</a></li>
+                        <li><a href="#agence" class="hover:text-white hover:translate-x-2 transition-all inline-block">L'Agence</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-black mb-8 uppercase text-xs tracking-[0.2em] opacity-50">Légal & Contact</h4>
+                    <ul class="space-y-4 text-sm font-medium text-blue-200/80">
+                        <li>
+                            <a href="mailto:contact@scalevision.fr" class="hover:text-white hover:translate-x-2 transition-all inline-block flex items-center gap-2">
+                                <i class="far fa-envelope text-scalePink"></i> contact@scalevision.fr
+                            </a>
+                        </li>
+                        <li class="pt-4 border-t border-white/5 mt-4">
+                            <a href="cgv.html" class="hover:text-white transition-all text-xs opacity-60 hover:opacity-100">CGV</a>
+                        </li>
+                        <li>
+                            <a href="mentions.html" class="hover:text-white transition-all text-xs opacity-60 hover:opacity-100">Mentions Légales</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-white transition-all text-xs opacity-60 hover:opacity-100">Politique de confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-blue-300/50 font-medium">
+                <div class="text-center md:text-left">
+                    &copy; 2026 Scalevision Agency. Tous droits réservés. <br class="md:hidden"> Fait avec ⚡️ à Paris.
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="https://www.instagram.com/scalevision/" class="hover:text-white hover:scale-110 transition bg-white/5 w-10 h-10 flex items-center justify-center rounded-full"><i class="fab fa-instagram text-lg"></i></a>
+                    <a href="https://www.linkedin.com/company/scalevision/" class="hover:text-white hover:scale-110 transition bg-white/5 w-10 h-10 flex items-center justify-center rounded-full"><i class="fab fa-linkedin-in text-lg"></i></a>
+                </div>
+            </div>
+            
+            <p class="text-[9px] text-blue-300/30 text-center mt-12 max-w-2xl mx-auto uppercase tracking-wider">
+                Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

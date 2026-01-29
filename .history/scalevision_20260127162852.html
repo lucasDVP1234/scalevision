@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision | Agence N°1 du Snack Content & UGC</title>
+    <meta name="description" content="L'agence n°1 du Snack Content en France. Créatives produites en 7 jours.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        scaleBlue: '#251EAF', // Ton Bleu Roi
+                        scaleRed: '#CE0089',  // Ton Rose
+                        scaleDark: '#0f172a',
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://www.transparenttextures.com/patterns/cubes.png')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #251EAF; color: white; overflow-x: hidden; }
+        
+        /* Effet Texte 3D "Snack Content" */
+        .text-3d {
+            text-shadow: 
+                3px 3px 0px #CE0089,
+                6px 6px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Animation du Marquee (Bandeau défilant) */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Mockup iPhone simple en CSS */
+        .iphone-mockup {
+            border-radius: 2.5rem;
+            border: 8px solid #1a1585;
+            overflow: hidden;
+            position: relative;
+            background: black;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 9/16;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a1585; }
+        ::-webkit-scrollbar-thumb { background: #CE0089; border-radius: 5px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-scaleRed selection:text-white">
+
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="absolute inset-0 bg-scaleBlue/90 backdrop-blur-md border-b border-white/10"></div>
+        <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
+            <a href="#" class="flex flex-col leading-none group">
+                <span class="text-2xl font-black tracking-tighter">SCALEVISION<span class="text-scaleRed">.</span></span>
+                <span class="text-[0.6rem] font-bold tracking-[0.3em] opacity-80 group-hover:text-scaleRed transition">AGENCY</span>
+            </a>
+
+            <nav class="hidden lg:flex gap-8 text-sm font-bold uppercase tracking-wide">
+                <a href="#offres" class="hover:text-scaleRed transition">Nos Offres</a>
+                <a href="#portfolio" class="hover:text-scaleRed transition">Réalisations</a>
+                <a href="#agence" class="hover:text-scaleRed transition">L'Agence</a>
+            </nav>
+
+            <a href="https://ugcademie.fr" target="_blank" class="hidden sm:block border-2 border-white px-6 py-2 rounded-full font-bold text-sm hover:bg-white hover:text-scaleBlue transition duration-300">
+                L'Académie UGC
+            </a>
+        </div>
+    </header>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[50vw] h-[50vw] bg-scaleRed/20 rounded-full blur-[150px] -z-10"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <span class="gsap-hero inline-block py-1 px-4 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                Top 1% des meilleures agences de France 2025
+            </span>
+            
+            <h1 class="gsap-hero text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] uppercase">
+                L'agence N°1 du <br>
+                <span class="text-3d text-white">Snack Content</span>
+            </h1>
+
+            <p class="gsap-hero text-lg md:text-2xl text-blue-100 max-w-2xl mx-auto font-medium mb-10">
+                Les plus performantes des créatives produites en 7 jours. <br>
+                <span class="italic text-scaleRed font-bold">Tournage sur place ou à emporter.</span>
+            </p>
+
+            <div class="gsap-hero">
+                <a href="#contact" class="inline-block bg-scaleRed text-white text-lg font-black px-10 py-5 rounded-full shadow-[0_0_40px_-10px_#CE0089] hover:scale-105 hover:shadow-[0_0_60px_-10px_#CE0089] transition duration-300 transform">
+                    RÉSERVEZ UN APPEL DE DÉCOUVERTE
+                </a>
+            </div>
+        </div>
+
+        <div class="gsap-hero container mx-auto px-6 mt-20">
+            <p class="text-center text-xs font-bold uppercase tracking-[0.2em] opacity-60 mb-8">+300 Entreprises françaises nous font confiance</p>
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-8 md:h-10 object-contain">
+                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-8 md:h-10 object-contain">
+                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-8 md:h-10 object-contain">
+                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-8 md:h-10 object-contain">
+                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" class="h-8 md:h-10 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <div class="relative py-12 bg-scaleRed -rotate-2 scale-110 shadow-2xl z-20 border-y-4 border-white">
+        <div class="marquee-container">
+            <div class="marquee-content text-4xl md:text-6xl font-black uppercase tracking-tighter">
+                Micro-Trottoirs <span class="mx-4 text-scaleBlue">•</span> Trends <span class="mx-4 text-scaleBlue">•</span> Scénarios <span class="mx-4 text-scaleBlue">•</span> UGC <span class="mx-4 text-scaleBlue">•</span> Ads <span class="mx-4 text-scaleBlue">•</span>
+                Micro-Trottoirs <span class="mx-4 text-scaleBlue">•</span> Trends <span class="mx-4 text-scaleBlue">•</span> Scénarios <span class="mx-4 text-scaleBlue">•</span> UGC <span class="mx-4 text-scaleBlue">•</span> Ads <span class="mx-4 text-scaleBlue">•</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="portfolio" class="py-24 bg-[#1a1585] relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">ON CRÉE, VOUS SCALEZ.</h2>
+                <p class="text-blue-200">Voici à quoi ressemblent nos vidéos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="gsap-phone iphone-mockup">
+                    <video src="https://d213aukarjntl4.cloudfront.net/video1.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+                </div>
+                <div class="gsap-phone iphone-mockup mt-0 lg:mt-12">
+                    <video src="https://d213aukarjntl4.cloudfront.net/paulo1.webm" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+                </div>
+                <div class="gsap-phone iphone-mockup">
+                    <video src="https://d213aukarjntl4.cloudfront.net/silene2.mov" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+                </div>
+                <div class="gsap-phone iphone-mockup mt-0 lg:mt-12">
+                    <video src="https://d213aukarjntl4.cloudfront.net/elea.mov" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-scaleBlue">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-black mb-16">NOTRE PROCESS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="gsap-step border border-white/20 p-8 rounded-3xl relative hover:bg-white/5 transition">
+                    <div class="w-12 h-12 bg-scaleRed rounded-full flex items-center justify-center font-black text-xl absolute -top-6 left-8 shadow-lg">1</div>
+                    <h3 class="text-2xl font-black mb-2 mt-2 uppercase">Organique ou Performance ?</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">Adaptons nos vidéos à vos objectifs : Viralité, Achat, Lead... Toutes nos vidéos sont libres de droits à vie !</p>
+                </div>
+
+                <div class="gsap-step border border-white/20 p-8 rounded-3xl relative hover:bg-white/5 transition">
+                    <div class="w-12 h-12 bg-scaleRed rounded-full flex items-center justify-center font-black text-xl absolute -top-6 left-8 shadow-lg">2</div>
+                    <h3 class="text-2xl font-black mb-2 mt-2 uppercase">Script sur mesure</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">Des scripts créatifs concoctés en interne sur mesure. <br><span class="italic text-scaleRed">PS : Oui, on est plus créatif que ChatGPT !</span></p>
+                </div>
+
+                <div class="gsap-step border border-white/20 p-8 rounded-3xl relative hover:bg-white/5 transition">
+                    <div class="w-12 h-12 bg-scaleRed rounded-full flex items-center justify-center font-black text-xl absolute -top-6 left-8 shadow-lg">3</div>
+                    <h3 class="text-2xl font-black mb-2 mt-2 uppercase">Validation Créateurs</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">Parce que Scalevision a aussi une académie, on a accès aux meilleurs créateurs off-market !</p>
+                </div>
+
+                <div class="gsap-step border border-white/20 p-8 rounded-3xl relative hover:bg-white/5 transition">
+                    <div class="w-12 h-12 bg-scaleRed rounded-full flex items-center justify-center font-black text-xl absolute -top-6 left-8 shadow-lg">4</div>
+                    <h3 class="text-2xl font-black mb-2 mt-2 uppercase">Ads'ctivation</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">On établit un plan de publication sur les différentes régies : Meta Ads, TikTok Ads et même en organique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offres" class="py-24 bg-[#1a1585]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-5xl font-black text-white text-3d mb-20">NOS PACKS</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div class="gsap-pack border-2 border-white rounded-[2.5rem] p-10 relative bg-scaleBlue hover:transform hover:scale-105 transition duration-500">
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-scaleRed rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+                        SCALE
+                    </div>
+                    
+                    <h3 class="text-center text-2xl font-black uppercase tracking-wider mb-2">Pack • One Shot</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-black text-scaleRed line-through opacity-70">3 500€</span>
+                        <span class="text-4xl font-black text-white ml-2">HT</span>
+                    </div>
+                    <p class="text-center text-scaleRed font-bold text-lg mb-8 italic">500€ / concept</p>
+
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li class="flex gap-3"><span class="bg-gray-200 text-scaleBlue rounded px-1.5 font-bold">1</span> Choix des concepts : UGC, Micro-trottoirs...</li>
+                        <li class="flex gap-3"><span class="bg-gray-200 text-scaleBlue rounded px-1.5 font-bold">2</span> Sélection des créateurs sur mesure</li>
+                        <li class="flex gap-3"><span class="bg-gray-200 text-scaleBlue rounded px-1.5 font-bold">3</span> Rédaction de Scripts Pros & originaux</li>
+                        <li class="flex gap-3"><span class="text-yellow-400">👉</span> 3 Hooks par concept</li>
+                        <li class="flex gap-3"><span class="text-yellow-400">👉</span> Retours & Modifs illimités</li>
+                    </ul>
+
+                    <div class="mt-10 text-center">
+                        <a href="#contact" class="bg-scaleRed text-white font-black py-3 px-8 rounded-full shadow-lg hover:bg-white hover:text-scaleRed transition">PRENDRE RDV</a>
+                    </div>
+                </div>
+
+                <div class="gsap-pack border-2 border-white rounded-[2.5rem] p-10 relative bg-scaleBlue hover:transform hover:scale-105 transition duration-500 shadow-[0_0_50px_rgba(37,30,175,0.5)]">
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-scaleBlue border-2 border-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+                        VIP
+                    </div>
+                    
+                    <h3 class="text-center text-2xl font-black uppercase tracking-wider mb-2">Pack • 3 Mois</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-5xl font-black text-white text-3d">2 000€</span>
+                        <span class="text-xl font-bold text-white">HT / MOIS</span>
+                    </div>
+                    <p class="text-center text-scaleRed font-bold text-lg mb-8 italic line-through decoration-white">500€ <span class="no-line-through text-white">400€/concept</span></p>
+
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li class="flex gap-3"><span class="bg-white text-scaleBlue rounded px-1.5 font-bold">1</span> <strong>5 Concepts / mois (15 vidéos)</strong></li>
+                        <li class="flex gap-3"><span class="bg-white text-scaleBlue rounded px-1.5 font-bold">2</span> Sélection créateurs Premium</li>
+                        <li class="flex gap-3"><span class="bg-white text-scaleBlue rounded px-1.5 font-bold">3</span> Rédaction Scripts & Storyboard</li>
+                        <li class="flex gap-3"><span class="text-yellow-400">👉</span> <strong>Optimisation Mensuelle (Ads)</strong></li>
+                        <li class="flex gap-3"><span class="text-yellow-400">🎁</span> <strong>Reporting + Analyse Performance</strong></li>
+                    </ul>
+
+                    <div class="mt-10 text-center">
+                        <a href="#contact" class="bg-scaleRed text-white font-black py-3 px-8 rounded-full shadow-lg hover:bg-white hover:text-scaleRed transition">PRENDRE RDV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agence" class="py-24 bg-scaleBlue relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-8xl font-black text-center mb-16 uppercase leading-none">
+                Retrouvez-nous <br> <span class="text-3d text-white stroke-text">sur Paris</span>
+            </h2>
+
+            <div class="relative max-w-4xl mx-auto h-[500px]">
+                <div class="gsap-photo absolute top-0 left-0 w-64 h-48 border-4 border-white rounded-xl overflow-hidden transform -rotate-6 shadow-xl z-10 hover:z-50 hover:scale-110 transition">
+                    <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/Les+CEOs-5.png" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="gsap-photo absolute top-20 right-0 md:right-20 w-72 h-56 border-4 border-white rounded-xl overflow-hidden transform rotate-3 shadow-xl z-20 hover:z-50 hover:scale-110 transition">
+                    <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/lucas.jpeg" class="w-full h-full object-cover">
+                </div>
+
+                <div class="gsap-photo absolute bottom-0 left-10 md:left-32 w-80 h-60 border-4 border-white rounded-xl overflow-hidden transform -rotate-3 shadow-xl z-30 hover:z-50 hover:scale-110 transition">
+                    <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-[#1a1585] border-t-4 border-scaleRed text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+                BESOIN DE VIDÉOS QUI <br> <span class="text-scaleRed">DÉCHIIIIRRENT ?</span>
+            </h2>
+            <p class="text-xl text-blue-200 mb-10">Réservez un appel avec nous !</p>
+            
+            <div class="max-w-xl mx-auto bg-white rounded-xl p-4 min-h-[200px] flex items-center justify-center">
+                <button data-tally-open="w4rjGk" data-tally-layout="modal" data-tally-width="500" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="bg-scaleBlue text-white font-bold py-4 px-10 rounded-full text-xl hover:scale-105 transition shadow-xl">
+                    Lancer le formulaire
+                </button>
+            </div>
+
+            <div class="mt-20 border-t border-white/10 pt-10 text-sm font-bold tracking-widest text-blue-300">
+                <p class="mb-4">METALYDE PARTNERS • EXPRESSEO • VISA FOR MARS</p>
+                <div class="flex justify-center gap-6 text-scaleRed">
+                    <a href="#">LINKEDIN</a>
+                    <a href="#">INSTAGRAM</a>
+                </div>
+                <p class="mt-8 text-white/50 font-normal normal-case">
+                    Contact : luciedemarais@scalevision.fr <br>
+                    Scalevision - 4 rue Martel 75010, Paris
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation Hero Text
+        gsap.from(".gsap-hero", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Animation Phones
+        gsap.utils.toArray(".gsap-phone").forEach((phone, i) => {
+            gsap.from(phone, {
+                scrollTrigger: {
+                    trigger: phone,
+                    start: "top 85%",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // Animation Steps
+        gsap.from(".gsap-step", {
+            scrollTrigger: {
+                trigger: ".gsap-step",
+                start: "top 80%",
+            },
+            x: -50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2
+        });
+
+        // Animation Photos Paris
+        gsap.from(".gsap-photo", {
+            scrollTrigger: {
+                trigger: "#agence",
+                start: "top 70%",
+            },
+            scale: 0,
+            opacity: 0,
+            rotation: 0, // start from 0 rotation to target CSS rotation
+            duration: 1,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>

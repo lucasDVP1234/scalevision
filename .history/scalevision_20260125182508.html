@@ -1,0 +1,278 @@
+<style>
+    /* --- HERO 2.0 : IMMERSIVE CHAOS --- */
+    .hero {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px; /* Pour la 3D */
+    }
+
+    /* Le fond sombre avec un dégradé subtil */
+    .hero-bg {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at center, #1a165c 0%, #03030b 70%);
+        z-index: -2;
+    }
+
+    /* Conteneur principal du texte (Centre) */
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        mix-blend-mode: normal; /* Changé pour que les couleurs ressortent */
+    }
+
+    .hero-badge {
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: rgba(255,255,255,0.7);
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 10px 25px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 40px;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(5px);
+        text-transform: uppercase;
+    }
+
+    .hero-title {
+        font-size: 7vw; /* Responsive huge size */
+        line-height: 0.95;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    /* Lignes "BESOIN DE" et "VIDEOS QUI" en Outline (Contour) */
+    .hero-title .outline {
+        display: block;
+        color: transparent;
+        -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+        transition: all 0.5s ease;
+    }
+    
+    /* Effet hover sur le texte outline */
+    .hero-title:hover .outline {
+        -webkit-text-stroke: 2px rgba(255,255,255,0.8);
+        text-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+
+    /* Le mot clé "DÉCHIIIIIRENT" */
+    .hero-title .highlight {
+        display: block;
+        font-size: 8.5vw; /* Encore plus gros */
+        margin-top: 10px;
+        background: linear-gradient(90deg, #CE0089, #251EAF, #CE0089);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientMove 3s linear infinite; /* Animation de couleur */
+        transform: skewX(-5deg) rotate(-2deg); /* Un peu dégen */
+        position: relative;
+    }
+    
+    /* Petit effet de lueur derrière le mot */
+    .hero-title .highlight::after {
+        content: attr(data-text);
+        position: absolute; left: 0; top: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        background: none;
+        -webkit-text-stroke: 10px rgba(206, 0, 137, 0.2);
+        opacity: 0.5;
+        filter: blur(20px);
+    }
+
+    @keyframes gradientMove {
+        to { background-position: 200% center; }
+    }
+
+    /* --- ÉLÉMENTS FLOTTANTS (Vidéos) --- */
+    .hero-visuals {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 1; /* Derrière le texte ? Non, devant mais sur les côtés */
+        pointer-events: none; /* Laisse passer le clic */
+    }
+
+    .floating-card {
+        position: absolute;
+        width: 220px;
+        height: 380px;
+        background: #000;
+        border-radius: 30px;
+        border: 4px solid #222;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        overflow: hidden;
+        will-change: transform;
+    }
+
+    /* Simulation de l'interface TikTok/Reels */
+    .card-overlay {
+        position: absolute; bottom: 0; left: 0; width: 100%; height: 30%;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        z-index: 2;
+        padding: 20px;
+        display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .fake-ui-line { height: 8px; background: rgba(255,255,255,0.4); border-radius: 4px; margin-bottom: 8px; width: 70%; }
+    .fake-ui-line.short { width: 40%; }
+    
+    .card-video {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+    }
+
+    /* Positions initiales des cartes */
+    .card-1 {
+        top: 15%; left: 10%;
+        transform: rotate(-15deg);
+        z-index: 5;
+    }
+    .card-2 {
+        top: 50%; right: 8%;
+        transform: translateY(-50%) rotate(10deg);
+        z-index: 12; /* Passe DEVANT le texte à droite */
+        width: 240px; height: 420px; /* Plus grande */
+        border-color: var(--secondary);
+    }
+    .card-3 {
+        bottom: 10%; left: 20%;
+        transform: rotate(5deg);
+        z-index: 5;
+        width: 180px; height: 300px; /* Plus petite */
+    }
+
+    /* Bouton CTA Magnétique */
+    .cta-wrapper {
+        margin-top: 50px;
+    }
+    .hero-btn {
+        padding: 20px 50px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: white;
+        background: var(--primary);
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s;
+        box-shadow: 0 0 30px rgba(37, 30, 175, 0.4);
+    }
+    .hero-btn::before {
+        content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s;
+    }
+    .hero-btn:hover::before { left: 100%; }
+    .hero-btn:hover { transform: scale(1.05); background: var(--secondary); box-shadow: 0 0 40px rgba(206, 0, 137, 0.6);}
+
+    /* Responsive mobile */
+    @media (max-width: 768px) {
+        .hero-title { font-size: 12vw; }
+        .hero-title .highlight { font-size: 13vw; }
+        .floating-card { opacity: 0.3; } /* On estompe les cartes sur mobile pour la lisibilité */
+    }
+</style>
+
+<section class="hero" id="hero-section">
+    <div class="hero-bg"></div>
+
+    <div class="hero-visuals">
+        <div class="floating-card card-1" data-speed="0.5">
+            <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=1000&auto=format&fit=crop" class="card-video" alt="TikTok Girl">
+            <div class="card-overlay">
+                <div class="fake-ui-line"></div>
+                <div class="fake-ui-line short"></div>
+            </div>
+        </div>
+
+        <div class="floating-card card-2" data-speed="1.2">
+             <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" class="card-video" alt="Camera Recording">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; opacity: 0.8;">
+                <i class="fas fa-play"></i>
+            </div>
+        </div>
+
+        <div class="floating-card card-3" data-speed="0.8">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" class="card-video" alt="Portrait">
+             <div class="card-overlay">
+                <div class="fake-ui-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-content">
+        <div class="hero-badge reveal-text">AGENCE N°1 DU SNACK CONTENT</div>
+        
+        <h1 class="hero-title">
+            <span class="outline reveal-text">BESOIN DE</span>
+            <span class="outline reveal-text">VIDÉOS QUI</span>
+            <span class="highlight reveal-text" data-text="DÉCHIIIIIRENT ?">DÉCHIIIIIRENT ?</span>
+        </h1>
+
+        <div class="cta-wrapper reveal-text">
+            <a href="#contact" class="hero-btn">LANCER LA CAMPAGNE</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Animation Parallax souris
+    document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+        const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+
+        // Bouger les cartes
+        document.querySelectorAll(".floating-card").forEach(card => {
+            const speed = card.getAttribute("data-speed");
+            // On utilise GSAP pour la fluidité
+            gsap.to(card, {
+                x: x * 100 * speed,
+                y: y * 100 * speed,
+                rotation: x * 10 * speed, // Légère rotation en plus
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+
+        // Bouger légèrement le texte dans le sens opposé pour la profondeur
+        gsap.to(".hero-content", {
+            x: -x * 30,
+            y: -y * 30,
+            duration: 1,
+            ease: "power2.out"
+        });
+    });
+
+    // Intro Animation (Séquence d'apparition)
+    const tlHero = gsap.timeline();
+    
+    // 1. Les cartes arrivent depuis le fond (scale)
+    tlHero.from(".floating-card", {
+        scale: 0,
+        opacity: 0,
+        y: 100,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "elastic.out(1, 0.5)",
+        delay: 0.5 // Après le preloader
+    })
+    // 2. Le texte arrive ligne par ligne
+    .from(".reveal-text", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out"
+    }, "-=1"); // Commence 1s avant la fin de l'animation des cartes
+</script>

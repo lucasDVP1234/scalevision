@@ -1,0 +1,337 @@
+/* Import de la police (si pas chargée dans le HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/* VARIABLES DE COULEURS */
+:root {
+    --scale-blue: #251EAF;
+    --scale-dark-blue: #0f0c5a;
+    --scale-pink: #CE0089;
+    --scale-white: #ffffff;
+    --scale-black: #050520;
+}
+
+/* BASE */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--scale-blue);
+    color: var(--scale-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Rend la police plus nette */
+}
+
+/* EFFET "GRAIN" (Texture pour faire moins plat) */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* TYPOGRAPHIE "PREMIUM" */
+h1, h2, h3 {
+    letter-spacing: -0.02em; /* Resserre un peu les titres pour faire plus impactant */
+}
+
+/* 1. Correction de l'écriture (Contour plus épais et net) */
+.text-stroke {
+    -webkit-text-stroke: 2px white; /* On épaissit le trait (de 1px à 2px) */
+    color: transparent; /* Intérieur transparent */
+    font-family: 'Montserrat', sans-serif; /* On force la bonne police */
+    font-weight: 900; /* Ultra gras obligatoire pour que ça rende bien */
+    letter-spacing: 2px; /* Un peu d'espace pour la lisibilité */
+}
+
+/* GLASSMORPHISME (Fond flouté pro) */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BOUTONS AVEC EFFET GLOW */
+.btn-primary {
+    background-color: var(--scale-pink);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(206, 0, 137, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(206, 0, 137, 0.6);
+}
+
+
+/* Effet de texte contour (Stroke) */
+.text-stroke {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+.text-stroke:hover {
+    -webkit-text-stroke: 0px;
+    color: var(--scale-pink); /* Devient rose au survol */
+}
+
+/* Colonnes Vidéos (Scroll Infini Vertical) */
+.video-column-wrapper {
+    position: relative;
+    height: 100vh; /* Prend toute la hauteur */
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.video-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Animation qui monte */
+.scroll-up {
+    animation: scrollUp 20s linear infinite;
+}
+
+/* Animation qui descend */
+.scroll-down {
+    animation: scrollDown 20s linear infinite;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } /* On déplace de la moitié car on duplique le contenu */
+}
+
+@keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* Le Container de vidéo individuel (Style "Carte") */
+.video-card {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    aspect-ratio: 9/16;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.video-card:hover {
+    transform: scale(1.02);
+    border-color: var(--scale-pink);
+}
+
+/* Logo Marquee (Bandeau bas) */
+.logo-marquee {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+
+/* --- SECTION 2: PORTFOLIO --- */
+
+/* Bouton de filtre inactif (Glass) */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet Hover & Active */
+.filter-btn:hover, .filter-btn.active {
+    background: var(--scale-pink);
+    color: white;
+    border-color: var(--scale-pink);
+    box-shadow: 0 0 30px rgba(206, 0, 137, 0.4);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 10px;
+    background: white;
+    filter: blur(10px);
+    opacity: 0.8;
+}
+
+/* Video Card Container */
+.portfolio-card {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9/16;
+    background: #000;
+    border: 2px solid rgba(255,255,255,0.05);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.03);
+    border-color: var(--scale-blue);
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Overlay gradient sur la vidéo pour lire le texte en bas */
+.video-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+}
+
+/* Le gros texte en arrière plan (Watermark) */
+.dynamic-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw; /* Immense */
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* Container des logos dynamiques */
+.dynamic-logos-container {
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.logo-item {
+    height: 40px;
+    object-fit: contain;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+.logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Watermark Bleu (au lieu de blanc) pour le fond blanc */
+.dynamic-bg-text.dark-mode {
+    -webkit-text-stroke: 2px rgba(37, 30, 175, 0.05); /* Bleu très pâle */
+    color: transparent;
+}
+
+/* Boutons filtres sur fond blanc */
+.filter-btn-light {
+    background: rgba(37, 30, 175, 0.05); /* Fond bleu très léger */
+    border: 1px solid rgba(37, 30, 175, 0.1);
+    color: var(--scale-blue);
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+.filter-btn-light:hover, .filter-btn-light.active {
+    background: var(--scale-pink);
+    color: white;
+    border-color: var(--scale-pink);
+    opacity: 1;
+    box-shadow: 0 5px 15px rgba(206, 0, 137, 0.3);
+    transform: translateY(-2px);
+}
+
+/* La ligne verticale (Traceur) */
+.process-line-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(255,255,255,0.1); /* Ligne grise inactive */
+    z-index: 10;
+}
+
+.process-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Va se remplir avec JS */
+    background: var(--scale-pink);
+    box-shadow: 0 0 20px var(--scale-pink);
+    z-index: 11;
+}
+
+/* Le point lumineux au bout de la ligne */
+.process-line-head {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px white;
+    z-index: 12;
+    top: 0%; /* Suit la hauteur de process-line-fill */
+}
+
+/* 2. Gestion du Flou (Départ) */
+.process-step {
+    position: relative;
+    z-index: 20;
+    margin-bottom: 150px;
+    /* On démarre plus flou et moins visible pour l'effet dramatique */
+    opacity: 0.2; 
+    filter: blur(8px); 
+    /* Transition CSS au cas où JS a un délai */
+    transition: all 0.8s ease-out;
+}
+
+/* État actif (Une fois déflouté) */
+.process-step.active {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+/* Visuels spécifiques */
+/* Etape 1 : Cartes choix */
+.concept-card {
+    background: white;
+    color: var(--scale-blue);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 140px;
+    position: absolute;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Etape 3 : Focus Caméra */
+.rec-dot {
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: 0 0 10px red;
+}

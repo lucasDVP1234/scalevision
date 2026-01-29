@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision | Agence N°1 du Snack Content & UGC</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        scaleBlue: '#251EAF', 
+                        scalePink: '#CE0089', 
+                        scaleDark: '#050520',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-scaleBlue text-white overflow-x-hidden selection:bg-scalePink selection:text-white">
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-scaleDark/80 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full flex items-center gap-8 shadow-2xl transition-all duration-300 hover:bg-scaleDark">
+        <a href="#" class="font-black text-xl tracking-tighter hover:text-scalePink transition">SCALEVISION<span class="text-scalePink">.</span></a>
+        
+        <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest">
+            <a href="#work" class="opacity-70 hover:opacity-100 transition">Work</a>
+            <a href="#packs" class="opacity-70 hover:opacity-100 transition">Packs</a>
+            <a href="#agence" class="opacity-70 hover:opacity-100 transition">L'Agence</a>
+        </div>
+
+        <a href="#contact" class="bg-white text-scaleBlue px-5 py-2 rounded-full text-xs font-black uppercase hover:bg-scalePink hover:text-white transition transform hover:scale-105">
+            Start Now
+        </a>
+    </nav>
+
+
+    <section id="hero" class="relative h-screen w-full flex justify-between items-center overflow-hidden bg-scaleBlue z-0">
+        
+        <div class="bg-noise"></div> <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-scalePink/20 rounded-full blur-[180px] -z-10 animate-pulse"></div>
+
+        <div class="hidden lg:block z-10 video-column-wrapper -rotate-3 ml-4 opacity-80">
+            <div class="video-column scroll-up gap-6">
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/video1.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/elea.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/video1.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/elea.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+            </div>
+        </div>
+
+        <div class="relative z-20 flex-1 h-full flex flex-col items-center justify-center text-center px-4">
+            
+            <div class="flex flex-col items-center justify-center w-full max-w-4xl">
+                
+                <div class="inline-flex items-center gap-2 border border-white/10 bg-black/20 backdrop-blur-md px-5 py-2 rounded-full mb-8 hover:scale-105 transition duration-300 cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.25em] text-white">Agence Créative N°1</span>
+                </div>
+
+                <h1 class="hero-title text-7xl md:text-8xl lg:text-[10rem] font-black text-white mb-6 relative">
+                    <div class="relative z-10">WE MAKE</div>
+                    <div class="text-stroke relative z-10">VIDEOS</div>
+                    <div class="flex items-center justify-center gap-4 relative z-10">
+                        <span>THAT</span>
+                        <span class="text-scalePink">SCALE.</span>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[50%] bg-gradient-to-r from-transparent via-scaleBlue/80 to-transparent blur-xl -z-0"></div>
+                </h1>
+
+                <p class="text-lg md:text-2xl text-blue-100/90 max-w-xl font-medium mb-10 leading-relaxed">
+                    Stop aux vidéos chiantes. On produit du <strong class="text-white border-b-2 border-scalePink">Snack Content</strong> qui arrête le scroll et convertit.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5 mb-16">
+                    <a href="#contact" class="btn-pulse bg-scalePink text-white text-lg font-black px-10 py-5 rounded-full shadow-[0_20px_50px_-10px_rgba(206,0,137,0.6)] hover:shadow-[0_20px_80px_-10px_rgba(206,0,137,0.8)] hover:-translate-y-1 transition duration-300 border border-white/10">
+                        Lancer un projet 🚀
+                    </a>
+                    <a href="#work" class="group flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 text-white text-lg font-bold px-10 py-5 rounded-full hover:bg-white hover:text-scaleBlue transition duration-300">
+                        Voir les exemples
+                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 w-full max-w-5xl border-t border-white/5 pt-6">
+                <div class="flex justify-center gap-8 md:gap-16 opacity-40 hover:opacity-100 transition duration-500 items-center grayscale hover:grayscale-0">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-6 md:h-8 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-8 md:h-10 object-contain brightness-0 invert">
+                     <div class="hidden md:block h-1 w-1 bg-white/20 rounded-full"></div>
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-6 md:h-8 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-5 md:h-6 object-contain brightness-0 invert">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hidden lg:block z-10 video-column-wrapper rotate-3 mr-4 opacity-80">
+            <div class="video-column scroll-down gap-6">
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/remi.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/silene2.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/anne.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/remi.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/silene2.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d213aukarjntl4.cloudfront.net/anne.mov" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+            </div>
+        </div>
+
+    </section>
+    <section id="work" class="py-32 bg-[#251EAF] relative overflow-hidden min-h-screen flex flex-col justify-center">
+        
+        <div class="big-marquee-wrapper">
+            <div class="big-marquee-content">
+                UGC • ADS • SCROLL STOPPER • UGC • ADS • SCROLL STOPPER • UGC • ADS • SCROLL STOPPER •
+            </div>
+        </div>
+        
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-scalePink/20 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-black uppercase text-white leading-none mb-2">
+                    NOS CRÉATIONS
+                </h2>
+                <p class="text-blue-200 text-sm md:text-base tracking-widest uppercase font-bold">
+                    Choisissez votre industrie 👇
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-12">
+                <div class="glass-control-bar flex-wrap justify-center">
+                    <button onclick="filterVideos('ecom')" class="filter-btn-neon active px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="ecom">
+                        🛍️ E-com
+                    </button>
+                    <button onclick="filterVideos('app')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="app">
+                        📱 Apps
+                    </button>
+                    <button onclick="filterVideos('saas')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="saas">
+                        💻 SaaS
+                    </button>
+                    <button onclick="filterVideos('info')" class="filter-btn-neon px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all" data-filter="info">
+                        🧠 Info
+                    </button>
+                </div>
+            </div>
+
+            <div id="gallery-grid" class="hover-focus-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[500px]">
+                </div>
+
+            <div class="mt-16 border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 whitespace-nowrap">
+                        Trusted by top brands in this niche
+                    </div>
+                    <div class="w-full overflow-hidden relative mask-linear">
+                        <div class="marquee-container w-full">
+                            <div id="logo-track" class="marquee-content flex gap-12 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                 <a href="#contact" class="group relative inline-flex items-center gap-2 text-xs font-bold text-white hover:text-scalePink transition pb-1">
+                    <span>VOIR PLUS D'ÉTUDES DE CAS</span>
+                    <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                 </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="process" class="py-32 bg-scaleBlue relative overflow-hidden">
+        
+        <div class="process-line-container hidden md:block">
+            <div id="line-fill" class="process-line-fill"></div>
+            <div id="line-head" class="process-line-head"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative">
+            
+            <div class="text-center mb-24 relative z-20">
+                <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block">How it works</span>
+                <h2 class="text-4xl md:text-6xl font-black text-white">
+                    LA MÉCANIQUE <br> <span class="text-stroke">SCALEVISION</span>
+                </h2>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-index="1">
+                <div class="text-right pr-12 hidden md:block order-1">
+                    <h3 class="text-3xl font-black mb-4">1. Concepts Data-Driven</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed">
+                        On n'invente rien au hasard. On analyse ce qui perce dans votre niche.
+                        <br>Micro-trottoir viral ou Scénario UGC scripté ?
+                    </p>
+                </div>
+                <div class="relative h-[200px] flex items-center justify-center md:justify-start pl-0 md:pl-12 order-2">
+                    <div id="card-left" class="concept-card -rotate-12 translate-x-[-20px] z-0 opacity-50">
+                        Micro-Trottoir
+                    </div>
+                    <div id="card-right" class="concept-card rotate-12 translate-x-[20px] z-10 scale-110 border-4 border-scalePink">
+                        <i class="fas fa-check-circle text-scalePink text-2xl mb-2 block"></i>
+                        Scénario UGC
+                    </div>
+                    <div class="md:hidden absolute -bottom-20 text-center w-full">
+                        <h3 class="text-2xl font-black mb-2">1. Concepts Data-Driven</h3>
+                        <p class="text-sm text-blue-100">On choisit le format qui performe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-index="2">
+                <div class="flex justify-center md:justify-end pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-scalePink blur-2xl opacity-20 animate-pulse"></div>
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" class="w-24 h-24 rounded-full border-4 border-white shadow-xl relative z-10">
+                        <div class="absolute -bottom-2 -right-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full border-2 border-white z-20 flex items-center gap-1">
+                            <i class="fas fa-certificate"></i> Certifié
+                        </div>
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/anne.jpg" class="w-16 h-16 rounded-full border-2 border-white/50 absolute top-0 -left-12 opacity-60 grayscale">
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" class="w-16 h-16 rounded-full border-2 border-white/50 absolute top-0 -right-12 opacity-60 grayscale">
+                    </div>
+                </div>
+                <div class="text-left pl-0 md:pl-12 order-1 md:order-2">
+                    <h3 class="text-3xl font-black mb-4">2. Casting "Elite"</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed mb-4">
+                        Pas de faux profils. Nous piochons directement dans notre <a href="https://ugcademie.fr" target="_blank" class="text-scalePink font-bold underline decoration-scalePink decoration-2 underline-offset-4 hover:text-white transition">Académie Scalevision</a>.
+                    </p>
+                    <div class="inline-block bg-white/10 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest text-scalePink border border-scalePink/30">
+                        +300 Créateurs formés par l'agence
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-index="3">
+                <div class="text-right pr-12 hidden md:block order-1">
+                    <h3 class="text-3xl font-black mb-4">3. Tournage Pro</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed">
+                        iPhone 15 Pro Max, micros cravates, stabilisateurs. <br>
+                        Le rendu est "amateur" (pour la trust) mais la qualité est cinéma.
+                    </p>
+                </div>
+                <div class="flex justify-center md:justify-start pl-0 md:pl-12 order-2">
+                    <div class="relative w-64 h-40 bg-black rounded-xl border-2 border-white/20 flex flex-col justify-between p-4 overflow-hidden">
+                        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/Les+CEOs-5.png" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                        <div class="relative z-10 flex justify-between items-center text-white text-xs font-mono">
+                            <span class="animate-pulse"><span class="rec-dot"></span>REC</span>
+                            <span>4K 60FPS</span>
+                        </div>
+                        <div class="relative z-10 flex justify-center">
+                            <div class="w-8 h-8 border-2 border-white/50 rounded-sm"></div> </div>
+                    </div>
+                    <div class="md:hidden absolute -bottom-20 text-center w-full">
+                        <h3 class="text-2xl font-black mb-2">3. Tournage</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-index="4">
+                <div class="flex justify-center md:justify-end pr-0 md:pr-12 order-2 md:order-1">
+                    <div class="w-64 space-y-2">
+                        <div class="h-8 bg-blue-900/50 rounded-md relative overflow-hidden border border-white/10">
+                            <div class="absolute top-0 left-0 h-full w-[0%] bg-scalePink animate-[widthGrow_2s_infinite]"></div>
+                        </div>
+                        <div class="h-8 bg-blue-900/50 rounded-md relative overflow-hidden border border-white/10 ml-8">
+                             <div class="absolute top-0 left-0 h-full w-[0%] bg-blue-400 animate-[widthGrow_2s_infinite_0.5s]"></div>
+                        </div>
+                        <div class="h-8 bg-blue-900/50 rounded-md relative overflow-hidden border border-white/10">
+                             <div class="absolute top-0 left-0 h-full w-[0%] bg-yellow-400 animate-[widthGrow_2s_infinite_1s]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-left pl-0 md:pl-12 order-1 md:order-2">
+                    <h3 class="text-3xl font-black mb-4">4. Montage Snack</h3>
+                    <p class="text-blue-100 text-lg leading-relaxed">
+                        Hooks visuels, sous-titres dynamiques, sound design ASMR. <br>
+                        On retient l'attention à la seconde près.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-step text-center mt-20" data-index="5">
+                <div class="inline-block relative">
+                    <div class="absolute -inset-10 bg-scalePink/30 rounded-full blur-xl animate-pulse"></div>
+                    <h3 class="text-5xl md:text-7xl font-black text-white relative z-10">TADAAAA 🎉</h3>
+                </div>
+                
+                <p class="text-xl text-blue-200 mt-6 mb-10 max-w-xl mx-auto">
+                    Les vidéos sont livrées. Vous lancez les Ads. <br> 
+                    <span class="text-white font-bold">Regardez ce qui se passe :</span>
+                </p>
+
+                <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl">
+                        <div class="text-3xl md:text-5xl font-black text-scalePink mb-2 counter-anim" data-target="15">0</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest">ROAS Moyen</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl">
+                        <div class="text-3xl md:text-5xl font-black text-blue-400 mb-2 counter-anim" data-target="350">0</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest">Achats / Jour</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-2xl">
+                        <div class="text-3xl md:text-5xl font-black text-yellow-400 mb-2 counter-anim" data-target="100">0</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest">% Satisfait</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="packs" class="py-32 bg-scaleBlue relative overflow-hidden">
+        
+        <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-scalePink/20 rounded-full blur-[150px] -z-0 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-7xl font-black text-white uppercase mb-4">
+                    NOS OFFRES <span class="text-scalePink">UGC</span>
+                </h2>
+                <p class="text-blue-100 text-lg">Transparent. Sans frais cachés. Rentable.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto perspective-1000">
+                
+                <div class="pricing-card group hover:shadow-2xl hover:-translate-y-2">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-scaleBlue border-4 border-scaleBlue rounded-full flex items-center justify-center text-2xl shadow-xl z-20">
+                        🚀
+                    </div>
+
+                    <div class="text-center mt-8 mb-8">
+                        <h3 class="text-2xl font-black uppercase tracking-widest mb-2">Pack • One Shot</h3>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-5xl font-black text-white">3 500€</span>
+                            <span class="text-xl font-bold text-white/50">HT</span>
+                        </div>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">7 Concepts • 21 Vidéos</p>
+                        <div class="inline-block bg-white/10 px-3 py-1 rounded text-xs font-bold text-white/70">
+                            <span class="price-strike mr-2">500€</span> 500€ / concept
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/10 my-8"></div>
+
+                    <ul class="pricing-list space-y-4">
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Choix des concepts :</strong> UGC, Facecam, Micro-trottoirs...</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Sélection Créateurs :</strong> Casting sur mesure</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Scripts & Storyboard :</strong> Validés par vous</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Tournage & Montage :</strong> Qualité Agence</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>3 Hooks par concept :</strong> A/B Testing inclus</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Modifications Illimitées :</strong> Jusqu'à satisfaction</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span>🎁 Reporting de livraison</span></li>
+                    </ul>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="block w-full py-4 rounded-xl border border-white/30 text-center font-bold uppercase tracking-widest hover:bg-white hover:text-scaleBlue transition duration-300">
+                            Prendre RDV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured group hover:-translate-y-2">
+                    
+                    <div class="absolute top-0 right-0 bg-scalePink text-white text-[10px] font-black uppercase px-4 py-2 rounded-bl-2xl tracking-widest shadow-lg">
+                        Recommandé
+                    </div>
+
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-scalePink border-4 border-scaleBlue rounded-full flex items-center justify-center text-2xl shadow-xl z-20">
+                        💎
+                    </div>
+
+                    <div class="text-center mt-8 mb-8">
+                        <h3 class="text-2xl font-black uppercase tracking-widest mb-2 text-scalePink">Pack • 3 Mois</h3>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-5xl font-black text-white text-stroke">2 000€</span>
+                            <span class="text-xl font-bold text-white/50">HT / MOIS</span>
+                        </div>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">5 Concepts / mois • 15 Vidéos</p>
+                        <div class="inline-block bg-scalePink/20 border border-scalePink/50 px-3 py-1 rounded text-xs font-bold text-white">
+                            <span class="price-strike mr-2 text-white/60">500€</span> 400€ / concept
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/10 my-8"></div>
+
+                    <ul class="pricing-list space-y-4">
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Tout du Pack One Shot</strong></span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>5 Nouveaux Concepts</strong> chaque mois</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Optimisation Mensuelle :</strong> On itère sur ce qui marche</span></li>
+                        <li><span class="check-icon"><i class="fas fa-check"></i></span> <span><strong>Analyse Tunnel :</strong> Audit de votre conversion</span></li>
+                        <li><span class="check-icon"><i class="fas fa-star"></i></span> <span class="text-scalePink font-bold">Prix Dégressif (-20%)</span></li>
+                    </ul>
+
+                    <div class="mt-10">
+                        <a href="#contact" class="block w-full py-4 rounded-xl bg-scalePink text-white text-center font-bold uppercase tracking-widest shadow-lg shadow-scalePink/30 hover:shadow-scalePink/60 transition duration-300 transform group-hover:scale-105">
+                            Je veux scaler 🚀
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

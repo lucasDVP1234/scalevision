@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision - Next Gen Agency</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESET & VARS --- */
+        :root {
+            --primary: #251EAF;
+            --secondary: #CE0089;
+            --bg: #03030b;
+            --text: #ffffff;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            cursor: none; /* On cache le curseur natif pour un custom */
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor {
+            width: 20px; height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s;
+        }
+        .cursor.hovered { transform: scale(4); background: white; mix-blend-mode: exclusion; }
+
+        /* --- SMOOTH SCROLL CONTAINER --- */
+        .wrapper { width: 100%; position: relative; z-index: 2; }
+
+        /* --- GRAIN OVERLAY (Texture Pro) --- */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9000;
+            opacity: 0.04;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        /* --- PRELOADER --- */
+        .preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary);
+            z-index: 10000;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .preloader-text {
+            font-size: 5vw; font-weight: 900; color: white;
+            overflow: hidden;
+        }
+
+        /* --- SECTION 1: HERO (Intro) --- */
+        .hero {
+            height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.3; filter: grayscale(100%);
+            z-index: -1;
+        }
+
+        .hero-content { text-align: center; position: relative; z-index: 2; mix-blend-mode: lighten;}
+        
+        .hero-title {
+            font-size: 8vw;
+            line-height: 0.9;
+            font-weight: 900;
+            text-transform: uppercase;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .hero-title span {
+            display: block;
+            transform: translateY(100%); /* Pour l'animation */
+        }
+
+        .hero-badge {
+            font-size: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            opacity: 0; /* Animé via JS */
+        }
+
+        /* --- SECTION 2: TYPES DE VIDEOS (Hover Reveal) --- */
+        .types-section {
+            padding: 15vh 0;
+            position: relative;
+        }
+
+        .types-list {
+            list-style: none;
+            padding: 0 5vw;
+        }
+
+        .type-item {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 4vw 0;
+            position: relative;
+            cursor: pointer;
+            transition: padding 0.3s;
+        }
+        
+        .type-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .type-item:hover { padding-left: 2vw; }
+
+        .type-name {
+            font-size: 7vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+            transition: all 0.3s;
+        }
+
+        .type-item:hover .type-name {
+            color: var(--secondary);
+            -webkit-text-stroke: 0px;
+            text-shadow: 0 0 20px rgba(206, 0, 137, 0.5);
+        }
+
+        .type-details {
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        
+        .type-desc {
+            font-size: 1.2rem; max-width: 400px; color: #aaa;
+            opacity: 0; transform: translateY(20px);
+            transition: all 0.3s;
+        }
+        
+        .type-item:hover .type-desc { opacity: 1; transform: translateY(0); }
+
+        /* L'image flottante qui suit la souris */
+        .hover-reveal {
+            position: fixed; width: 400px; height: 550px;
+            top: 0; left: 0;
+            pointer-events: none;
+            opacity: 0; z-index: 10;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: transform 0.1s, opacity 0.3s;
+            overflow: hidden; border-radius: 20px;
+        }
+        
+        .hover-reveal-img {
+            width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+        }
+
+        /* --- SECTION 3: PROCESS (Horizontal Scroll pinned) --- */
+        .process-section {
+            background: white;
+            color: black;
+            overflow: hidden;
+            /* C'est ici que la magie du pin opère */
+        }
+
+        .process-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100vh;
+            width: 400vw; /* 4 slides de largeur */
+        }
+
+        .process-slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+            border-right: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .process-content {
+            display: flex; gap: 5vw; align-items: center; width: 100%; max-width: 1400px;
+        }
+
+        .process-text { flex: 1; }
+        .process-visual { flex: 1; height: 60vh; background: #f0f0f0; border-radius: 30px; overflow: hidden; position: relative;}
+        
+        .process-step { font-size: 10rem; font-weight: 900; color: var(--primary); line-height: 0.8; opacity: 0.2; margin-bottom: -40px; display: block;}
+        .process-title { font-size: 4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
+        .process-desc { font-size: 1.5rem; font-weight: 500; color: #333; }
+
+        /* Specific slide styles */
+        .slide-1 .process-visual { background: url('https://source.unsplash.com/random/800x600/?meeting,office') center/cover; }
+        .slide-2 .process-visual { background: url('https://source.unsplash.com/random/800x600/?camera,filming') center/cover; }
+        .slide-3 .process-visual { background: url('https://source.unsplash.com/random/800x600/?editing,computer') center/cover; }
+        .slide-4 { background: black; color: white; text-align: center; }
+
+        .time-badge {
+            background: var(--secondary); color: white; padding: 10px 20px;
+            font-weight: bold; border-radius: 30px; display: inline-block; margin-bottom: 20px;
+        }
+
+        /* --- FOOTER SIMPLIFIÉ --- */
+        footer {
+            height: 50vh;
+            display: flex; align-items: center; justify-content: center;
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+    
+    <div class="cursor"></div>
+
+    <div class="preloader">
+        <div class="preloader-text">SCALEVISION</div>
+    </div>
+
+    <div class="hover-reveal">
+        <div class="hover-reveal-img" style="background-image: url('https://source.unsplash.com/random/600x800/?neon,party');"></div>
+    </div>
+
+    <div class="wrapper">
+        
+        <nav style="position: absolute; top: 0; width: 100%; padding: 40px 5vw; display: flex; justify-content: space-between; z-index: 10; mix-blend-mode: difference;">
+            <div style="font-weight: 900; font-size: 1.5rem;">SCALE<span style="color:var(--secondary)">VISION</span></div>
+            <a href="#" style="color: white; font-weight: 700; text-decoration: none; text-transform: uppercase;">Réserver</a>
+        </nav>
+
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" class="hero-bg-video" alt="background">
+
+            <div class="hero-content">
+                <div class="hero-badge">AGENCE N°1 DU SNACK CONTENT</div>
+                <h1 class="hero-title">
+                    <span>BESOIN DE</span>
+                    <span>VIDÉOS QUI</span>
+                    <span style="color: var(--secondary);">DÉCHIIIIIRENT ?</span>
+                </h1>
+            </div>
+        </section>
+
+        <section class="types-section">
+            <div style="padding: 0 5vw; margin-bottom: 50px;">
+                <h2 style="font-size: 1.5rem; color: var(--secondary); font-weight: 700;">// NOS EXPERTISES</h2>
+            </div>
+            
+            <ul class="types-list">
+                <li class="type-item" data-img="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000&auto=format&fit=crop">
+                    <div class="type-details">
+                        <span class="type-name">UGC ADS</span>
+                        <span class="type-desc">Authenticité maximale. Conversion immédiate.</span>
+                    </div>
+                </li>
+                <li class="type-item" data-img="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop">
+                    <div class="type-details">
+                        <span class="type-name">PODCAST</span>
+                        <span class="type-desc">Format long découpé en snacks viraux.</span>
+                    </div>
+                </li>
+                <li class="type-item" data-img="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1000&auto=format&fit=crop">
+                    <div class="type-details">
+                        <span class="type-name">MICRO-TROTTOIR</span>
+                        <span class="type-desc">On descend dans la rue. Preuve sociale brute.</span>
+                    </div>
+                </li>
+                <li class="type-item" data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop">
+                    <div class="type-details">
+                        <span class="type-name">BRAND CONTENT</span>
+                        <span class="type-desc">Vidéos esthétiques pour élever votre image.</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="process-section" id="process">
+            <div class="process-wrapper">
+                
+                <div class="process-slide slide-1">
+                    <div class="process-content">
+                        <div class="process-text">
+                            <span class="process-step">01</span>
+                            <h3 class="process-title">Stratégie &<br>Scripting</h3>
+                            <p class="process-desc">On analyse votre marque. On rédige des hooks qui accrochent. Vous ne faites rien.</p>
+                        </div>
+                        <div class="process-visual"></div>
+                    </div>
+                </div>
+
+                <div class="process-slide slide-2">
+                    <div class="process-content">
+                        <div class="process-text">
+                            <span class="process-step">02</span>
+                            <h3 class="process-title">Créateurs<br>Internes</h3>
+                            <p class="process-desc">Pas de freelance random. Nos créateurs sortent de notre <strong>UGC Académie</strong>. Ils sont pros.</p>
+                        </div>
+                        <div class="process-visual"></div>
+                    </div>
+                </div>
+
+                <div class="process-slide slide-3">
+                    <div class="process-content">
+                        <div class="process-text">
+                            <span class="process-step">03</span>
+                            <h3 class="process-title">Tournage &<br>Montage</h3>
+                            <p class="process-desc">Effets dynamiques, sous-titres, musique trending. On livre du prêt-à-poster.</p>
+                        </div>
+                        <div class="process-visual"></div>
+                    </div>
+                </div>
+
+                <div class="process-slide slide-4">
+                    <div style="max-width: 800px;">
+                        <div class="time-badge"><i class="far fa-clock"></i> 15 MINUTES MAX</div>
+                        <h3 class="process-title" style="font-size: 5rem; color: white;">C'EST LE TEMPS QUE VOUS PASSEZ</h3>
+                        <p class="process-desc" style="color: #ccc; margin-top: 20px;">Sur la gestion de campagne. On s'occupe de tout le reste.</p>
+                        <br>
+                        <a href="#" style="display: inline-block; background: var(--secondary); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.5rem; margin-top: 30px;">JE RÉSERVE MON APPEL</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <h2 style="font-size: 3vw; color: #333;">SCALEVISION &copy; 2026</h2>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <script>
+        // 1. INIT SMOOTH SCROLL (LENIS)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Intégration Lenis + GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 2. PRELOADER ANIMATION
+        const tl = gsap.timeline();
+        
+        tl.to(".preloader-text", {
+            y: 0,
+            duration: 1,
+            ease: "power4.out",
+            delay: 0.2
+        })
+        .to(".preloader", {
+            y: "-100%",
+            duration: 1.2,
+            ease: "power4.inOut",
+            delay: 0.5
+        })
+        .from(".hero-title span", {
+            y: "110%",
+            duration: 1.5,
+            stagger: 0.1,
+            ease: "power4.out"
+        }, "-=0.8")
+        .to(".hero-badge", {
+            opacity: 1,
+            duration: 1
+        }, "-=1");
+
+        // 3. TYPES SECTION - HOVER EFFECT
+        const typeItems = document.querySelectorAll('.type-item');
+        const revealImg = document.querySelector('.hover-reveal');
+        const revealImgInner = document.querySelector('.hover-reveal-img');
+
+        // Faire bouger l'image avec la souris
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(revealImg, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+            
+            // Interaction curseur
+            const hovered = e.target.closest('a') || e.target.closest('.type-item') || e.target.closest('.btn');
+            const cursor = document.querySelector('.cursor');
+            if(hovered) {
+                cursor.classList.add('hovered');
+            } else {
+                cursor.classList.remove('hovered');
+            }
+        });
+
+        typeItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const imgUrl = item.getAttribute('data-img');
+                revealImgInner.style.backgroundImage = `url(${imgUrl})`;
+                gsap.to(revealImg, { opacity: 1, scale: 1, duration: 0.3 });
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                gsap.to(revealImg, { opacity: 0, scale: 0.8, duration: 0.3 });
+            });
+        });
+
+        // 4. PROCESS SECTION - HORIZONTAL SCROLL
+        const processSection = document.getElementById("process");
+        const processWrapper = document.querySelector(".process-wrapper");
+
+        gsap.to(processWrapper, {
+            x: () => -(processWrapper.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: processSection,
+                start: "top top",
+                end: () => "+=" + processWrapper.scrollWidth,
+                scrub: 1,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true
+            }
+        });
+
+    </script>
+</body>
+</html>

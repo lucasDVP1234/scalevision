@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision | Agence N°1 du Snack Content & UGC</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        scaleBlue: '#251EAF', 
+                        scalePink: '#CE0089', 
+                        scaleDark: '#050520',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-scaleBlue text-white overflow-x-hidden selection:bg-scalePink selection:text-white">
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-scaleDark/80 backdrop-blur-md border border-white/10 px-6 py-3 rounded-full flex items-center gap-8 shadow-2xl transition-all duration-300 hover:bg-scaleDark">
+        <a href="#" class="font-black text-xl tracking-tighter hover:text-scalePink transition">SCALEVISION<span class="text-scalePink">.</span></a>
+        
+        <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest">
+            <a href="#work" class="opacity-70 hover:opacity-100 transition">Work</a>
+            <a href="#packs" class="opacity-70 hover:opacity-100 transition">Packs</a>
+            <a href="#agence" class="opacity-70 hover:opacity-100 transition">L'Agence</a>
+        </div>
+
+        <a href="#contact" class="bg-white text-scaleBlue px-5 py-2 rounded-full text-xs font-black uppercase hover:bg-scalePink hover:text-white transition transform hover:scale-105">
+            Start Now
+        </a>
+    </nav>
+
+
+    <section id="hero" class="relative h-screen w-full flex justify-between items-center overflow-hidden bg-scaleBlue">
+        
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-scalePink/20 rounded-full blur-[150px] z-0 pointer-events-none"></div>
+
+        <div class="hidden lg:block w-1/5 h-full z-10 video-column-wrapper pl-6">
+            <div class="video-column scroll-up">
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/video1.mp4" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/elea.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/video1.mp4" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/elea.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+            </div>
+        </div>
+
+        <div class="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-4">
+            
+            <div class="inline-flex items-center gap-2 border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-1 rounded-full mb-6">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">Agence Créative N°1</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-6">
+                WE MAKE <br>
+                <span class="text-stroke cursor-default">VIDEOS</span> <br>
+                THAT <span class="text-scalePink">SCALE.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-blue-100 max-w-lg font-medium mb-10 leading-relaxed">
+                Stop aux vidéos chiantes. On produit du <strong class="text-white">Snack Content</strong> qui arrête le scroll et convertit.
+                <br><span class="text-sm opacity-60 mt-2 block">Livraison en 7 jours chrono ⚡️</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#contact" class="bg-scalePink text-white text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_40px_-10px_rgba(206,0,137,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(206,0,137,0.7)] hover:-translate-y-1 transition duration-300">
+                    Lancer un projet
+                </a>
+                <a href="#work" class="border-2 border-white/20 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white hover:text-scaleBlue transition duration-300">
+                    Voir les exemples
+                </a>
+            </div>
+
+            <div class="absolute bottom-10 left-0 w-full logo-marquee overflow-hidden pointer-events-none">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-4">Ils nous font confiance</p>
+                <div class="flex justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-6 object-contain">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-8 object-contain">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-6 object-contain">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-5 object-contain">
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden lg:block w-1/5 h-full z-10 video-column-wrapper pr-6">
+            <div class="video-column scroll-down">
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/remi.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/silene2.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/anne.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/remi.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/silene2.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+                <div class="video-card"><video src="https://d213aukarjntl4.cloudfront.net/anne.mov" autoplay muted loop class="w-full h-full object-cover"></video></div>
+            </div>
+        </div>
+
+    </section>
+    <section id="work" class="py-32 bg-[#1a1585] relative overflow-hidden min-h-screen flex flex-col justify-center">
+        
+        <div id="bg-watermark" class="dynamic-bg-text">E-COMMERCE</div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-scalePink/20 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-12">
+                <span class="text-scalePink font-bold tracking-widest uppercase text-xs mb-4 block animate-pulse">Choose your fighter</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase text-white">
+                    Des contenus taillés pour <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-300">votre industrie</span>
+                </h2>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterVideos('ecom')" class="filter-btn active px-6 py-3 rounded-full font-bold text-xs md:text-sm uppercase tracking-widest flex items-center gap-2" data-filter="ecom">
+                    <i class="fas fa-shopping-bag"></i> E-commerce
+                </button>
+                <button onclick="filterVideos('app')" class="filter-btn px-6 py-3 rounded-full font-bold text-xs md:text-sm uppercase tracking-widest flex items-center gap-2" data-filter="app">
+                    <i class="fas fa-mobile-alt"></i> Apps & Tech
+                </button>
+                <button onclick="filterVideos('saas')" class="filter-btn px-6 py-3 rounded-full font-bold text-xs md:text-sm uppercase tracking-widest flex items-center gap-2" data-filter="saas">
+                    <i class="fas fa-server"></i> SaaS B2B
+                </button>
+                <button onclick="filterVideos('info')" class="filter-btn px-6 py-3 rounded-full font-bold text-xs md:text-sm uppercase tracking-widest flex items-center gap-2" data-filter="info">
+                    <i class="fas fa-brain"></i> Infopreneurs
+                </button>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+
+            <div class="dynamic-logos-container">
+                <div class="text-center text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-6">Ils scalent avec nous dans cette niche</div>
+                
+                <div class="marquee-container">
+                    <div id="logo-track" class="marquee-content flex gap-16 items-center justify-center">
+                        </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                 <a href="#contact" class="text-xs font-bold text-white/50 hover:text-white transition border-b border-white/20 pb-1">Voir toutes nos études de cas</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

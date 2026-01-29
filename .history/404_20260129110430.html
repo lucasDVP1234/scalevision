@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Perdu dans l'algo | Scalevision</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        scaleBlue: '#251EAF', 
+                        scalePink: '#CE0089', 
+                        scaleDark: '#050520',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Petit ajout spécifique pour le gros 404 si pas dans ton style.css */
+        .glitch-text {
+            position: relative;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-scaleBlue text-white h-screen w-full flex flex-col items-center justify-center overflow-hidden relative">
+
+    <div class="bg-noise fixed inset-0 opacity-40 pointer-events-none"></div>
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-scalePink/20 rounded-full blur-[150px] animate-pulse -z-10"></div>
+
+    <div class="text-center relative z-10 px-6">
+        
+        <h1 class="text-[150px] md:text-[250px] font-black leading-none text-transparent glitch-text select-none" style="-webkit-text-stroke: 4px rgba(255,255,255,0.2);">
+            404
+        </h1>
+
+        <h2 class="text-3xl md:text-5xl font-black uppercase mb-6 -mt-4 md:-mt-10">
+            Tu t'es perdu dans <span class="text-scalePink">l'algo ?</span> 👾
+        </h2>
+
+        <p class="text-blue-200 text-lg md:text-xl max-w-lg mx-auto mb-12 font-medium">
+            Cette page n'existe pas (ou elle a scrollé trop vite). <br>
+            Retourne faire des vues là où ça compte.
+        </p>
+
+        <a href="/" class="group relative inline-flex items-center gap-3 bg-white text-scaleBlue px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-scalePink hover:text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(206,0,137,0.6)] transform hover:scale-105">
+            <span>Retour à la base</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+        </a>
+
+    </div>
+
+    <div class="absolute bottom-8 text-white/30 text-xs font-mono">
+        ERR_CODE: SCROLL_STOPPER_NOT_FOUND
+    </div>
+
+</body>
+</html>

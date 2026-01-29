@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# On ne veut pas que Google indexe la page 404
+Disallow: /404.html
+
+Sitemap: https://scalevision.fr/sitemap.xml

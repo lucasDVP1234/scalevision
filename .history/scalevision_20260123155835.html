@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalevision - L'agence N°1 du Snack Content</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #251EAF;     /* Bleu Profond Scalevision */
+            --secondary: #CE0089;   /* Rose Scalevision */
+            --dark-bg: #05041a;     /* Fond encore plus sombre pour le contraste */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-light: #ffffff;
+            --text-gray: #b0b3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* --- BACKGROUND ANIMATION (Base subtile) --- */
+        .background-base {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 30, 175, 0.15) 0%, rgba(5, 4, 26, 1) 70%);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            box-shadow: 0 10px 30px -10px rgba(206, 0, 137, 0.6);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(206, 0, 137, 0.8);
+        }
+
+        /* --- SCROLL REVEAL --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* =========================================
+           NOUVELLE HERO SECTION "CHAOS MODE"
+        ========================================= */
+        header {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px; /* Pour la navbar */
+        }
+
+        /* Le conteneur des éléments flottants derrière le texte */
+        .hero-chaos-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none; /* Pour ne pas gêner le clic */
+        }
+
+        /* Style des "cartes" vidéo flottantes */
+        .chaos-item {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            animation: float-chaos 8s ease-in-out infinite alternate;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Placeholder pour simuler une vidéo (à remplacer par des <img> ou <video autoplay loop muted>) */
+        .video-placeholder {
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .video-placeholder::after {
+            content: '▶';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem; color: rgba(255,255,255,0.8);
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Positionnement "Dégen" des éléments */
+        /* Haut Gauche */
+        .c-1 { top: 15%; left: 5%; width: 200px; height: 300px; transform: rotate(-15deg); animation-delay: 0s; border-color: var(--secondary); }
+        /* Haut Droite */
+        .c-2 { top: 10%; right: 8%; width: 180px; height: 260px; transform: rotate(10deg); animation-delay: 1s; border-color: var(--primary); }
+        /* Milieu Gauche (type TikTok) */
+        .c-3 { top: 50%; left: -5%; width: 220px; height: 380px; transform: translateY(-50%) rotate(5deg); animation-delay: 2s; z-index: 2;}
+        /* Milieu Droite (type micro-trottoir) */
+        .c-4 { top: 55%; right: 2%; width: 280px; height: 180px; transform: translateY(-50%) rotate(-8deg); animation-delay: 3s; z-index: 1; border-color: var(--secondary);}
+        /* Bas Gauche */
+        .c-5 { bottom: 10%; left: 15%; width: 160px; height: 220px; transform: rotate(-20deg); animation-delay: 1.5s; }
+        /* Bas Droite */
+        .c-6 { bottom: 5%; right: 20%; width: 200px; height: 300px; transform: rotate(15deg); animation-delay: 0.5s; border-color: var(--primary);}
+
+
+        @keyframes float-chaos {
+            0% { transform: translateY(0) rotate(var(--r, 0deg)) scale(1); }
+            100% { transform: translateY(-30px) rotate(calc(var(--r, 0deg) + 2deg)) scale(1.02); }
+        }
+
+        /* Contenu central Hero */
+        .hero-content {
+            text-align: center;
+            z-index: 10; /* Au dessus du chaos */
+            position: relative;
+            /* Un fond subtil pour assurer la lisibilité du texte par dessus les vidéos */
+            background: radial-gradient(closest-side at center, rgba(5, 4, 26, 0.7) 40%, transparent 100%);
+            padding: 50px;
+            border-radius: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+             text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .hero-content h1 span.outline {
+            color: transparent;
+            -webkit-text-stroke: 2px white;
+            display: block;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero-content h1 span.color {
+            color: var(--secondary);
+            display: block;
+            position: relative;
+        }
+        
+        /* Petit effet de soulignement décalé */
+        .hero-content h1 span.color::after {
+            content: '';
+            position: absolute;
+            bottom: 10px; left: 50%;
+            width: 120%;
+            height: 20px;
+            background: var(--primary);
+            transform: translateX(-50%) skewX(-20deg);
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+        }
+
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--secondary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(206, 0, 137, 0.3);
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+            font-weight: 400;
+             text-shadow: 0 2px 10px rgba(0,0,0,1);
+        }
+
+        /* --- SECTIONS SUIVANTES (Style conservé et amélioré) --- */
+        
+        /* LOGO MARQUEE */
+        .marquee {
+            background: var(--primary); /* Retour au bleu uni pour casser le rythme */
+            padding: 35px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            transform: rotate(-2deg) scale(1.05); /* Effet déstructuré */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-top: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            margin: 50px 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 25s linear infinite;
+        }
+        
+        .logo-item {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            margin: 0 50px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* TOGGLE & SERVICES */
+        .services-section { padding: 100px 0; }
+        .section-title {
+            text-align: center; font-size: 3.5rem; font-weight: 900; margin-bottom: 70px;
+            text-transform: uppercase;
+        }
+
+        .toggle-container {
+            display: flex; justify-content: center; margin-bottom: 60px;
+            background: rgba(255,255,255,0.02);
+            padding: 6px; border-radius: 60px; width: fit-content;
+            margin-left: auto; margin-right: auto;
+            border: 2px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .toggle-btn {
+            padding: 18px 50px; border-radius: 50px; background: transparent;
+            color: var(--text-gray); border: none; font-family: 'Montserrat';
+            font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-size: 1.1rem;
+        }
+        .toggle-btn.active {
+            background: var(--secondary); color: white;
+            box-shadow: 0 5px 20px rgba(206, 0, 137, 0.5);
+        }
+
+        .service-content { display: none; align-items: center; gap: 60px; }
+        .service-content.active { display: flex; animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .service-text { flex: 1; }
+        .service-text h3 { font-size: 2.8rem; margin-bottom: 25px; color: var(--secondary); font-weight: 800; }
+        .service-text ul li { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center;}
+        .service-text ul li i { margin-right: 15px; background: rgba(206,0,137,0.2); padding: 8px; border-radius: 50%; font-size: 0.9rem;}
+
+        .service-video {
+            flex: 0.8; height: 550px;
+            /* Style "Carte" pour le conteneur vidéo */
+            background: linear-gradient(45deg, #1a1a1a, #000);
+            border-radius: 40px;
+            border: 3px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        
+        /* Phone mockup plus stylé */
+        .phone-frame {
+            width: 300px; height: 92%;
+            border: 12px solid #222; border-radius: 40px; background: #000;
+            position: relative; display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.1);
+        }
+        .phone-notch { position: absolute; top: 0; width: 120px; height: 25px; background: #222; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; z-index: 2; left: 50%; transform: translateX(-50%); }
+
+        /* PROCESS */
+        .process-section { padding: 100px 0; position: relative; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; margin-top: 60px; }
+        
+        .step-card {
+            background: linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); padding: 40px 30px; border-radius: 30px;
+            transition: all 0.4s; position: relative; overflow: hidden;
+            text-align: center;
+        }
+        .step-card:hover { transform: translateY(-15px) scale(1.03); border-color: var(--secondary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .step-number { font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); position: absolute; top: -20px; right: 0px; line-height: 1; }
+        .step-icon { font-size: 2.5rem; color: white; margin-bottom: 25px; background: linear-gradient(135deg, var(--secondary), var(--primary)); width: 70px; height: 70px; line-height: 70px; border-radius: 20px; margin: 0 auto 25px auto; box-shadow: 0 10px 20px rgba(37, 30, 175, 0.3); }
+        .step-card h4 { font-size: 1.3rem; margin-bottom: 15px; font-weight: 800; text-transform: uppercase; }
+
+        /* PRICING */
+        .pricing-section { padding: 100px 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 50px; max-width: 1100px; margin: 0 auto; align-items: center;}
+        
+        .price-card {
+            background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border);
+            border-radius: 40px; padding: 60px 40px; text-align: center; position: relative; transition: all 0.4s;
+        }
+        .price-card.featured {
+            border: 3px solid var(--secondary);
+            background: linear-gradient(180deg, rgba(206, 0, 137, 0.15), rgba(5, 4, 26, 0.8));
+            transform: scale(1.1);
+            z-index: 2;
+            box-shadow: 0 30px 60px rgba(206, 0, 137, 0.2);
+        }
+        .price-circle { width: 90px; height: 90px; border-radius: 50%; background: var(--secondary); margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.3rem; box-shadow: 0 10px 20px rgba(206, 0, 137, 0.4); }
+        .price-amount { font-size: 3.5rem; font-weight: 900; margin: 25px 0; color: #fff; line-height: 1; }
+        .price-amount span { font-size: 1.1rem; font-weight: 600; color: var(--text-gray); display: block; margin-top: 10px;}
+        .price-concept { color: var(--secondary); font-weight: 800; font-size: 1.4rem; margin-bottom: 35px; display: block; text-transform: uppercase; letter-spacing: 1px;}
+        .price-features { list-style: none; text-align: left; margin-bottom: 50px; padding: 0 20px; }
+        .price-features li { margin-bottom: 18px; display: flex; align-items: center; font-size: 1.05rem; }
+        .price-features li i { color: var(--secondary); margin-right: 12px; font-size: 0.9rem; }
+
+        /* FAQ */
+        .faq-section { padding: 100px 0; max-width: 900px; margin: 0 auto; }
+        .accordion-item { background: var(--glass-bg); border: 1px solid var(--glass-border); margin-bottom: 20px; border-radius: 20px; overflow: hidden; transition: all 0.3s;}
+        .accordion-item:hover { border-color: rgba(255,255,255,0.2); }
+        .accordion-header { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.1rem; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); padding: 0 25px; color: var(--text-gray); font-size: 1rem; line-height: 1.7;}
+        .accordion-item.active .accordion-content { padding-bottom: 30px; max-height: 300px; }
+        .accordion-icon { transition: transform 0.3s; background: rgba(255,255,255,0.05); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;}
+        .accordion-item.active .accordion-icon { transform: rotate(45deg); background: var(--secondary); color: white; }
+
+        /* CTA FINAL */
+        .cta-final {
+            background: linear-gradient(135deg, var(--primary), #000);
+            padding: 120px 0; text-align: center; position: relative; overflow: hidden;
+        }
+        /* Ajout d'un petit effet de fond sur le CTA */
+        .cta-final::before {
+             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+             background: radial-gradient(circle, transparent 20%, #000 100%); opacity: 0.5;
+        }
+
+        footer { padding: 60px 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid var(--glass-border); background: #02010a;}
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header { padding-top: 100px; min-height: auto; padding-bottom: 100px; }
+            /* Sur mobile, on cache les éléments du chaos trop excentrés pour éviter le débordement horizontal */
+            .hero-chaos-container .c-1, .hero-chaos-container .c-2, .hero-chaos-container .c-5, .hero-chaos-container .c-6 { opacity: 0.3; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content h1 span.outline { font-size: 2rem; }
+            .hero-sub { font-size: 1.1rem; }
+            
+            .marquee { transform: rotate(-2deg) scale(1); }
+            
+            .toggle-container { width: 100%; flex-direction: column; gap: 10px; border: none; background: none; padding: 0;}
+            .toggle-btn { width: 100%; border: 1px solid var(--glass-border); }
+            .service-content { flex-direction: column; }
+            .service-video { width: 100%; height: 450px; }
+            
+            .pricing-grid { grid-template-columns: 1fr; gap: 30px; }
+            .price-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-base"></div>
+
+    <nav class="container" style="padding-top: 30px; display: flex; justify-content: space-between; align-items: center; position: absolute; top:0; left: 50%; transform: translateX(-50%); width: 90%; z-index: 100;">
+        <div style="font-weight:900; font-size: 1.8rem; letter-spacing: 1px;">SCALE<span style="color:var(--secondary)">VISION</span></div>
+        <div>
+            <a href="https://ugcademie.fr" target="_blank" style="color: white; text-decoration: none; margin-right: 30px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">Académie UGC</a>
+            <a href="#contact" class="btn btn-primary">Réserver</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-chaos-container">
+            <div class="chaos-item c-1" style="--r: -15deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/200x300/?tiktok,girl');"></div>
+            </div>
+             <div class="chaos-item c-2" style="--r: 10deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/180x260/?product,unboxing');"></div>
+            </div>
+             <div class="chaos-item c-3" style="--r: 5deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/220x380/?influencer,talking');"></div>
+            </div>
+             <div class="chaos-item c-4" style="--r: -8deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/280x180/?interview,street');"></div>
+            </div>
+             <div class="chaos-item c-5" style="--r: -20deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/160x220/?mobile,app');"></div>
+            </div>
+             <div class="chaos-item c-6" style="--r: 15deg;">
+                <div class="video-placeholder" style="background-image: url('https://source.unsplash.com/random/200x300/?fashion,style');"></div>
+            </div>
+        </div>
+
+        <div class="hero-content reveal active">
+            <div class="hero-badge"><i class="fas fa-trophy" style="margin-right: 10px;"></i> Top 1% des agences France 2026</div>
+            <h1>
+                <span class="outline">L'AGENCE N°1 DU</span>
+                <span class="color">SNACK CONTENT</span>
+            </h1>
+            <p class="hero-sub">Stop à la "cécité publicitaire". Nous produisons des créatives natives (UGC, Micro-trottoir) qui performent en 7 jours chrono.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary" style="padding: 20px 50px; font-size: 1rem;">GO ! Réserver un appel</a>
+            </div>
+            
+            <div style="margin-top: 60px; color: white; font-weight: 700; letter-spacing: 1px;">
+                <i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 10px;"></i> +300 ENTREPRISES NOUS FONT CONFIANCE
+            </div>
+        </div>
+    </header>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            <span class="logo-item"><i class="fab fa-tiktok"></i> TikTok</span>
+            <span class="logo-item">Horace.</span>
+            <span class="logo-item">happn</span>
+            <span class="logo-item">LeDénicheur</span>
+            <span class="logo-item">LiveMentor</span>
+            <span class="logo-item">Joko</span>
+            <span class="logo-item">Cabaïa</span>
+            <span class="logo-item">Cuisinella</span>
+            <span class="logo-item"><i class="fab fa-tiktok"></i> TikTok</span>
+            <span class="logo-item">Horace.</span>
+            <span class="logo-item">happn</span>
+            <span class="logo-item">LeDénicheur</span>
+            <span class="logo-item">LiveMentor</span>
+        </div>
+    </div>
+
+    <section class="process-section container reveal">
+        <h2 class="section-title">NOTRE <span class="text-gradient">PROCESS ECLAIR</span></h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-brain"></i></div>
+                <h4>Stratégie & Concept</h4>
+                <p style="font-size: 0.95rem; color: var(--text-gray);">On analyse votre marque et on pond des concepts (Hooks, Scénarios) qui arrêtent le scroll.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-user-astronaut"></i></div>
+                <h4>Casting Créateurs</h4>
+                <p style="font-size: 0.95rem; color: var(--text-gray);">Matching précis avec les meilleurs profils UGC de notre réseau privé.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Production Express</h4>
+                <p style="font-size: 0.95rem; color: var(--text-gray);">Tournage et montage dynamique (style TikTok/Reels) optimisé pour la rétention.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                <h4>Livraison & Scale</h4>
+                <p style="font-size: 0.95rem; color: var(--text-gray);">Réception des assets prêts à être sponsorisés pour exploser vos ROAS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section container reveal">
+        <h2 class="section-title">NOS ARMES <span class="text-gradient">FATALES</span></h2>
+        
+        <div class="toggle-container">
+            <button class="toggle-btn active" onclick="switchService('ugc', this)">UGC Classique</button>
+            <button class="toggle-btn" onclick="switchService('micro', this)">Micro-Trottoir Viral</button>
+        </div>
+
+        <div id="ugc" class="service-content active">
+            <div class="service-text">
+                <h3>Vidéos UGC</h3>
+                <p style="margin-bottom: 30px; font-size: 1.2rem; line-height: 1.6;">
+                    L'authenticité qui convertit. Des vidéos créées par de vrais humains qui ressemblent au contenu organique de la plateforme. Adieu la "cécité publicitaire".
+                </p>
+                <ul style="list-style: none; margin-bottom: 30px;">
+                    <li><i class="fas fa-check"></i> <strong>Unboxing & Témoignages face caméra</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Scénarios "Problème / Solution"</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Green Screen React & Trends</strong></li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Je veux des UGC</a>
+            </div>
+            <div class="service-video">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div style="color: white; text-align: center; z-index: 5;">
+                        <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(206,0,137,0.8));"></i>
+                        <p style="font-weight: 800; font-size: 1.2rem;">DÉMO UGC</p>
+                    </div>
+                     <div style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: url('https://source.unsplash.com/random/300x600/?selfie,video') center/cover; opacity: 0.4; border-radius: 30px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="micro" class="service-content">
+            <div class="service-text">
+                <h3>Micro-Trottoir</h3>
+                <p style="margin-bottom: 30px; font-size: 1.2rem; line-height: 1.6;">
+                    Le format roi de la viralité. On descend dans la rue pour créer de la preuve sociale instantanée et du divertissement pur.
+                </p>
+                <ul style="list-style: none; margin-bottom: 30px;">
+                    <li><i class="fas fa-check"></i> <strong>Interviews spontanées & authentiques</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Défis de rue & Giveaways</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Questions / Réponses rapides (Voxpop)</strong></li>
+                </ul>
+                 <a href="#contact" class="btn btn-primary">Go le Micro-Trottoir</a>
+            </div>
+            <div class="service-video" style="border-color: var(--primary);">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div style="color: white; text-align: center; z-index: 5;">
+                        <i class="fas fa-microphone-alt" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(37, 30, 175, 0.8));"></i>
+                        <p style="font-weight: 800; font-size: 1.2rem;">DÉMO MICRO-TROTTOIR</p>
+                    </div>
+                    <div style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: url('https://source.unsplash.com/random/301x601/?street,interview') center/cover; opacity: 0.4; border-radius: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section container reveal">
+        <h2 class="section-title">NOS PACKS <span class="text-gradient">SCALABLES</span></h2>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-circle">TEST</div>
+                <h3>PACK ONE SHOT</h3>
+                <div class="price-amount">3 500€ <span>HT / Pile</span></div>
+                <span class="price-concept">7 Concepts = 21 Vidéos</span>
+                <p style="color: var(--text-gray); margin-bottom: 30px; font-size: 1rem;">Parfait pour tester la puissance de Scalevision sur une campagne spécifique.</p>
+                <ul class="price-features">
+                    <li><i class="fas fa-check-circle"></i> Mix de concepts (UGC, FGC, Micro...)</li>
+                    <li><i class="fas fa-check-circle"></i> Casting sur mesure</li>
+                    <li><i class="fas fa-check-circle"></i> Rédaction de Scripts Pros & Hooks</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>3 déclinaisons (Hooks) par concept</strong></li>
+                    <li><i class="fas fa-check-circle"></i> Retours illimités</li>
+                </ul>
+                <a href="#contact" class="btn" style="border: 2px solid rgba(255,255,255,0.3); color: white; background: transparent;">Choisir ce pack</a>
+            </div>
+
+            <div class="price-card featured">
+                <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--secondary); padding: 10px 25px; border-radius: 30px; font-size: 0.9rem; font-weight: 900; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(206, 0, 137, 0.4);">BEST-SELLER</div>
+                <div class="price-circle">SCALE</div>
+                <h3>PACK 3 MOIS</h3>
+                <div class="price-amount">2 000€ <span>HT / MOIS</span></div>
+                <span class="price-concept">5 Concepts = 15 Vidéos / mois</span>
+                <p style="color: var(--text-gray); margin-bottom: 30px; font-size: 1rem;">L'abonnement "no-brainer" pour alimenter vos ads en continu.</p>
+                <ul class="price-features">
+                    <li><i class="fas fa-check-circle"></i> <strong>Tout du pack One Shot</strong></li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff9d"></i> Optimisation Mensuelle des créas</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff9d"></i> Reporting + Analyse Performances</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff9d"></i> Coût par vidéo réduit</li>
+                    <li><i class="fas fa-check-circle"></i> Slack dédié avec l'équipe</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Démarrer l'abonnement</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section container reveal">
+        <h2 class="section-title">QUESTIONS <span class="text-gradient">/ RÉPONSES</span></h2>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                Quels sont les délais de livraison "réels" ?
+                <div class="accordion-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="accordion-content">
+                On ne blague pas avec le "Snack Content". Comptez <strong>7 à 10 jours ouvrés</strong> à partir de la validation des scripts et de la réception des produits par les créateurs. Notre process est huilé pour aller vite sans sacrifier la qualité.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                Les vidéos sont-elles libres de droits (Usage Ads) ?
+                <div class="accordion-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="accordion-content">
+                OUI à 100%. Toutes les vidéos produites par Scalevision incluent les droits pour une utilisation publicitaire (Paid Ads sur TikTok, Meta, etc.) et organique <strong>à vie</strong>. Pas de mauvaises surprises ni de frais cachés après 6 mois.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                Est-ce que je valide les créateurs avant le tournage ?
+                <div class="accordion-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="accordion-content">
+                Absolument. Nous faisons le gros du travail de pré-sélection basé sur votre image de marque, mais <strong>vous avez le dernier mot</strong> sur le casting. On vous présente une sélection, vous validez vos visages préférés.
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                Et si une vidéo ne me convient pas ?
+                <div class="accordion-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="accordion-content">
+                Pas de panique. Nous incluons des <strong>retours et modifications illimitées</strong> dans nos packs jusqu'à satisfaction. Notre objectif est que vous soyez fier de lancer la vidéo en pub.
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final" id="contact">
+        <div class="container reveal" style="position: relative; z-index: 2;">
+            <h2 style="font-size: 3.5rem; margin-bottom: 40px; font-weight: 900; text-transform: uppercase; line-height: 1.1;">Besoin de vidéos qui <br><span style="color: white; text-shadow: 0 0 30px rgba(255,255,255,0.6); font-size: 4.5rem; display: block; margin-top: 10px;" class="text-gradient">DÉCHIIIIIRENT ?</span></h2>
+            <a href="mailto:luciedemarais@scalevision.fr" class="btn btn-primary" style="padding: 25px 60px; font-size: 1.2rem;">Réserver un appel avec nous !</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="text-align: left;">
+                <div style="font-weight:900; font-size: 1.5rem; margin-bottom: 10px;">SCALE<span style="color:var(--secondary)">VISION</span></div>
+                <p>4 rue Martel 75010, Paris</p>
+                <p>Contact : luciedemarais@scalevision.fr</p>
+            </div>
+            
+            <div style="text-align: right;">
+                 <div style="margin-bottom: 20px; font-size: 1.8rem;">
+                    <a href="#" style="color: white; margin-left: 20px;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color: white; margin-left: 20px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; margin-left: 20px;"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <p style="font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Scalevision. Tous droits réservés. <br><a href="#" style="color: var(--text-gray); text-decoration: none;">CGV & Mentions légales</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 120;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        setTimeout(revealOnScroll, 100); // Petit délai pour laisser le temps au CSS de charger
+
+        // 2. Service Toggle Logic
+        function switchService(serviceId, btn) {
+            // Remove active class from all contents and buttons
+            document.querySelectorAll('.service-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.toggle-btn').forEach(el => el.classList.remove('active'));
+
+            // Add active class to target
+            document.getElementById(serviceId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // 3. Accordion Logic
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.accordion-item').forEach(acc => {
+                acc.classList.remove('active');
+            });
+
+            // Toggle clicked one
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
