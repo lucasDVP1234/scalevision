@@ -4,8 +4,8 @@ const contentData = {
         bgText: "E-COMMERCE",
         videos: [
             { src: "https://d3qck34svcw0mn.cloudfront.net/leclerc.mp4", title: "Leclerc" },
-            { src: "https://d3qck34svcw0mn.cloudfront.net/certi1.mov", title: "Certideal" },
-            { src: "https://d3qck34svcw0mn.cloudfront.net/dearbbal.mp4", title: "DearBBall" },
+            { src: "https://d2ahkzba9leo8q.cloudfront.net/certi1.mp4", title: "Certideal" },
+            { src: "https://d3qck34svcw0mn.cloudfront.net/dearbbal.mp4", title: "Combray" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/dieti1.mp4", title: "Dieti Natura" }
         ],
         logos: [
@@ -17,7 +17,7 @@ const contentData = {
         bgText: "APPLICATIONS",
         videos: [
             { src: "https://d3qck34svcw0mn.cloudfront.net/gymlib.mp4", title: "Gymlib" },
-            { src: "https://d3qck34svcw0mn.cloudfront.net/denichcam.mp4", title: "LeDénicheur" },
+            { src: "https://d3qck34svcw0mn.cloudfront.net/qualiretraite.mp4", title: "QualiRetraite" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/coupon1.mp4", title: "Coupon Network" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/delup.mp4", title: "Delupay" }
         ],
@@ -32,7 +32,7 @@ const contentData = {
             { src: "https://d3qck34svcw0mn.cloudfront.net/orni.mp4", title: "Ornikar" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/cfc.mp4", title: "Cofondateur" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/wecandoo1.mp4", title: "Wecandoo" },
-            { src: "https://d2ahkzba9leo8q.cloudfront.net/paulo1.webm", title: "Zeway" }
+            { src: "https://d3qck34svcw0mn.cloudfront.net/born.mp4", title: "Born4You" }
         ],
         logos: [
             "https://ugcademie.s3.eu-north-1.amazonaws.com/5.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/9.png",
