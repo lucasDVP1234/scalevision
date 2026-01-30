@@ -3,7 +3,7 @@ const contentData = {
     ecom: {
         bgText: "E-COMMERCE",
         videos: [
-            { src: "https://d3qck34svcw0mn.cloudfront.net/leclerc3.mp4", title: "Leclerc" },
+            { src: "https://d3qck34svcw0mn.cloudfront.net/leclerc.mp4", title: "Leclerc" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/certideal2.mov", title: "Certideal" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/dearbbal.mp4", title: "DearBBall" },
             { src: "https://d3qck34svcw0mn.cloudfront.net/dieti1.mp4", title: "Dieti Natura" }
