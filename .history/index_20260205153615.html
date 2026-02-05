@@ -373,8 +373,8 @@
                     loop 
                     preload="none"
                     onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                    onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                    onclick="toggleSound(this)">
+                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
+                        onclick="toggleSound(this)">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
                     <div class="absolute bottom-4 left-4">
@@ -390,9 +390,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
                      <div class="absolute bottom-4 left-4">
@@ -408,9 +407,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 1.2M</div>
                     <div class="absolute bottom-4 left-4">
@@ -426,9 +424,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 850K</div>
                     <div class="absolute bottom-4 left-4">
@@ -444,9 +441,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 2.4M</div>
                     <div class="absolute bottom-4 left-4">
@@ -462,9 +458,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                    onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
                     <div class="absolute bottom-4 left-4">
@@ -480,9 +475,8 @@
                         muted 
                         loop 
                         preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
+                        onmouseover="lazyPlay(this)" 
+                        onmouseout="this.pause()">
                     </video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
                      <div class="absolute bottom-4 left-4">
