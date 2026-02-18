@@ -7,26 +7,12 @@
     <link rel="icon" type="image/png" href="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png">
     
     <link href="./assets/css/output.css" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
-                    colors: {
-                        scaleBlue: '#251EAF', 
-                        scalePink: '#CE0089', 
-                        scaleDark: '#050520',
-                    }
-                }
-            }
-        }
-    </script>
-
     <link rel="stylesheet" href="assets/css/style.css">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -102,71 +88,59 @@
 
         <div class="hidden lg:block z-10 video-column-wrapper -rotate-3 ml-4 opacity-80">
             <div class="video-column scroll-up gap-6">
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/meshug1.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d2ahkzba9leo8q.cloudfront.net/paulo1.webm" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/cfc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/clc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/gymlib.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/leclerc.mp4" autoplay muted loop class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/meshug1.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d2ahkzba9leo8q.cloudfront.net/paulo1.webm" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/cfc.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/clc.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/gymlib.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/leclerc.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
             </div>
         </div>
 
         <div class="relative z-20 flex-1 h-full flex flex-col items-center justify-center text-center px-4">
             
             <div class="flex flex-col items-center justify-center w-full max-w-4xl">
-                
-                <!-- <div class="inline-flex items-center gap-2 border border-white/10 bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 hover:scale-105 transition duration-300 cursor-default">
+
+                <div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full mb-10">
                     <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-scalePink opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-scalePink"></span>
                     </span>
-                    <span class="text-[9px] font-black uppercase tracking-[0.25em] text-white">Agence Créative N°1 de France</span>
-                </div> -->
-
-                <div class="relative mb-8 flex flex-col items-center">
-    
-                    <div class="inline-flex items-center gap-2 bg-white text-[#251EAF] font-black text-sm md:text-lg px-5 py-2 rounded-full mb-6 tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.2)] uppercase transform hover:scale-105 transition duration-300">
-                        <i class="fas fa-star text-scalePink text-[18px]"></i>
-                        L'AGENCE N°1
-                        <i class="fas fa-star text-scalePink text-[18px]"></i>
-                    </div>
-
-                    <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-black uppercase leading-[0.85] tracking-tighter select-none relative">
-                        
-                        <div class="text-stroke text-transparent relative z-10 hover:text-white/10 transition-colors duration-300">
-                            DU SNACK
-                        </div>
-                        
-                        <div class="text-white relative z-10">
-                            CONTENT<span class="text-scalePink">.</span>
-                        </div>
-
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-gradient-to-r from-scalePink/30 via-purple-500/20 to-transparent blur-[100px] -z-0 pointer-events-none"></div>
-                    </h1>
-
+                    <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-white/70">Agence Créative N°1 en France</span>
                 </div>
-                <p class="text-base md:text-xl text-blue-100/90 max-w-xl font-medium mb-8 leading-relaxed">
-                    Les plus performantes des créatives <strong class="text-white border-b-2 border-scalePink">produites en 14 jours</strong> à tourner sur place ou à emporter.
+
+                <div class="relative mb-10 flex flex-col items-center">
+                    <h1 class="text-6xl md:text-8xl font-black uppercase leading-[0.85] tracking-tighter select-none relative" style="font-size: clamp(4rem, 10vw, 10rem);">
+                        <span class="block text-white relative z-10">SNACK</span>
+                        <span class="block relative z-10">
+                            <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(to right, #CE0089, #a855f7, #CE0089); -webkit-background-clip: text;">CONTENT</span><span class="text-scalePink">.</span>
+                        </span>
+                    </h1>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-scalePink/20 to-transparent pointer-events-none" style="width:120%;height:120%;filter:blur(120px);"></div>
+                </div>
+
+                <p class="text-base md:text-lg text-white/60 max-w-md font-medium mb-10 leading-relaxed">
+                    Les créatives les plus performantes du marché, <br class="hidden md:block"><strong class="text-white font-bold">produites et livrées en 14 jours.</strong>
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <a href="#contact" class="btn-pulse bg-scalePink text-white text-base font-black px-8 py-3.5 rounded-full shadow-[0_20px_50px_-10px_rgba(206,0,137,0.6)] hover:shadow-[0_20px_80px_-10px_rgba(206,0,137,0.8)] hover:-translate-y-1 transition duration-300 border border-white/10 uppercase tracking-wide">
-                        Lancer un projet 🚀
+                    <a href="#contact" class="btn-pulse bg-scalePink text-white text-base font-black px-8 py-3.5 rounded-full shadow-[0_20px_50px_-10px_rgba(206,0,137,0.6)] hover:-translate-y-1 transition duration-300 border border-white/10 uppercase tracking-wide">
+                        Lancer un projet &rarr;
                     </a>
                     <a href="#work" class="group flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 text-white text-base font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-scaleBlue transition duration-300 uppercase tracking-wide">
-                        Voir les exemples
+                        Nos réalisations
                         <i class="fas fa-arrow-down group-hover:translate-y-1 transition"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="absolute bottom-6 w-full max-w-5xl border-t border-white/5 pt-4">
-                <div class="flex justify-center gap-8 md:gap-16 opacity-40 hover:opacity-100 transition duration-500 items-center grayscale hover:grayscale-0">
-                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-5 md:h-7 object-contain brightness-0 invert">
-                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-7 md:h-9 object-contain brightness-0 invert">
-                     <div class="hidden md:block h-1 w-1 bg-white/20 rounded-full"></div>
-                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-5 md:h-7 object-contain brightness-0 invert">
-                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-4 md:h-5 object-contain brightness-0 invert">
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md">
+                <p class="text-[9px] font-bold uppercase text-white/30 text-center mb-4" style="letter-spacing:0.3em;">Ils nous font confiance</p>
+                <div class="flex justify-center gap-10 md:gap-14 items-center opacity-30 hover:opacity-60 transition duration-500 grayscale">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" class="h-4 md:h-5 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" class="h-5 md:h-7 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" class="h-4 md:h-5 object-contain brightness-0 invert">
+                     <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" class="h-3 md:h-4 object-contain brightness-0 invert">
                 </div>
             </div>
 
@@ -174,12 +148,12 @@
 
         <div class="hidden lg:block z-10 video-column-wrapper rotate-3 mr-4 opacity-80 pointer-events-none">
             <div class="video-column scroll-down gap-6">
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/combray.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/born.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/orni1.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/scaleinfo.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
-                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/wecandoo2.mp4" autoplay muted loop playsinline webkit-playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/combray.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/born.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/orni1.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/scaleinfo.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
+                <div class="video-card-hero"><video src="https://d3qck34svcw0mn.cloudfront.net/wecandoo2.mp4" autoplay muted loop playsinline class="w-full h-full object-cover opacity-80 hover:opacity-100 transition duration-500"></video></div>
             </div>
         </div>
 
@@ -314,181 +288,82 @@
             <div class="viral-track">
                 
                 <div class="micro-card group">
-                    <video 
-                        data-src="https://d3qck34svcw0mn.cloudfront.net/khune1.mp4" 
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="lazyPlay(this)" 
-                        onmouseout="this.pause()">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/khune1.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 1.2M</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">
-                            Khune
-                        </div>
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">Khune</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video 
-                        data-src="https://d3qck34svcw0mn.cloudfront.net/japhy2.mp4" 
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="lazyPlay(this)" 
-                        onmouseout="this.pause()">
-                </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/japhy2.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 850K</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
-                            Japhy
-                        </div>
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">Japhy</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/freegun.mp4" 
-                    class="lazy-video w-full h-full object-cover"
-                    muted 
-                    loop 
-                    preload="none"
-                    onmouseover="lazyPlay(this)" 
-                    onmouseout="this.pause()">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/freegun.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 2.4M</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">
-                            Freegun
-                        </div>
+                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">Freegun</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/orni2.mp4"
-                    class="lazy-video w-full h-full object-cover"
-                    muted 
-                    loop 
-                    preload="none"
-                    onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                    onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                    onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/orni2.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">
-                            Ornikar
-                        </div>
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">Ornikar</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/coupon2.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/coupon2.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
-                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
-                            Coupon Network
-                        </div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">Coupon Network</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/born.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/born.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 1.2M</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">
-                            Born4You
-                        </div>
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform -rotate-2">Born4You</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/swissroc2.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 850K</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
-                            SwissRoc
-                        </div>
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">SwissRoc</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/qualiretraite.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/qualiretraite.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 2.4M</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">
-                            QualiRetraite
-                        </div>
+                        <div class="bg-black text-white border border-white/20 text-[10px] font-black px-2 py-1 uppercase">QualiRetraite</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/smash.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/smash.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 500K</div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">
-                            MyMoodz
-                        </div>
+                        <div class="bg-white text-black text-[10px] font-black px-2 py-1 uppercase transform rotate-2">MyMoodz</div>
                     </div>
                 </div>
 
                 <div class="micro-card group">
-                    <video src="https://d3qck34svcw0mn.cloudfront.net/tealer.mp4"
-                        class="lazy-video w-full h-full object-cover"
-                        muted 
-                        loop 
-                        preload="none"
-                        onmouseover="this.play(); this.muted=false; this.volume=1; this.parentElement.querySelector('.play-btn').style.opacity='0'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1.5)';" 
-                        onmouseout="this.pause(); this.muted=true; this.parentElement.querySelector('.play-btn').style.opacity='1'; this.parentElement.querySelector('.play-btn').style.transform='translate(-50%, -50%) scale(1)';"
-                        onclick="toggleSound(this)">
-                    </video>
+                    <video data-src="https://d3qck34svcw0mn.cloudfront.net/tealer.mp4" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                     <div class="views-badge"><i class="fas fa-eye text-scalePink"></i> 900K</div>
-                     <div class="absolute bottom-4 left-4">
-                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">
-                            TealerLab
-                        </div>
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-[#251EAF] text-white text-[10px] font-black px-2 py-1 uppercase">TealerLab</div>
                     </div>
                 </div>
 
@@ -570,7 +445,8 @@
 
                             <img src="https://scalevision.s3.eu-north-1.amazonaws.com/video_site/ugcademie.png" 
                                  alt="Plateforme UGCadémie" 
-                                 class="w-full object-cover opacity-90 group-hover:opacity-100 transition">
+                                 class="w-full object-cover opacity-90 group-hover:opacity-100 transition"
+                                 loading="lazy">
                              
                              <div class="absolute inset-0 bg-gradient-to-tr from-scalePink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay"></div>
                         </div>
@@ -609,17 +485,17 @@
                     <div class="photo-stack-container cursor-pointer group">
                         
                         <div class="polaroid-card p-1 transform -rotate-6 translate-y-4 z-10">
-                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureaup.png" alt="Team Scalevision">
+                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureaup.png" alt="Team Scalevision" loading="lazy">
                             <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-white font-bold text-xs">La Team</div>
                         </div>
 
                         <div class="polaroid-card p-2 transform rotate-2 z-20">
-                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureau1.png" alt="Constantin Founder">
+                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureau1.png" alt="Constantin Founder" loading="lazy">
                             <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-white font-bold text-xs"></div>
                         </div>
 
                         <div class="polaroid-card p-3 transform rotate-12 translate-x-4 translate-y-8 z-30">
-                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureau2.png" alt="Lucas Creative">
+                            <img src="https://d3qck34svcw0mn.cloudfront.net/bureau2.png" alt="Lucas Creative" loading="lazy">
                             <div class="absolute bottom-2 left-0 w-full text-center font-handwriting text-white font-bold text-xs"></div>
                         </div>
 
@@ -720,7 +596,7 @@
                     <div class="relative w-64 h-40 bg-[#050520] border border-white/20 rounded-xl p-4 flex items-center gap-4 shadow-2xl transform rotate-3 group-hover:-rotate-2 transition duration-500">
                         <div class="relative">
                             <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-scalePink">
-                                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" class="w-full h-full object-cover">
+                                <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="absolute -bottom-1 -right-1 bg-green-500 border border-black rounded-full p-1">
                                 <i class="fas fa-check text-[8px] text-white"></i>
@@ -772,7 +648,7 @@
                 </div>
                 <div class="flex justify-center md:justify-start pl-0 md:pl-12 order-2">
                     <div class="rec-interface relative w-72 h-48 bg-black shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500 border border-white/20 rounded-xl overflow-hidden group">
-                        <img src="https://d3qck34svcw0mn.cloudfront.net/photolive.png" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition">
+                        <img src="https://d3qck34svcw0mn.cloudfront.net/photolive.png" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition" loading="lazy">
                         
                         <div class="absolute top-4 left-4 z-10 flex items-center bg-red-600/90 px-2 py-1 rounded animate-pulse">
                             <span class="text-white text-[10px] font-mono font-bold">● REC</span>
@@ -919,7 +795,7 @@
                             <div class="brand-pill"><span class="text-[9px] font-bold text-white uppercase">CLC</span></div>
                         </div>
                         <div class="showcase-card-vertical group">
-                            <video data-src="https://d3qck34svcw0mn.cloudfront.net/certi1.mov" class="lazy-video w-full h-full object-cover" muted loop preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
+                            <video data-src="https://d3qck34svcw0mn.cloudfront.net/certi1.mov" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                             <div class="brand-pill"><span class="text-[9px] font-bold text-white uppercase">Certideal</span></div>
                         </div>
                         <div class="showcase-card-vertical group">
@@ -977,7 +853,7 @@
                             <div class="brand-pill"><span class="text-[9px] font-bold text-white uppercase">DearBBall</span></div>
                         </div>
                         <div class="showcase-card-vertical group">
-                            <video data-src="https://d3qck34svcw0mn.cloudfront.net/certideal2.mov" class="lazy-video w-full h-full object-cover" muted loop preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
+                            <video data-src="https://d3qck34svcw0mn.cloudfront.net/certideal2.mov" class="lazy-video w-full h-full object-cover" muted loop playsinline preload="none" onmouseover="lazyPlay(this)" onmouseout="this.pause()"></video>
                             <div class="brand-pill"><span class="text-[9px] font-bold text-white uppercase">Certideal</span></div>
                         </div>
                     </div>
@@ -1411,7 +1287,6 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" data-cta-widget="E27reyzkbqFi" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="assets/js/script.js" defer></script>

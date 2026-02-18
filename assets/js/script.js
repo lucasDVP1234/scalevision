@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             videoSource.src = videoSource.dataset.src;
                         }
                     }
-                    // Si c'est une balise video directe sans source enfant
                     if(video.target.dataset.src) {
                         video.target.src = video.target.dataset.src;
                     }
@@ -79,12 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     lazyVideoObserver.unobserve(video.target);
                 }
             });
-        });
+        }, { rootMargin: "200px" });
 
         lazyVideos.forEach(function(lazyVideo) {
             lazyVideoObserver.observe(lazyVideo);
         });
     }
+
     
     gsap.registerPlugin(ScrollTrigger);
 
@@ -112,11 +112,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ScrollTrigger.create({
         trigger: "[data-index='5']", start: "top 70%",
+        once: true,
         onEnter: () => {
             document.querySelectorAll('.counter-anim').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 const suffix = target === 99 ? '%' : (target === 40 ? '%' : '+');
-                gsap.to(counter, { innerText: target, duration: 2, snap: { innerText: 1 }, onUpdate: function() { this.targets()[0].innerHTML = Math.ceil(this.targets()[0].innerText) + suffix; } });
+                const obj = { val: 0 };
+                gsap.to(obj, {
+                    val: target, duration: 2, ease: "power1.out",
+                    onUpdate: function() {
+                        counter.innerHTML = Math.ceil(obj.val) + suffix;
+                    }
+                });
             });
         }
     });
@@ -191,14 +198,15 @@ document.addEventListener("DOMContentLoaded", () => {
     /* --- SECTION AGENCE : ANIMATION --- */
     gsap.from(".polaroid-card", {
         scrollTrigger: {
-            start: "top bottom", // L'anim se lance dès que le haut de la section touche le bas de l'écran
+            trigger: "#agence",
+            start: "top bottom",
             toggleActions: "play none none reverse"
         },
         y: 100,
         opacity: 0,
-        rotation: 0, // Elles partent droites et prennent leur angle CSS à l'arrivée
+        rotation: 0,
         duration: 1,
-        stagger: 0.2, // Effet cascade
+        stagger: 0.2,
         clearProps: "all"
     });
 });
