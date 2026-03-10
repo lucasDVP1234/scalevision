@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCALEVISION — Webinaire Gratuit</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #251EAF;
+  --bg-dark: #1a1580;
+  --white: #FFFFFF;
+  --pink: #FF3C8E;
+  --pink-light: #FF6BA8;
+  --pink-glow: rgba(255, 60, 142, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* FLOATING ORB */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--pink-glow), transparent 70%);
+  top: -100px; right: -100px;
+  animation: float1 12s ease-in-out infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(100, 80, 255, 0.2), transparent 70%);
+  bottom: 10%; left: -100px;
+  animation: float2 15s ease-in-out infinite;
+}
+.orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255, 60, 142, 0.15), transparent 70%);
+  top: 50%; left: 40%;
+  animation: float3 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 40px) scale(1.1); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -30px) scale(1.15); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, -50px) scale(0.9); }
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.marquee-track span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  padding: 0 30px;
+}
+.marquee-track span em {
+  font-style: normal;
+  color: var(--pink);
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(37, 30, 175, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  padding: 14px 40px;
+  background: rgba(37, 30, 175, 0.95);
+}
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: var(--white);
+}
+.logo span {
+  color: var(--pink);
+}
+.nav-badge {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--pink);
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 60, 142, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 60, 142, 0); }
+}
+.nav-cta {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--white);
+  color: var(--bg);
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.nav-cta:hover {
+  background: var(--pink);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 60px 80px;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  text-align: left;
+}
+
+.hero-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 28px;
+  animation: fadeSlideDown 0.8s ease forwards;
+  opacity: 0;
+}
+.hero-type-badge .badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink);
+  padding: 8px 16px;
+  border-radius: 8px 0 0 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero-type-badge .badge-live .dot {
+  width: 7px; height: 7px;
+  background: var(--white);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+.hero-type-badge .badge-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-left: none;
+  padding: 8px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-eyebrow {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(17px, 2.5vw, 22px);
+  color: var(--pink-light);
+  margin-bottom: 14px;
+  animation: fadeSlideDown 0.8s 0.12s ease forwards;
+  opacity: 0;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 100px);
+  line-height: 0.92;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  animation: fadeSlideDown 0.8s 0.25s ease forwards;
+  opacity: 0;
+}
+.hero h1 .pink {
+  color: var(--pink);
+  position: relative;
+}
+.hero h1 .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-light);
+}
+
+.hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.7;
+  max-width: 520px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 36px;
+  animation: fadeSlideDown 0.8s 0.38s ease forwards;
+  opacity: 0;
+}
+.hero-sub strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+  animation: fadeSlideDown 0.8s 0.5s ease forwards;
+  opacity: 0;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--pink);
+  color: var(--white);
+  padding: 18px 38px;
+  border-radius: 60px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 8px 40px rgba(255, 60, 142, 0.35);
+}
+.hero-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 50px rgba(255, 60, 142, 0.5);
+}
+.hero-cta .arrow {
+  transition: transform 0.3s;
+}
+.hero-cta:hover .arrow {
+  transform: translateX(5px);
+}
+.hero-spots-left {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.hero-spots-left em {
+  font-style: normal;
+  color: #00FF88;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: fadeSlideDown 0.8s 0.62s ease forwards;
+  opacity: 0;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+}
+.hero-meta-item .icon {
+  font-size: 14px;
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO RIGHT */
+.hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  animation: fadeSlideDown 0.9s 0.3s ease forwards;
+  opacity: 0;
+}
+
+/* CONFERENCE CARD */
+.conference-card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 36px 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.conference-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--pink-light), #8B5CF6);
+}
+.conference-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.conference-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+.conference-date-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.08);
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.6);
+}
+.conference-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.conference-title .pink { color: var(--pink); }
+
+/* SPEAKER AVATARS ROW */
+.speakers-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.speakers-avatars {
+  display: flex;
+}
+.speakers-avatars .s-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  margin-left: -10px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s, z-index 0s;
+}
+.speakers-avatars .s-avatar:first-child { margin-left: 0; z-index: 3; }
+.speakers-avatars .s-avatar:nth-child(2) { z-index: 2; }
+.speakers-avatars .s-avatar:hover { transform: scale(1.15) translateY(-3px); z-index: 10; }
+.s-avatar-1 { background: linear-gradient(135deg, var(--pink), #FF6BA8); }
+.s-avatar-2 { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+.s-avatar-3 { background: linear-gradient(135deg, #06B6D4, #0891B2); }
+.speakers-info {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+.speakers-info strong {
+  display: block;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* CONFERENCE META */
+.conference-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.conf-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+}
+.conf-meta-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.conf-meta-text {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.3;
+}
+.conf-meta-text strong {
+  display: block;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* GIVEAWAY */
+.giveaway-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin-top: 20px;
+}
+
+.giveaway-arrow {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.giveaway-arrow svg {
+  width: 40px;
+  height: 40px;
+  animation: bounce-arrow 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(255,60,142,0.3));
+}
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.giveaway-card {
+  background: linear-gradient(135deg, rgba(255,60,142,0.08), rgba(139,92,246,0.08));
+  border: 1px solid rgba(255,60,142,0.2);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.giveaway-card:hover {
+  border-color: rgba(255,60,142,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255,60,142,0.15);
+}
+.giveaway-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(255,60,142,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.giveaway-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.giveaway-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.giveaway-img-placeholder {
+  font-size: 48px;
+  animation: float-gift 3s ease-in-out infinite;
+}
+@keyframes float-gift {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(3deg); }
+}
+.giveaway-sparkle {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 20px; height: 20px;
+  background: #FFD700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  animation: sparkle-pulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+@keyframes sparkle-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,215,0,0.4); }
+  50% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(255,215,0,0); }
+}
+
+.giveaway-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.giveaway-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #FFD700;
+  margin-bottom: 8px;
+}
+.giveaway-tag .star {
+  animation: spin-star 4s linear infinite;
+}
+@keyframes spin-star {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.giveaway-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.giveaway-name .pink { color: var(--pink); }
+.giveaway-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.giveaway-desc strong {
+  color: rgba(255,255,255,0.8);
+}
+
+/* HAND-DRAWN ARROW SVG */
+.hand-arrow-wrap {
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  z-index: 5;
+  pointer-events: none;
+  animation: wiggle-arrow 2s ease-in-out infinite;
+}
+@keyframes wiggle-arrow {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+.hand-arrow-label {
+  position: absolute;
+  top: -24px;
+  right: 0;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #FFD700;
+  white-space: nowrap;
+  animation: fadeSlideDown 1s 1s ease forwards;
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 120px 20px 60px;
+    text-align: center;
+    gap: 50px;
+  }
+  .hero-left { text-align: center; }
+  .hero-date-banner { justify-content: center; }
+  .hero-exclusive { max-width: 100%; justify-content: center; text-align: left; }
+  .hero-cta-row { justify-content: center; flex-direction: column; gap: 12px; }
+  .hero-meta { justify-content: center; }
+  .hero-right { align-items: center; }
+  .conference-card { max-width: 100%; }
+  .giveaway-wrap { max-width: 100%; }
+  .giveaway-card { flex-direction: column; text-align: center; gap: 16px; }
+  .giveaway-img { width: 90px; height: 90px; }
+  .hand-arrow-wrap { display: none; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+}
+
+/* PROOF BAR */
+.proof-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+.proof-item {
+  text-align: center;
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+.proof-item:nth-child(1) { animation-delay: 0.1s; }
+.proof-item:nth-child(2) { animation-delay: 0.2s; }
+.proof-item:nth-child(3) { animation-delay: 0.3s; }
+.proof-item:nth-child(4) { animation-delay: 0.4s; }
+.proof-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: var(--pink);
+  line-height: 1;
+}
+.proof-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION DIVIDER */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  position: relative;
+  z-index: 2;
+}
+
+/* PAIN SECTION */
+.pain-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 20px;
+  text-align: center;
+}
+.pain-section .section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.pain-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1;
+}
+.pain-section h2 .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-light);
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.pain-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: left;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--pink), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.pain-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255, 60, 142, 0.2);
+  transform: translateY(-4px);
+}
+.pain-card:hover::before {
+  opacity: 1;
+}
+.pain-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.pain-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.pain-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+}
+
+/* PROGRAMME */
+.programme-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.programme-section .section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.programme-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.programme-section h2 .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-light);
+}
+.programme-sub {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 60px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--pink), rgba(255,60,142,0.1));
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 48px;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-dot {
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--pink);
+  z-index: 1;
+}
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+.timeline-time {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--pink);
+  margin-bottom: 6px;
+}
+.timeline-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.timeline-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  max-width: 500px;
+}
+
+/* SPEAKERS */
+.speakers-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 20px;
+  text-align: center;
+}
+.speakers-section .section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.speakers-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  margin-bottom: 60px;
+  line-height: 1;
+}
+.speakers-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.speaker-card {
+  width: 260px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 40px 28px 32px;
+  transition: all 0.4s ease;
+}
+.speaker-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-6px);
+  border-color: rgba(255,60,142,0.2);
+}
+.speaker-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--pink), var(--bg-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  border: 3px solid rgba(255,255,255,0.1);
+}
+.speaker-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.speaker-role {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pink-light);
+  margin-bottom: 12px;
+}
+.speaker-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+}
+
+/* FORM SECTION */
+/* HERO DATE BANNER */
+.hero-date-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255,60,142,0.12), rgba(139,92,246,0.1));
+  border: 1px solid rgba(255,60,142,0.25);
+  border-radius: 14px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  animation: fadeSlideDown 0.6s ease forwards;
+  opacity: 0;
+}
+.hdb-icon {
+  font-size: 22px;
+}
+.hdb-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.hdb-text strong {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.hdb-text span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+}
+.hdb-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pink);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.hdb-live .dot {
+  width: 6px; height: 6px;
+  background: var(--white);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+/* HERO EXCLUSIVE */
+.hero-exclusive {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.06), rgba(255,215,0,0.02));
+  border: 1px solid rgba(255,215,0,0.15);
+  border-radius: 14px;
+  max-width: 520px;
+  animation: fadeSlideDown 0.8s 0.42s ease forwards;
+  opacity: 0;
+}
+.exclusive-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.exclusive-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFD700;
+  margin-bottom: 3px;
+}
+.exclusive-text span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+/* FORM SECTION */
+.form-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 20px;
+  text-align: center;
+}
+.form-section .section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.form-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.form-section h2 .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-light);
+}
+.form-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 60px;
+}
+
+/* FORM WRAPPER — 2 COL */
+.form-wrapper {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* LEFT INFO */
+.form-info {
+  background: linear-gradient(160deg, rgba(255,60,142,0.06), rgba(139,92,246,0.04));
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: left;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.form-info-date {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.fid-cal {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.fid-cal-month {
+  background: var(--pink);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 3px 0;
+}
+.fid-cal-day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  padding: 4px 0 2px;
+  background: rgba(255,255,255,0.06);
+}
+.form-info-date > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+.form-info-date strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+.form-info-date span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+.form-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.fil-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fil-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.fil-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+.form-info-exclusive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(255,215,0,0.06);
+  border: 1px solid rgba(255,215,0,0.12);
+  border-radius: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.form-info-exclusive strong {
+  color: #FFD700;
+  font-weight: 700;
+}
+
+.form-info-testimonial {
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  margin-top: auto;
+}
+.form-info-testimonial p {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 14px;
+}
+.fit-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fit-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), #8B5CF6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.fit-author strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.fit-author span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* RIGHT FORM CARD */
+.form-card {
+  background: rgba(255,255,255,0.03);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.form-card-header {
+  margin-bottom: 28px;
+}
+.form-spots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00FF88;
+  font-weight: 600;
+  margin-bottom: 18px;
+  background: rgba(0,255,136,0.08);
+  padding: 7px 14px;
+  border-radius: 20px;
+}
+.form-spots .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00FF88;
+  animation: blink 1s infinite;
+}
+
+.countdown-wrap {
+  display: flex;
+  gap: 10px;
+}
+.countdown-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 58px;
+  text-align: center;
+}
+.countdown-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--pink);
+}
+.countdown-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 3px;
+}
+
+/* FORM FIELDS */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-group {
+  text-align: left;
+}
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.form-group label svg {
+  opacity: 0.5;
+}
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  color: var(--white);
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.form-group input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+.form-group input:focus {
+  border-color: var(--pink);
+  background: rgba(255,60,142,0.05);
+  box-shadow: 0 0 0 3px rgba(255,60,142,0.08);
+}
+.form-group .input-prefix {
+  position: relative;
+}
+.form-group .input-prefix span {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.25);
+  font-size: 14px;
+  pointer-events: none;
+}
+.form-group .input-prefix input {
+  padding-left: 32px;
+}
+.form-field-hint {
+  font-size: 10px;
+  color: rgba(255,215,0,0.5);
+  margin-top: 5px;
+  letter-spacing: 0.3px;
+}
+
+/* FORM SUBMIT */
+.form-submit {
+  width: 100%;
+  padding: 18px 24px;
+  background: var(--pink);
+  color: var(--white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 8px 30px rgba(255,60,142,0.35);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.form-submit::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+.form-submit-arrow {
+  font-size: 22px;
+  transition: transform 0.3s;
+}
+.form-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 45px rgba(255,60,142,0.5);
+}
+.form-submit:hover .form-submit-arrow {
+  transform: translateX(5px);
+}
+
+/* FORM BOTTOM */
+.form-bottom-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.form-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.3px;
+}
+.form-trust svg {
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.form-exclusive-bar {
+  margin-top: 20px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,215,0,0.7);
+  background: rgba(255,215,0,0.04);
+  border: 1px solid rgba(255,215,0,0.1);
+  border-radius: 12px;
+}
+.form-exclusive-bar strong {
+  color: #FFD700;
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    grid-template-columns: 1fr;
+    margin: 0 10px;
+  }
+  .form-info {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 24px;
+  }
+  .form-card {
+    padding: 28px 24px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .hero-date-banner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-exclusive {
+    max-width: 100%;
+  }
+}
+
+/* URGENCY BANNER */
+.urgency-section {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+  text-align: center;
+}
+.urgency-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.urgency-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 30px 28px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+.urgency-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.urgency-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.urgency-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+footer .logo-foot {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.4);
+}
+footer .logo-foot span {
+  color: var(--pink);
+}
+
+/* STICKY CTA MOBILE */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 20px;
+  background: rgba(37, 30, 175, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.sticky-cta a {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--pink);
+  color: var(--white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(255,60,142,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-badge { display: none; }
+  .proof-bar { gap: 30px; padding: 40px 20px; }
+  .proof-number { font-size: 40px; }
+  .pain-grid { grid-template-columns: 1fr; padding: 0 10px; }
+  .speakers-grid { gap: 20px; }
+  .speaker-card { width: 100%; max-width: 320px; }
+  .form-wrapper { margin: 0 10px; }
+  .urgency-grid { flex-direction: column; align-items: center; }
+  .urgency-card { width: 100%; max-width: 320px; }
+  .sticky-cta { display: block; }
+  body { padding-bottom: 80px; }
+  .timeline { padding-left: 30px; }
+}
+
+/* SCROLL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* AGENCY + CEO SECTION */
+.agency-section {
+  position: relative;
+  z-index: 2;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+.agency-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.agency-visual {
+  position: relative;
+}
+.agency-photo-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  max-width: 420px;
+  background: linear-gradient(160deg, rgba(255,60,142,0.15), rgba(37,30,175,0.4));
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.agency-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.agency-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+.agency-photo-placeholder .placeholder-icon {
+  font-size: 64px;
+  opacity: 0.15;
+}
+.agency-photo-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--pink);
+  color: var(--white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(255,60,142,0.4);
+  z-index: 2;
+  animation: float-badge 3s ease-in-out infinite;
+}
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.agency-decor-line {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(255,60,142,0.15);
+  border-radius: 24px;
+  z-index: -1;
+}
+.agency-decor-dots {
+  position: absolute;
+  bottom: 40px;
+  left: -50px;
+  display: grid;
+  grid-template-columns: repeat(4, 8px);
+  gap: 10px;
+  z-index: -1;
+}
+.agency-decor-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,60,142,0.12);
+}
+
+.agency-content {
+  padding: 20px 0;
+}
+.agency-content .section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.agency-content .section-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--pink);
+}
+.agency-content h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5.5vw, 60px);
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+.agency-content h2 .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--pink-light);
+}
+.agency-content h2 .pink {
+  color: var(--pink);
+}
+.agency-bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+.agency-bio strong {
+  color: var(--white);
+  font-weight: 600;
+}
+.agency-stats-row {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.agency-stat {
+  position: relative;
+  padding-left: 18px;
+}
+.agency-stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--pink);
+}
+.agency-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  color: var(--white);
+  line-height: 1;
+}
+.agency-stat-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+.agency-social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.agency-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+.agency-social-link:hover {
+  background: rgba(255,60,142,0.1);
+  border-color: rgba(255,60,142,0.3);
+  color: var(--white);
+}
+.agency-social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.agency-quote {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--pink);
+  border-radius: 0 16px 16px 0;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+}
+.agency-quote-author {
+  display: block;
+  margin-top: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .agency-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .agency-visual {
+    display: flex;
+    justify-content: center;
+  }
+  .agency-photo-wrap {
+    max-width: 300px;
+    aspect-ratio: 3/4;
+  }
+  .agency-photo-badge {
+    bottom: -12px;
+    right: 10px;
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+  .agency-decor-line, .agency-decor-dots { display: none; }
+  .agency-content .section-label {
+    justify-content: center;
+  }
+  .agency-stats-row {
+    justify-content: center;
+  }
+  .agency-social-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .agency-quote {
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">SCALE<span>VISION</span></div>
+  
+  <a href="#inscription" class="nav-cta">S'inscrire</a>
+</nav>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" style="margin-top: 72px;">
+  <div class="marquee-track">
+    <span>WEBINAIRE GRATUIT</span>
+    <span><em>★</em></span>
+    <span>200 PLACES LIMITÉES</span>
+    <span><em>★</em></span>
+    <span>PAS DE REPLAY</span>
+    <span><em>★</em></span>
+    <span>MÉTHODE SCALE</span>
+    <span><em>★</em></span>
+    <span>+750 000€ DE VIDÉO VENDUS EN 2025</span>
+    <span><em>★</em></span>
+    <span>WEBINAIRE GRATUIT</span>
+    <span><em>★</em></span>
+    <span>200 PLACES LIMITÉES</span>
+    <span><em>★</em></span>
+    <span>PAS DE REPLAY</span>
+    <span><em>★</em></span>
+    <span>MÉTHODE SCALE</span>
+    <span><em>★</em></span>
+    <span>+750 000€ DE VIDÉO VENDUS EN 2025</span>
+    <span><em>★</em></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <!-- DATE BANNER -->
+    <div class="hero-date-banner">
+      <div class="hdb-icon">📅</div>
+      <div class="hdb-text">
+        <strong>Dimanche 27 Mars</strong>
+        <span>20H30 — En direct</span>
+      </div>
+      <div class="hdb-live">
+        <span class="dot"></span> LIVE
+      </div>
+    </div>
+
+    <p class="hero-eyebrow">L'agence de création de contenu n°1 en France te révèle...</p>
+    <h1>
+      DU GIFTING À<br>
+      <span class="pink">10 000€</span> <span class="italic">/ mois</span>
+    </h1>
+    <p class="hero-sub">
+      Découvre la <strong>Méthode SCALE</strong> qui a permis à des créateurs comme toi d'atteindre les fameux 10 000€ <strong>7 jours</strong>
+    </p>
+
+    <!-- EXCLUSIVE BADGE -->
+    <div class="hero-exclusive">
+      <div class="exclusive-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      </div>
+      <div class="exclusive-text">
+        <strong>Accès exclusif — 3 000 abonnés minimum requis</strong>
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#inscription" class="hero-cta">
+        JE RÉSERVE MA PLACE
+        <span class="arrow">→</span>
+      </a>
+      <div class="hero-spots-left">
+        <em>●</em> Plus que<br><strong>200 places</strong>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="icon">🎯</span> Gratuit
+      </div>
+      <div class="hero-meta-item">
+        <span class="icon">🚫</span> Pas de replay
+      </div>
+      <div class="hero-meta-item">
+        <span class="icon">🎁</span> Lot à gagner
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- CONFERENCE VISUAL CARD -->
+    <div class="conference-card">
+      <div class="conference-header">
+        <div class="conference-label">📡 Webinaire Live</div>
+        <div class="conference-date-badge">DIM. 27 MARS — 20H30</div>
+      </div>
+      <div class="conference-title">
+        LA MÉTHODE <span class="pink">SCALE</span><br>
+        POUR CRÉATEURS DE CONTENU
+      </div>
+      <div class="speakers-row">
+        <div class="speakers-avatars">
+          <div class="s-avatar s-avatar-1">C</div>
+          <div class="s-avatar s-avatar-2">T</div>
+          <div class="s-avatar s-avatar-3">E</div>
+        </div>
+        <div class="speakers-info">
+          <strong>3 intervenants experts</strong>
+          Constantin (CEO) + 2 experts du game
+        </div>
+      </div>
+      <div class="conference-meta">
+        <div class="conf-meta-item">
+          <div class="conf-meta-icon">⏱</div>
+          <div class="conf-meta-text"><strong>1H30</strong>De contenu brut</div>
+        </div>
+        <div class="conf-meta-item">
+          <div class="conf-meta-icon">🔒</div>
+          <div class="conf-meta-text"><strong>200 max</strong>Places limitées</div>
+        </div>
+        <div class="conf-meta-item">
+          <div class="conf-meta-icon">💰</div>
+          <div class="conf-meta-text"><strong>Gratuit</strong>0€, zéro piège</div>
+        </div>
+        <div class="conf-meta-item">
+          <div class="conf-meta-icon">⚡</div>
+          <div class="conf-meta-text"><strong>Actionnable</strong>Résultats en 24h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIVEAWAY -->
+    <div class="giveaway-wrap">
+      <div class="giveaway-arrow">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4 L20 32" stroke="var(--pink)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M10 24 L20 34 L30 24" stroke="var(--pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="giveaway-card">
+        <div class="giveaway-img">
+          <!-- Replace with actual Osmo Pocket 3 product image -->
+          <div class="giveaway-img-placeholder">📷</div>
+          <div class="giveaway-sparkle">✦</div>
+        </div>
+        <div class="giveaway-content">
+          <div class="giveaway-tag"><span class="star">✦</span> CADEAU EXCLUSIF — TIRAGE LIVE</div>
+          <div class="giveaway-name">DJI OSMO <span class="pink">POCKET 3</span> À GAGNER</div>
+          <div class="giveaway-desc">
+            Une caméra à <strong>549€</strong> offerte en live à un participant du webinaire. Inscris-toi pour tenter ta chance.
+          </div>
+        </div>
+        <!-- HAND DRAWN ARROW -->
+        <div class="hand-arrow-wrap">
+          <div class="hand-arrow-label">À gagner ce soir !</div>
+          <svg width="70" height="60" viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M65 5 C55 8, 35 12, 20 25 C12 32, 8 42, 12 52" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 3"/>
+            <path d="M6 46 L12 54 L18 47" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="divider"></div>
+<div class="proof-bar">
+  <div class="proof-item">
+    <div class="proof-number">750K€+</div>
+    <div class="proof-label">De vidéo vendus en 2025</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-number">#1</div>
+    <div class="proof-label">Agence influence FR</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-number">7</div>
+    <div class="proof-label">Jours pour tes 1ers contrats</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-number">3</div>
+    <div class="proof-label">Experts en live</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- AGENCY + CEO -->
+<section class="agency-section">
+  <div class="agency-inner reveal">
+    <div class="agency-visual">
+      <div class="agency-decor-line"></div>
+      <div class="agency-photo-wrap">
+        <!-- Replace src below with Constantin's actual photo -->
+        <div class="agency-photo-placeholder" id="ceo-photo-placeholder">
+          <div class="placeholder-icon">📸</div>
+          <span>Photo de Constantin</span>
+          <span style="font-size:10px;opacity:0.5;">Remplacer par l'image réelle</span>
+        </div>
+      </div>
+      <div class="agency-photo-badge">CEO — SCALEVISION</div>
+      <div class="agency-decor-dots">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="agency-content">
+      <div class="section-label">Ton hôte ce soir</div>
+      <h2>CONSTANTIN<br><span class="italic">Fondateur de</span> <span class="pink">SCALEVISION</span></h2>
+      <p class="agency-bio">
+        À 26 ans, Constantin a bâti <strong>l'agence de création de contenu et d'influence #1 en France</strong>. Parti de zéro, il a construit un écosystème qui a généré <strong>+750 000€ de vidéo vendus rien qu'en 2025</strong>.<br><br>
+        Sa mission ? Permettre à chaque créateur — même avec 3 000 abonnés — de <strong>transformer son contenu en business rentable</strong>. Avec la Méthode SCALE, ses créateurs signent leurs premiers contrats en <strong>moins de 7 jours</strong> et construisent un revenu récurrent qui change leur vie.
+      </p>
+      <div class="agency-stats-row">
+        <div class="agency-stat">
+          <div class="agency-stat-num">750K€+</div>
+          <div class="agency-stat-label">Vendus en 2025</div>
+        </div>
+        <div class="agency-stat">
+          <div class="agency-stat-num">#1</div>
+          <div class="agency-stat-label">Agence FR</div>
+        </div>
+        <div class="agency-stat">
+          <div class="agency-stat-num">200+</div>
+          <div class="agency-stat-label">Créateurs accompagnés</div>
+        </div>
+      </div>
+      <div class="agency-social-row">
+        <a href="#" class="agency-social-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @scalevision
+        </a>
+        <a href="#" class="agency-social-link">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.28 6.28 0 00-6.28 6.28 6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.28-6.28V8.69a8.2 8.2 0 004.82 1.56V6.82a4.84 4.84 0 01-1-.13z"/></svg>
+          @scalevision
+        </a>
+      </div>
+      <div class="agency-quote">
+        "Chaque créateur mérite de vivre de sa passion. Le problème, ce n'est pas ton audience — c'est ta méthode. Ce webinaire va changer ta vision du game."
+        <span class="agency-quote-author">— Constantin, CEO Scalevision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAIN SECTION -->
+<section class="pain-section">
+  <div class="reveal">
+    <div class="section-label">Tu te reconnais ?</div>
+    <h2>TU CRÉES DU CONTENU<br>MAIS TU NE GAGNES <span class="italic">rien</span></h2>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <div class="pain-icon">😤</div>
+      <h3>FRUSTRÉ PAR LE GIFTING</h3>
+      <p>Tu reçois des produits gratuits mais tu ne sais pas comment transformer ça en vrais revenus. Tu mérites mieux que des colis.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">📉</div>
+      <h3>AUCUNE IDÉE DES PRIX</h3>
+      <p>Tu ne sais pas combien facturer, tu as peur de perdre des deals, et au final tu bosses gratuitement ou presque.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">🔄</div>
+      <h3>ZÉRO RÉCURRENCE</h3>
+      <p>Pas de contrats réguliers, pas de visibilité financière. Chaque mois tu repars de zéro sans savoir comment payer tes factures.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">🤷</div>
+      <h3>PAS DE MÉTHODE</h3>
+      <p>Tu postes, tu crées, tu galères. Mais personne ne t'a jamais appris à transformer ton audience en business.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">👻</div>
+      <h3>LES MARQUES T'IGNORENT</h3>
+      <p>Tu envoies des DMs, des mails, mais tu n'as aucune réponse. Tu ne sais pas comment capter l'attention des décideurs.</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">🧠</div>
+      <h3>SYNDROME DE L'IMPOSTEUR</h3>
+      <p>Tu penses qu'avec 3K, 10K ou 20K abonnés tu es "trop petit". Faux. Tu as déjà tout ce qu'il faut pour vivre de ton contenu.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROGRAMME -->
+<section class="programme-section">
+  <div class="reveal">
+    <div class="section-label">Programme du webinaire</div>
+    <h2>1H30 POUR TOUT <span class="italic">changer</span></h2>
+    <p class="programme-sub">Ce que tu vas apprendre pendant ce live exclusif</p>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">00:00 — 00:15</div>
+      <div class="timeline-title">LA RÉALITÉ DU MARCHÉ</div>
+      <div class="timeline-desc">Pourquoi 95% des créateurs ne gagnent rien et comment faire partie des 5% qui vivent de leur contenu. Les chiffres qui vont te choquer.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">00:15 — 00:35</div>
+      <div class="timeline-title">LA MÉTHODE SCALE RÉVÉLÉE</div>
+      <div class="timeline-desc">Le framework exact utilisé par notre agence pour vendre +750 000€ de vidéo en 2025. Comment l'adapter à ton profil, même avec moins de 10K abonnés.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">00:35 — 00:55</div>
+      <div class="timeline-title">GÉNÉRER TES PREMIERS CONTRATS EN 24H</div>
+      <div class="timeline-desc">Les templates de DMs et d'emails qui convertissent. Comment approcher les marques, fixer tes prix et closer un deal sans expérience.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">00:55 — 01:15</div>
+      <div class="timeline-title">CRÉER DU CONTENU QUI VEND</div>
+      <div class="timeline-desc">La différence entre un contenu qui fait des vues et un contenu qui fait de l'argent. Les formats, hooks et structures qui déclenchent des deals.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-time">01:15 — 01:30</div>
+      <div class="timeline-title">Q&A LIVE + BONUS EXCLUSIFS</div>
+      <div class="timeline-desc">Tes questions en direct avec nos 3 experts. Des surprises et ressources offertes uniquement aux participants du live.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPEAKERS -->
+<section class="speakers-section">
+  <div class="reveal">
+    <div class="section-label">Tes intervenants</div>
+    <h2>3 EXPERTS DU GAME</h2>
+  </div>
+  <div class="speakers-grid reveal">
+    <div class="speaker-card" style="border-color: rgba(255,60,142,0.2); background: rgba(255,60,142,0.04);">
+      <div class="speaker-avatar" style="border-color: var(--pink); background: linear-gradient(135deg, var(--pink), #FF6BA8);">C</div>
+      <div class="speaker-name">CONSTANTIN</div>
+      <div class="speaker-role">CEO & Fondateur — Scalevision</div>
+      <div class="speaker-desc">L'architecte de la Méthode SCALE. +750K€ de vidéo vendus en 2025 avec son agence #1 en France.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-avatar">DIR</div>
+      <div class="speaker-name">HEAD OF TALENT</div>
+      <div class="speaker-role">Directeur Talents</div>
+      <div class="speaker-desc">Il gère les carrières de dizaines de créateurs et sait exactement comment scaler de 0 à 10K/mois.</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-avatar">PRO</div>
+      <div class="speaker-name">EXPERT CONTENU</div>
+      <div class="speaker-role">Directeur Créatif</div>
+      <div class="speaker-desc">Le cerveau créatif derrière les vidéos qui génèrent des millions de vues ET des deals à 5 chiffres.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- URGENCY -->
+<section class="urgency-section">
+  <div class="urgency-grid reveal">
+    <div class="urgency-card">
+      <div class="urgency-icon">🚫</div>
+      <div class="urgency-title">PAS DE REPLAY</div>
+      <div class="urgency-desc">Ce contenu ne sera disponible qu'en live. Si tu rates, c'est fini.</div>
+    </div>
+    <div class="urgency-card">
+      <div class="urgency-icon">🎟️</div>
+      <div class="urgency-title">200 PLACES MAX</div>
+      <div class="urgency-desc">Les places partent vite. Inscris-toi maintenant pour garantir la tienne.</div>
+    </div>
+    <div class="urgency-card">
+      <div class="urgency-icon">💰</div>
+      <div class="urgency-title">100% GRATUIT</div>
+      <div class="urgency-desc">Normalement on facture ça des milliers d'euros. Ce soir c'est offert.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSCRIPTION FORM -->
+<section class="form-section" id="inscription">
+  <div class="reveal">
+    <div class="section-label">Dernière étape</div>
+    <h2>RÉSERVE TA PLACE<br><span class="italic">maintenant</span></h2>
+    <p class="form-sub">Dimanche 27 Mars à 20H30 — Rejoins les 200 créateurs qui vont transformer leur game</p>
+  </div>
+
+  <div class="form-wrapper reveal">
+    <!-- LEFT: INFO COLUMN -->
+    <div class="form-info">
+      <div class="form-info-date">
+        <div class="fid-cal">
+          <div class="fid-cal-month">MAR</div>
+          <div class="fid-cal-day">27</div>
+        </div>
+        <div>
+          <strong>Dimanche 27 Mars</strong>
+          <span>20H30 — Live Zoom</span>
+        </div>
+      </div>
+
+      <div class="form-info-list">
+        <div class="fil-item">
+          <div class="fil-icon">✅</div>
+          <div class="fil-text">1H30 de stratégies actionnables</div>
+        </div>
+        <div class="fil-item">
+          <div class="fil-icon">✅</div>
+          <div class="fil-text">3 experts du game en direct</div>
+        </div>
+        <div class="fil-item">
+          <div class="fil-icon">✅</div>
+          <div class="fil-text">Méthode SCALE révélée</div>
+        </div>
+        <div class="fil-item">
+          <div class="fil-icon">✅</div>
+          <div class="fil-text">Templates & ressources offerts</div>
+        </div>
+        <div class="fil-item">
+          <div class="fil-icon">🎁</div>
+          <div class="fil-text">DJI Osmo Pocket 3 à gagner</div>
+        </div>
+      </div>
+
+      <div class="form-info-exclusive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <span>Réservé aux créateurs avec <strong>3 000+ abonnés</strong></span>
+      </div>
+
+      <div class="form-info-testimonial">
+        <p>"J'ai signé mon premier contrat à 2 500€ une semaine après avoir appliqué la méthode. Game changer."</p>
+        <div class="fit-author">
+          <div class="fit-avatar">L</div>
+          <div><strong>Léa M.</strong><span>12K abonnés</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-spots">
+          <span class="dot"></span>
+          Places limitées — Inscris-toi vite
+        </div>
+        <div class="countdown-wrap" id="countdown">
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-days">00</div>
+            <div class="countdown-label">Jours</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-hours">00</div>
+            <div class="countdown-label">Heures</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-mins">00</div>
+            <div class="countdown-label">Min</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-secs">00</div>
+            <div class="countdown-label">Sec</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-fields">
+        <div class="form-row">
+          <div class="form-group">
+            <label>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Prénom
+            </label>
+            <input type="text" placeholder="Ton prénom">
+          </div>
+          <div class="form-group">
+            <label>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+              Email
+            </label>
+            <input type="email" placeholder="ton@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </label>
+          <div class="input-prefix">
+            <span>@</span>
+            <input type="text" placeholder="ton_compte">
+          </div>
+          <div class="form-field-hint">Nous vérifions que tu as bien 3 000+ abonnés</div>
+        </div>
+        <div class="form-group">
+          <label>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Téléphone
+          </label>
+          <input type="tel" placeholder="+33 6 00 00 00 00">
+        </div>
+      </div>
+
+      <button class="form-submit" onclick="handleSubmit()">
+        <span class="form-submit-text">JE RÉSERVE MA PLACE GRATUITEMENT</span>
+        <span class="form-submit-arrow">→</span>
+      </button>
+
+      <div class="form-bottom-row">
+        <div class="form-trust">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Données protégées — Zéro spam
+        </div>
+        <div class="form-trust">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Confirmation instantanée
+        </div>
+      </div>
+
+      <div class="form-exclusive-bar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Accès exclusif — <strong>3 000 abonnés minimum requis</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-foot">SCALE<span>VISION</span></div>
+  <p>© 2025 Scalevision — Agence d'influence #1 en France</p>
+</footer>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta">
+  <a href="#inscription">JE RÉSERVE MA PLACE →</a>
+</div>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const observerOpts = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOpts);
+reveals.forEach(r => observer.observe(r));
+
+// COUNTDOWN — Dimanche 27 Mars 2026 à 20H30
+const targetDate = new Date('2026-03-27T20:30:00');
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
+  if (diff <= 0) return;
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// FORM SUBMIT
+function handleSubmit() {
+  const inputs = document.querySelectorAll('.form-group input');
+  let allFilled = true;
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      allFilled = false;
+      input.style.borderColor = 'rgba(255,60,142,0.6)';
+      input.style.animation = 'shake 0.4s ease';
+      setTimeout(() => {
+        input.style.animation = '';
+        input.style.borderColor = '';
+      }, 600);
+    }
+  });
+
+  if (allFilled) {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = '✓ PLACE RÉSERVÉE !';
+    btn.style.background = '#00CC6A';
+    btn.style.boxShadow = '0 8px 30px rgba(0,204,106,0.35)';
+    btn.disabled = true;
+
+    // Confetti effect
+    for (let i = 0; i < 30; i++) {
+      const confetti = document.createElement('div');
+      confetti.style.cssText = `
+        position: fixed;
+        width: ${Math.random() * 8 + 4}px;
+        height: ${Math.random() * 8 + 4}px;
+        background: ${['#FF3C8E', '#FFFFFF', '#251EAF', '#00FF88', '#FFD700'][Math.floor(Math.random()*5)]};
+        top: ${btn.getBoundingClientRect().top}px;
+        left: ${btn.getBoundingClientRect().left + Math.random() * btn.offsetWidth}px;
+        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+        pointer-events: none;
+        z-index: 10000;
+        animation: confettiFall ${Math.random() * 1.5 + 1}s ease-out forwards;
+      `;
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 2500);
+    }
+  }
+}
+
+// Add confetti + shake keyframes
+const style = document.createElement('style');
+style.textContent = `
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translateY(-300px) translateX(${Math.random() > 0.5 ? '' : '-'}${Math.random()*150}px) rotate(${Math.random()*720}deg) scale(0.3); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+`;
+document.head.appendChild(style);
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href="#inscription"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('inscription').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>

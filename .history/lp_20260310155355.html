@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinaire Scalevision</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
+
+        :root {
+            --bg-blue: #251eaf;
+            --accent-pink: #ff69a7;
+            --text-white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, .lp-container {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-blue);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .lp-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 105, 167, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 105, 167, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 105, 167, 0); }
+        }
+
+        .animate-up {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-pink);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-pink);
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-pink);
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulseGlow 2s infinite;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        h1 .highlight {
+            color: var(--accent-pink);
+            position: relative;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* --- SOCIAL PROOF & STATS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 105, 167, 0.3);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent-pink);
+            margin-bottom: 8px;
+        }
+
+        .stat-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* --- LAYOUT CONTENT + FORM --- */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Program Section */
+        .program-box {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--accent-pink);
+        }
+
+        .program-list {
+            list-style: none;
+        }
+
+        .program-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .program-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-pink);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .speakers {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .speaker-avatars {
+            display: flex;
+        }
+
+        .speaker-avatars img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-blue);
+            margin-left: -15px;
+            background: #fff;
+        }
+        .speaker-avatars img:first-child { margin-left: 0; }
+
+        .speaker-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .speaker-text strong {
+            color: #fff;
+        }
+
+        /* --- FORM SECTION --- */
+        .form-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 105, 167, 0.3);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .form-box::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--accent-pink);
+            filter: blur(80px);
+            z-master: -1;
+            opacity: 0.5;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .urgency {
+            font-size: 14px;
+            color: var(--accent-pink);
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(255, 105, 167, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            border-radius: 16px;
+            background: var(--accent-pink);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 105, 167, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(255, 105, 167, 0.4);
+            background: #ff529a;
+        }
+
+        .disclaimer {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 15px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            h1 { font-size: 32px; }
+            .hero { padding: 40px 0 20px; }
+            .program-box, .form-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="lp-container">
+    
+    <div class="hero animate-up">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Événement Live • 200 Places Limitées
+        </div>
+        <h1>
+            Créateurs : Arrêtez le "gifting". <br>
+            Passez à <span class="highlight">10 000€/mois</span> en 90 jours.
+        </h1>
+        <p class="subtitle delay-1 animate-up">
+            Vous avez entre 3 000 et 20 000 abonnés, mais vous ne gagnez pas (ou peu) d'argent ? Découvrez la <strong>Méthode SCALE</strong> pour transformer votre audience en clients récurrents.
+        </p>
+    </div>
+
+    <div class="stats-grid animate-up delay-2">
+        <div class="stat-card">
+            <div class="stat-number">N°1</div>
+            <div class="stat-text">Agence d'Influence & Contenu en France</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">+750k€</div>
+            <div class="stat-text">De vidéos vendues sur l'année 2025</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">24H</div>
+            <div class="stat-text">Pour générer vos premiers contrats avec SCALE</div>
+        </div>
+    </div>
+
+    <div class="main-content animate-up delay-3">
+        
+        <div class="program-box">
+            <h2>Au programme de cette Masterclass (1h30)</h2>
+            <ul class="program-list">
+                <li><strong>Le Mindset Shift :</strong> Pourquoi vos abonnés ne suffisent pas et comment créer des offres irrésistibles.</li>
+                <li><strong>La Méthode SCALE :</strong> Le système exact qui a permis à nos créateurs de signer des contrats en 7 jours.</li>
+                <li><strong>Créer du contenu qui VEND :</strong> Fini les vidéos qui font juste des vues. Apprenez la structure d'une vidéo qui convertit.</li>
+                <li><strong>Trouver et Closer :</strong> Les stratégies d'acquisition pour générer vos premiers clients sous 24h et les fidéliser (revenus récurrents).</li>
+            </ul>
+
+            <div class="speakers">
+                <div class="speaker-avatars">
+                    <img src="https://ui-avatars.com/api/?name=CEO&background=ff69a7&color=fff" alt="CEO Scalevision">
+                    <img src="https://ui-avatars.com/api/?name=Exp+1&background=random" alt="Expert 1">
+                    <img src="https://ui-avatars.com/api/?name=Exp+2&background=random" alt="Expert 2">
+                </div>
+                <div class="speaker-text">
+                    Animé par le <strong>CEO de Scalevision</strong> et <br> 2 experts en monétisation de contenu.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-box animate-up delay-4">
+            <div class="form-header">
+                <h3>Réserver ma place</h3>
+                <p class="urgency">GRATUIT • SANS REPLAY</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" name="first_name" placeholder="Votre prénom" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Votre adresse email" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="instagram" placeholder="Votre @Instagram" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Je m'inscris au webinaire</button>
+                <p class="disclaimer">Vos informations sont sécurisées. En vous inscrivant, vous acceptez de recevoir nos communications.</p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
