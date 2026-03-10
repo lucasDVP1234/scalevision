@@ -215,8 +215,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 footer{position:relative;z-index:2;text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,0.06)}
 footer p{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px}
 footer .logo-foot{font-family:var(--font-display);font-size:20px;letter-spacing:3px;margin-bottom:8px;color:rgba(255,255,255,0.4)}footer .logo-foot span{color:var(--pink)}
-.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;padding:14px 20px;background:rgba(37,30,175,0.95);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.08);text-align:center}
-.sticky-cta a{display:block;width:100%;padding:16px;background:var(--pink);color:var(--white);font-family:var(--font-display);font-size:18px;letter-spacing:3px;border-radius:14px;text-decoration:none;box-shadow:0 6px 20px rgba(255,60,142,0.4)}
+.sticky-cta{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;text-align:center;pointer-events:none;transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.sticky-cta.visible{pointer-events:auto;animation:stickyFloatIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+.sticky-cta a{display:inline-block;padding:18px 36px;background:var(--pink);color:var(--white);font-family:var(--font-display);font-size:16px;letter-spacing:2.5px;text-transform:uppercase;border-radius:999px;text-decoration:none;border:none;box-shadow:0 12px 40px rgba(255,60,142,0.45),0 4px 20px rgba(0,0,0,0.2);transition:transform .3s ease,box-shadow .3s ease;white-space:nowrap}
+.sticky-cta a:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 50px rgba(255,60,142,0.5),0 8px 24px rgba(0,0,0,0.25)}
+@keyframes stickyFloatIn{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
 .reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){.hero{padding:40px 16px 50px;min-height:auto}.hero h1{font-size:clamp(46px,12vw,80px)}.hero-hosts{gap:20px}.hero-host-info{text-align:left}.hero-giveaway{flex-direction:column;text-align:center;align-items:center}}
