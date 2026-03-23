@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCALEVISION — Finalise ton inscription</title>
+<title>SCALEVISION — Ta place est réservée ! Finalise ton inscription</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2290938654583850');
+fbq('track', 'PageView');
+fbq('track', 'LeadOptinWebi');
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -13,8 +32,8 @@
   --pink: #FF3C8E;
   --pink-light: #FF6BA8;
   --pink-glow: rgba(255,60,142,0.3);
-  --gold: #FFCE54;
-  --green: #00E87B;
+  --gold: #FFD700;
+  --green: #00FF88;
   --purple: #8B5CF6;
   --orange: #FF8C42;
   --font-body: BlinkMacSystemFont, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -34,302 +53,443 @@ body::before {
 }
 
 /* ORBS */
-.orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, var(--pink-glow), transparent 70%); top: -100px; right: -100px; animation: f1 12s ease-in-out infinite; }
-.orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(100,80,255,0.2), transparent 70%); bottom: 10%; left: -100px; animation: f2 15s ease-in-out infinite; }
+.orb { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+.orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, var(--pink-glow), transparent 70%); top: -150px; right: -150px; animation: f1 12s ease-in-out infinite; }
+.orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,80,255,0.2), transparent 70%); bottom: 5%; left: -150px; animation: f2 16s ease-in-out infinite; }
+.orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(255,215,0,0.07), transparent 70%); top: 45%; left: 40%; animation: f3 10s ease-in-out infinite; }
 @keyframes f1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-60px,40px) scale(1.1)} }
 @keyframes f2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(50px,-30px) scale(1.15)} }
+@keyframes f3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-30px,50px) scale(.9)} }
 
-/* ═══ ALERT BANNER ═══ */
-.alert-banner {
-  position: relative; z-index: 10;
-  background: linear-gradient(135deg, var(--pink), var(--pink));
-  padding: 14px 24px; text-align: center;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  flex-wrap: wrap;
+/* ═══ MARQUEE ═══ */
+.marquee-wrap {
+  position: relative; z-index: 10; overflow: hidden;
+  padding: 11px 0; background: rgba(255,60,142,0.06);
+  border-bottom: 1px solid rgba(255,60,142,0.18);
 }
-.ab-icon {
-  width: 26px; height: 26px; border-radius: 50%;
-  background: rgba(0,0,0,0.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; flex-shrink: 0;
-  animation: pulse-a 1.5s ease-in-out infinite;
+.marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.marquee-track span {
+  font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.45); white-space: nowrap; padding: 0 28px;
 }
-@keyframes pulse-a { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
-.ab-text { font-size: 14px; font-weight: 700; }
-.ab-steps {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(0,0,0,0.15); padding: 4px 14px; border-radius: 20px;
-  font-size: 11px; font-weight: 800; letter-spacing: 1px;
+.marquee-track span em { font-style: normal; color: var(--pink); }
+.marquee-track span.hl { color: var(--gold); }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ═══ CONFETTI ═══ */
+.confetti-wrap { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.cf { position: absolute; width: 8px; height: 8px; opacity: 0; animation: cf-fall linear forwards; }
+@keyframes cf-fall {
+  0%   { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
 }
 
 /* ═══ HEADER ═══ */
 .page-header {
   position: relative; z-index: 2;
-  text-align: center; padding: 50px 24px 30px;
-  max-width: 660px; margin: 0 auto;
+  text-align: center; padding: 56px 24px 20px;
+  max-width: 680px; margin: 0 auto;
 }
-.check-circle {
-  width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 18px;
-  background: rgba(0,232,123,0.1); border: 2px solid rgba(0,232,123,0.3);
+.check-anim {
+  width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 22px;
+  background: radial-gradient(circle, rgba(0,255,136,0.12), rgba(0,255,136,0.04));
+  border: 2px solid rgba(0,255,136,0.35);
   display: flex; align-items: center; justify-content: center;
-  font-size: 26px; animation: fadeUp .6s ease forwards; opacity: 0;
+  font-size: 30px; animation: popIn .5s cubic-bezier(.2,1.4,.5,1) forwards; opacity: 0;
+  box-shadow: 0 0 40px rgba(0,255,136,0.12);
 }
+@keyframes popIn { 0%{opacity:0;transform:scale(.5)} 100%{opacity:1;transform:scale(1)} }
+
 .page-header h1 {
-  font-family: var(--font-display); font-size: clamp(34px, 7vw, 52px);
-  line-height: .92; margin-bottom: 12px;
+  font-family: var(--font-display); font-size: clamp(42px, 9vw, 72px);
+  line-height: .9; margin-bottom: 14px;
   animation: fadeUp .6s .1s ease forwards; opacity: 0;
 }
 .page-header h1 .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--pink-light); }
 .page-header h1 .green { color: var(--green); }
 .page-header p {
-  font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6;
-  max-width: 460px; margin: 0 auto;
+  font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65;
+  max-width: 500px; margin: 0 auto 16px;
   animation: fadeUp .6s .2s ease forwards; opacity: 0;
 }
 .page-header p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
 
+/* Date badge */
+.date-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px; border-radius: 999px;
+  background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.2);
+  font-size: 12px; font-weight: 600; color: rgba(255,215,0,0.85);
+  animation: fadeUp .6s .25s ease forwards; opacity: 0;
+  margin-bottom: 10px;
+}
+.date-badge .dot-live {
+  width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+  animation: blink 1.2s infinite; flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+/* ═══ URGENCE ═══ */
+.urgence-bar {
+  position: relative; z-index: 10;
+  background: linear-gradient(135deg, var(--pink), #c0185e);
+  padding: 12px 24px; text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  flex-wrap: wrap;
+}
+.ub-icon { font-size: 16px; animation: pulse-a 1.5s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulse-a { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
+.ub-text { font-size: 13px; font-weight: 700; }
+.ub-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(0,0,0,0.18); padding: 4px 12px; border-radius: 20px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1.2px;
+}
+
 /* ═══ PROGRESS ═══ */
 .progress-wrap {
-  max-width: 460px; margin: 24px auto 0; padding: 0 24px;
-  animation: fadeUp .6s .25s ease forwards; opacity: 0;
+  max-width: 500px; margin: 24px auto 0; padding: 0 24px;
+  animation: fadeUp .6s .28s ease forwards; opacity: 0;
 }
-.progress-bg { width: 100%; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.06); overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--pink)); width: 100%; transition: width .6s; }
-.progress-labels {
-  display: flex; justify-content: space-between; margin-top: 6px;
-  font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+.progress-track { width: 100%; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.07); overflow: hidden; position: relative; }
+.progress-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--green), var(--pink));
+  width: 100%; position: relative;
 }
+.progress-fill::after {
+  content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--pink); box-shadow: 0 0 10px rgba(255,60,142,0.6);
+}
+.progress-steps {
+  display: flex; justify-content: space-between; margin-top: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+}
+.ps { color: rgba(255,255,255,0.28); display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.ps .dot-step { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+.ps.done { color: var(--green); }
+.ps.done .dot-step { background: var(--green); box-shadow: 0 0 8px rgba(0,255,136,0.5); }
 
 /* ═══ STEPS ═══ */
-.steps {
-  max-width: 680px; margin: 40px auto 0; padding: 0 24px;
-  display: flex; flex-direction: column; gap: 18px;
-}
+.steps { max-width: 700px; margin: 44px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
 
 .step {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.025);
   border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 24px; overflow: hidden;
-  opacity: 0; transform: translateY(24px);
-  transition: opacity .5s, transform .5s;
+  border-radius: 28px; overflow: hidden;
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .5s, transform .5s, border-color .3s;
 }
 .step.visible { opacity: 1; transform: translateY(0); }
 .step:hover { border-color: rgba(255,255,255,0.1); }
 
 .step-head {
-  display: flex; align-items: center; gap: 14px;
-  padding: 22px 24px 0;
+  display: flex; align-items: center; gap: 16px;
+  padding: 24px 26px 0;
 }
 .step-num {
-  width: 42px; height: 42px; border-radius: 14px; flex-shrink: 0;
+  width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 18px; letter-spacing: 1px;
+  font-family: var(--font-display); font-size: 20px; letter-spacing: 1px;
 }
-.sn-1 { background: rgba(255,60,142,0.1); border: 1px solid rgba(255,60,142,0.2); color: var(--pink); }
-.sn-2 { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); color: var(--purple); }
-.sn-3 { background: rgba(0,232,123,0.1); border: 1px solid rgba(0,232,123,0.2); color: var(--green); }
+.sn-1 { background: rgba(255,60,142,0.12); border: 1px solid rgba(255,60,142,0.25); color: var(--pink); }
+.sn-2 { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); color: var(--purple); }
+.sn-3 { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); color: var(--green); }
+
 .step-head-info { flex: 1; }
-.step-head-title { font-family: var(--font-display); font-size: 20px; letter-spacing: 1px; }
-.step-head-sub { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.step-head-title { font-family: var(--font-display); font-size: 21px; letter-spacing: 1.2px; line-height: 1; }
+.step-head-sub { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
 
-.step-body { padding: 20px 24px 24px; }
-.step-line { height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 20px; }
-
-/* ─── STEP 1: VIDEO ─── */
-.vid-wrap {
-  border-radius: 18px; overflow: hidden;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
+.step-badge {
+  padding: 5px 12px; border-radius: 20px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  white-space: nowrap; flex-shrink: 0;
 }
-.vid-placeholder {
+.sb-pink { background: rgba(255,60,142,0.1); border: 1px solid rgba(255,60,142,0.2); color: var(--pink); }
+.sb-purple { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); color: var(--purple); }
+.sb-green { background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2); color: var(--green); }
+
+.step-body { padding: 22px 26px 28px; }
+.step-sep { height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 22px; }
+
+/* ─── STEP 1 : VIDEO ─── */
+.vid-wrap { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+.vid-inner {
   aspect-ratio: 16/9; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px;
-  background: linear-gradient(160deg, rgba(255,60,142,0.06), rgba(26,21,128,0.5));
-  cursor: pointer; transition: all .3s;
+  align-items: center; justify-content: center; gap: 16px;
+  background: linear-gradient(160deg, rgba(255,60,142,0.07), rgba(26,21,128,0.6));
+  cursor: pointer; transition: all .35s; position: relative; overflow: hidden;
 }
-.vid-placeholder:hover { background: linear-gradient(160deg, rgba(255,60,142,0.1), rgba(26,21,128,0.5)); }
+.vid-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  transform: translateX(-100%); animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{transform:translateX(-100%)} 60%,100%{transform:translateX(100%)} }
+.vid-inner:hover { background: linear-gradient(160deg, rgba(255,60,142,0.12), rgba(26,21,128,0.6)); }
 .vid-play {
-  width: 68px; height: 68px; border-radius: 50%;
+  width: 74px; height: 74px; border-radius: 50%;
   background: var(--pink); display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 10px 40px rgba(255,60,142,0.4); transition: all .3s;
+  box-shadow: 0 12px 45px rgba(255,60,142,0.45);
+  transition: all .35s cubic-bezier(.2,.8,.2,1);
+  animation: pulse-play 2.5s ease-in-out infinite;
 }
-.vid-placeholder:hover .vid-play { transform: scale(1.1); box-shadow: 0 14px 50px rgba(255,60,142,0.5); }
-.vid-play svg { margin-left: 3px; }
-.vid-label { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; }
-.vid-hint {
-  display: flex; align-items: flex-start; gap: 10px; padding: 14px 18px;
-  background: rgba(255,206,84,0.04); border-top: 1px solid rgba(255,255,255,0.04);
-  font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5;
-}
-.vid-hint strong { color: var(--gold); font-weight: 600; }
-.vid-hint-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+@keyframes pulse-play { 0%,100%{box-shadow:0 12px 45px rgba(255,60,142,0.45)} 50%{box-shadow:0 16px 60px rgba(255,60,142,0.65)} }
+.vid-inner:hover .vid-play { transform: scale(1.1); animation: none; box-shadow: 0 18px 60px rgba(255,60,142,0.6); }
+.vid-play svg { margin-left: 4px; }
+.vid-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; }
+.vid-duration { font-size: 11px; color: rgba(255,255,255,0.28); }
 
-/* ─── STEP 2: SHARE ─── */
-.share-list { display: flex; flex-direction: column; gap: 12px; }
-.share-item {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 14px 16px; background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05); border-radius: 14px;
-  transition: all .3s;
+.vid-hint {
+  display: flex; align-items: flex-start; gap: 12px; padding: 15px 18px;
+  background: rgba(255,215,0,0.04); border-top: 1px solid rgba(255,255,255,0.05);
 }
-.share-item:hover { border-color: rgba(139,92,246,0.15); background: rgba(255,255,255,0.03); }
-.si-letter {
-  width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
-  background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.15);
+.vh-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.vh-text { font-size: 12px; color: rgba(255,255,255,0.42); line-height: 1.55; }
+.vh-text strong { color: var(--gold); font-weight: 700; }
+
+/* ─── STEP 2 : PARTAGE ─── */
+.share-cards { display: flex; flex-direction: column; gap: 12px; }
+.share-card {
+  display: flex; align-items: flex-start; gap: 14px; padding: 15px 18px;
+  background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px; transition: all .3s;
+}
+.share-card:hover { border-color: rgba(139,92,246,0.18); background: rgba(255,255,255,0.04); }
+.sc-letter {
+  width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+  background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.2);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 13px; color: var(--purple);
+  font-family: var(--font-display); font-size: 14px; color: var(--purple);
 }
-.si-content { flex: 1; }
-.si-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.si-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
-.si-desc strong { color: var(--white); }
+.sc-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.sc-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+.sc-desc strong { color: rgba(255,255,255,0.75); }
 
 .copy-bar {
-  display: flex; align-items: center; margin-top: 14px;
-  border-radius: 14px; overflow: hidden;
-  border: 1px solid rgba(139,92,246,0.15);
+  display: flex; align-items: stretch; margin-top: 16px;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(139,92,246,0.2);
+  background: rgba(255,255,255,0.03);
 }
 .copy-input {
-  flex: 1; padding: 13px 16px; background: rgba(255,255,255,0.03);
+  flex: 1; padding: 14px 18px; background: transparent;
   border: none; color: var(--white); font-size: 13px; font-family: var(--font-body);
   outline: none;
 }
 .copy-btn {
-  padding: 13px 20px; background: var(--purple); border: none;
+  padding: 14px 22px; background: var(--purple); border: none;
   color: var(--white); font-size: 13px; font-weight: 700;
   cursor: pointer; transition: all .3s; white-space: nowrap;
-  font-family: var(--font-body);
+  font-family: var(--font-body); letter-spacing: .3px;
 }
 .copy-btn:hover { background: #7C3AED; }
+.copy-btn.copied { background: #059669; }
 
-.share-boost {
-  margin-top: 14px; padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(255,206,84,0.05), rgba(255,140,66,0.04));
-  border: 1px solid rgba(255,206,84,0.12); border-radius: 14px;
-  display: flex; align-items: center; gap: 10px;
-  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
+.bonus-box {
+  margin-top: 16px; padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,140,66,0.04));
+  border: 1px solid rgba(255,215,0,0.14); border-radius: 16px;
+  display: flex; align-items: center; gap: 12px;
 }
-.share-boost strong { color: var(--gold); font-weight: 700; }
+.bb-icon { font-size: 22px; flex-shrink: 0; }
+.bb-text { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.bb-text strong { color: var(--gold); font-weight: 700; }
 
-/* ─── STEP 3: WHATSAPP ─── */
+/* ─── STEP 3 : WHATSAPP ─── */
 .wa-block { text-align: center; }
-.wa-block p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 18px; }
-.wa-block p strong { color: rgba(255,255,255,0.8); }
-.wa-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #25D366; color: var(--white); padding: 16px 34px;
-  border-radius: 60px; font-size: 15px; font-weight: 700;
-  letter-spacing: .5px; text-decoration: none;
-  transition: all .4s cubic-bezier(.2,.8,.2,1);
-  box-shadow: 0 8px 30px rgba(37,211,102,0.3);
-}
-.wa-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(37,211,102,0.4); }
-.wa-btn svg { width: 22px; height: 22px; fill: var(--white); }
-.wa-note { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 10px; }
+.wa-pre { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 22px; }
+.wa-pre strong { color: rgba(255,255,255,0.82); }
+.wa-pre .g { color: var(--green); font-weight: 600; }
 
-/* ═══ TESTIMONIAL WALL ═══ */
+.wa-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #25D366; color: var(--white);
+  padding: 18px 40px; border-radius: 60px;
+  font-size: 15px; font-weight: 700; letter-spacing: .5px;
+  text-decoration: none; transition: all .4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 10px 36px rgba(37,211,102,0.32);
+  position: relative; overflow: hidden;
+  animation: pulse-wa 2.8s ease-in-out infinite;
+}
+.wa-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: translateX(-100%); animation: shimmer 2.5s ease-in-out infinite;
+}
+@keyframes pulse-wa { 0%,100%{box-shadow:0 10px 36px rgba(37,211,102,0.32)} 50%{box-shadow:0 16px 50px rgba(37,211,102,0.5)} }
+.wa-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 55px rgba(37,211,102,0.5); animation: none; }
+.wa-cta svg { width: 22px; height: 22px; fill: var(--white); flex-shrink: 0; }
+.wa-note { font-size: 11px; color: rgba(255,255,255,0.22); margin-top: 12px; }
+.wa-perks {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-bottom: 22px;
+}
+.wa-perk {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+  border-radius: 999px; font-size: 11px; font-weight: 600;
+  background: rgba(37,211,102,0.07); border: 1px solid rgba(37,211,102,0.15); color: rgba(255,255,255,0.5);
+}
+.wa-perk .pi { color: var(--green); }
+
+/* ═══ GIVEAWAY STRIP ═══ */
+.gw-strip {
+  position: relative; z-index: 2;
+  max-width: 700px; margin: 50px auto 0; padding: 0 20px;
+  animation: fadeUp .6s .5s ease forwards; opacity: 0;
+}
+.gw-inner {
+  display: flex; align-items: center; gap: 20px; padding: 20px 26px;
+  background: linear-gradient(135deg, rgba(255,60,142,0.06), rgba(139,92,246,0.05));
+  border: 1px solid rgba(255,60,142,0.16); border-radius: 24px;
+  transition: all .3s; flex-wrap: wrap;
+}
+.gw-inner:hover { border-color: rgba(255,60,142,0.28); transform: translateY(-2px); }
+.gw-img { width: 78px; height: 78px; flex-shrink: 0; animation: floatG 3s ease-in-out infinite; }
+.gw-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 16px rgba(255,60,142,0.3)); }
+@keyframes floatG { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-5px) rotate(2deg)} }
+.gw-text { flex: 1; }
+.gw-tag { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.gw-name { font-family: var(--font-display); font-size: 20px; letter-spacing: 1px; line-height: 1.1; }
+.gw-name .p { color: var(--pink); }
+.gw-sub { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 3px; }
+.gw-arrow { font-size: 22px; color: var(--pink); opacity: .6; }
+
+/* ═══ TESTIMONIALS ═══ */
 .wall-section {
-  position: relative; z-index: 2; padding: 90px 24px;
+  position: relative; z-index: 2; padding: 80px 24px 60px;
   max-width: 1100px; margin: 0 auto;
 }
-.wall-header { text-align: center; margin-bottom: 44px; }
+.wall-header { text-align: center; margin-bottom: 46px; }
 .wall-eyebrow {
   font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
   color: var(--pink); margin-bottom: 12px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
 }
-.wall-eyebrow::before, .wall-eyebrow::after { content: ''; width: 20px; height: 2px; background: var(--pink); border-radius: 1px; }
-.wall-title { font-family: var(--font-display); font-size: clamp(34px, 6vw, 56px); line-height: .92; }
+.wall-eyebrow::before, .wall-eyebrow::after { content: ''; width: 24px; height: 2px; background: var(--pink); border-radius: 1px; }
+.wall-title { font-family: var(--font-display); font-size: clamp(36px, 6vw, 58px); line-height: .92; }
 .wall-title .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--pink-light); }
-.wall-sub { font-size: 14px; color: rgba(255,255,255,0.35); margin-top: 8px; }
+.wall-sub { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 8px; }
 
 .wall-grid { columns: 3; column-gap: 14px; }
 .wall-card {
   break-inside: avoid; margin-bottom: 14px;
   background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px; padding: 22px; transition: all .4s;
+  border-radius: 20px; padding: 22px; transition: all .4s;
   display: inline-block; width: 100%;
 }
 .wall-card:hover { border-color: rgba(255,60,142,0.15); transform: translateY(-3px); background: rgba(255,255,255,0.05); }
 .wc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .wc-avatar {
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 15px;
-  border: 2px solid rgba(255,255,255,0.06); flex-shrink: 0;
+  font-family: var(--font-display); font-size: 16px;
+  border: 2px solid rgba(255,255,255,0.07); flex-shrink: 0;
 }
-.wc-name { font-weight: 600; font-size: 13px; }
-.wc-handle { font-size: 11px; color: rgba(255,255,255,0.3); }
-.wc-followers { font-size: 10px; font-weight: 700; color: var(--gold); margin-top: 1px; }
-.wc-text { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); }
-.wc-text strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+.wc-name { font-weight: 700; font-size: 13px; }
+.wc-handle { font-size: 11px; color: rgba(255,255,255,0.28); }
+.wc-followers { font-size: 10px; font-weight: 700; color: var(--gold); margin-top: 2px; }
+.wc-text { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.48); }
+.wc-text strong { color: rgba(255,255,255,0.82); font-weight: 600; }
 .wc-result {
-  margin-top: 12px; padding: 8px 12px;
-  background: rgba(0,232,123,0.05); border: 1px solid rgba(0,232,123,0.1);
-  border-radius: 10px; font-size: 12px; font-weight: 600; color: var(--green);
+  margin-top: 12px; padding: 8px 14px;
+  background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.12);
+  border-radius: 10px; font-size: 12px; font-weight: 700; color: var(--green);
   display: flex; align-items: center; gap: 6px;
 }
 .wc-stars { margin-top: 10px; font-size: 13px; letter-spacing: 2px; color: var(--gold); }
 .wc-placeholder {
-  text-align: center; padding: 18px 0; color: rgba(255,255,255,0.15); font-size: 13px;
+  text-align: center; padding: 20px 0; color: rgba(255,255,255,0.14); font-size: 13px;
 }
-.wc-placeholder div { font-size: 26px; margin-bottom: 6px; }
+.wc-placeholder div { font-size: 28px; margin-bottom: 8px; }
 
 /* DIVIDER */
 .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); position: relative; z-index: 2; }
 
 /* FOOTER */
 footer { position: relative; z-index: 2; text-align: center; padding: 36px 24px; border-top: 1px solid rgba(255,255,255,0.06); }
-footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
+footer p { font-size: 11px; color: rgba(255,255,255,0.18); }
 
 /* ANIM */
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
 /* RESPONSIVE */
-@media(max-width:768px) {
+@media(max-width: 768px) {
   .wall-grid { columns: 1; }
-  .alert-banner { flex-direction: column; gap: 6px; padding: 12px 16px; }
-  .step-head { padding: 18px 18px 0; gap: 10px; }
-  .step-body { padding: 16px 18px 20px; }
+  .urgence-bar { flex-direction: column; gap: 5px; }
+  .step-head { padding: 18px 18px 0; gap: 12px; }
+  .step-body { padding: 18px 18px 22px; }
   .copy-bar { flex-direction: column; }
-  .copy-btn { width: 100%; text-align: center; }
+  .copy-btn { width: 100%; text-align: center; padding: 14px; }
+  .gw-inner { gap: 16px; }
+  .gw-arrow { display: none; }
+  .marquee-track span { font-size: 11px; padding: 0 20px; }
 }
-@media(min-width:769px) and (max-width:1024px) {
+@media(min-width: 769px) and (max-width: 1024px) {
   .wall-grid { columns: 2; }
 }
 </style>
 </head>
 <body>
+
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-<!-- ═══ ALERT BANNER ═══ -->
-<div class="alert-banner">
-  <div class="ab-icon">⚠️</div>
-  <div class="ab-text">Ton inscription n'est pas terminée</div>
-  <div class="ab-steps">3 ÉTAPES RESTANTES</div>
+<!-- CONFETTI -->
+<div class="confetti-wrap" id="confettiWrap"></div>
+
+<!-- ═══ URGENCE BANNER ═══ -->
+<div class="urgence-bar">
+  <div class="ub-icon">⚠️</div>
+  <div class="ub-text">Ta place est pré-réservée — complète les 3 étapes pour la confirmer</div>
+  <div class="ub-badge"><span>⏱</span> PREND 2 MIN</div>
+</div>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Place <em>réservée</em> ✓</span>
+    <span class="hl">12 Avril · 20H30</span>
+    <span>Finalise ton inscription · <em>3 étapes</em></span>
+    <span class="hl">Osmo Pocket 3 — 549€ en jeu 🎁</span>
+    <span>Live depuis <em>l'agence Paris</em></span>
+    <span>YesCyril · <em>5M+ abonnés</em></span>
+    <span class="hl">Pas de replay — sois présent(e)</span>
+    <span>Place <em>réservée</em> ✓</span>
+    <span class="hl">12 Avril · 20H30</span>
+    <span>Finalise ton inscription · <em>3 étapes</em></span>
+    <span class="hl">Osmo Pocket 3 — 549€ en jeu 🎁</span>
+    <span>Live depuis <em>l'agence Paris</em></span>
+    <span>YesCyril · <em>5M+ abonnés</em></span>
+    <span class="hl">Pas de replay — sois présent(e)</span>
+  </div>
 </div>
 
 <!-- ═══ HEADER ═══ -->
 <div class="page-header">
-  <div class="check-circle">🎉</div>
-  <h1>PRESQUE <span class="pink-light">INSCRIT</span><span class="serif">.</span></h1>
-  <p>Ta place est pré-réservée ! Complète ces <strong>3 étapes</strong> pour confirmer ton inscription et <strong>maximiser tes chances de gagner</strong> l'Osmo Pocket 3.</p>
+  <div class="check-anim">🎉</div>
+  <div class="date-badge">
+    <span class="dot-live"></span>
+    Live · Samedi 12 Avril 2026 · 20H30
+  </div>
+  <h1>PRESQUE <span class="serif">inscrit</span><span style="color:var(--pink)">.</span></h1>
+  <p>Ta place est pré-réservée ! Complète ces <strong>3 étapes rapides</strong> pour confirmer ton inscription et <strong>maximiser tes chances</strong> de gagner l'Osmo Pocket 3 en tirage live.</p>
 </div>
 
 <!-- PROGRESS -->
 <div class="progress-wrap">
-  <div class="progress-bg"><div class="progress-fill"></div></div>
-  <div class="progress-labels">
-    <span>Étape 1</span>
-    <span>Étape 2</span>
-    <span>Étape 3</span>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="progress-steps">
+    <div class="ps done"><span class="dot-step"></span>Inscrit</div>
+    <div class="ps"><span class="dot-step"></span>Étape 1</div>
+    <div class="ps"><span class="dot-step"></span>Étape 2</div>
+    <div class="ps"><span class="dot-step"></span>Étape 3</div>
   </div>
 </div>
 
-<!-- ═══ 3 STEPS — ALL OPEN ═══ -->
+<!-- ═══ 3 ÉTAPES ═══ -->
 <div class="steps">
 
   <!-- STEP 1 -->
@@ -338,21 +498,23 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
       <div class="step-num sn-1">01</div>
       <div class="step-head-info">
         <div class="step-head-title">LE MESSAGE DE CONSTANTIN</div>
-        <div class="step-head-sub">Regarde la vidéo — il y a un indice caché pour gagner 👀</div>
+        <div class="step-head-sub">Un indice caché pour gagner l'Osmo Pocket 3 t'attend dans la vidéo 👀</div>
       </div>
+      <div class="step-badge sb-pink">2 MIN</div>
     </div>
     <div class="step-body">
-      <div class="step-line"></div>
+      <div class="step-sep"></div>
       <div class="vid-wrap">
-        <div class="vid-placeholder">
+        <div class="vid-inner" id="vidContainer">
           <div class="vid-play">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <div class="vid-label">Message de Constantin — 2 min</div>
+          <div class="vid-label">Message personnel de Constantin</div>
+          <div class="vid-duration">— 2 minutes —</div>
         </div>
         <div class="vid-hint">
-          <div class="vid-hint-icon">🎯</div>
-          <div><strong>Indice caché :</strong> Constantin te donne un mot secret dans la vidéo. Note-le — il te servira pendant le live pour gagner l'Osmo Pocket 3.</div>
+          <div class="vh-icon">🎯</div>
+          <div class="vh-text"><strong>Mot secret :</strong> Constantin glisse un mot caché dans la vidéo. Note-le — il te sert pendant le live pour participer au tirage de l'Osmo Pocket 3 (549€).</div>
         </div>
       </div>
     </div>
@@ -364,25 +526,25 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
       <div class="step-num sn-2">02</div>
       <div class="step-head-info">
         <div class="step-head-title">TRIPLE TES CHANCES</div>
-        <div class="step-head-sub">Partage en story et gagne x3 chances pour l'Osmo Pocket 3</div>
+        <div class="step-head-sub">Une story = x3 chances de gagner l'Osmo Pocket 3 au tirage live</div>
       </div>
+      <div class="step-badge sb-purple">×3 CHANCES</div>
     </div>
     <div class="step-body">
-      <div class="step-line"></div>
-      <div class="share-list">
-        <div class="share-item">
-          <div class="si-letter">A</div>
-          <div class="si-content">
-            <div class="si-title">Partage en story Instagram</div>
-            <div class="si-desc">Poste une story en nous taguant <strong>@scalevision</strong> et lien ci-dessous.</div>
+      <div class="step-sep"></div>
+      <div class="share-cards">
+        <div class="share-card">
+          <div class="sc-letter">A</div>
+          <div>
+            <div class="sc-title">Fais une story Instagram</div>
+            <div class="sc-desc">Poste une story en mentionnant <strong>@scalevision</strong> avec le lien ci-dessous.</div>
           </div>
         </div>
-        
-        <div class="share-item">
-          <div class="si-letter">B</div>
-          <div class="si-content">
-            <div class="si-title">Copie le lien ci-dessous</div>
-            <div class="si-desc">Utilise ce lien pour ta story et ta bio :</div>
+        <div class="share-card">
+          <div class="sc-letter">B</div>
+          <div>
+            <div class="sc-title">Copie et partage ce lien</div>
+            <div class="sc-desc">Utilise ce lien dans ta story, ta bio, ou tes DMs :</div>
           </div>
         </div>
       </div>
@@ -390,9 +552,9 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
         <input class="copy-input" type="text" value="scalevision.fr/webinar?utm_source=story" readonly id="copyInput">
         <button class="copy-btn" onclick="copyLink()" id="copyBtn">Copier le lien</button>
       </div>
-      <div class="share-boost">
-        <span style="font-size:20px;flex-shrink:0">🎁</span>
-        <div>Les 3 étapes complétées = <strong>x3 chances de gagner l'Osmo Pocket 3 (549€)</strong> pendant le tirage live !</div>
+      <div class="bonus-box">
+        <div class="bb-icon">🎁</div>
+        <div class="bb-text">3 étapes complétées = <strong>x3 chances de gagner l'Osmo Pocket 3 (549€)</strong> lors du tirage en direct à la fin du live !</div>
       </div>
     </div>
   </div>
@@ -402,28 +564,50 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
     <div class="step-head">
       <div class="step-num sn-3">03</div>
       <div class="step-head-info">
-        <div class="step-head-title">REJOINS LE GROUPE</div>
-        <div class="step-head-sub">Le groupe WhatsApp exclusif pour ne rien louper</div>
+        <div class="step-head-title">REJOINS LE GROUPE WHATSAPP</div>
+        <div class="step-head-sub">Le lien du live + les rappels + l'annonce du gagnant — tout ici</div>
       </div>
+      <div class="step-badge sb-green">INDISPENSABLE</div>
     </div>
     <div class="step-body">
-      <div class="step-line"></div>
+      <div class="step-sep"></div>
       <div class="wa-block">
-        <p>Rejoins le groupe WhatsApp pour recevoir le <strong>lien du live</strong>, les <strong>rappels</strong>, et les <strong>bonus exclusifs</strong>. C'est aussi là qu'on annoncera le gagnant de l'Osmo Pocket 3.</p>
-        <a href="#" class="wa-btn">
+        <div class="wa-perks">
+          <div class="wa-perk"><span class="pi">🔗</span> Lien du live le 12 Avril</div>
+          <div class="wa-perk"><span class="pi">⏰</span> Rappels avant le démarrage</div>
+          <div class="wa-perk"><span class="pi">🎁</span> Annonce du gagnant Osmo</div>
+          <div class="wa-perk"><span class="pi">🎯</span> Bonus exclusifs membres</div>
+        </div>
+        <p class="wa-pre">Le lien Zoom du live te sera <strong>envoyé uniquement dans le groupe</strong>. Sans ça, tu <span class="g">ne pourras pas rejoindre le live</span> le 12 Avril.</p>
+        <a href="#" class="wa-cta">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Rejoindre le groupe WhatsApp
         </a>
-        <div class="wa-note">Groupe privé — Pas de spam, uniquement les infos du live</div>
+        <div class="wa-note">Groupe privé · Zéro spam · Infos live uniquement</div>
       </div>
     </div>
   </div>
 
 </div>
 
+<!-- GIVEAWAY STRIP -->
+<div class="gw-strip">
+  <div class="gw-inner">
+    <div class="gw-img">
+      <img src="assets/img/osmo.png" alt="DJI Osmo Pocket 3" onerror="this.parentElement.innerHTML='📷'">
+    </div>
+    <div class="gw-text">
+      <div class="gw-tag">🎁 Giveaway exclusif · Tirage live</div>
+      <div class="gw-name">DJI OSMO <span class="p">POCKET 3</span></div>
+      <div class="gw-sub">549€ · Tiré au sort en direct à la fin du webinaire · 12 Avril 20H30</div>
+    </div>
+    <div class="gw-arrow">→</div>
+  </div>
+</div>
+
 <div class="divider" style="margin-top:70px"></div>
 
-<!-- ═══ TESTIMONIAL WALL ═══ -->
+<!-- ═══ TESTIMONIALS ═══ -->
 <section class="wall-section">
   <div class="wall-header">
     <div class="wall-eyebrow">Preuve sociale</div>
@@ -455,7 +639,7 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
         <div class="wc-avatar" style="background:linear-gradient(135deg,#06B6D4,#0891B2)">S</div>
         <div><div class="wc-name">Sarah K.</div><div class="wc-handle">@sarah.beauty</div><div class="wc-followers">25K abonnés</div></div>
       </div>
-      <div class="wc-text">"J'ai <strong>resigné un client</strong> qui m'avait ghostée. La technique d'approche est chirurgicale. <strong>3 clients récurrents</strong> maintenant."</div>
+      <div class="wc-text">"J'ai <strong>resigné un client</strong> qui m'avait ghostée. La technique est chirurgicale. <strong>3 clients récurrents</strong> maintenant."</div>
       <div class="wc-result">🔄 3 contrats récurrents signés</div>
     </div>
 
@@ -486,45 +670,83 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
       <div class="wc-result">🚀 6 800€/mois récurrent</div>
     </div>
 
-    <div class="wall-card" style="border-style:dashed;border-color:rgba(255,255,255,0.08)">
+    <div class="wall-card" style="border-style:dashed;border-color:rgba(255,255,255,0.07)">
       <div class="wc-placeholder"><div>💬</div>Ton avis ici bientôt ?</div>
     </div>
 
-    <div class="wall-card" style="border-style:dashed;border-color:rgba(255,255,255,0.08)">
+    <div class="wall-card" style="border-style:dashed;border-color:rgba(255,255,255,0.07)">
       <div class="wc-placeholder"><div>⭐</div>+50 avis à venir</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Scalevision — Agence d'influence #1 en France</p>
+  <p>© 2026 Scalevision — Agence d'influence #1 en France</p>
 </footer>
 
 <script>
-// Steps staggered reveal (all open, just animated in)
+/* ── Confetti ── */
+(function() {
+  const wrap = document.getElementById('confettiWrap');
+  const colors = ['#FF3C8E','#FFD700','#00FF88','#8B5CF6','#FF8C42','#FFF'];
+  for (let i = 0; i < 60; i++) {
+    const cf = document.createElement('div');
+    cf.className = 'cf';
+    const size = Math.random() * 8 + 4;
+    cf.style.cssText = `
+      left:${Math.random()*100}vw;
+      top:-20px;
+      width:${size}px;
+      height:${size}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      border-radius:${Math.random()>.5?'50%':'2px'};
+      animation-duration:${Math.random()*2+1.5}s;
+      animation-delay:${Math.random()*1.2}s;
+    `;
+    wrap.appendChild(cf);
+  }
+  setTimeout(() => { wrap.style.display = 'none'; }, 3500);
+})();
+
+/* ── Steps staggered reveal ── */
 document.querySelectorAll('.step').forEach((s, i) => {
-  setTimeout(() => s.classList.add('visible'), 300 + i * 200);
+  setTimeout(() => s.classList.add('visible'), 350 + i * 220);
 });
 
-// Wall cards reveal
+/* ── Wall cards reveal ── */
 const wallObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; wallObs.unobserve(e.target); }
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      wallObs.unobserve(e.target);
+    }
   });
-}, { threshold: .1 });
+}, { threshold: .08 });
 document.querySelectorAll('.wall-card').forEach((c, i) => {
-  c.style.opacity = '0'; c.style.transform = 'translateY(16px)';
+  c.style.opacity = '0';
+  c.style.transform = 'translateY(18px)';
   c.style.transition = `all .5s ${i * .07}s cubic-bezier(.2,.8,.2,1)`;
   wallObs.observe(c);
 });
 
-// Copy link
+/* ── Copy link ── */
 function copyLink() {
   const input = document.getElementById('copyInput');
+  const btn   = document.getElementById('copyBtn');
   navigator.clipboard.writeText(input.value).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.textContent = '✓ Copié !'; btn.style.background = '#059669';
-    setTimeout(() => { btn.textContent = 'Copier le lien'; btn.style.background = ''; }, 2000);
+    btn.textContent = '✓ Copié !';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copier le lien';
+      btn.classList.remove('copied');
+    }, 2200);
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+    btn.textContent = '✓ Copié !';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copier le lien'; btn.classList.remove('copied'); }, 2200);
   });
 }
 </script>
