@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 
-# On ne veut pas que Google indexe la page 404
+# Pages à ne pas indexer
 Disallow: /404.html
+Disallow: /webinar.html
+Disallow: /webinar-b.html
+Disallow: /felicitation.html
 
 Sitemap: https://scalevision.fr/sitemap.xml
