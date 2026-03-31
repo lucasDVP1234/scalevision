@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCALEVISION — Webinaire Gratuit · 12 Avril · Comment gagner 10 000€/mois</title>
+<title>SCALEVISION — Webinaire Gratuit · 12 Avril · Les 3 Secrets pour gagner 10 000€/mois</title>
+<meta name="description" content="Webinaire gratuit le 12 avril à 20h30 : découvre les 3 secrets pour gagner 10 000€/mois avec ton contenu. 5 intervenants, contrats réels, Osmo Pocket à gagner.">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -54,13 +55,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
 .hero-eyebrow{font-family:var(--font-serif);font-style:italic;font-size:clamp(17px,2.5vw,22px);color:var(--pink-light);margin-bottom:14px;animation:fadeUp .7s .1s ease forwards;opacity:0}
-.hero h1{font-family:var(--font-display);font-size:clamp(56px,11vw,120px);line-height:.9;letter-spacing:-1px;margin-bottom:24px;animation:fadeUp .7s .2s ease forwards;opacity:0}
+.hero h1{font-family:var(--font-display);font-size:clamp(52px,10vw,110px);line-height:.9;letter-spacing:-1px;margin-top:16px;margin-bottom:24px;animation:fadeUp .7s .2s ease forwards;opacity:0}
 .hero h1 .pink{color:var(--pink)}.hero h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
 .hero h1 .outline{-webkit-text-stroke:1px rgba(255,255,255,0.5);color:transparent}
 
-.hero-sub{font-size:clamp(15px,1.8vw,17px);line-height:1.7;max-width:620px;color:rgba(255,255,255,0.6);margin-bottom:28px;animation:fadeUp .7s .3s ease forwards;opacity:0}
+.hero-sub{font-size:clamp(15px,1.8vw,17px);line-height:1.7;max-width:640px;color:rgba(255,255,255,0.6);margin-bottom:28px;animation:fadeUp .7s .3s ease forwards;opacity:0}
 .hero-sub strong{color:var(--white);font-weight:600}
 .hero-sub .green{color:var(--green)}
+.hero-sub .pink-t{color:var(--pink-light);font-weight:700}
 
 .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:36px;animation:fadeUp .7s .38s ease forwards;opacity:0}
 .hero-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:10px;font-size:12px;font-weight:600;letter-spacing:.5px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.6)}
@@ -88,16 +90,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-host-name{font-family:var(--font-display);font-size:18px;letter-spacing:1.5px;color:var(--white)}
 .hero-host-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(198,208,255,0.7);font-weight:600}
 
-/* Star guest teaser */
-.hero-star{display:flex;align-items:center;gap:14px;padding:12px 18px;background:linear-gradient(135deg,rgba(255,215,0,0.06),rgba(255,60,142,0.04));border:1px solid rgba(255,215,0,0.18);border-radius:18px;transition:border-color .3s}
-.hero-star:hover{border-color:rgba(255,215,0,0.35)}
-.hero-star-av{width:60px;height:60px;border-radius:50%;border:2px solid var(--gold);overflow:hidden;flex-shrink:0;box-shadow:0 0 20px rgba(255,215,0,0.2);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,138,0,0.15));display:flex;align-items:center;justify-content:center;font-size:26px}
-.hero-star-av img{width:100%;height:100%;object-fit:cover}
-.hero-star-info{text-align:left}
-.hero-star-lbl{font-size:8px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-.hero-star-name{font-family:var(--font-display);font-size:19px;letter-spacing:1.5px;line-height:1;color:var(--gold)}
-.hero-star-stat{font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px}
-.hero-star-stat strong{color:rgba(255,255,255,0.7)}
+/* Secrets badges in hero */
+.hero-secrets{display:flex;flex-direction:column;gap:10px;margin:24px 0 0;animation:fadeUp .7s .5s ease forwards;opacity:0;width:100%;max-width:560px}
+.hero-secret-badge{display:flex;align-items:center;gap:14px;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);text-align:left;transition:all .3s ease}
+.hero-secret-badge:hover{background:rgba(255,60,142,0.06);border-color:rgba(255,60,142,0.2);transform:translateX(4px)}
+.hero-secret-num{font-family:var(--font-display);font-size:28px;color:var(--pink);flex-shrink:0;width:40px;text-align:center}
+.hero-secret-txt{font-size:13px;color:rgba(255,255,255,0.7);font-weight:500;line-height:1.4}
+.hero-secret-txt strong{color:var(--white)}
 
 /* Giveaway */
 .hero-giveaway{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:20px;padding:18px 24px;background:linear-gradient(135deg,rgba(255,60,142,0.06),rgba(139,92,246,0.05));border:1px solid rgba(255,60,142,0.15);border-radius:18px;animation:fadeUp .7s .62s ease forwards;opacity:0;transition:all .3s ease}
@@ -110,6 +109,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-giveaway-name{font-family:var(--font-display);font-size:18px;letter-spacing:1px;line-height:1.1}.hero-giveaway-name .pink{color:var(--pink)}
 .hero-giveaway-plus{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px}
 
+/* Hero speakers row */
+.hero-speakers-row{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:10px;margin-bottom:28px;animation:fadeUp .7s .38s ease forwards;opacity:0;flex-wrap:wrap}
+.hero-speaker-av{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;transition:transform .3s}
+.hero-speaker-av:hover{transform:translateY(-3px)}
+.hero-speaker-av img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.3);box-shadow:0 4px 15px rgba(0,0,0,0.3)}
+.hero-speaker-av .av-name{font-family:var(--font-display);font-size:12px;letter-spacing:1.5px;color:rgba(255,255,255,0.8)}
+.hero-speaker-av .av-role{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--pink-light);font-weight:600}
+.hero-speaker-mystery{display:flex;flex-direction:column;align-items:center;gap:6px}
+.hero-speaker-mystery .mys-circle{width:56px;height:56px;border-radius:50%;border:2px dashed rgba(255,215,0,0.4);background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,60,142,0.06));display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 20px rgba(255,215,0,0.1);animation:mysteryPulse 2.5s ease-in-out infinite}
+.hero-speaker-mystery .mys-label{font-family:var(--font-display);font-size:11px;letter-spacing:1.5px;color:var(--gold)}
+@keyframes mysteryPulse{0%,100%{box-shadow:0 0 15px rgba(255,215,0,0.1)}50%{box-shadow:0 0 25px rgba(255,215,0,0.25)}}
+.hero-speakers-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px;margin-bottom:6px;font-weight:600;animation:fadeUp .7s .34s ease forwards;opacity:0}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* Divider */
@@ -117,49 +129,35 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .section-label{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--pink);margin-bottom:20px;font-weight:600}
 
 /* Proof bar */
-.proof-bar{position:relative;z-index:2;display:flex;justify-content:center;gap:60px;padding:60px 20px;flex-wrap:wrap}
+.proof-bar{position:relative;z-index:2;display:flex;justify-content:center;gap:50px;padding:60px 20px;flex-wrap:wrap}
 .proof-item{text-align:center;opacity:0;animation:su .6s ease forwards}
-.proof-item:nth-child(1){animation-delay:.1s}.proof-item:nth-child(2){animation-delay:.2s}.proof-item:nth-child(3){animation-delay:.3s}.proof-item:nth-child(4){animation-delay:.4s}
+.proof-item:nth-child(1){animation-delay:.1s}.proof-item:nth-child(2){animation-delay:.2s}.proof-item:nth-child(3){animation-delay:.3s}.proof-item:nth-child(4){animation-delay:.4s}.proof-item:nth-child(5){animation-delay:.5s}
 .proof-number{font-family:var(--font-display);font-size:52px;color:var(--pink);line-height:1}
 .proof-number.gold{color:var(--gold)}
 .proof-number.green{color:var(--green)}
+.proof-number.white{color:var(--white)}
 .proof-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:6px}
 @keyframes su{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
 /* Agency section */
-.agency-section{position:relative;z-index:2;padding:120px 20px;overflow:hidden}
-.agency-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.agency-visual{position:relative;display:flex;gap:20px;align-items:flex-end}
-.agency-photo-card{position:relative;flex:1;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(160deg,rgba(255,60,142,0.15),rgba(37,30,175,0.4));transition:transform .4s ease}
-.agency-photo-card:hover{transform:translateY(-6px)}
-.agency-photo-card:first-child{aspect-ratio:3/4.2;z-index:2}
-.agency-photo-card:last-child{aspect-ratio:3/4.2;margin-bottom:30px;z-index:1}
-.agency-photo-card img{width:100%;height:100%;object-fit:cover;display:block}
-.agency-photo-label{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);display:flex;flex-direction:column;gap:2px}
-.agency-photo-label strong{font-family:var(--font-display);font-size:16px;letter-spacing:1.5px}
-.agency-photo-label span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
-.agency-photo-label .apl-stat{font-size:10px;color:var(--pink-light);font-weight:600;letter-spacing:.5px;margin-top:2px}
-.agency-decor-line{position:absolute;top:-30px;left:-30px;width:120px;height:120px;border:2px solid rgba(255,60,142,0.15);border-radius:24px;z-index:-1}
-.agency-decor-dots{position:absolute;bottom:40px;right:-40px;display:grid;grid-template-columns:repeat(4,8px);gap:10px;z-index:-1}
-.agency-decor-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,60,142,0.12)}
-.agency-content{padding:20px 0}
-.agency-content .section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--pink);margin-bottom:16px;font-weight:700;display:flex;align-items:center;gap:12px}
-.agency-content .section-label::before{content:'';width:30px;height:2px;background:var(--pink)}
-.agency-content h2{font-family:var(--font-display);font-size:clamp(40px,5.5vw,60px);line-height:.95;margin-bottom:24px}
-.agency-content h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
-.agency-content h2 .pink{color:var(--pink)}
-.agency-bio{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:36px}.agency-bio strong{color:var(--white);font-weight:600}
-.agency-stats-row{display:flex;gap:32px;margin-bottom:36px;flex-wrap:wrap}
-.agency-stat{position:relative;padding-left:18px}
-.agency-stat::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:2px;background:var(--pink)}
-.agency-stat-num{font-family:var(--font-display);font-size:30px;color:var(--white);line-height:1}
-.agency-stat-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px}
+.agency-section{position:relative;z-index:2;padding:100px 20px;overflow:hidden}
+.agency-card{max-width:700px;margin:0 auto;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:48px 40px;position:relative;overflow:hidden}
+.agency-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),rgba(255,215,0,0.6),var(--pink))}
+.agency-card-top{display:flex;align-items:center;gap:28px;margin-bottom:32px}
+.agency-photo{width:100px;height:100px;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,0.1);flex-shrink:0;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.agency-photo img{width:100%;height:100%;object-fit:cover}
+.agency-brand{display:flex;flex-direction:column;gap:4px}
+.agency-brand-name{font-family:var(--font-display);font-size:38px;letter-spacing:5px;color:rgba(255,255,255,0.9);line-height:1}
+.agency-brand-name span{color:var(--pink)}
+.agency-brand-tagline{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:.5px}
+.agency-brand-role{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-top:4px}
+.agency-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.agency-tag{font-size:11px;font-weight:600;letter-spacing:.5px;padding:5px 14px;border-radius:8px;background:rgba(255,60,142,0.08);border:1px solid rgba(255,60,142,0.15);color:var(--pink-light)}
+.agency-bio{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.55);margin-bottom:24px}.agency-bio strong{color:var(--white);font-weight:600}
 .agency-social-row{display:flex;align-items:center;gap:16px}
 .agency-social-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:500;text-decoration:none;transition:all .3s ease}
 .agency-social-link:hover{background:rgba(255,60,142,0.1);border-color:rgba(255,60,142,0.3);color:var(--white)}
 .agency-social-link svg{width:18px;height:18px;fill:currentColor}
-.agency-quote{margin-top:36px;padding:24px 28px;background:rgba(255,255,255,0.03);border-left:3px solid var(--pink);border-radius:0 16px 16px 0;font-family:var(--font-serif);font-style:italic;font-size:17px;line-height:1.7;color:rgba(255,255,255,0.65)}
-.agency-quote-author{display:block;margin-top:12px;font-family:var(--font-body);font-style:normal;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600}
 
 /* Pain section */
 .pain-section{position:relative;z-index:2;padding:100px 20px;text-align:center}
@@ -172,6 +170,52 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .pain-icon{font-size:32px;margin-bottom:16px}
 .pain-card h3{font-family:var(--font-display);font-size:22px;letter-spacing:1px;margin-bottom:10px}
 .pain-card p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55)}
+
+/* Secrets Section */
+.secrets-section{position:relative;z-index:2;padding:100px 20px;max-width:960px;margin:0 auto}
+.secrets-section h2{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);text-align:center;margin-bottom:16px;line-height:1}
+.secrets-section h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
+.secrets-section h2 .pink{color:var(--pink)}
+.secrets-sub{text-align:center;font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:70px;max-width:600px;margin-left:auto;margin-right:auto}
+
+.secret-block{position:relative;margin-bottom:56px;padding:36px 32px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:24px;overflow:hidden;transition:all .4s ease}
+.secret-block:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,60,142,0.18);transform:translateY(-4px)}
+.secret-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.secret-block:nth-child(1)::before{background:linear-gradient(90deg,var(--pink),var(--pink-light))}
+.secret-block:nth-child(2)::before{background:linear-gradient(90deg,#8B5CF6,#A78BFA)}
+.secret-block:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),#FFE566)}
+.secret-block:last-child{margin-bottom:0}
+
+.secret-header{display:flex;align-items:center;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+.secret-number{font-family:var(--font-display);font-size:56px;line-height:1;flex-shrink:0}
+.secret-block:nth-child(1) .secret-number{color:var(--pink)}
+.secret-block:nth-child(2) .secret-number{color:#A78BFA}
+.secret-block:nth-child(3) .secret-number{color:var(--gold)}
+.secret-label{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
+.secret-block:nth-child(1) .secret-label{color:var(--pink)}
+.secret-block:nth-child(2) .secret-label{color:#A78BFA}
+.secret-block:nth-child(3) .secret-label{color:var(--gold)}
+.secret-title{font-family:var(--font-display);font-size:clamp(24px,4vw,32px);letter-spacing:1px;line-height:1.1}
+.secret-desc{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.55);margin-bottom:20px;max-width:600px}
+.secret-desc strong{color:var(--white);font-weight:600}
+.secret-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.secret-tag{font-size:11px;font-weight:600;letter-spacing:.5px;padding:6px 14px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.55)}
+.secret-speaker{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;margin-top:16px;transition:all .3s}
+.secret-speaker:hover{background:rgba(255,60,142,0.05);border-color:rgba(255,60,142,0.15)}
+.secret-speaker-img{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.15);flex-shrink:0}
+.secret-speaker-img img{width:100%;height:100%;object-fit:cover}
+.secret-speaker-info{text-align:left}
+.secret-speaker-name{font-family:var(--font-display);font-size:18px;letter-spacing:1px}
+.secret-speaker-role{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:.5px;margin-top:2px}
+
+/* Bonus block at end of secrets */
+.secret-bonus{position:relative;margin-top:40px;padding:32px;background:linear-gradient(135deg,rgba(255,60,142,0.05),rgba(139,92,246,0.04));border:1px dashed rgba(255,60,142,0.25);border-radius:24px;text-align:center;transition:all .4s;overflow:hidden}
+.secret-bonus:hover{border-color:rgba(255,60,142,0.4);transform:translateY(-3px)}
+.secret-bonus-title{font-family:var(--font-display);font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.secret-bonus-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7}
+.secret-bonus-desc strong{color:var(--white)}
+.secret-bonus-items{display:flex;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.secret-bonus-item{display:flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6)}
 
 /* Scale tiers */
 .scale-section{position:relative;z-index:2;padding:100px 20px;overflow:hidden}
@@ -206,55 +250,37 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scale-fn{text-align:center;margin-top:40px;font-size:15px;color:rgba(255,255,255,0.45);line-height:1.9;font-family:var(--font-serif);font-style:italic}
 .scale-fn strong{color:var(--white);font-style:normal}
 
-/* Programme */
-.programme-section{position:relative;z-index:2;padding:100px 20px;max-width:900px;margin:0 auto}
-.programme-section h2{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);text-align:center;margin-bottom:16px;line-height:1}
-.programme-section h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
-.programme-sub{text-align:center;font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:60px}
-.timeline{position:relative;padding-left:40px}
-.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--pink),rgba(255,60,142,0.05))}
-.timeline-item{position:relative;padding-bottom:48px;opacity:0;transform:translateX(-20px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
-.timeline-item.visible{opacity:1;transform:translateX(0)}
-.timeline-item:last-child{padding-bottom:0}
-.timeline-dot{position:absolute;left:-34px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--pink);z-index:1}
-.timeline-dot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--pink)}
-.timeline-time{font-family:var(--font-display);font-size:14px;letter-spacing:2px;color:var(--pink);margin-bottom:6px}
-.timeline-title{font-family:var(--font-display);font-size:26px;letter-spacing:1px;margin-bottom:8px}
-.timeline-desc{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.55);max-width:500px}
-.timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.tl-tag{font-size:10px;font-weight:600;letter-spacing:.5px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5)}
-
 /* Speakers */
 .speakers-section{position:relative;z-index:2;padding:100px 20px;text-align:center}
 .speakers-section h2{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);margin-bottom:16px;line-height:1}
 .speakers-section h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
-.speakers-intro{font-size:15px;color:rgba(255,255,255,0.45);max-width:580px;margin:0 auto 60px;line-height:1.7}
-.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1060px;margin:0 auto}
-.speaker-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:40px 28px 32px;transition:all .4s ease;text-align:center}
+.speakers-intro{font-size:15px;color:rgba(255,255,255,0.45);max-width:620px;margin:0 auto 60px;line-height:1.7}
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.speaker-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:36px 24px 28px;transition:all .4s ease;text-align:center}
 .speaker-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-6px)}
-.speaker-card--star{background:linear-gradient(160deg,rgba(255,215,0,0.05),rgba(255,60,142,0.04));border-color:rgba(255,215,0,0.15)}
-.speaker-card--star:hover{border-color:rgba(255,215,0,0.3)}
 .speaker-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,var(--pink),var(--bg-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:32px;border:3px solid rgba(255,255,255,0.1);overflow:hidden;position:relative}
-.speaker-card--star .speaker-avatar{border-color:var(--gold);box-shadow:0 0 25px rgba(255,215,0,0.2)}
 .speaker-avatar img{width:100%;height:100%;object-fit:cover}
-.sp-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid var(--bg)}
 .speaker-name{font-family:var(--font-display);font-size:22px;letter-spacing:1px;margin-bottom:4px}
-.speaker-card--star .speaker-name{color:var(--gold)}
 .speaker-role{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink-light);margin-bottom:12px}
 .speaker-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.5)}
-.speaker-stat{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 14px;background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.15);border-radius:20px;font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.5px}
-.speaker-followers{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:600}
-.speaker-followers strong{color:var(--white)}
-/* Mystery speaker */
-.speaker-card--mystery{background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.05)}
-.mystery-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:3px dashed rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:32px}
-.mystery-name{font-family:var(--font-display);font-size:22px;letter-spacing:1px;margin-bottom:4px;color:rgba(255,255,255,0.65)}
-.mystery-theme{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:8px 14px;background:rgba(255,60,142,0.07);border:1px solid rgba(255,60,142,0.15);border-radius:10px;font-size:12px;font-weight:600;color:var(--pink-light);letter-spacing:.4px}
+.speaker-stat{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 14px;background:rgba(255,60,142,0.07);border:1px solid rgba(255,60,142,0.15);border-radius:20px;font-size:11px;color:var(--pink-light);font-weight:600;letter-spacing:.5px}
+
+/* Mystery speaker card */
+.speaker-card--mystery{background:rgba(255,255,255,0.015);border:2px dashed rgba(255,255,255,0.1);position:relative;overflow:hidden}
+.speaker-card--mystery::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,60,142,0.06),transparent 70%);pointer-events:none}
+.speaker-card--mystery:hover{border-color:rgba(255,60,142,0.3);background:rgba(255,60,142,0.03)}
+.mystery-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,60,142,0.06));border:3px dashed rgba(255,60,142,0.2);display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;animation:mysteryPulse 3s ease-in-out infinite}
+@keyframes mysteryPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,0.1)}50%{box-shadow:0 0 30px 8px rgba(255,60,142,0.12)}}
+.mystery-name{font-family:var(--font-display);font-size:20px;letter-spacing:2px;margin-bottom:4px;color:rgba(255,255,255,0.5)}
+.mystery-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px}
+.mystery-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.4);font-style:italic}
+.mystery-glow{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:100px;height:100px;background:radial-gradient(circle,rgba(255,60,142,0.15),transparent 70%);filter:blur(20px);pointer-events:none;animation:mysteryFloat 4s ease-in-out infinite}
+@keyframes mysteryFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
 
 /* Urgency */
 .urgency-section{position:relative;z-index:2;padding:80px 20px;text-align:center}
-.urgency-grid{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;max-width:800px;margin:0 auto}
-.urgency-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:30px 28px;text-align:center;flex:1;min-width:200px;transition:.3s}
+.urgency-grid{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.urgency-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:30px 28px;text-align:center;flex:1;min-width:180px;transition:.3s}
 .urgency-card:hover{border-color:rgba(255,60,142,0.2);background:rgba(255,255,255,0.05);transform:translateY(-3px)}
 .urgency-icon{font-size:28px;margin-bottom:12px}
 .urgency-title{font-family:var(--font-display);font-size:20px;letter-spacing:1px;margin-bottom:6px}
@@ -316,24 +342,27 @@ footer .logo-foot span{color:var(--pink)}
   .hero-hosts{gap:14px;flex-wrap:wrap;justify-content:center}
   .hero-giveaway{flex-direction:column;text-align:center;align-items:center}
   .scale-tiers{grid-template-columns:1fr}
+  .speakers-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:700px}
 }
 @media(max-width:768px){
-  .proof-bar{gap:30px;padding:40px 20px}.proof-number{font-size:40px}
-  .agency-section{padding:60px 16px}.agency-inner{grid-template-columns:1fr;gap:40px;text-align:center}
-  .agency-visual{display:flex;justify-content:center;max-width:400px;margin:0 auto}
-  .agency-photo-card:last-child{margin-bottom:0}
-  .agency-decor-line,.agency-decor-dots{display:none}
-  .agency-content .section-label{justify-content:center}
-  .agency-stats-row{justify-content:center}.agency-social-row{justify-content:center;flex-wrap:wrap}
+  .proof-bar{gap:24px;padding:40px 20px}.proof-number{font-size:38px}
+  .agency-section{padding:60px 16px}
+  .agency-card{padding:32px 24px}
+  .agency-card-top{flex-direction:column;text-align:center;gap:20px}
+  .agency-brand{align-items:center}
+  .agency-tags{justify-content:center}
+  .agency-bio{text-align:center}
+  .agency-social-row{justify-content:center}
   .pain-section{padding:60px 16px}.pain-grid{grid-template-columns:1fr;padding:0 10px}
-  .programme-section{padding:60px 16px}.programme-sub{margin-bottom:36px}
-  .speakers-section{padding:60px 16px}.speakers-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+  .secrets-section{padding:60px 16px}
+  .secret-header{gap:14px}
+  .secret-number{font-size:42px}
+  .speakers-section{padding:60px 16px}.speakers-grid{grid-template-columns:1fr 1fr;max-width:460px;margin:0 auto}
   .urgency-section{padding:50px 16px}.urgency-grid{flex-direction:column;align-items:center}.urgency-card{width:100%;max-width:320px}
   .form-section{padding:60px 16px}.form-sub{margin-bottom:36px}
   .form-wrapper{grid-template-columns:1fr}.form-info{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:28px 24px}
   .tally-card{padding:24px 20px 16px}
   .sticky-cta.visible{display:block}body{padding-bottom:80px}
-  .timeline{padding-left:30px}
   .scale-section{padding:60px 16px}
 }
 @media(max-width:480px){
@@ -346,9 +375,15 @@ footer .logo-foot span{color:var(--pink)}
   .hero-hosts{gap:10px;flex-direction:column;align-items:center}
   .hero-host{transform:none !important}
   .hero-giveaway{padding:14px 16px;gap:12px;margin-top:18px}
-  .proof-bar{gap:20px;padding:32px 16px}.proof-number{font-size:32px}
+  .hero-secrets{gap:8px}
+  .hero-secret-badge{padding:10px 14px;gap:10px}
+  .hero-secret-num{font-size:22px}
+  .proof-bar{gap:16px;padding:32px 16px}.proof-number{font-size:30px}
   .scale-tiers{gap:12px}
-  .speakers-grid{max-width:320px}
+  .speakers-grid{grid-template-columns:1fr;max-width:300px}
+  .secret-block{padding:24px 20px}
+  .secret-number{font-size:36px}
+  .secret-title{font-size:22px}
 }
 </style>
 </head>
@@ -359,19 +394,19 @@ footer .logo-foot span{color:var(--pink)}
 <div class="marquee-wrap"><div class="marquee-track">
   <span>WEBINAIRE GRATUIT</span><span><em>★</em></span>
   <span class="hl">12 AVRIL — 20H30</span><span><em>★</em></span>
-  <span>PLACES LIMITÉES</span><span><em>★</em></span>
+  <span>3 SECRETS POUR 10K€/MOIS</span><span><em>★</em></span>
+  <span>5 INTERVENANTS EN LIVE</span><span><em>★</em></span>
   <span>PAS DE REPLAY</span><span><em>★</em></span>
-  <span>4 INTERVENANTS EN LIVE</span><span><em>★</em></span>
-  <span class="hl">OBJECTIF 10 000€/MOIS</span><span><em>★</em></span>
-  <span>CONTRATS RÉELS MONTRÉS</span><span><em>★</em></span>
+  <span class="hl">50K+ ABONNÉS CUMULÉS</span><span><em>★</em></span>
+  <span>PLACES LIMITÉES</span><span><em>★</em></span>
   <span>OSMO POCKET À GAGNER</span><span><em>★</em></span>
   <span>WEBINAIRE GRATUIT</span><span><em>★</em></span>
   <span class="hl">12 AVRIL — 20H30</span><span><em>★</em></span>
-  <span>PLACES LIMITÉES</span><span><em>★</em></span>
+  <span>3 SECRETS POUR 10K€/MOIS</span><span><em>★</em></span>
+  <span>5 INTERVENANTS EN LIVE</span><span><em>★</em></span>
   <span>PAS DE REPLAY</span><span><em>★</em></span>
-  <span>4 INTERVENANTS EN LIVE</span><span><em>★</em></span>
-  <span class="hl">OBJECTIF 10 000€/MOIS</span><span><em>★</em></span>
-  <span>CONTRATS RÉELS MONTRÉS</span><span><em>★</em></span>
+  <span class="hl">50K+ ABONNÉS CUMULÉS</span><span><em>★</em></span>
+  <span>PLACES LIMITÉES</span><span><em>★</em></span>
   <span>OSMO POCKET À GAGNER</span><span><em>★</em></span>
 </div></div>
 
@@ -386,19 +421,42 @@ footer .logo-foot span{color:var(--pink)}
     <div class="hero-date-text" style="color:rgba(255,215,0,0.85)">Depuis l'Agence · Paris</div>
   </div>
 
-  <p class="hero-eyebrow"><span style="font-family:var(--font-serif);font-style:italic;">Le live pour les créateurs de contenu</span></p>
-  <h1>COMMENT GAGNER<br><span class="pink">10 000€</span> <span class="serif">/mois</span><br><span class="outline">avec ton contenu</span></h1>
+  <h1>COMMENT GAGNER <span class="pink" style="white-space:nowrap">10&nbsp;000€/MOIS</span><br><span class="outline">AVEC TON CONTENU</span></h1>
 
   <p class="hero-sub">
-    <strong>Scalevision</strong> accompagne des créateurs de contenu à <strong>signer de gros contrats</strong>, gagner en abonnés et construire un vrai business — <span class="green">même avec 300 abonnés.</span>
+    <strong>5 intervenants</strong> qui cumulent <span class="pink-t">50K+ abonnés</span> et <span class="green">+50K€ de CA/mois</span> te partagent leur methode en live. <strong>3 secrets crescendo</strong> pour passer de 0 a 10K€/mois avec ton contenu — <span class="green">meme avec 300 abonnes.</span>
   </p>
 
   <div class="hero-chips">
     <div class="hero-chip"><span class="chip-icon">📍</span> Live depuis Paris</div>
-    <div class="hero-chip hero-chip--pink"><span class="chip-icon">🎙️</span> 4 intervenants</div>
-    <div class="hero-chip hero-chip--gold"><span class="chip-icon">💼</span> Contrats réels montrés</div>
+    <div class="hero-chip hero-chip--pink"><span class="chip-icon">🔐</span> 3 secrets</div>
+    <div class="hero-chip hero-chip--gold"><span class="chip-icon">🎙️</span> 5 intervenants</div>
     <div class="hero-chip hero-chip--green"><span class="chip-icon">💸</span> 100% gratuit</div>
-    <div class="hero-chip"><span class="chip-icon">🏆</span> Osmo Pocket à gagner</div>
+    <div class="hero-chip"><span class="chip-icon">🏆</span> Osmo Pocket a gagner</div>
+  </div>
+
+  <!-- Intervenantes -->
+  <div class="hero-speakers-label">Tes intervenantes</div>
+  <div class="hero-speakers-row">
+    <div class="hero-speaker-av">
+      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="Linda">
+      <span class="av-name">LINDA</span>
+      <span class="av-role">Secret #1</span>
+    </div>
+    <div class="hero-speaker-av">
+      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="Mélanie">
+      <span class="av-name">MÉLANIE</span>
+      <span class="av-role">Secret #2</span>
+    </div>
+    <div class="hero-speaker-av">
+      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/gaelle.jpg" alt="Famille ACLA">
+      <span class="av-name">ACLA</span>
+      <span class="av-role">Secret #3</span>
+    </div>
+    <div class="hero-speaker-mystery">
+      <div class="mys-circle">?</div>
+      <span class="mys-label">MYSTÈRE</span>
+    </div>
   </div>
 
   <div class="hero-cta-wrap">
@@ -406,7 +464,7 @@ footer .logo-foot span{color:var(--pink)}
     <div class="hero-cta-note"><strong>● Gratuit</strong> — Pas de replay — Places limitées</div>
   </div>
 
-  <!-- Organisé par + YesCyril star teaser -->
+  <!-- Organisé par Constantin -->
   <div style="margin-top:30px;margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:11px;color:rgba(255,255,255,0.45);">Organisé par</div>
   <div class="hero-hosts">
     <div class="hero-host">
@@ -414,14 +472,6 @@ footer .logo-foot span{color:var(--pink)}
       <div class="hero-host-info">
         <div class="hero-host-name">CONSTANTIN</div>
         <div class="hero-host-role">CEO — Scalevision · Paris</div>
-      </div>
-    </div>
-    <div class="hero-star">
-      <div class="hero-star-av">👑</div>
-      <div class="hero-star-info">
-        <div class="hero-star-lbl">⭐ Intervenant confirmé</div>
-        <div class="hero-star-name">YESCYRIL</div>
-        <div class="hero-star-stat"><strong>5M+ abonnés cumulés</strong> · <strong>40K€/mois</strong></div>
       </div>
     </div>
   </div>
@@ -432,9 +482,9 @@ footer .logo-foot span{color:var(--pink)}
       <img src="assets/img/osmo.png" alt="DJI Osmo Pocket 3">
     </div>
     <div class="hero-giveaway-text">
-      <div class="hero-giveaway-tag">🎁 Tirage au sort en direct à la fin du live</div>
+      <div class="hero-giveaway-tag">🎁 Tirage au sort en direct a la fin du live</div>
       <div class="hero-giveaway-name">1 INSCRIPTION = 1 CHANCE DE GAGNER<br>UNE <span class="pink">DJI OSMO POCKET 3</span></div>
-      <div class="hero-giveaway-plus">Être présent au live = éligible au tirage final</div>
+      <div class="hero-giveaway-plus">Etre present au live = eligible au tirage final</div>
     </div>
   </div>
 
@@ -443,115 +493,158 @@ footer .logo-foot span{color:var(--pink)}
 <!-- PROOF BAR -->
 <div class="divider"></div>
 <div class="proof-bar">
-  <div class="proof-item"><div class="proof-number" data-target="5">5M+</div><div class="proof-label">Abonnés cumulés<br>YesCyril</div></div>
-  <div class="proof-item"><div class="proof-number gold">40K€</div><div class="proof-label">CA/mois<br>YesCyril</div></div>
-  <div class="proof-item"><div class="proof-number green">10K€</div><div class="proof-label">Objectif mensuel<br>de nos créateurs</div></div>
-  <div class="proof-item"><div class="proof-number">4</div><div class="proof-label">Intervenants<br>en live</div></div>
+  <div class="proof-item"><div class="proof-number">50K+</div><div class="proof-label">Abonnes cumules<br>des intervenants</div></div>
+  <div class="proof-item"><div class="proof-number gold">50K€+</div><div class="proof-label">CA/mois genere<br>par les intervenantes</div></div>
+  <div class="proof-item"><div class="proof-number green">3</div><div class="proof-label">Secrets<br>crescendo</div></div>
+  <div class="proof-item"><div class="proof-number white">5</div><div class="proof-label">Intervenants<br>en live</div></div>
 </div>
 <div class="divider"></div>
 
-<!-- PROGRAMME -->
-<section class="programme-section">
+<!-- LES 3 SECRETS — PROGRAMME -->
+<section class="secrets-section">
   <div class="reveal">
-    <div class="section-label" style="text-align:center">Programme du live</div>
-    <h2 style="text-align:center">CE QUI VA SE <span class="serif">passer</span></h2>
-    <p class="programme-sub">Un live structuré, 4 intervenants, des contrats montrés en direct. Pas du blabla.</p>
+    <div class="section-label" style="text-align:center">Le programme du live</div>
+    <h2 style="text-align:center">LES <span class="pink">3 SECRETS</span> POUR<br>ATTEINDRE <span class="serif">10K€/mois</span></h2>
+    <p class="secrets-sub">3 paliers crescendo. Chaque secret s'appuie sur le precedent. A la fin du live, tu auras la roadmap complete — de 0 a 10K€/mois.</p>
   </div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-time">OUVERTURE</div>
-      <div class="timeline-title">POURQUOI CE LIVE ?</div>
-      <div class="timeline-desc">Présentation de Constantin et de Scalevision, l'agence sur Paris qui accompagne les créateurs UGC & micro-trottoir. Pourquoi créer du contenu est aujourd'hui <strong style="color:var(--white)">la meilleure façon d'attirer du business</strong>. Un restau ouvre = réflexe TikTok.</div>
-      <div class="timeline-tags"><span class="tl-tag">🏢 Depuis l'agence Paris</span><span class="tl-tag">📍 Live en direct</span></div>
+
+  <!-- SECRET 1 -->
+  <div class="secret-block reveal">
+    <div class="secret-header">
+      <div class="secret-number">01</div>
+      <div>
+        <div class="secret-label">SECRET #1</div>
+        <div class="secret-title">3-4K€/MOIS SANS ABONNES</div>
+      </div>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-time">PARTIE 1</div>
-      <div class="timeline-title">LES 8 PILIERS DES 10K€/MOIS</div>
-      <div class="timeline-desc">Contenu, croissance, routine, prospection, vente, closing, récurrence, scaling. Et les 4 fondamentaux : <strong style="color:var(--white)">niche, qualité, prospection, vente.</strong> Comment passer d'1 vidéo à 300€ à 5 vidéos à 800€.</div>
-      <div class="timeline-tags"><span class="tl-tag">📈 Méthode exclusive</span><span class="tl-tag">💡 Actionnable immédiatement</span></div>
+    <div class="secret-desc">
+      Tu n'as pas besoin de 10K abonnes pour gagner ta vie. Avec <strong>le bon contenu, la bonne prospection, le bon message et la bonne niche</strong>, tu peux generer 3 a 4K€/mois rapidement. On te montre exactement comment.
     </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-time">PARTIE 2</div>
-      <div class="timeline-title">INTERVIEWS DE 3 CRÉATRICES</div>
-      <div class="timeline-desc">3 créatrices qui atteignent 10K€/mois. Comment elles prospectent, quel message elles utilisent, comment elles négocient. <strong style="color:var(--white)">Contrats réels montrés en direct</strong> — les montants, les clients, les tarifs.</div>
-      <div class="timeline-tags"><span class="tl-tag">📝 Contrats signés</span><span class="tl-tag">💬 Questions en direct</span><span class="tl-tag">📊 Chiffres réels</span></div>
+    <div class="secret-tags">
+      <span class="secret-tag">📝 Contenu</span>
+      <span class="secret-tag">📩 Prospection</span>
+      <span class="secret-tag">💬 Le bon message</span>
+      <span class="secret-tag">🎯 Niche</span>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-time">PARTIE 3</div>
-      <div class="timeline-title">YESCYRIL — COMMENT IL FAIT ?</div>
-      <div class="timeline-desc"><strong style="color:var(--gold)">YesCyril</strong>, 5M+ abonnés cumulés, 40K€/mois. Interview exclusive : sa méthode, ses secrets, et pourquoi il pourrait faire encore plus. La partie que tout le monde attend.</div>
-      <div class="timeline-tags"><span class="tl-tag">⭐ Intervenant star</span><span class="tl-tag">🔥 Exclusif</span></div>
+    <div class="secret-speaker">
+      <div class="secret-speaker-img"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="Linda"></div>
+      <div class="secret-speaker-info">
+        <div class="secret-speaker-name">LINDA</div>
+        <div class="secret-speaker-role">Creatrice de contenu · Intervenante</div>
+      </div>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-time">BONUS + TIRAGE</div>
-      <div class="timeline-title">DE 10K À 50K€ + OSMO POCKET</div>
-      <div class="timeline-desc">Le bonus pour aller encore plus loin : monter sa marque, s'associer, vendre du coaching. Q&A en direct avec tous les intervenants. Et le <strong style="color:var(--pink)">tirage au sort OSMO Pocket 3</strong> en live, à la toute fin.</div>
-      <div class="timeline-tags"><span class="tl-tag">🚀 Bonus 50K</span><span class="tl-tag">🎁 Osmo Pocket</span><span class="tl-tag">❓ Q&A Live</span></div>
+  </div>
+
+  <!-- SECRET 2 -->
+  <div class="secret-block reveal">
+    <div class="secret-header">
+      <div class="secret-number">02</div>
+      <div>
+        <div class="secret-label">SECRET #2</div>
+        <div class="secret-title">ROAD TO 10K ABONNES</div>
+      </div>
+    </div>
+    <div class="secret-desc">
+      Comment <strong>creer du contenu qui percera</strong> et construire une audience de 10 000 abonnes en moins de 6 mois. Les formats, la regularite, les hacks — tout ce qu'il faut savoir pour exploser.
+    </div>
+    <div class="secret-tags">
+      <span class="secret-tag">🎥 Creation de contenu</span>
+      <span class="secret-tag">📈 Croissance rapide</span>
+      <span class="secret-tag">🔥 Percer sur les reseaux</span>
+    </div>
+    <div class="secret-speaker">
+      <div class="secret-speaker-img"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="Melanie"></div>
+      <div class="secret-speaker-info">
+        <div class="secret-speaker-name">MELANIE</div>
+        <div class="secret-speaker-role">10 000 abonnes en 6 mois</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECRET 3 -->
+  <div class="secret-block reveal">
+    <div class="secret-header">
+      <div class="secret-number">03</div>
+      <div>
+        <div class="secret-label">SECRET #3</div>
+        <div class="secret-title">10K ABO + 10K€/MOIS</div>
+      </div>
+    </div>
+    <div class="secret-desc">
+      Le palier ultime : combiner <strong>influence, creation perso et pro, monter sa marque, vendre plus cher, s'associer</strong>. Comment depasser les 10K€/mois et construire un vrai business autour de ton contenu.
+    </div>
+    <div class="secret-tags">
+      <span class="secret-tag">👑 Influence</span>
+      <span class="secret-tag">🏷️ Marque perso</span>
+      <span class="secret-tag">💰 Vendre plus cher</span>
+      <span class="secret-tag">🤝 S'associer</span>
+      <span class="secret-tag">🚀 Scaling</span>
+    </div>
+    <div class="secret-speaker">
+      <div class="secret-speaker-img"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/gaelle.jpg" alt="Famille ACLA"></div>
+      <div class="secret-speaker-info">
+        <div class="secret-speaker-name">FAMILLE ACLA</div>
+        <div class="secret-speaker-role">10 000€/mois reguliers · Creatrice de contenu</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONUS -->
+  <div class="secret-bonus reveal">
+    <div class="mystery-glow"></div>
+    <div style="font-size:28px;margin-bottom:8px">🎁</div>
+    <div class="secret-bonus-title">BONUS + Q&A + TIRAGE OSMO POCKET</div>
+    <div class="secret-bonus-desc">
+      Session Q&A en direct avec <strong>tous les intervenants</strong>. Pose tes questions. Et a la toute fin : <strong style="color:var(--pink)">tirage au sort de la DJI Osmo Pocket 3</strong> parmi les presents.
+    </div>
+    <div class="secret-bonus-items">
+      <div class="secret-bonus-item">❓ Q&A Live</div>
+      <div class="secret-bonus-item">🎁 Osmo Pocket 3</div>
+      <div class="secret-bonus-item">🎉 Surprises</div>
     </div>
   </div>
 </section>
 <div class="divider"></div>
 
 <!-- AGENCY / QUI ORGANISE -->
-<section class="agency-section"><div class="agency-inner reveal">
-  <div class="agency-visual">
-    <div class="agency-decor-line"></div>
-    <div class="agency-photo-card">
-      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, CEO de Scalevision">
-      <div class="agency-photo-label">
-        <strong>CONSTANTIN</strong>
-        <span>CEO — Scalevision</span>
-        <span class="apl-stat">Agence de création · Paris</span>
+<section class="agency-section">
+  <div class="agency-card reveal">
+    <div class="agency-card-top">
+      <div class="agency-photo">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, CEO de Scalevision">
+      </div>
+      <div class="agency-brand">
+        <div class="agency-brand-name">SCALE<span>VISION</span></div>
+        <div class="agency-brand-tagline">Agence de création de contenu · Paris</div>
+        <div class="agency-brand-role">Constantin — CEO</div>
       </div>
     </div>
-    <div class="agency-photo-card">
-      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Scalevision Agence">
-      <div class="agency-photo-label">
-        <strong>SCALEVISION</strong>
-        <span>Agence · Paris</span>
-        <span class="apl-stat">UGC · Micro-trottoir · Influence</span>
-      </div>
+    <div class="agency-tags">
+      <span class="agency-tag">UGC</span>
+      <span class="agency-tag">Micro-trottoir</span>
+      <span class="agency-tag">Influence</span>
     </div>
-    <div class="agency-decor-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-  </div>
-  <div class="agency-content">
-    <div class="section-label">Qui organise ce live ?</div>
-    <h2>SCALEVISION <span class="serif">&</span> <span class="pink">CONSTANTIN</span></h2>
-    <p class="agency-bio"><strong>Constantin, CEO de Scalevision</strong>, a bâti l'agence de création de contenu sur Paris. Campagnes influence, UGC, micro-trottoir — ils accompagnent des marques ET des créateurs.<br><br><strong>Leur mission avec les créateurs :</strong> gagner en abonnés, construire des offres, savoir vendre, savoir prospecter. <strong>Objectif : 10 000€/mois minimum</strong> — entre 7 500€ et 13 000€ selon les profils.<br><br>Pourquoi ce live ? <strong>Créer du contenu est aujourd'hui la meilleure façon d'attirer du business à soi.</strong> Un restau ouvre, son premier réflexe c'est TikTok.</p>
-    <div class="agency-stats-row">
-      <div class="agency-stat"><div class="agency-stat-num">10K€</div><div class="agency-stat-label">Objectif / mois</div></div>
-      <div class="agency-stat"><div class="agency-stat-num">5M+</div><div class="agency-stat-label">Abonnés YesCyril</div></div>
-      <div class="agency-stat"><div class="agency-stat-num">4</div><div class="agency-stat-label">Intervenants live</div></div>
-    </div>
+    <p class="agency-bio"><strong>Constantin</strong> a bâti l'agence de création de contenu sur Paris. Campagnes influence, UGC, micro-trottoir — ils accompagnent des marques ET des créateurs.</p>
     <div class="agency-social-row">
-      <a href="#" class="agency-social-link"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> @scalevision</a>
+      <a href="https://www.instagram.com/scalevision/" target="_blank" class="agency-social-link"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> @scalevision</a>
     </div>
-    <blockquote class="agency-quote">
-      "Créer du contenu, c'est aujourd'hui la meilleure façon d'attirer du business à soi — que tu aies 300 ou 300 000 abonnés."
-      <span class="agency-quote-author">— Constantin, CEO Scalevision</span>
-    </blockquote>
   </div>
-</div></section>
+</section>
 <div class="divider"></div>
 
 <!-- PAIN -->
 <section class="pain-section">
   <div class="reveal">
     <div class="section-label">Tu te reconnais ?</div>
-    <h2>TU CRÉES DU CONTENU<br>MAIS TU NE GAGNES <span class="serif">pas assez...</span></h2>
+    <h2>TU CREES DU CONTENU<br>MAIS TU NE GAGNES <span class="serif">pas assez...</span></h2>
   </div>
   <div class="pain-grid">
-    <div class="pain-card reveal reveal-d1"><div class="pain-icon">😤</div><h3>AUCUNE STRUCTURE</h3><p>Tu postes, tu espères des partenariats, mais tu n'as pas de système pour convertir ton contenu en revenus réguliers.</p></div>
-    <div class="pain-card reveal reveal-d2"><div class="pain-icon">📉</div><h3>TU SAIS PAS VENDRE</h3><p>Tu ne sais pas comment présenter tes tarifs, négocier ou passer d'1 vidéo à 300€ à un pack à 800€.</p></div>
-    <div class="pain-card reveal reveal-d3"><div class="pain-icon">🔄</div><h3>ZÉRO RÉCURRENCE</h3><p>Pas de clients réguliers. Chaque mois tu repars de zéro, sans contrats qui s'accumulent.</p></div>
-    <div class="pain-card reveal reveal-d1"><div class="pain-icon">🤷</div><h3>PAS DE MÉTHODE</h3><p>Personne ne t'a appris à prospecter efficacement ni à transformer ta passion en business.</p></div>
-    <div class="pain-card reveal reveal-d2"><div class="pain-icon">👻</div><h3>LES MARQUES T'IGNORENT</h3><p>Tu envoies des DMs, des mails, mais aucune réponse. Le message et l'approche ne sont pas les bons.</p></div>
-    <div class="pain-card reveal reveal-d3"><div class="pain-icon">🧠</div><h3>SYNDROME DE L'IMPOSTEUR</h3><p>Tu penses qu'il faut 100K abonnés pour gagner de l'argent. Faux. Nos créateurs signent avec 300 abonnés.</p></div>
+    <div class="pain-card reveal reveal-d1"><div class="pain-icon">😤</div><h3>AUCUNE STRUCTURE</h3><p>Tu postes, tu esperes des partenariats, mais tu n'as pas de systeme pour convertir ton contenu en revenus reguliers.</p></div>
+    <div class="pain-card reveal reveal-d2"><div class="pain-icon">📉</div><h3>TU SAIS PAS VENDRE</h3><p>Tu ne sais pas comment presenter tes tarifs, negocier ou passer d'1 video a 300€ a un pack a 800€.</p></div>
+    <div class="pain-card reveal reveal-d3"><div class="pain-icon">🔄</div><h3>ZERO RECURRENCE</h3><p>Pas de clients reguliers. Chaque mois tu repars de zero, sans contrats qui s'accumulent.</p></div>
+    <div class="pain-card reveal reveal-d1"><div class="pain-icon">🤷</div><h3>PAS DE METHODE</h3><p>Personne ne t'a appris a prospecter efficacement ni a transformer ta passion en business.</p></div>
+    <div class="pain-card reveal reveal-d2"><div class="pain-icon">👻</div><h3>LES MARQUES T'IGNORENT</h3><p>Tu envoies des DMs, des mails, mais aucune reponse. Le message et l'approche ne sont pas les bons.</p></div>
+    <div class="pain-card reveal reveal-d3"><div class="pain-icon">🧠</div><h3>SYNDROME DE L'IMPOSTEUR</h3><p>Tu penses qu'il faut 100K abonnes pour gagner de l'argent. Faux. Nos creatrices signent avec 300 abonnes.</p></div>
   </div>
 </section>
 <div class="divider"></div>
@@ -560,15 +653,15 @@ footer .logo-foot span{color:var(--pink)}
 <section class="scale-section">
   <div class="scale-inner">
     <div class="scale-header reveal">
-      <div class="section-label" style="justify-content:center;display:flex">Le potentiel réel</div>
-      <h2 style="margin-top:16px">CE QUE TES ABONNÉS<br><span class="pink">VALENT VRAIMENT</span></h2>
-      <p style="margin-top:12px">La plupart des créateurs sous-estiment massivement leur valeur. Voici ce que ça donne avec notre méthode.</p>
+      <div class="section-label" style="justify-content:center;display:flex">Le potentiel reel</div>
+      <h2 style="margin-top:16px">CE QUE TES ABONNES<br><span class="pink">VALENT VRAIMENT</span></h2>
+      <p style="margin-top:12px">La plupart des createurs sous-estiment massivement leur valeur. Voici ce que ca donne avec notre methode.</p>
     </div>
     <div class="scale-tiers reveal">
       <div class="scale-tier st-pink">
-        <div class="st-tier-lbl">Débutant</div>
+        <div class="st-tier-lbl">Debutant</div>
         <div class="st-abo">300</div>
-        <div class="st-abo-sub">abonnés</div>
+        <div class="st-abo-sub">abonnes</div>
         <div class="st-earn"><span class="st-amount">3–4K€</span><span class="st-per">/mois</span></div>
         <div class="st-bar"><div class="st-bar-fill" data-width="35%"></div></div>
         <div class="st-note">Avec la bonne prospection et les bons clients. Sans audience massive.</div>
@@ -576,21 +669,21 @@ footer .logo-foot span{color:var(--pink)}
       <div class="scale-tier st-purple">
         <div class="st-tier-lbl">En croissance</div>
         <div class="st-abo">3–4K</div>
-        <div class="st-abo-sub">abonnés</div>
+        <div class="st-abo-sub">abonnes</div>
         <div class="st-earn"><span class="st-amount">6–7K€</span><span class="st-per">/mois</span></div>
         <div class="st-bar"><div class="st-bar-fill" data-width="65%"></div></div>
-        <div class="st-note">Volume augmenté, tarifs négociés, récurrence installée.</div>
+        <div class="st-note">Volume augmente, tarifs negocies, recurrence installee.</div>
       </div>
       <div class="scale-tier st-gold">
-        <div class="st-tier-lbl">🔥 Illimité</div>
+        <div class="st-tier-lbl">🔥 Illimite</div>
         <div class="st-abo">4K+</div>
-        <div class="st-abo-sub">abonnés</div>
+        <div class="st-abo-sub">abonnes</div>
         <div class="st-earn"><span class="st-amount">10K€+</span><span class="st-per">/mois</span></div>
         <div class="st-bar"><div class="st-bar-fill" data-width="100%"></div></div>
         <div class="st-note">Plus de plafond. Marque personnelle, coaching, UGC premium.</div>
       </div>
     </div>
-    <p class="scale-fn reveal">La clé : <strong>passer d'1 vidéo à 300€ à 5 vidéos à 800€.</strong><br>On t'explique comment négocier ça — et on montre les <strong>contrats réels signés par nos créateurs.</strong></p>
+    <p class="scale-fn reveal">La cle : <strong>passer d'1 video a 300€ a 5 videos a 800€.</strong><br>On t'explique comment negocier ca — et on montre les <strong>contrats reels signes par nos creatrices.</strong></p>
   </div>
 </section>
 <div class="divider"></div>
@@ -598,49 +691,63 @@ footer .logo-foot span{color:var(--pink)}
 <!-- SPEAKERS -->
 <section class="speakers-section">
   <div class="reveal">
-    <div class="section-label">4 intervenants</div>
+    <div class="section-label">5 intervenants</div>
     <h2>LE CAST DU <span class="serif">live</span></h2>
-    <p class="speakers-intro">YesCyril est confirmé. Les 3 créatrices restent mystère jusqu'au live — mais leurs thèmes te donnent déjà une idée de ce qui t'attend.</p>
+    <p class="speakers-intro">3 creatrices revelees qui partagent leurs secrets en direct, et 2 intervenants mystere qui seront devoiles le jour J. 50K+ abonnes cumules, +50K€ de CA/mois.</p>
   </div>
   <div class="speakers-grid reveal">
 
-    <!-- YesCyril — révélé -->
-    <div class="speaker-card speaker-card--star">
-      <div class="speaker-avatar" style="position:relative">
-        👑
-        <div class="sp-badge">★</div>
+    <!-- Linda — revelee -->
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="Linda">
       </div>
-      <div class="speaker-name">YESCYRIL</div>
-      <div class="speaker-role">Créateur de contenu</div>
-      <div class="speaker-desc">Le plus grand créateur UGC de France. 5M+ abonnés cumulés. Comment génère-t-il 40K€/mois — et pourrait-il faire encore plus ?</div>
-      <div class="speaker-stat">★ 5M+ abonnés · 40K€/mois</div>
+      <div class="speaker-name">LINDA</div>
+      <div class="speaker-role">Creatrice de contenu</div>
+      <div class="speaker-desc">Elle te montre comment generer 3-4K€/mois sans audience. Le bon message, la bonne niche, la bonne prospection.</div>
+      <div class="speaker-stat">🔐 Secret #1</div>
     </div>
 
-    <!-- Mystery 1 — 10K abo en 6 mois -->
-    <div class="speaker-card speaker-card--mystery">
-      <div class="mystery-avatar">🙈</div>
-      <div class="mystery-name">CRÉATRICE #1</div>
-      <div class="speaker-role">Identité révélée le 12 avril</div>
-      <div class="speaker-desc">Son parcours prouve que l'audience se construit avec méthode, pas avec de la chance.</div>
-      <div class="mystery-theme">📈 10 000 abonnés en 6 mois</div>
+    <!-- Melanie — revelee -->
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="Melanie">
+      </div>
+      <div class="speaker-name">MELANIE</div>
+      <div class="speaker-role">10K abonnes en 6 mois</div>
+      <div class="speaker-desc">Son parcours prouve que l'audience se construit avec methode, pas avec de la chance. Elle partage tout.</div>
+      <div class="speaker-stat">📈 Secret #2</div>
     </div>
 
-    <!-- Mystery 2 — signer avec peu d'abonnés -->
-    <div class="speaker-card speaker-card--mystery">
-      <div class="mystery-avatar">🕵️</div>
-      <div class="mystery-name">CRÉATRICE #2</div>
-      <div class="speaker-role">Identité révélée le 12 avril</div>
-      <div class="speaker-desc">Elle prouve qu'on n'a pas besoin d'une grosse audience pour signer de gros clients.</div>
-      <div class="mystery-theme">✍️ Signer des contrats avec 3K abonnés</div>
+    <!-- Famille ACLA — revelee -->
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/gaelle.jpg" alt="Famille ACLA">
+      </div>
+      <div class="speaker-name">FAMILLE ACLA</div>
+      <div class="speaker-role">10K€/mois reguliers</div>
+      <div class="speaker-desc">Comment combiner influence et creation pour depasser les 10K€/mois. Contrats reels montres en direct.</div>
+      <div class="speaker-stat">👑 Secret #3</div>
     </div>
 
-    <!-- Mystery 3 — 10K/mois -->
+    <!-- Mystery 1 -->
     <div class="speaker-card speaker-card--mystery">
+      <div class="mystery-glow"></div>
+      <div class="mystery-avatar">🔮</div>
+      <div class="mystery-label">⚡ BIENTOT REVELE ⚡</div>
+      <div class="mystery-name">INTERVENANT #4</div>
+      <div class="speaker-role" style="color:rgba(255,255,255,0.35)">Identite revelee le 12 avril</div>
+      <div class="mystery-desc">Un profil qui va vous surprendre. Restez connectes...</div>
+    </div>
+
+    <!-- Mystery 2 -->
+    <div class="speaker-card speaker-card--mystery">
+      <div class="mystery-glow"></div>
       <div class="mystery-avatar">🎭</div>
-      <div class="mystery-name">CRÉATRICE #3</div>
-      <div class="speaker-role">Identité révélée le 12 avril</div>
-      <div class="speaker-desc">Elle touche 10K€/mois régulièrement. Elle montre ses contrats en direct.</div>
-      <div class="mystery-theme">💶 10 000€/mois réguliers</div>
+      <div class="mystery-label">⚡ BIENTOT REVELE ⚡</div>
+      <div class="mystery-name">INTERVENANT #5</div>
+      <div class="speaker-role" style="color:rgba(255,255,255,0.35)">Identite revelee le 12 avril</div>
+      <div class="mystery-desc">La surprise de ce live. Vous n'etes pas prets...</div>
     </div>
 
   </div>
@@ -650,10 +757,11 @@ footer .logo-foot span{color:var(--pink)}
 <!-- URGENCY -->
 <section class="urgency-section">
   <div class="urgency-grid reveal">
-    <div class="urgency-card"><div class="urgency-icon">🚫</div><div class="urgency-title">PAS DE REPLAY</div><div class="urgency-desc">Les contrats ne sont montrés qu'une fois, en live.</div></div>
-    <div class="urgency-card"><div class="urgency-icon">🎟️</div><div class="urgency-title">PLACES LIMITÉES</div><div class="urgency-desc">On ne peut pas accueillir tout le monde.</div></div>
-    <div class="urgency-card"><div class="urgency-icon">💰</div><div class="urgency-title">100% GRATUIT</div><div class="urgency-desc">Aucune carte bancaire. Zéro engagement.</div></div>
-    <div class="urgency-card"><div class="urgency-icon">🎁</div><div class="urgency-title">OSMO POCKET 3</div><div class="urgency-desc">Tirage au sort en direct parmi les présents au live.</div></div>
+    <div class="urgency-card"><div class="urgency-icon">🚫</div><div class="urgency-title">PAS DE REPLAY</div><div class="urgency-desc">Les secrets et contrats ne sont montres qu'une seule fois, en live.</div></div>
+    <div class="urgency-card"><div class="urgency-icon">🎟️</div><div class="urgency-title">PLACES LIMITEES</div><div class="urgency-desc">On ne peut pas accueillir tout le monde.</div></div>
+    <div class="urgency-card"><div class="urgency-icon">💰</div><div class="urgency-title">100% GRATUIT</div><div class="urgency-desc">Aucune carte bancaire. Zero engagement.</div></div>
+    <div class="urgency-card"><div class="urgency-icon">🎁</div><div class="urgency-title">OSMO POCKET 3</div><div class="urgency-desc">Tirage au sort en direct parmi les presents au live.</div></div>
+    <div class="urgency-card"><div class="urgency-icon">🔮</div><div class="urgency-title">2 MYSTERES</div><div class="urgency-desc">2 intervenants surprise reveles uniquement en direct.</div></div>
   </div>
 </section>
 <div class="divider"></div>
@@ -661,9 +769,9 @@ footer .logo-foot span{color:var(--pink)}
 <!-- FORM SECTION WITH TALLY -->
 <section class="form-section" id="inscription">
   <div class="reveal">
-    <div class="section-label">Dernière étape</div>
-    <h2>RÉSERVE TA PLACE <span class="serif">maintenant</span></h2>
-    <p class="form-sub">Dimanche 12 Avril à 20H30 · Live depuis Paris</p>
+    <div class="section-label">Derniere etape</div>
+    <h2>RESERVE TA PLACE <span class="serif">maintenant</span></h2>
+    <p class="form-sub">Dimanche 12 Avril a 20H30 · Live depuis Paris</p>
   </div>
   <div class="form-wrapper reveal">
 
@@ -681,7 +789,7 @@ footer .logo-foot span{color:var(--pink)}
       </div>
       <!-- Mini countdown -->
       <div>
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600">Compte à rebours</div>
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600">Compte a rebours</div>
         <div class="form-cd-wrap">
           <div class="form-cd-item"><div class="form-cd-num" id="cd-days">00</div><div class="form-cd-label">Jours</div></div>
           <div class="form-cd-item"><div class="form-cd-num" id="cd-hours">00</div><div class="form-cd-label">Heures</div></div>
@@ -690,15 +798,15 @@ footer .logo-foot span{color:var(--pink)}
         </div>
       </div>
       <div class="form-info-list">
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">4 intervenants en live</div></div>
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">Contrats réels montrés</div></div>
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">Méthode des 10K€/mois</div></div>
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">YesCyril en exclusivité</div></div>
-        <div class="fil-item"><div class="fil-icon">🎁</div><div class="fil-text">Osmo Pocket 3 à gagner</div></div>
+        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">5 intervenants en live</div></div>
+        <div class="fil-item"><div class="fil-icon">🔐</div><div class="fil-text">3 secrets pour atteindre 10K€/mois</div></div>
+        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">Contrats reels montres en direct</div></div>
+        <div class="fil-item"><div class="fil-icon">🔮</div><div class="fil-text">2 intervenants mystere reveles en direct</div></div>
+        <div class="fil-item"><div class="fil-icon">🎁</div><div class="fil-text">Osmo Pocket 3 a gagner</div></div>
       </div>
       <div class="form-info-exclusive">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        <span>Pour tous les créateurs — <strong>même avec 300 abonnés</strong></span>
+        <span>Pour tous les createurs — <strong>meme avec 300 abonnes</strong></span>
       </div>
     </div>
 
@@ -719,8 +827,8 @@ footer .logo-foot span{color:var(--pink)}
         else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
       </script>
       <div class="form-trust-row">
-        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Données protégées</div>
-        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Confirmation instantanée</div>
+        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Donnees protegees</div>
+        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Confirmation instantanee</div>
         <div class="form-trust">🚫 Pas de spam</div>
       </div>
     </div>
@@ -731,9 +839,9 @@ footer .logo-foot span{color:var(--pink)}
 <div class="divider"></div>
 <footer>
   <div class="logo-foot">SCALE<span>VISION</span></div>
-  <p>© 2026 Scalevision — Agence de création de contenu · Paris</p>
+  <p>© 2026 Scalevision — Agence de creation de contenu · Paris</p>
 </footer>
-<div class="sticky-cta"><a href="#inscription">JE RÉSERVE MA PLACE →</a></div>
+<div class="sticky-cta"><a href="#inscription">JE RESERVE MA PLACE →</a></div>
 
 <script>
 // Sticky CTA
@@ -748,13 +856,13 @@ const obs = new IntersectionObserver(e => {
 }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
 
-// Timeline stagger
-const tlObs = new IntersectionObserver(e => {
-  e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); tlObs.unobserve(x.target); } });
+// Secret blocks stagger
+const secretObs = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); secretObs.unobserve(x.target); } });
 }, {threshold:.15});
-document.querySelectorAll('.timeline-item').forEach((item, i) => {
-  item.style.transitionDelay = (i * 0.12) + 's';
-  tlObs.observe(item);
+document.querySelectorAll('.secret-block, .secret-bonus').forEach((item, i) => {
+  item.style.transitionDelay = (i * 0.15) + 's';
+  secretObs.observe(item);
 });
 
 // Scale bars animation
