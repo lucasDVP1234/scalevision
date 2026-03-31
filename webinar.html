@@ -88,15 +88,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-cta .arrow{transition:transform .3s}.hero-cta:hover .arrow{transform:translateX(5px)}
 .hero-cta-note{font-size:12px;color:rgba(255,255,255,0.35)}.hero-cta-note strong{color:var(--green);font-weight:600}
 
-/* Host — Constantin */
-.hero-hosts{display:flex;align-items:flex-end;justify-content:center;gap:20px;margin-top:24px;animation:fadeUp .7s .55s ease forwards;opacity:0;flex-wrap:wrap}
-.hero-host{display:flex;align-items:center;gap:12px;text-decoration:none;transition:transform .3s,box-shadow .3s;background:rgba(18,27,198,0.6);padding:10px 16px;border-radius:18px;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.hero-host:hover{transform:translateY(-4px) scale(1.02)}
-.hero-host-img{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.4);flex-shrink:0;box-shadow:0 0 0 3px rgba(37,30,175,0.9),0 10px 25px rgba(0,0,0,0.45)}
-.hero-host-img img{width:100%;height:100%;object-fit:cover}
-.hero-host-info{text-align:left}
-.hero-host-name{font-family:var(--font-display);font-size:18px;letter-spacing:1.5px;color:var(--white)}
-.hero-host-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(198,208,255,0.7);font-weight:600}
+/* Organisé par — double avatar */
+.org-block{margin-top:30px;margin-bottom:0;animation:fadeUp .7s .55s ease forwards;opacity:0;display:flex;flex-direction:column;align-items:center}
+.org-label{letter-spacing:3px;text-transform:uppercase;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:14px}
+.org-card{display:inline-flex;align-items:center;gap:16px;background:rgba(18,27,198,0.55);padding:12px 22px 12px 14px;border-radius:22px;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 12px 36px rgba(0,0,0,0.35);transition:transform .3s}
+.org-card:hover{transform:translateY(-3px)}
+.org-avatars{display:flex;align-items:center}
+.org-logo-av{width:56px;height:56px;border-radius:50%;background:#251EAF;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid rgba(255,255,255,0.45);box-shadow:0 0 0 3px rgba(26,21,128,0.95),0 8px 20px rgba(0,0,0,0.4);z-index:2;overflow:hidden;padding:8px}
+.org-logo-av img{width:100%;height:100%;object-fit:contain}
+.org-const-av{width:56px;height:56px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,0.45);box-shadow:0 0 0 3px rgba(26,21,128,0.95),0 8px 20px rgba(0,0,0,0.4);margin-left:-18px;z-index:1}
+.org-const-av img{width:100%;height:100%;object-fit:cover}
+.org-info{text-align:left}
+.org-info-name{font-family:var(--font-display);font-size:19px;letter-spacing:1.5px;color:var(--white);line-height:1.1}
+.org-info-name span{color:var(--pink)}
+.org-info-sub{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(198,208,255,0.65);font-weight:600;margin-top:3px}
 
 /* Secrets badges in hero */
 .hero-secrets{display:flex;flex-direction:column;gap:10px;margin:24px 0 0;animation:fadeUp .7s .5s ease forwards;opacity:0;width:100%;max-width:560px}
@@ -152,8 +157,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .agency-card{max-width:700px;margin:0 auto;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:48px 40px;position:relative;overflow:hidden}
 .agency-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),rgba(255,215,0,0.6),var(--pink))}
 .agency-card-top{display:flex;align-items:center;gap:28px;margin-bottom:32px}
-.agency-photo{width:100px;height:100px;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,0.1);flex-shrink:0;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.agency-photo img{width:100%;height:100%;object-fit:cover}
+.agency-duo-av{display:flex;align-items:center;flex-shrink:0}
+.agency-logo-av{width:80px;height:80px;border-radius:50%;background:#251EAF;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.25);box-shadow:0 0 0 3px rgba(13,13,43,1),0 10px 30px rgba(0,0,0,0.4);z-index:2;overflow:hidden;padding:10px;flex-shrink:0}
+.agency-logo-av img{width:100%;height:100%;object-fit:contain}
+.agency-const-av{width:80px;height:80px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.25);box-shadow:0 0 0 3px rgba(13,13,43,1),0 10px 30px rgba(0,0,0,0.4);margin-left:-22px;flex-shrink:0;z-index:1}
+.agency-const-av img{width:100%;height:100%;object-fit:cover}
 .agency-brand{display:flex;flex-direction:column;gap:4px}
 .agency-brand-name{font-family:var(--font-display);font-size:38px;letter-spacing:5px;color:rgba(255,255,255,0.9);line-height:1}
 .agency-brand-name span{color:var(--pink)}
@@ -471,14 +479,21 @@ footer .logo-foot span{color:var(--pink)}
     <div class="hero-cta-note"><strong>● Gratuit</strong> — Pas de replay — Places limitées</div>
   </div>
 
-  <!-- Organisé par Constantin -->
-  <div style="margin-top:30px;margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:11px;color:rgba(255,255,255,0.45);">Organisé par</div>
-  <div class="hero-hosts">
-    <div class="hero-host">
-      <div class="hero-host-img"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin"></div>
-      <div class="hero-host-info">
-        <div class="hero-host-name">CONSTANTIN</div>
-        <div class="hero-host-role">CEO — Scalevision · Paris</div>
+  <!-- Organisé par Scalevision -->
+  <div class="org-block">
+    <div class="org-label">Organisé par</div>
+    <div class="org-card">
+      <div class="org-avatars">
+        <div class="org-logo-av">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscalebl.png" alt="Scalevision">
+        </div>
+        <div class="org-const-av">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin">
+        </div>
+      </div>
+      <div class="org-info">
+        <div class="org-info-name">SCALE<span>VISION</span></div>
+        <div class="org-info-sub">& son fondateur Constantin</div>
       </div>
     </div>
   </div>
@@ -616,8 +631,13 @@ footer .logo-foot span{color:var(--pink)}
 <section class="agency-section">
   <div class="agency-card reveal">
     <div class="agency-card-top">
-      <div class="agency-photo">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, CEO de Scalevision">
+      <div class="agency-duo-av">
+        <div class="agency-logo-av">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscalebl.png" alt="Scalevision">
+        </div>
+        <div class="agency-const-av">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin">
+        </div>
       </div>
       <div class="agency-brand">
         <div class="agency-brand-name">SCALE<span>VISION</span></div>
