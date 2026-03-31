@@ -12,7 +12,7 @@ if (!v) {
   v = Math.random() < 0.5 ? 'a' : 'b';
   localStorage.setItem('ab-webinar', v);
 }
-location.replace(v === 'a' ? '/webinar.html' : '/webinar-b.html');
+location.replace(v === 'a' ? '/webinar.html?variant=a' : '/webinar-b.html?variant=b');
 </script>
 </body>
 </html>
