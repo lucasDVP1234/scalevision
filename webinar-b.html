@@ -341,19 +341,13 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .form-section{position:relative;z-index:2;padding:100px 20px;text-align:center}
 .form-section h2{font-family:var(--fd2);font-size:clamp(40px,6vw,68px);margin-bottom:12px;line-height:.95}
 .form-section h2 .s{font-family:var(--fs);font-style:italic;font-weight:400;color:var(--pink-l)}
-.form-sub{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:12px}
-.form-dc{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:rgba(255,60,142,.08);border:1px solid rgba(255,60,142,.2);font-size:13px;font-weight:700;color:var(--pink);margin-bottom:50px}
+.form-sub{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:8px}
+.form-arrow{animation:bounceDown 1.5s ease-in-out infinite;margin-bottom:24px;opacity:.7}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 .form-box{max-width:860px;margin:0 auto;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
-.form-top{background:linear-gradient(135deg,rgba(255,60,142,.08),rgba(139,92,246,.05));padding:28px 36px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.ft-info-lbl{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
-.ft-info-val{font-family:var(--fd2);font-size:24px;letter-spacing:1.5px;text-align:left}
-.ft-spots{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--green);font-weight:700;background:rgba(0,255,127,.07);border:1px solid rgba(0,255,127,.15);padding:8px 16px;border-radius:999px}
-.ft-spots .dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 1s infinite}
-.form-chk{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding:22px 36px;border-bottom:1px solid rgba(255,255,255,.06)}
-.fchk{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.65);font-weight:500}
-.fchk-ic{font-size:14px;flex-shrink:0}
-.form-tally{padding:8px}
-.form-tally iframe{border:none;width:100%;min-height:420px;display:block}
+.form-tally{padding:0;background:#fff;border-radius:20px;margin:0 20px 8px;position:relative;overflow:hidden}
+.form-tally::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--gold),var(--green),var(--pink))}
+.form-tally iframe{border:none;width:100%;min-height:420px;display:block;padding:24px 16px 16px}
 .form-trust{display:flex;justify-content:center;gap:24px;padding:20px 36px;flex-wrap:wrap}
 .trust-it{display:flex;align-items:center;gap:7px;font-size:11px;color:rgba(255,255,255,.3)}
 
@@ -386,9 +380,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.5px}
   .proof-bar{flex-direction:column}
   .proof-item+.proof-item::before{width:80%;left:10%;top:0;bottom:auto;height:1px}
   .proof-item{padding:20px}
-  .form-top{flex-direction:column;text-align:center}
-  .ft-info-val{text-align:center}
-  .form-chk{flex-direction:column;align-items:center;gap:14px}
+  .form-section{padding:40px 16px}.form-sub{margin-bottom:4px}.form-arrow{margin-bottom:12px}
   .contracts{flex-direction:column;align-items:center}
   .cc{width:100%;max-width:320px;transform:none !important}
   .h-cd{gap:8px}
@@ -407,6 +399,8 @@ footer p{font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.5px}
   .urg-grid{flex-direction:column;align-items:center}
   .urg-card{width:100%;max-width:320px}
   .form-box{margin:0}
+  .form-tally{margin:0 12px;border-radius:16px}
+  .form-tally iframe{padding:20px 12px 12px}
   .secret-card{padding:28px 22px}
 }
 </style>
@@ -869,27 +863,14 @@ footer p{font-size:11px;color:rgba(255,255,255,.22);letter-spacing:.5px}
   <div class="reveal">
     <div class="slbl">Inscription</div>
     <h2 style="margin-top:16px">R&Eacute;SERVE TA PLACE <span class="s">maintenant</span></h2>
-    <p class="form-sub">Dimanche 12 Avril &middot; 20H30 &middot; Live depuis Paris</p>
-    <div class="form-dc">&#x1F4C5; 12 AVRIL &middot; 3 SECRETS &middot; 5 INTERVENANTS &middot; GRATUIT</div>
+    <p class="form-sub">Remplis le formulaire ci-dessous pour confirmer ta place</p>
+    <div class="form-arrow">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+    </div>
   </div>
 
   <div class="form-box reveal">
-    <div class="form-top">
-      <div>
-        <div class="ft-info-lbl">&#x1F4C5; Date du live</div>
-        <div class="ft-info-val">DIMANCHE 12 AVRIL &mdash; 20H30</div>
-      </div>
-      <div class="ft-spots"><span class="dot"></span> Places disponibles</div>
-    </div>
-
-    <div class="form-chk">
-      <div class="fchk"><span class="fchk-ic">&#x2705;</span> 5 intervenants en live</div>
-      <div class="fchk"><span class="fchk-ic">&#x2705;</span> 3 secrets r&eacute;v&eacute;l&eacute;s en crescendo</div>
-      <div class="fchk"><span class="fchk-ic">&#x2705;</span> Contrats r&eacute;els montr&eacute;s</div>
-      <div class="fchk"><span class="fchk-ic">&#x1F381;</span> Osmo Pocket &agrave; gagner</div>
-    </div>
-
-    <div class="form-tally">
+    <div class="form-tally" id="tally-form">
       <iframe
         data-tally-src="https://tally.so/embed/vGBWP4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy" width="100%" height="420" frameborder="0"
@@ -947,7 +928,7 @@ tick(); setInterval(tick, 1000);
 
 // Smooth scroll
 document.querySelectorAll('a[href="#inscription"]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); document.getElementById('inscription').scrollIntoView({behavior:'smooth'}); });
+  a.addEventListener('click', e => { e.preventDefault(); const el = document.getElementById('inscription'); const y = el.getBoundingClientRect().top + window.pageYOffset - 30; window.scrollTo({top: y, behavior:'smooth'}); });
 });
 
 // Animate scale bars

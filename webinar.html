@@ -306,31 +306,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .form-section{position:relative;z-index:2;padding:100px 20px;text-align:center}
 .form-section h2{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);margin-bottom:10px;line-height:1}
 .form-section h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--pink-light)}
-.form-sub{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:50px}
-.form-wrapper{max-width:940px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:0;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 30px 80px rgba(0,0,0,0.3)}
-.form-info{background:linear-gradient(160deg,rgba(255,60,142,0.07),rgba(37,30,175,0.5));padding:40px 32px;display:flex;flex-direction:column;gap:28px;text-align:left;border-right:1px solid rgba(255,255,255,0.06)}
-.form-info-date{display:flex;align-items:center;gap:16px}
-.fid-cal{width:56px;height:56px;border-radius:14px;overflow:hidden;flex-shrink:0;text-align:center;border:1px solid rgba(255,255,255,0.1)}
-.fid-cal-month{background:var(--pink);font-size:9px;font-weight:800;letter-spacing:2px;padding:3px 0}
-.fid-cal-day{font-family:var(--font-display);font-size:26px;line-height:1;padding:4px 0 2px;background:rgba(255,255,255,0.06)}
-.form-info-date>div:last-child{display:flex;flex-direction:column}
-.form-info-date strong{font-size:15px;font-weight:700}.form-info-date span{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px}
-.form-info-list{display:flex;flex-direction:column;gap:14px}
-.fil-item{display:flex;align-items:center;gap:12px}.fil-icon{font-size:15px;flex-shrink:0}.fil-text{font-size:13px;color:rgba(255,255,255,0.7);font-weight:500}
-.form-info-exclusive{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,215,0,0.06);border:1px solid rgba(255,215,0,0.12);border-radius:12px;font-size:12px;color:rgba(255,255,255,0.5)}
-.form-info-exclusive strong{color:var(--gold);font-weight:700}
-/* Countdown inside info */
-.form-cd-wrap{display:flex;gap:8px}
-.form-cd-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 10px;min-width:50px;text-align:center}
-.form-cd-num{font-family:var(--font-display);font-size:22px;line-height:1;color:var(--pink)}
-.form-cd-label{font-size:7px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:2px}
+.form-sub{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:8px}
+.form-arrow{animation:bounceDown 1.5s ease-in-out infinite;margin-bottom:24px;opacity:.7}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.form-wrapper{max-width:860px;margin:0 auto;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 30px 80px rgba(0,0,0,0.3);background:rgba(255,255,255,0.02)}
 /* Tally card */
-.tally-card{background:rgba(255,255,255,0.03);padding:28px 28px 20px;display:flex;flex-direction:column}
-.tally-card-header{margin-bottom:18px}
-.form-spots{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:18px;background:rgba(0,255,136,0.08);padding:7px 14px;border-radius:20px}
-.form-spots .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1s infinite}
-.tally-card iframe{border:none;width:100%;flex:1}
-.form-trust-row{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
+.tally-card{background:#fff;border-radius:20px;margin:0 20px 8px;position:relative;overflow:hidden}
+.tally-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--gold),var(--pink))}
+.tally-card iframe{border:none;width:100%;min-height:420px;display:block;padding:24px 16px 16px}
+.form-trust-row{display:flex;justify-content:center;gap:24px;padding:20px 36px;flex-wrap:wrap}
 .form-trust{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.3)}
 
 /* Footer */
@@ -340,8 +324,8 @@ footer .logo-foot{font-family:var(--font-display);font-size:20px;letter-spacing:
 footer .logo-foot span{color:var(--pink)}
 
 /* Sticky CTA */
-.sticky-cta{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;text-align:center;pointer-events:none;transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
-.sticky-cta.visible{pointer-events:auto;animation:stickyFloatIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+.sticky-cta{position:fixed;bottom:24px;left:50%;transform:translate(-50%,100px);z-index:100;text-align:center;opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.2,.8,.2,1)}
+.sticky-cta.visible{opacity:1;transform:translate(-50%,0);pointer-events:auto}
 .sticky-cta a{display:inline-block;padding:18px 36px;background:var(--pink);color:var(--white);font-family:var(--font-display);font-size:16px;letter-spacing:2.5px;text-transform:uppercase;border-radius:999px;text-decoration:none;border:none;box-shadow:0 12px 40px rgba(255,60,142,0.45);transition:transform .3s ease,box-shadow .3s ease;white-space:nowrap}
 .sticky-cta a:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 50px rgba(255,60,142,0.55)}
 @keyframes stickyFloatIn{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
@@ -375,10 +359,11 @@ footer .logo-foot span{color:var(--pink)}
   .secret-number{font-size:42px}
   .speakers-section{padding:60px 16px}.speakers-grid{grid-template-columns:1fr 1fr;max-width:460px;margin:0 auto}
   .urgency-section{padding:50px 16px}.urgency-grid{flex-direction:column;align-items:center}.urgency-card{width:100%;max-width:320px}
-  .form-section{padding:60px 16px}.form-sub{margin-bottom:36px}
-  .form-wrapper{grid-template-columns:1fr}.form-info{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:28px 24px}
-  .tally-card{padding:24px 20px 16px}
-  .sticky-cta.visible{display:block}body{padding-bottom:80px}
+  .form-section{padding:40px 16px}.form-sub{margin-bottom:4px}.form-arrow{margin-bottom:12px}
+  .tally-card{margin:0 12px 8px;border-radius:16px}
+  .tally-card iframe{padding:20px 12px 12px}
+  .form-trust-row{padding:16px 20px}
+  body{padding-bottom:80px}
   .scale-section{padding:60px 16px}
 }
 @media(max-width:480px){
@@ -797,50 +782,15 @@ footer .logo-foot span{color:var(--pink)}
   <div class="reveal">
     <div class="section-label">Derniere etape</div>
     <h2>RESERVE TA PLACE <span class="serif">maintenant</span></h2>
-    <p class="form-sub">Dimanche 12 Avril a 20H30 · Live depuis Paris</p>
+    <p class="form-sub">Remplis le formulaire ci-dessous pour confirmer ta place</p>
+    <div class="form-arrow">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+    </div>
   </div>
   <div class="form-wrapper reveal">
 
-    <!-- LEFT INFO PANEL -->
-    <div class="form-info">
-      <div class="form-info-date">
-        <div class="fid-cal">
-          <div class="fid-cal-month">AVR</div>
-          <div class="fid-cal-day">12</div>
-        </div>
-        <div>
-          <strong>Dimanche 12 Avril</strong>
-          <span>20H30 · Live depuis Paris</span>
-        </div>
-      </div>
-      <!-- Mini countdown -->
-      <div>
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600">Compte a rebours</div>
-        <div class="form-cd-wrap">
-          <div class="form-cd-item"><div class="form-cd-num" id="cd-days">00</div><div class="form-cd-label">Jours</div></div>
-          <div class="form-cd-item"><div class="form-cd-num" id="cd-hours">00</div><div class="form-cd-label">Heures</div></div>
-          <div class="form-cd-item"><div class="form-cd-num" id="cd-mins">00</div><div class="form-cd-label">Min</div></div>
-          <div class="form-cd-item"><div class="form-cd-num" id="cd-secs">00</div><div class="form-cd-label">Sec</div></div>
-        </div>
-      </div>
-      <div class="form-info-list">
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">5 intervenants en live</div></div>
-        <div class="fil-item"><div class="fil-icon">🔐</div><div class="fil-text">3 secrets pour atteindre 10K€/mois</div></div>
-        <div class="fil-item"><div class="fil-icon">✅</div><div class="fil-text">Contrats reels montres en direct</div></div>
-        <div class="fil-item"><div class="fil-icon">🔮</div><div class="fil-text">2 intervenants mystere reveles en direct</div></div>
-        <div class="fil-item"><div class="fil-icon">🎁</div><div class="fil-text">Osmo Pocket 3 a gagner</div></div>
-      </div>
-      <div class="form-info-exclusive">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        <span>Pour tous les createurs — <strong>meme avec 300 abonnes</strong></span>
-      </div>
-    </div>
-
-    <!-- RIGHT — TALLY EMBED -->
-    <div class="tally-card">
-      <div class="tally-card-header">
-        <div class="form-spots"><span class="dot"></span> Places disponibles</div>
-      </div>
+    <!-- TALLY EMBED -->
+    <div class="tally-card" id="tally-form">
       <iframe
         data-tally-src="https://tally.so/embed/vGBWP4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy" width="100%" height="440" frameborder="0"
@@ -852,11 +802,13 @@ footer .logo-foot span{color:var(--pink)}
         if("undefined"!=typeof Tally)v();
         else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
       </script>
-      <div class="form-trust-row">
-        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Donnees protegees</div>
-        <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Confirmation instantanee</div>
-        <div class="form-trust">🚫 Pas de spam</div>
-      </div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="form-trust-row">
+      <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Donnees protegees</div>
+      <div class="form-trust"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Confirmation instantanee</div>
+      <div class="form-trust">🚫 Pas de spam</div>
     </div>
 
   </div>
@@ -911,16 +863,17 @@ function tick(){
   const hours = String(Math.floor((d%864e5)/36e5)).padStart(2,'0');
   const mins  = String(Math.floor((d%36e5)/6e4)).padStart(2,'0');
   const secs  = String(Math.floor((d%6e4)/1e3)).padStart(2,'0');
-  document.getElementById('cd-days').textContent  = days;
-  document.getElementById('cd-hours').textContent = hours;
-  document.getElementById('cd-mins').textContent  = mins;
-  document.getElementById('cd-secs').textContent  = secs;
+  const e = id => document.getElementById(id);
+  if(e('cd-days')) e('cd-days').textContent = days;
+  if(e('cd-hours')) e('cd-hours').textContent = hours;
+  if(e('cd-mins')) e('cd-mins').textContent = mins;
+  if(e('cd-secs')) e('cd-secs').textContent = secs;
 }
 tick(); setInterval(tick, 1000);
 
 // Smooth scroll
 document.querySelectorAll('a[href="#inscription"]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); document.getElementById('inscription').scrollIntoView({behavior:'smooth'}); });
+  a.addEventListener('click', e => { e.preventDefault(); const el = document.getElementById('inscription'); const y = el.getBoundingClientRect().top + window.pageYOffset - 30; window.scrollTo({top: y, behavior:'smooth'}); });
 });
 </script>
 </body>
