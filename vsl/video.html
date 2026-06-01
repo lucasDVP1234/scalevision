@@ -14,6 +14,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<!-- Suppress iClosed missing pop-open-sound (404) — must run BEFORE widget.js -->
+<script>
+(function(){
+  var blocked=/pop-open-sound/i;
+  var oFetch=window.fetch;
+  if(oFetch){
+    window.fetch=function(u){
+      if((typeof u==='string'&&blocked.test(u))||(u&&u.url&&blocked.test(u.url))){
+        return Promise.resolve(new Response('',{status:204}));
+      }
+      return oFetch.apply(this,arguments);
+    };
+  }
+  var oOpen=XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open=function(m,u){
+    this.__blk=typeof u==='string'&&blocked.test(u);
+    return oOpen.apply(this,arguments);
+  };
+  var oSend=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(){
+    if(this.__blk){try{this.abort();}catch(e){}return;}
+    return oSend.apply(this,arguments);
+  };
+  var OAudio=window.Audio;
+  if(OAudio){
+    window.Audio=function(src){
+      if(typeof src==='string'&&blocked.test(src))return new OAudio();
+      return new OAudio(src);
+    };
+    window.Audio.prototype=OAudio.prototype;
+  }
+})();
+</script>
 <!-- iClosed popup widget -->
 <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
 <!-- iClosed Lift Widget -->
