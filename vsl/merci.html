@@ -216,7 +216,7 @@ body{
 /* Player Vidalytics wrapper */
 .player-wrap{
   margin-top:18px;
-  position:relative;border-radius:16px;overflow:hidden;
+  position:relative;
   background:#000;
   box-shadow:0 24px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);
 }
@@ -240,17 +240,16 @@ body{
 .cta-meta{margin-top:12px;font-size:13px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.4px}
 .cta-meta .dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--pink);margin:0 8px;vertical-align:middle}
 
-/* Tool teaser inside step 3 */
-.tool-teaser{
+/* Tool screenshot inside step 3 */
+.tool-screenshot{
   margin-top:18px;
-  background:linear-gradient(135deg,rgba(255,60,142,.08),rgba(255,215,0,.04));
-  border:1px dashed rgba(255,60,142,.3);
-  padding:18px 20px;border-radius:14px;
-  display:flex;align-items:center;gap:16px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 24px 60px -22px rgba(0,0,0,.55),0 0 0 1px rgba(255,60,142,.18) inset;
+  background:#0d0d18;
 }
-.tool-teaser .icon{font-size:30px;flex-shrink:0}
-.tool-teaser .txt{font-size:15px;color:rgba(255,255,255,.9);line-height:1.5}
-.tool-teaser .txt strong{color:var(--pink-light)}
+.tool-screenshot img{display:block;width:100%;height:auto}
 
 /* ===== TESTIMONIALS ===== */
 .section-block{margin-top:80px}
@@ -452,7 +451,7 @@ footer a:hover{color:#fff}
   <!-- STEPS -->
   <section class="steps">
     <h2 class="section-title reveal">3 actions <span class="ital">avant ton appel</span></h2>
-    <p class="section-kicker reveal">Prends 2 minutes maintenant pour les faire — c'est ce qui fait la différence entre un appel utile et un appel raté.</p>
+    <p class="section-kicker reveal">Prends 2 minutes maintenant pour les faire.</p>
 
     <!-- STEP 1 -->
     <div class="step reveal">
@@ -460,7 +459,7 @@ footer a:hover{color:#fff}
         <div class="step-num">1</div>
         <h3>Regarde le message de Constantin</h3>
       </div>
-      <p>Constantin (CEO Scalevision) t'explique <strong>le déroulé de l'appel</strong> et ce qu'on va voir ensemble. Regarde la vidéo, ça prend 2 minutes. ❤️</p>
+      <p>Constantin t'explique <strong>le déroulé de l'appel</strong> et ce qu'on va voir ensemble. ❤️</p>
       <div class="player-wrap">
         <div id="vidalytics_embed_tQxDXbA9V9DV3nQk" style="width:100%;position:relative;padding-top:56.25%;"></div>
         <script type="text/javascript">
@@ -487,7 +486,7 @@ footer a:hover{color:#fff}
       <p>Tu viens de recevoir un email de confirmation. <strong>Ouvre-le et clique sur "OUI, je confirme"</strong> pour valider ton créneau.</p>
       <p style="font-size:14px;color:rgba(255,255,255,.65)">Pense à vérifier tes spams si tu ne le vois pas dans ta boîte principale.</p>
       <div class="warn">
-        💜 <strong>Important :</strong> sans cette confirmation, ton créneau peut être libéré pour un autre candidat sur liste d'attente. Et surtout — merci de ne pas poser un lapin à ton coach 🐇
+        💜 <strong>Important :</strong> sans cette confirmation, ton créneau peut être libéré pour un autre candidat sur liste d'attente.
       </div>
     </div>
 
@@ -499,9 +498,8 @@ footer a:hover{color:#fff}
       </div>
       <p><strong>Ton compte Insta vaut peut-être déjà 3 000€/mois 💸</strong></p>
       <p>Tape ton @, notre logiciel analyse ton compte et te dit <strong>exactement combien les marques sont prêtes à te payer chaque mois.</strong></p>
-      <div class="tool-teaser">
-        <div class="icon">🔍</div>
-        <div class="txt">Estimation basée sur tes <strong>abonnés, ton engagement et ta niche</strong> — la même méthode qu'on utilise pour briefer les marques sur nos créatrices.</div>
+      <div class="tool-screenshot">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/2556724/6a03290d01ba43.65362333_Captured%C3%A9cran2026-05-12%C3%A015.19.03.png" alt="Aperçu du logiciel d'analyse de compte Instagram" loading="lazy">
       </div>
       <div class="cta-wrap">
         <a class="cta" href="https://ugcademie-tools.vercel.app?utm_source=remerciement" target="_blank" rel="noopener">
@@ -513,8 +511,8 @@ footer a:hover{color:#fff}
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section-block">
+  <!-- TESTIMONIALS — masqués temporairement en attendant les visuels finaux -->
+  <section class="section-block" style="display:none">
     <h2 class="section-title reveal">En attendant <span class="ital">ton appel...</span></h2>
     <p class="section-kicker reveal">Voilà 2 créatrices qu'on accompagne — leur résultat parle pour elles 👇</p>
     <div class="testi-grid reveal">
