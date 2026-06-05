@@ -507,13 +507,13 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (DEV: 1s — TODO prod: 300000 = 5min) ----
+  // ---- Late CTA reveal (8min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
-  },1000);
+  },480000);
 
   // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
   document.getElementById('lateCtaBtn').addEventListener('click',function(){
