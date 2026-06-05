@@ -50,8 +50,10 @@
 </script>
 -->
 
-<!-- iClosed widget (un seul chargement) — gère à la fois le Lift flottant ET les boutons data-iclosed-link -->
-<script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script>
+<!-- iClosed widget — chargé dynamiquement à 480s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
+     Dashboard iClosed : delay Lift = 0s (le timing est piloté par le moment où ce script est injecté). -->
+<!-- <script src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script> -->
+
 
 <!-- Meta Pixel -->
 <script>
@@ -507,12 +509,18 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (8min) ----
+  // ---- Late CTA reveal (8min) + injection iClosed widget.js (Lift sync) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
+    // Charge widget.js maintenant → init du Lift + binding des data-iclosed-link du bouton
+    var s=document.createElement('script');
+    s.src='https://app.iclosed.io/assets/widget.js';
+    s.async=true;
+    s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
+    document.head.appendChild(s);
   },480000);
 
   // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
