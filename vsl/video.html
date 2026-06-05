@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Suppress iClosed missing pop-open-sound (404) — must run BEFORE widget.js -->
+<!-- TEMPORAIREMENT DESACTIVE pour debug Lift Widget (E27reyzkbqFi) — si Lift apparait, le shim Audio bloquait l'init
 <script>
 (function(){
   var blocked=/pop-open-sound/i;
@@ -47,6 +48,8 @@
   }
 })();
 </script>
+-->
+
 <!-- iClosed widget (un seul chargement) — gère à la fois le Lift flottant ET les boutons data-iclosed-link -->
 <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" data-cta-widget="E27reyzkbqFi" async></script>
 
@@ -404,7 +407,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/linda.jpg" alt="" loading="eager">
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/melanie.jpg" alt="" loading="eager">
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="eager">
-        <span class="more">100+</span>
+        <span class="more">+</span>
       </span>
       génèrent entre <span class="money">3&nbsp;000€ et 11&nbsp;000€/mois</span> récurrents avec la <span class="key">création de contenu</span>
     </h1>
@@ -446,7 +449,6 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
       <span>Je réserve mon appel découverte</span>
       <span class="arrow">→</span>
     </button>
-    <span class="late-cta-sub">🔥 <strong>+100 créatrices</strong> déjà accompagnées · Gratuit · 45 min</span>
   </div>
 
   <!-- Surprise encart -->
