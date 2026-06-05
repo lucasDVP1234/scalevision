@@ -213,13 +213,12 @@ body{
   font-size:14.5px;color:rgba(255,255,255,.82);
 }
 
-/* Player Vidalytics wrapper — sorti du .step pour autoriser le fullscreen
-   (backdrop-filter sur .step créait un fullscreen containing block qui bloquait) */
+/* Player Vidalytics wrapper — pas de transform/filter/backdrop-filter ici
+   (sinon le fullscreen Vidalytics reste piégé dans ce containing block) */
 .player-wrap{
-  margin:-4px 0 22px;
-  position:relative;
+  margin:14px 0 22px;
   background:#000;
-  box-shadow:0 24px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.6);
 }
 .player-wrap > div[id^="vidalytics_embed"]{display:block}
 
@@ -463,8 +462,8 @@ footer a:hover{color:#fff}
       <p>Constantin t'explique <strong>le déroulé de l'appel</strong> et ce qu'on va voir ensemble. ❤️</p>
     </div>
 
-    <!-- Player sorti du .step (le backdrop-filter du .step créait un fullscreen containing block qui bloquait le plein écran Vidalytics) -->
-    <div class="player-wrap reveal">
+    <!-- Player sorti du .step + sans classe .reveal (transform créait un fullscreen containing block bloquant Vidalytics) -->
+    <div class="player-wrap">
       <div id="vidalytics_embed_tQxDXbA9V9DV3nQk" style="width:100%;position:relative;padding-top:56.25%;"></div>
       <script type="text/javascript">
       (function (v, i, d, a, l, y, t, c, s) {
