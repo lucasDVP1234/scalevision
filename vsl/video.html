@@ -449,6 +449,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
       <span>Je réserve mon appel découverte</span>
       <span class="arrow">→</span>
     </button>
+    <span class="late-cta-sub">45 min · Gratuit</span>
   </div>
 
   <!-- Surprise encart -->
@@ -476,10 +477,10 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 (function(){
   'use strict';
 
-  // ---- Read URL params (Email, Name, UTMs) — to forward to iClosed ----
+  // ---- Read URL params (email, iclosedName, iclosedEmail, UTMs) — to forward to iClosed + Vidalytics ----
   var params=new URLSearchParams(window.location.search);
-  var email=params.get('Email')||params.get('email')||'';
-  var name=params.get('Name')||params.get('name')||'';
+  var email=params.get('email')||params.get('iclosedEmail')||'';
+  var name=params.get('iclosedName')||'';
   var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid','msclkid'];
   var utms={};
   UTM_KEYS.forEach(function(k){
