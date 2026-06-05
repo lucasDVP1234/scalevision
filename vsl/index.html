@@ -449,6 +449,12 @@ footer{
 .field input.err{border-color:#e63946;background:#fff5f6}
 .err-msg{display:none;color:#e63946;font-size:12px;margin-top:4px;font-weight:500}
 .err-msg.show{display:block;animation:fadeIn .2s ease-out}
+.field-hint{
+  display:flex;align-items:center;gap:5px;
+  font-size:11.5px;color:#6b6b78;margin-top:7px;font-weight:500;
+  letter-spacing:.01em;
+}
+.field-hint svg{flex-shrink:0;width:11px;height:11px;color:#9a9aaa}
 .submit-btn{
   width:100%;
   background:linear-gradient(135deg,var(--pink),var(--pink-light));
@@ -578,9 +584,13 @@ footer{
         <label for="email">Ton email <span class="req">*</span></label>
         <input type="email" id="email" name="email" placeholder="louise@gmail.com" autocomplete="email" inputmode="email" required>
         <div class="err-msg" id="errEmail">Email invalide</div>
+        <p class="field-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          100% confidentiel — accès envoyé instantanément, zéro spam.
+        </p>
       </div>
       <button type="submit" class="submit-btn" id="submitBtn">
-        <span class="label">Voir la vidéo 🎉 →</span>
+        <span class="label">🎥 Voir la vidéo →</span>
         <span class="spinner"></span>
       </button>
     </form>
