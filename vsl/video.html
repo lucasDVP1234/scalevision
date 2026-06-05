@@ -51,7 +51,7 @@
 -->
 
 <!-- iClosed widget (un seul chargement) — gère à la fois le Lift flottant ET les boutons data-iclosed-link -->
-<script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" data-cta-widget="E27reyzkbqFi" async></script>
+<script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script>
 
 <!-- Meta Pixel -->
 <script>
@@ -221,23 +221,22 @@ h1 .key::after{
 .creator-stack .more{
   z-index:1;display:inline-flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,var(--pink),var(--pink-light));
-  color:#fff;font-family:var(--font-sans);font-weight:800;font-size:10px;letter-spacing:-.04em;
-  padding:0 2px;
-  min-width:40px;width:auto;border-radius:999px;
+  color:#fff;font-family:var(--font-sans);font-weight:800;font-size:12px;letter-spacing:-.04em;
+  line-height:1;
 }
 
 @media (max-width:640px){
   h1{font-size:clamp(22px,6vw,32px);line-height:1.38}
   .creator img{width:32px;height:32px;border-width:2.5px}
   .creator-stack img{width:28px;height:28px;border-width:2px}
-  .creator-stack .more{height:28px;border-width:2px;min-width:34px;font-size:9px}
+  .creator-stack .more{width:28px;height:28px;border-width:2px;font-size:11px}
   .creator-stack > *:not(:first-child){margin-left:-8px}
 }
 @media (max-width:380px){
   h1{font-size:21px}
   .creator img{width:26px;height:26px;border-width:2px}
   .creator-stack img{width:24px;height:24px;border-width:2px}
-  .creator-stack .more{height:24px;border-width:2px;min-width:30px;font-size:8px}
+  .creator-stack .more{width:24px;height:24px;border-width:2px;font-size:10px}
   .creator-stack > *:not(:first-child){margin-left:-7px}
 }
 
@@ -271,7 +270,17 @@ h1 .key::after{
   animation:pulseGlow 2.8s ease-in-out infinite,gradientShift 6s ease infinite;
   margin:8px 0 22px;
 }
-.player-wrap > div[id^="vidalytics_embed"]{display:block}
+.player-wrap > div[id^="vidalytics_embed"]{
+  display:block;
+  isolation:isolate;
+  -webkit-mask-image:-webkit-radial-gradient(#000,#000);
+  transform:translateZ(0);
+}
+.player-wrap div[id^="vidalytics_embed"] iframe,
+.player-wrap div[id^="vidalytics_embed"] video,
+.player-wrap div[id^="vidalytics_embed"] > div{
+  border-radius:14px;
+}
 
 /* Late CTA (appears after 5min) */
 .late-cta-wrap{

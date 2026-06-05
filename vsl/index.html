@@ -194,24 +194,23 @@ h1 .key::after{
   z-index:1;
   display:inline-flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,var(--pink),var(--pink-light));
-  color:#fff;font-family:var(--font-sans);font-weight:800;font-size:11px;
+  color:#fff;font-family:var(--font-sans);font-weight:800;font-size:13px;
   letter-spacing:-.04em;
-  padding:0 2px;
-  min-width:42px;width:auto;border-radius:999px;
+  line-height:1;
 }
 
 @media (max-width:640px){
   h1{font-size:clamp(24px,6.4vw,36px);line-height:1.38}
   .creator img{width:34px;height:34px;border-width:2.5px}
   .creator-stack img{width:30px;height:30px;border-width:2px}
-  .creator-stack .more{height:30px;border-width:2px;min-width:36px;font-size:10px}
+  .creator-stack .more{width:30px;height:30px;border-width:2px;font-size:12px}
   .creator-stack > *:not(:first-child){margin-left:-9px}
 }
 @media (max-width:380px){
   h1{font-size:22px}
   .creator img{width:28px;height:28px;border-width:2px}
   .creator-stack img{width:26px;height:26px;border-width:2px}
-  .creator-stack .more{height:26px;border-width:2px;min-width:32px;font-size:9px}
+  .creator-stack .more{width:26px;height:26px;border-width:2px;font-size:11px}
   .creator-stack > *:not(:first-child){margin-left:-8px}
 }
 
