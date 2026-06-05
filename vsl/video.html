@@ -429,6 +429,15 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
   <div class="player-wrap">
     <div id="vidalytics_embed_EBKYAGcGXKkRj8mV" style="width:100%;position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;"></div>
     <script type="text/javascript">
+    // Forward de l'email URL au tag Vidalytics "New_VSL_Tag" (07:00) — trigger ID uWFKHUHf5iqU63Y0
+    var vidalyticsCustomSettings = (function(){
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var email = (p.get('email') || p.get('iclosedEmail') || '').toLowerCase().trim();
+        if(!email) return undefined;
+        return { triggers: { items: { "uWFKHUHf5iqU63Y0": { params: { email: email } } } } };
+      } catch(e){ return undefined; }
+    })();
     (function (v, i, d, a, l, y, t, c, s) {
       y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
       if (!vsl){vsl=function(u,cb){
@@ -436,7 +445,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
         if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
         i.getElementsByTagName("head")[0].appendChild(s);
       };}
-      vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+      vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a, vidalyticsCustomSettings);});});
     })(window, document, 'Vidalytics', 'vidalytics_embed_EBKYAGcGXKkRj8mV', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/EBKYAGcGXKkRj8mV/');
     </script>
   </div>
