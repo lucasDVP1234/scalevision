@@ -153,6 +153,28 @@ body{
 .reveal{opacity:0;animation:fadeUp .7s ease-out forwards}
 .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}
 
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.45)}50%{box-shadow:0 0 0 8px rgba(255,60,142,0)}}
+
+/* Badge */
+.badge-wrap{display:flex;justify-content:center;margin-bottom:20px}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:9px 20px;
+  font-weight:600;font-size:13px;letter-spacing:.6px;
+  color:#fff;
+  backdrop-filter:blur(8px);
+  animation:badgePulse 2.4s ease-in-out infinite;
+}
+.badge::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--pink);
+  box-shadow:0 0 10px var(--pink);
+  animation:liveDot 1.4s ease-in-out infinite;
+}
+
 /* Headline */
 .title-block{text-align:center;padding:0 4px;margin-top:8px}
 h1{
@@ -233,6 +255,9 @@ h1 .key::after{
   .creator-stack img{width:28px;height:28px;border-width:2px}
   .creator-stack .more{width:28px;height:28px;border-width:2px;font-size:11px}
   .creator-stack > *:not(:first-child){margin-left:-8px}
+  .badge{padding:6px 13px;font-size:10.5px;letter-spacing:.4px;gap:7px}
+  .badge::before{width:6px;height:6px}
+  .badge-wrap{margin-bottom:16px}
 }
 @media (max-width:380px){
   h1{font-size:24px}
@@ -240,6 +265,7 @@ h1 .key::after{
   .creator-stack img{width:24px;height:24px;border-width:2px}
   .creator-stack .more{width:24px;height:24px;border-width:2px;font-size:10px}
   .creator-stack > *:not(:first-child){margin-left:-7px}
+  .badge{padding:5px 11px;font-size:9.5px;letter-spacing:.3px}
 }
 
 /* Chips */
@@ -401,26 +427,30 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 
 <main class="container">
 
-  <div class="title-block reveal d1">
+  <div class="badge-wrap reveal d1">
+    <span class="badge">LA MÉTHODE DE L'AGENCE SCALEVISION</span>
+  </div>
+
+  <div class="title-block reveal d2">
     <h1>
-      Comment <span class="ital">des créatrices</span>
+      Comment <span class="ital">des créatrices de contenu</span>
       <span class="creator-stack" aria-hidden="true">
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/linda.jpg" alt="" loading="eager">
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/melanie.jpg" alt="" loading="eager">
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="eager">
         <span class="more">+</span>
       </span>
-      génèrent de <span class="money">3&nbsp;000€ à 11&nbsp;000€/mois</span> récurrents avec la <span class="key">création de contenu</span>
+      sont passées du <span class="key">gifting&nbsp;🎁</span> à <span class="money">11&nbsp;000€/mois</span> en <span class="key">30&nbsp;jours</span>.
     </h1>
   </div>
 
-  <div class="chips reveal d2">
-    <span class="chip">🤫 Une méthode unique</span>
-    <span class="chip">🙅 Sans blabla</span>
-    <span class="chip">👥 50 abonnés minimum requis</span>
+  <div class="chips reveal d3">
+    <span class="chip">⚡ 100% actionnable</span>
+    <span class="chip">🤫 Encore confidentielle</span>
+    <span class="chip">👥 Accessible dès 1 abonné</span>
   </div>
 
-  <div class="live-counter reveal d2">
+  <div class="live-counter reveal d4">
     <span class="dot"></span>
     <span><b id="liveCount">238</b> personnes regardent en ce moment</span>
   </div>
