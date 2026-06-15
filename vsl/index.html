@@ -484,9 +484,35 @@ footer{
 .modal h2{
   font-family:var(--font-sans);
   font-size:19px;font-weight:700;line-height:1.4;
-  color:#0a0a14;margin-bottom:22px;padding-right:24px;
+  color:#0a0a14;margin-bottom:14px;padding-right:24px;
 }
 .modal h2 .em{color:var(--pink)}
+.modal-progress{
+  position:relative;height:4px;
+  background:#f0eef5;border-radius:999px;overflow:hidden;
+  margin:0 0 22px;
+}
+.modal-progress::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+  background:linear-gradient(90deg,#FF3C8E 0%,#FF6BA8 100%);
+  border-radius:999px;
+  box-shadow:0 0 8px rgba(255,60,142,.35);
+  transition:width .9s cubic-bezier(.22,.61,.36,1);
+}
+.modal-progress::after{
+  content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  opacity:0;
+}
+.modal-backdrop.open .modal-progress::before{width:90%}
+.modal-backdrop.open .modal-progress::after{
+  opacity:1;
+  animation:modalProgressShine 2.4s ease-in-out 1s infinite;
+}
+@keyframes modalProgressShine{
+  0%{left:-40%}
+  60%,100%{left:90%}
+}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:14px;font-weight:600;color:#0a0a14;margin-bottom:6px}
 .field label .req{
@@ -648,8 +674,9 @@ footer{
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <h2 id="modalTitle">
-      🔒 Débloque <span class="em">la vidéo</span> et découvre comment elles ont dit <span class="em">STOP au gifting</span>
+      🎯 Reçois <span class="em">la méthode exacte</span> pour passer de <span class="em">0€ à 6&nbsp;500€/mois</span> en 60 jours
     </h2>
+    <div class="modal-progress" aria-hidden="true"></div>
     <form id="optinForm" novalidate>
       <div class="field">
         <label for="prenom">Ton prénom <span class="req">*</span></label>
