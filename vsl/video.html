@@ -50,7 +50,7 @@
 </script>
 -->
 
-<!-- iClosed widget — chargé dynamiquement à 480s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
+<!-- iClosed widget — chargé dynamiquement à 420s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
      Dashboard iClosed : delay Lift = 0s (le timing est piloté par le moment où ce script est injecté). -->
 <!-- <script src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script> -->
 
@@ -440,7 +440,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
         <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="eager">
         <span class="more">+</span>
       </span>
-      sont passées du <span class="key">gifting&nbsp;🎁</span> à <span class="money">11&nbsp;000€/mois</span> en <span class="key">30&nbsp;jours</span>.
+      sont passées du <span class="key">gifting&nbsp;🎁</span> à <span class="money">6&nbsp;500€/mois</span> en <span class="key">60&nbsp;jours</span>.
     </h1>
   </div>
 
@@ -548,7 +548,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (8min) + injection iClosed widget.js (Lift sync) ----
+  // ---- Late CTA reveal (7min) + injection iClosed widget.js (Lift sync) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
@@ -560,7 +560,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     s.async=true;
     s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
     document.head.appendChild(s);
-  },480000);
+  },420000);
 
   // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
   document.getElementById('lateCtaBtn').addEventListener('click',function(){
