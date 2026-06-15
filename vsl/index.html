@@ -316,6 +316,16 @@ h1 .key::after{
 
 /* CTA */
 .cta-wrap{text-align:center;margin-bottom:14px}
+.cta-sub{
+  display:block;margin-top:9px;
+  font-size:12px;font-weight:600;letter-spacing:.4px;
+  color:rgba(255,255,255,.7);text-transform:uppercase;
+}
+.cta-sub::before{
+  content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 6px var(--pink);
+  vertical-align:middle;margin-right:7px;transform:translateY(-1px);
+}
 .cta{
   position:relative;
   display:inline-flex;align-items:center;justify-content:center;gap:14px;
@@ -466,6 +476,7 @@ footer{
   border-radius:18px;
   padding:34px 28px 28px;
   position:relative;
+  overflow:hidden;
   box-shadow:0 30px 90px -10px rgba(0,0,0,.55);
   transform:translateY(24px) scale(.95);
   transition:transform .35s cubic-bezier(.2,.9,.3,1.25);
@@ -484,18 +495,16 @@ footer{
 .modal h2{
   font-family:var(--font-sans);
   font-size:19px;font-weight:700;line-height:1.4;
-  color:#0a0a14;margin-bottom:14px;padding-right:24px;
+  color:#0a0a14;margin-bottom:22px;padding-right:24px;
 }
 .modal h2 .em{color:var(--pink)}
 .modal-progress{
-  position:relative;height:4px;
-  background:#f0eef5;border-radius:999px;overflow:hidden;
-  margin:0 0 22px;
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:#f0eef5;
 }
 .modal-progress::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:0;
   background:linear-gradient(90deg,#FF3C8E 0%,#FF6BA8 100%);
-  border-radius:999px;
   box-shadow:0 0 8px rgba(255,60,142,.35);
   transition:width .9s cubic-bezier(.22,.61,.36,1);
 }
@@ -631,6 +640,7 @@ footer{
       <span>Voir la méthode</span>
       <span class="arrow">→</span>
     </button>
+    <span class="cta-sub">100% gratuit</span>
   </div>
 
   <div class="bonus-wrap reveal d7">
@@ -670,13 +680,13 @@ footer{
 <!-- Modal Optin -->
 <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
+    <div class="modal-progress" aria-hidden="true"></div>
     <button class="modal-close" id="modalClose" aria-label="Fermer">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <h2 id="modalTitle">
-      🎯 Reçois <span class="em">la méthode exacte</span> pour passer de <span class="em">0€ à 6&nbsp;500€/mois</span> en 60 jours
+      🎥 <span class="em">Ta vidéo est prête</span>. Dis-moi juste où l'envoyer.
     </h2>
-    <div class="modal-progress" aria-hidden="true"></div>
     <form id="optinForm" novalidate>
       <div class="field">
         <label for="prenom">Ton prénom <span class="req">*</span></label>
