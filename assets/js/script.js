@@ -9,8 +9,8 @@ const contentData = {
             { src: "https://d3qck34svcw0mn.cloudfront.net/dieti1.mp4", title: "Dieti Natura" }
         ],
         logos: [
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/10.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/8.png",
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/4.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/1.png"
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/3.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/8.png",
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/4.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/6.png"
         ]
     },
     app: {
