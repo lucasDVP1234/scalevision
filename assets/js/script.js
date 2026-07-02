@@ -10,7 +10,7 @@ const contentData = {
         ],
         logos: [
             "https://ugcademie.s3.eu-north-1.amazonaws.com/10.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/8.png",
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/4.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/10.png"
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/4.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/1.png"
         ]
     },
     app: {
@@ -23,7 +23,7 @@ const contentData = {
         ],
         logos: [
             "https://ugcademie.s3.eu-north-1.amazonaws.com/2.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/7.png",
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/6.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/2.png"
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/6.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/9.png"
         ]
     },
     saas: {
@@ -36,7 +36,7 @@ const contentData = {
         ],
         logos: [
             "https://ugcademie.s3.eu-north-1.amazonaws.com/5.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/9.png",
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/3.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/5.png"
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/3.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/8.png"
         ]
     },
     info: {
@@ -49,7 +49,7 @@ const contentData = {
         ],
         logos: [
             "https://ugcademie.s3.eu-north-1.amazonaws.com/3.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/5.png",
-            "https://ugcademie.s3.eu-north-1.amazonaws.com/10.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/3.png"
+            "https://ugcademie.s3.eu-north-1.amazonaws.com/10.png", "https://ugcademie.s3.eu-north-1.amazonaws.com/4.png"
         ]
     }
 };
