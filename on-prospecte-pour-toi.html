@@ -201,14 +201,37 @@ h1 .u::after{content:'';position:absolute;left:0;right:0;bottom:6%;height:12%;ba
 .logos-track:hover img{opacity:.95}
 @keyframes logo-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* Stats grid */
-.proof-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:1080px;margin:0 auto 60px;position:relative;z-index:2}
-@media (min-width:720px){.proof-grid{grid-template-columns:repeat(3,1fr)}}
-.stat{padding:38px 24px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:22px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;text-align:center}
-.stat:hover{transform:translateY(-4px);border-color:rgba(255,60,142,0.35)}
-.stat-num{font-family:var(--font-display);font-size:clamp(52px,7vw,80px);line-height:1;letter-spacing:-1px;background:linear-gradient(180deg,var(--white) 0%,var(--pink-light) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
-.stat-plus{color:var(--pink);-webkit-text-fill-color:var(--pink)}
-.stat-label{font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+/* Big hero-number in the section head */
+.proof .section-head h2{font-size:clamp(38px,6vw,64px);line-height:1;margin-bottom:0}
+.proof .section-head h2 .huge{display:inline-block;font-size:clamp(110px,17vw,190px);line-height:.85;letter-spacing:-4px;background:linear-gradient(180deg,#FF6BA8 0%,#FF3C8E 55%,#B71C5E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 18px 48px rgba(255,60,142,0.55));margin:6px 4px 0;transform:translateY(6px);position:relative}
+.proof .section-head h2 .huge::before{content:'';position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:110%;height:110%;background:radial-gradient(circle,rgba(255,60,142,0.35),transparent 65%);filter:blur(28px);z-index:-1;pointer-events:none}
+.proof .section-head .plus-sign{color:var(--pink);-webkit-text-fill-color:var(--pink);font-size:.5em;vertical-align:top;margin-right:2px;font-weight:900}
+
+/* Trophy band — premium stats */
+.trophy-band{max-width:1080px;margin:20px auto 70px;padding:44px 24px;background:linear-gradient(135deg,rgba(255,60,142,0.09) 0%,rgba(255,255,255,0.02) 45%,rgba(255,60,142,0.09) 100%);border:1px solid rgba(255,60,142,0.28);border-radius:28px;position:relative;overflow:hidden;backdrop-filter:blur(6px)}
+.trophy-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,60,142,0.14),transparent 60%);pointer-events:none}
+.trophy-band::after{content:'';position:absolute;top:0;left:14%;right:14%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,60,142,0.7),transparent)}
+.trophy-corner{position:absolute;width:60px;height:60px;border:1px solid rgba(255,60,142,0.35);pointer-events:none}
+.trophy-corner.tl{top:14px;left:14px;border-right:0;border-bottom:0;border-top-left-radius:14px}
+.trophy-corner.tr{top:14px;right:14px;border-left:0;border-bottom:0;border-top-right-radius:14px}
+.trophy-corner.bl{bottom:14px;left:14px;border-right:0;border-top:0;border-bottom-left-radius:14px}
+.trophy-corner.br{bottom:14px;right:14px;border-left:0;border-top:0;border-bottom-right-radius:14px}
+
+.trophy-grid{display:grid;grid-template-columns:1fr;gap:30px;position:relative;z-index:2}
+@media (min-width:820px){.trophy-grid{grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch}}
+
+.trophy-sep{display:none;width:1px;background:linear-gradient(180deg,transparent 10%,rgba(255,255,255,0.18) 50%,transparent 90%);margin:16px 0;position:relative}
+.trophy-sep::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px rgba(255,60,142,0.15)}
+@media (min-width:820px){.trophy-sep{display:block}}
+
+.trophy{padding:14px 20px;text-align:center;position:relative;transition:transform .35s}
+.trophy:hover{transform:translateY(-6px)}
+.trophy:hover .trophy-icon{transform:scale(1.08) rotate(-4deg);border-color:rgba(255,60,142,0.7)}
+.trophy-icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:rgba(255,60,142,0.14);border:1px solid rgba(255,60,142,0.35);color:var(--pink);font-size:17px;margin-bottom:16px;transition:transform .4s,border-color .3s;box-shadow:0 8px 24px rgba(255,60,142,0.18)}
+.trophy-num{font-family:var(--font-display);font-size:clamp(64px,9vw,102px);line-height:.9;letter-spacing:-1.5px;background:linear-gradient(180deg,#FFFFFF 0%,rgba(255,255,255,0.5) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;filter:drop-shadow(0 6px 24px rgba(255,255,255,0.12));font-weight:400}
+.trophy-num .accent{color:var(--pink);-webkit-text-fill-color:var(--pink);filter:drop-shadow(0 6px 20px rgba(255,60,142,0.55))}
+.trophy-label{font-size:13px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.trophy-sub{font-size:11px;color:var(--muted-2);letter-spacing:.6px;line-height:1.4}
 
 /* Team & creators visual */
 .team-block{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;position:relative;z-index:2}
@@ -392,8 +415,7 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
 
     <div class="section-head">
       <span class="section-eyebrow">Ils nous font confiance</span>
-      <h2>On a déjà fait <span class="pink">décoller</span> <br>plus de <span class="stroke">150 créateurs.</span></h2>
-      <p class="section-lead">Une agence, une vraie équipe basée à Paris, et des marques qui reviennent. Voilà ce qu'on a construit depuis 3 ans.</p>
+      <h2>On a déjà fait décoller<br>plus de <span class="huge"><span class="plus-sign">+</span>150</span><br>créateurs.</h2>
     </div>
 
     <!-- Brand logos row -->
@@ -426,19 +448,34 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
       </div>
     </div>
 
-    <!-- Stats -->
-    <div class="proof-grid">
-      <div class="stat">
-        <div class="stat-num">+150<span class="stat-plus"></span></div>
-        <div class="stat-label">Créateurs accompagnés</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">497</div>
-        <div class="stat-label">Marques signées</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">536K<span class="stat-plus">€</span></div>
-        <div class="stat-label">CA signé au sein de l'agence</div>
+    <!-- Trophy stats -->
+    <div class="trophy-band">
+      <span class="trophy-corner tl"></span>
+      <span class="trophy-corner tr"></span>
+      <span class="trophy-corner bl"></span>
+      <span class="trophy-corner br"></span>
+
+      <div class="trophy-grid">
+        <div class="trophy">
+          <div class="trophy-icon"><i class="fas fa-user-astronaut"></i></div>
+          <div class="trophy-num"><span class="accent">+</span>150</div>
+          <div class="trophy-label">Créateurs</div>
+          <div class="trophy-sub">Accompagnés par l'agence</div>
+        </div>
+        <div class="trophy-sep"></div>
+        <div class="trophy">
+          <div class="trophy-icon"><i class="fas fa-handshake"></i></div>
+          <div class="trophy-num">497</div>
+          <div class="trophy-label">Marques signées</div>
+          <div class="trophy-sub">Toutes niches confondues</div>
+        </div>
+        <div class="trophy-sep"></div>
+        <div class="trophy">
+          <div class="trophy-icon"><i class="fas fa-sack-dollar"></i></div>
+          <div class="trophy-num">536<span class="accent">K€</span></div>
+          <div class="trophy-label">De CA signé</div>
+          <div class="trophy-sub">Cumulé au sein de l'agence</div>
+        </div>
       </div>
     </div>
 
