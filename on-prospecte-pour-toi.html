@@ -229,9 +229,16 @@ h1 .u::after{content:'';position:absolute;left:0;right:0;bottom:6%;height:12%;ba
 .logos-band{max-width:1080px;margin:20px auto 60px;padding:24px 20px;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:22px;position:relative}
 .logos-label{position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:4px 14px;background:var(--bg);border:1px solid var(--border);border-radius:999px;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted-2);white-space:nowrap}
 .logos-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%)}
-.logos-track{display:flex;align-items:center;gap:56px;width:max-content;animation:logo-scroll 30s linear infinite;padding:8px 20px}
+.logos-track{display:flex;align-items:center;gap:56px;width:max-content;animation:logo-scroll 30s linear infinite;padding:8px 20px;will-change:transform}
 .logos-track img{height:28px;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;transition:opacity .3s,transform .3s;flex-shrink:0}
 .logos-track:hover img{opacity:.95}
+@media (max-width:640px){
+  .logos-band{margin:14px auto 44px;padding:20px 12px}
+  .logos-label{font-size:8px;letter-spacing:2px;padding:3px 10px}
+  .logos-mask{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 5%,#000 95%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 5%,#000 95%,transparent 100%)}
+  .logos-track{gap:32px;padding:4px 10px;animation-duration:24s}
+  .logos-track img{height:22px;opacity:.75}
+}
 @keyframes logo-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Big hero-number in the section head */
@@ -346,7 +353,7 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
 .foot-links a:hover{color:var(--pink-light)}
 
 /* Sticky mobile CTA */
-.sticky-cta{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:80;padding:14px 24px;background:var(--pink);color:var(--white);border-radius:999px;font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,0.4);display:none;align-items:center;gap:10px;animation:pulse-cta 3s ease-in-out infinite}
+.sticky-cta{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:80;padding:14px 24px;background:var(--pink);color:var(--white);border-radius:999px;font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,0.4);display:none;align-items:center;gap:10px;white-space:nowrap;max-width:calc(100vw - 24px);animation:pulse-cta 3s ease-in-out infinite}
 .sticky-cta.show{display:inline-flex}
 @media (min-width:900px){.sticky-cta{display:none!important}}
 
@@ -561,27 +568,27 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
       <span class="logos-label">Eux aussi ils nous font confiance</span>
       <div class="logos-mask">
         <div class="logos-track">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/1.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" alt="" loading="lazy">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/1.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" alt="">
           <!-- duplicated for infinite scroll -->
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/1.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" alt="" loading="lazy">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/1.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/2.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/3.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/4.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/5.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/6.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/7.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/8.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/9.png" alt="">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/10.png" alt="">
         </div>
       </div>
     </div>
