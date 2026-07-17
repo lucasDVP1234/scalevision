@@ -89,9 +89,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 section{position:relative}
 
 /* Hero logo (no top bar — logo lives directly in the hero) */
-.hero-logo{display:inline-flex;align-items:center;justify-content:center;margin:0 auto 24px;transition:transform .3s;animation:fadeUp .6s ease forwards;opacity:0}
-.hero-logo:hover{transform:scale(1.05)}
-.hero-logo img{height:88px;width:auto;display:block}
+.hero-logo{display:flex;justify-content:center;align-items:center;margin:0 0 24px;animation:fadeUp .6s ease forwards;opacity:0}
+.hero-logo img{height:88px;width:auto;display:block;transition:transform .3s}
+.hero-logo:hover img{transform:scale(1.05)}
 @media (max-width:640px){.hero-logo{margin-bottom:18px}.hero-logo img{height:70px}}
 
 /* Hero */
