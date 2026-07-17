@@ -155,7 +155,7 @@ footer{text-align:center;padding:20px 20px 32px;max-width:820px;margin:0 auto}
 
   <div class="felicitations">🎉 Félicitations !</div>
 
-  <p class="msg">Tu fais officiellement <strong>partie du top 7%</strong> des candidats retenus à cette étape</p>
+  <p class="msg">Tu fais officiellement <strong>partie du top <span id="pctAnim">55</span>%</strong> des candidats retenus à cette étape</p>
 
   <p class="msg"><span class="warn-accent">🚨 Dernière étape :</span> Pour finaliser ta candidature et découvrir <strong>comment un membre de notre équipe peut prospecter les marques à ta place</strong>...</p>
 
@@ -209,7 +209,7 @@ footer{text-align:center;padding:20px 20px 32px;max-width:820px;margin:0 auto}
 <!-- iClosed widget loader -->
 <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
 
-<!-- Hide loader + countdown (minutes only) -->
+<!-- Hide loader + countdown (minutes only) + top-% animation -->
 <script>
   // Hide loader once iClosed injects iframe
   const loader = document.getElementById('iclosedLoader');
@@ -219,6 +219,21 @@ footer{text-align:center;padding:20px 20px 32px;max-width:820px;margin:0 auto}
     if (widget && widget.querySelector('iframe')) { hideLoader(); clearInterval(watcher); }
   }, 400);
   setTimeout(() => clearInterval(watcher), 15000);
+
+  // Top % animation: 55 → 7 in 3s with ease-out cubic (drama)
+  const pct = document.getElementById('pctAnim');
+  if (pct) {
+    const from = 55, to = 7, duration = 3000;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      pct.textContent = Math.round(from - (from - to) * eased);
+      if (t < 1) requestAnimationFrame(step);
+      else pct.textContent = to;
+    };
+    requestAnimationFrame(step);
+  }
 
   // 59-minute countdown — session-locked so refresh doesn't cheat
   const cd = document.getElementById('countdown');
