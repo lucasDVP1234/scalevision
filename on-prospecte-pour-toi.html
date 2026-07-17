@@ -167,10 +167,17 @@ h1 .u::after{content:'';position:absolute;left:0;right:0;bottom:6%;height:12%;ba
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 @media (max-width:640px){
-  .marquee-wrap{padding:16px 0}
-  .marquee-track{gap:22px}
-  .mq-item{font-size:24px;letter-spacing:.7px;-webkit-text-stroke-width:1.2px}
-  .mq-star{width:30px;height:30px;font-size:12px}
+  .marquee-wrap{padding:14px 0}
+  .marquee-track{gap:20px;animation-duration:50s}
+  .mq-item{font-size:21px;letter-spacing:2.5px;-webkit-text-stroke-width:1px}
+  .mq-item--fill{opacity:.92}
+  .mq-item--pink{filter:drop-shadow(0 0 14px rgba(255,60,142,0.4))}
+  .mq-star{width:28px;height:28px;font-size:11px}
+}
+@media (max-width:380px){
+  .mq-item{font-size:19px;letter-spacing:2px}
+  .mq-star{width:24px;height:24px;font-size:10px}
+  .marquee-track{gap:16px}
 }
 
 /* Sections */
