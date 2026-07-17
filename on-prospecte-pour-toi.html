@@ -317,11 +317,106 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
 .sticky-cta.show{display:inline-flex}
 @media (min-width:900px){.sticky-cta{display:none!important}}
 
+@media (max-width:820px){
+  .proof{padding:64px 0 72px}
+  .proof .section-head{margin-bottom:36px}
+  .proof .section-head h2{font-size:clamp(28px,7vw,42px)}
+  .proof .section-head h2 .huge{font-size:clamp(88px,26vw,140px);letter-spacing:-2px;margin:2px 2px 0}
+  .proof .section-head h2 .plus-sign{font-size:.45em}
+
+  .trophy-band{padding:32px 16px;margin:12px auto 48px;border-radius:22px}
+  .trophy-corner{width:36px;height:36px}
+  .trophy-corner.tl,.trophy-corner.tr{top:10px}
+  .trophy-corner.bl,.trophy-corner.br{bottom:10px}
+  .trophy-corner.tl,.trophy-corner.bl{left:10px}
+  .trophy-corner.tr,.trophy-corner.br{right:10px}
+  .trophy-grid{gap:24px}
+  .trophy{padding:10px 8px}
+  .trophy-icon{width:42px;height:42px;font-size:15px;margin-bottom:12px}
+  .trophy-num{font-size:clamp(52px,14vw,72px);margin-bottom:8px}
+  .trophy-label{font-size:12px;letter-spacing:2px}
+  .trophy-sub{font-size:10.5px}
+
+  .team-photo{padding:10px;border-radius:22px;transform:rotate(0deg)}
+  .team-photo img{border-radius:14px}
+  .team-pin{top:-10px;right:10px;font-size:11px;padding:6px 10px}
+  .team-tag{font-size:10px;letter-spacing:1.5px;padding:8px 16px;bottom:-12px}
+  .team-copy{text-align:center}
+  .team-copy h3{font-size:clamp(26px,6vw,34px)}
+  .creators-strip{padding:10px 16px 10px 10px;gap:10px}
+  .creators-avatars .av,.creators-more{width:38px;height:38px}
+  .creators-strip-text{font-size:12px}
+}
+
 @media (max-width:640px){
   .section{padding:70px 0}
   .hero{padding:44px 0 32px}
   .form-shell iframe{min-height:1100px}
   h1 .u::after{bottom:8%;height:14%}
+
+  /* Top bar tighter */
+  .topbar-in{padding:12px 16px;gap:8px}
+  .brand{font-size:22px}
+  .top-cta{padding:10px 14px;font-size:11px;letter-spacing:1px}
+  .top-cta i{display:none}
+
+  /* Hero */
+  .hero-chips{gap:6px}
+  .chip{padding:7px 11px;font-size:11px}
+  .cta-main{padding:18px 30px;font-size:14px;letter-spacing:1.2px}
+  .hero-avatars{gap:10px;padding:6px 14px 6px 6px;flex-wrap:nowrap}
+  .avatars-stack .av{width:30px;height:30px;margin-left:-8px}
+  .hero-avatars-text{font-size:11px}
+  .hero-avatars-text .stars{font-size:10px}
+
+  /* Marquee smaller */
+  .marquee-track span{font-size:13px;letter-spacing:2.5px;padding:0 22px}
+
+  /* Problem */
+  .problem .big-num{font-size:clamp(58px,17vw,90px)}
+  .problem .p-sub{font-size:17px}
+
+  /* How steps */
+  .step{padding:26px 22px}
+  .step-icon{width:38px;height:38px;font-size:15px;top:20px;right:20px}
+  .step-num{font-size:52px}
+  .step h3{font-size:24px}
+
+  /* Objective banner */
+  .objective{padding:20px 20px;gap:14px}
+  .objective p{font-size:18px}
+  .objective .obj-icon{width:44px;height:44px;font-size:18px}
+
+  /* Eligibility */
+  .elig{padding:52px 0 24px}
+  .elig-card{padding:32px 20px;border-radius:22px}
+  .elig-card h2{font-size:clamp(26px,7vw,36px)}
+  .elig-list{gap:8px}
+  .elig-list li{padding:7px 12px;font-size:12px}
+  .elig-cta{padding:16px 26px;font-size:12px;letter-spacing:1.2px}
+
+  /* Form */
+  .form-sec{padding:60px 0 90px}
+  .form-inner h2{font-size:clamp(28px,7vw,40px)}
+  .form-shell{padding:6px;border-radius:20px}
+  .form-shell iframe{border-radius:16px;min-height:1200px}
+
+  /* FAQ */
+  .faq{padding:70px 0}
+  .faq-item summary{padding:18px 18px;font-size:14px;gap:12px}
+  .faq-item summary .plus{width:28px;height:28px}
+  .faq-item .a{padding:0 18px 20px;font-size:14px}
+
+  /* Sticky CTA — leave room and avoid the form */
+  .sticky-cta{padding:12px 20px;font-size:11px;letter-spacing:1.2px;bottom:14px}
+}
+
+/* Tiny screens */
+@media (max-width:380px){
+  .proof .section-head h2 .huge{font-size:78px}
+  .trophy-num{font-size:44px}
+  .hero-avatars .hero-avatars-text{font-size:10.5px}
+  .avatars-stack .av{width:26px;height:26px;margin-left:-6px}
 }
 </style>
 </head>
