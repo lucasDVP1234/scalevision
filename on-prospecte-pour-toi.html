@@ -150,14 +150,28 @@ h1 .u::after{content:'';position:absolute;left:0;right:0;bottom:6%;height:12%;ba
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-/* Marquee */
-.marquee-wrap{position:relative;z-index:2;overflow:hidden;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(0,0,0,0.15);margin-top:20px}
-.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
-.marquee-track span{font-family:var(--font-display);font-size:15px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;padding:0 32px;display:inline-flex;align-items:center;gap:14px}
-.marquee-track span em{font-style:normal;color:var(--pink);font-weight:400}
-.marquee-track span.gold{color:var(--gold)}
-.marquee-dot{width:5px;height:5px;background:rgba(255,255,255,0.25);border-radius:50%}
+/* Marquee — big statement band, mixed outlined/filled/pink Bebas + pulsing pink icon pills */
+.marquee-wrap{position:relative;z-index:2;padding:24px 0;border-top:1px solid rgba(255,60,142,0.32);border-bottom:1px solid rgba(255,60,142,0.32);background:linear-gradient(90deg,rgba(255,60,142,0.08) 0%,rgba(0,0,0,0.18) 50%,rgba(255,60,142,0.08) 100%);overflow:hidden;margin-top:20px}
+.marquee-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
+.marquee-track{display:flex;align-items:center;gap:32px;width:max-content;animation:marquee 42s linear infinite;padding:0 20px}
+.marquee-track:hover{animation-play-state:paused}
+
+.mq-item{font-family:var(--font-display);font-size:clamp(28px,5.2vw,50px);line-height:1;letter-spacing:1.2px;text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.55);cursor:default;transition:color .3s,-webkit-text-stroke-color .3s}
+.mq-item--fill{color:var(--white);-webkit-text-stroke:0;font-weight:400}
+.mq-item--pink{color:var(--pink);-webkit-text-stroke:0;filter:drop-shadow(0 0 22px rgba(255,60,142,0.55))}
+.mq-item em{font-style:normal;color:var(--pink);-webkit-text-fill-color:var(--pink)}
+
+.mq-star{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,60,142,0.14);border:1px solid rgba(255,60,142,0.42);color:var(--pink);font-size:15px;flex-shrink:0;box-shadow:0 0 20px rgba(255,60,142,0.18);animation:mq-pulse 2.8s ease-in-out infinite}
+@keyframes mq-pulse{0%,100%{box-shadow:0 0 18px rgba(255,60,142,0.18);transform:scale(1)}50%{box-shadow:0 0 32px rgba(255,60,142,0.5);transform:scale(1.05)}}
+
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+@media (max-width:640px){
+  .marquee-wrap{padding:16px 0}
+  .marquee-track{gap:22px}
+  .mq-item{font-size:24px;letter-spacing:.7px;-webkit-text-stroke-width:1.2px}
+  .mq-star{width:30px;height:30px;font-size:12px}
+}
 
 /* Sections */
 .section{padding:90px 0;position:relative}
@@ -493,17 +507,35 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
-  <div class="marquee-track" aria-hidden="true">
-    <span>0% de commission <span class="marquee-dot"></span></span>
-    <span class="gold">+150 créateurs accompagnés <span class="marquee-dot"></span></span>
-    <span>497 marques signées <span class="marquee-dot"></span></span>
-    <span class="gold">536 000 <em>€</em> de CA signé <span class="marquee-dot"></span></span>
-    <span>Prospection dans les règles <span class="marquee-dot"></span></span>
-    <span>0% de commission <span class="marquee-dot"></span></span>
-    <span class="gold">+150 créateurs accompagnés <span class="marquee-dot"></span></span>
-    <span>497 marques signées <span class="marquee-dot"></span></span>
-    <span class="gold">536 000 <em>€</em> de CA signé <span class="marquee-dot"></span></span>
-    <span>Prospection dans les règles <span class="marquee-dot"></span></span>
+  <div class="marquee-mask">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="mq-item">Prospection sans commission</span>
+      <span class="mq-star"><i class="fas fa-bolt"></i></span>
+      <span class="mq-item mq-item--fill">On prospecte pour toi</span>
+      <span class="mq-star"><i class="fas fa-star"></i></span>
+      <span class="mq-item mq-item--pink">150+ créateurs</span>
+      <span class="mq-star"><i class="fas fa-fire"></i></span>
+      <span class="mq-item">Dans les règles du game</span>
+      <span class="mq-star"><i class="fas fa-heart"></i></span>
+      <span class="mq-item mq-item--fill">Basé à Paris</span>
+      <span class="mq-star"><i class="fas fa-check-double"></i></span>
+      <span class="mq-item mq-item--pink">497 marques signées</span>
+      <span class="mq-star"><i class="fas fa-bolt"></i></span>
+
+      <!-- duplicated for seamless loop -->
+      <span class="mq-item">Prospection sans commission</span>
+      <span class="mq-star"><i class="fas fa-bolt"></i></span>
+      <span class="mq-item mq-item--fill">On prospecte pour toi</span>
+      <span class="mq-star"><i class="fas fa-star"></i></span>
+      <span class="mq-item mq-item--pink">150+ créateurs</span>
+      <span class="mq-star"><i class="fas fa-fire"></i></span>
+      <span class="mq-item">Dans les règles du game</span>
+      <span class="mq-star"><i class="fas fa-heart"></i></span>
+      <span class="mq-item mq-item--fill">Basé à Paris</span>
+      <span class="mq-star"><i class="fas fa-check-double"></i></span>
+      <span class="mq-item mq-item--pink">497 marques signées</span>
+      <span class="mq-star"><i class="fas fa-bolt"></i></span>
+    </div>
   </div>
 </div>
 
