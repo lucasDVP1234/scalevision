@@ -14,6 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://video-createur.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preload" as="image" href="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://hook.eu1.make.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,6 +162,20 @@ h1 .key::after{
   content:'';position:absolute;left:0;right:0;bottom:.06em;height:.32em;
   background:linear-gradient(90deg,rgba(255,60,142,.6),rgba(255,142,196,.6));
   border-radius:3px;z-index:-1;
+}
+h1 .subtle{
+  font-weight:600;
+  color:rgba(255,255,255,.62);
+  font-size:.58em;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+h1 .tagline{
+  display:block;margin-top:16px;
+  font-family:var(--font-serif);font-style:italic;font-weight:600;
+  font-size:.62em;line-height:1.3;
+  color:var(--pink-light);
+  letter-spacing:-.01em;
 }
 .creator{
   display:inline-flex;align-items:center;gap:7px;
@@ -455,7 +471,8 @@ footer{
 .logo-scale img{
   height:42px;width:auto;display:block;
 }
-.addr{font-size:14px;font-weight:600;color:#fff;margin-bottom:18px}
+.addr{font-size:14px;font-weight:600;color:#fff;margin-bottom:10px}
+.siret{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.5;max-width:560px;margin:0 auto 18px}
 .legal{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6;max-width:640px;margin:0 auto}
 .legal a{color:rgba(255,255,255,.7);text-decoration:underline}
 
@@ -595,26 +612,19 @@ footer{
 <main class="container">
 
   <div class="badge-wrap reveal d1">
-    <span class="badge">LA MÉTHODE DE L'AGENCE SCALEVISION</span>
+    <span class="badge">LA MEILLEURE OPPORTUNITÉ 2026</span>
   </div>
 
   <div class="title-block reveal d2">
     <h1>
-      Comment <span class="ital">des créatrices</span>
-      <span class="creator-stack" aria-hidden="true">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/linda.jpg" alt="" loading="eager">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/melanie.jpg" alt="" loading="eager">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="eager">
-        <span class="more">+</span>
-      </span>
-      sont passées de <span class="key">0€</span> à <span class="money">6&nbsp;500€/mois</span> en <span class="key">60&nbsp;jours</span>.
+      Comment <span class="creator"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="Fiona" loading="eager" fetchpriority="high"><span class="creator-name">Fiona</span></span> <span class="subtle">(791&nbsp;abonnés)</span> est passée de <span class="key">0</span> à <span class="money">3&nbsp;400€/mois</span> en <span class="key">30&nbsp;jours</span>
+      <span class="tagline">— sans gagner un abonné de plus</span>
     </h1>
   </div>
 
   <div class="chips reveal d3">
-    <span class="chip">⚡ 100% actionnable</span>
-    <span class="chip">🤫 Encore confidentielle</span>
-    <span class="chip">👥 Accessible dès 1 abonné</span>
+    <span class="chip">🎁 Sans gifting ni produits "offerts"</span>
+    <span class="chip">🌍 Depuis ton téléphone, de n'importe où</span>
   </div>
 
   <div class="live-counter reveal d4">
@@ -669,6 +679,7 @@ footer{
 <footer>
   <div class="logo-scale"><img src="https://ugcademie.s3.eu-north-1.amazonaws.com/Scale+visionblanc.png" alt="Scalevision" loading="lazy"></div>
   <div class="addr">4 rue Martel, 75010 Paris</div>
+  <div class="siret">Scalevision — SIRET 899&nbsp;355&nbsp;192&nbsp;00019 · Société enregistrée en France, fondée par Constantin&nbsp;Kovriga.</div>
   <div class="legal">
     <a href="/mentions-legales-ugcademie.html">Mentions légales</a> | <a href="/politique-de-confidentialite-ugcademie.html">Politique de confidentialité</a><br>
     Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.<br>
