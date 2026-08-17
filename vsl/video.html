@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
 <title>SCALEVISION — Bon visionnage</title>
 <meta name="description" content="La méthode secrète de nos créatrices pour générer entre 3 000€ et 11 000€/mois avec la création de contenu.">
 <meta name="robots" content="noindex,nofollow">
@@ -166,6 +167,20 @@ body{
 
 /* Headline */
 .title-block{text-align:center;padding:0 4px;margin-top:8px}
+.author-line{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  margin:0 0 18px;
+}
+.author-ava{
+  width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;
+  border:2px solid rgba(255,255,255,.85);
+  box-shadow:0 3px 10px rgba(0,0,0,.3);
+}
+.author-meta{
+  font-size:14px;font-weight:500;letter-spacing:.01em;
+  color:rgba(255,255,255,.58);white-space:nowrap;
+}
+.author-meta strong{color:#fff;font-weight:800}
 h1{
   font-family:var(--font-sans);
   font-size:clamp(28px,5.2vw,46px);
@@ -173,7 +188,7 @@ h1{
   line-height:1.32;
   letter-spacing:-.02em;
   color:#fff;
-  margin:0 0 22px;
+  margin:0 0 14px;
 }
 h1 .ital{
   background:linear-gradient(135deg,var(--pink-2),var(--pink-light));
@@ -271,7 +286,10 @@ h1 .ava img{width:100%;height:100%;object-fit:cover;display:block}
 }
 
 @media (max-width:640px){
-  h1{font-size:clamp(25px,6.6vw,36px);line-height:1.34;margin-bottom:16px}
+  h1{font-size:clamp(25px,6.6vw,36px);line-height:1.34;margin-bottom:10px}
+  .author-line{margin-bottom:14px;gap:8px}
+  .author-ava{width:32px;height:32px}
+  .author-meta{font-size:12.5px}
   .creator img{width:32px;height:32px;border-width:2.5px}
   .creator-stack img{width:28px;height:28px;border-width:2px}
   .creator-stack .more{width:28px;height:28px;border-width:2px;font-size:11px}
@@ -454,11 +472,15 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 
   <div class="title-block reveal d2">
     <h1>
-      Comment Fiona <span class="subtle">(791&nbsp;abonnés)</span><span class="ava"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="Fiona" loading="eager" fetchpriority="high"></span> est passée de <span class="money">0</span> à <span class="money">3&nbsp;400€/mois</span> en 30&nbsp;jours<br>
+      Comment Fiona <span class="subtle">(791&nbsp;abonnés)</span> est passée de <span class="money">0</span> à <span class="money">3&nbsp;400€/mois</span> en 30&nbsp;jours<br>
       <span class="punch">sans gagner un abonné en +</span>
     </h1>
   </div>
 
+  <div class="author-line reveal d3">
+    <img class="author-ava" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="Fiona">
+    <span class="author-meta">Fiona, 791 abonnés · <strong>@fiona_sim</strong></span>
+  </div>
 
   <!-- VSL Player (Vidalytics) -->
   <div class="player-wrap">
