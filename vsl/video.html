@@ -568,6 +568,9 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
+    // Masque l'encart surprise (« Opportunité dévoilée... ») : plus de sens une fois le CTA affiché
+    var surprise=document.querySelector('.surprise-wrap');
+    if(surprise)surprise.style.display='none';
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
     // Charge widget.js maintenant → init du Lift + binding des data-iclosed-link du bouton
