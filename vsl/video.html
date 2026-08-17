@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
-<title>SCALEVISION — Méthode secrète débloquée</title>
+<title>SCALEVISION — Bon visionnage</title>
 <meta name="description" content="La méthode secrète de nos créatrices pour générer entre 3 000€ et 11 000€/mois avec la création de contenu.">
 <meta name="robots" content="noindex,nofollow">
 
@@ -106,37 +106,24 @@ body{
 }
 
 /* Marquee */
-.marquee{
+.unlock-bar{
   position:relative;
   background:linear-gradient(90deg,var(--pink),#ff5fa6,var(--pink));
   background-size:200% 100%;
   animation:gradientShift 5s ease infinite;
-  padding:10px 0;
+  padding:11px 16px;
+  text-align:center;
   overflow:hidden;
   border-bottom:1px solid rgba(255,255,255,.12);
   box-shadow:0 4px 22px rgba(255,60,142,.35);
 }
-.marquee-track{
-  display:flex;
-  width:max-content;
-  animation:marqueeScroll 22s linear infinite;
-  will-change:transform;
-}
-.marquee-item{
-  display:inline-flex;align-items:center;gap:14px;
-  padding:0 22px;
+.unlock-text{
+  display:inline-block;
   font-family:var(--font-sans);
   font-weight:800;font-size:14px;
-  color:#fff;letter-spacing:.5px;
-  text-transform:uppercase;
-  white-space:nowrap;
+  color:#fff;letter-spacing:.2px;
 }
-.marquee-item .dot{
-  display:inline-block;width:5px;height:5px;border-radius:50%;
-  background:rgba(255,255,255,.6);
-  margin-left:14px;
-}
-@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.unlock-text .name{color:#fff}
 @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
 .container{max-width:880px;margin:0 auto;padding:24px 18px 40px}
@@ -441,24 +428,23 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 </head>
 <body>
 
-<!-- Marquee top -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <!-- duplicated x2 for seamless loop -->
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-    <div class="marquee-item">🎁 Méthode secrète débloquée<span class="dot"></span></div>
-  </div>
+<!-- Barre débloqué (statique, personnalisée au prénom) -->
+<div class="unlock-bar">
+  <span class="unlock-text">🎥 Bon visionnage<span class="name" id="unlockName"></span></span>
 </div>
+<script>
+(function(){
+  try{
+    var p=new URLSearchParams(location.search);
+    var n=(p.get('prenom')||'').trim();
+    if(n){
+      n=n.charAt(0).toUpperCase()+n.slice(1);
+      var el=document.getElementById('unlockName');
+      if(el)el.textContent=', '+n;
+    }
+  }catch(e){}
+})();
+</script>
 
 <main class="container">
 
@@ -473,10 +459,6 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     </h1>
   </div>
 
-  <div class="chips reveal d3">
-    <span class="chip">🎁 Sans gifting ni agence</span>
-    <span class="chip">📱 Depuis ton téléphone</span>
-  </div>
 
   <!-- VSL Player (Vidalytics) -->
   <div class="player-wrap">

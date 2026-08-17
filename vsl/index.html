@@ -819,6 +819,7 @@ footer{
     var redirectParams=new URLSearchParams();
     redirectParams.set('email',email);
     redirectParams.set('iclosedEmail',email);
+    redirectParams.set('prenom',prenom);
     Object.keys(utms).forEach(function(k){redirectParams.set(k,utms[k]);});
 
     setTimeout(function(){
