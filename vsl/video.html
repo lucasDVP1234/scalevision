@@ -53,7 +53,7 @@
 </script>
 -->
 
-<!-- iClosed widget — chargé dynamiquement à 600s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
+<!-- iClosed widget — chargé dynamiquement à 470s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
      Dashboard iClosed : delay Lift = 0s (le timing est piloté par le moment où ce script est injecté). -->
 <!-- <script src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script> -->
 
@@ -507,7 +507,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     </script>
   </div>
 
-  <!-- Late CTA (10min) -->
+  <!-- Late CTA (7min50) -->
   <div class="late-cta-wrap" id="lateCta">
     <div class="late-cta-badge"><span class="ddot"></span>Places limitées cette semaine</div>
     <button type="button" class="cta cta-late" id="lateCtaBtn"
@@ -564,7 +564,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (10min) + injection iClosed widget.js (Lift sync) ----
+  // ---- Late CTA reveal (7min50) + injection iClosed widget.js (Lift sync) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
@@ -576,7 +576,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     s.async=true;
     s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
     document.head.appendChild(s);
-  },600000);
+  },470000);
 
   // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
   document.getElementById('lateCtaBtn').addEventListener('click',function(){
