@@ -53,7 +53,7 @@
 </script>
 -->
 
-<!-- iClosed widget — chargé dynamiquement à 420s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
+<!-- iClosed widget — chargé dynamiquement à 600s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
      Dashboard iClosed : delay Lift = 0s (le timing est piloté par le moment où ce script est injecté). -->
 <!-- <script src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script> -->
 
@@ -484,15 +484,15 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 
   <!-- VSL Player (Vidalytics) -->
   <div class="player-wrap">
-    <div id="vidalytics_embed_EBKYAGcGXKkRj8mV" style="width:100%;position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;"></div>
+    <div id="vidalytics_embed_BfxRRUhtLO72iSel" style="width:100%;position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;"></div>
     <script type="text/javascript">
-    // Forward de l'email URL au tag Vidalytics "New_VSL_Tag" (07:00) — trigger ID uWFKHUHf5iqU63Y0
+    // Forward de l'email URL au tag Vidalytics "vsl_9min_createur" (09:00) — trigger ID FNkkg6CS104sjr8M
     var vidalyticsCustomSettings = (function(){
       try {
         var p = new URLSearchParams(window.location.search);
         var email = (p.get('email') || p.get('iclosedEmail') || '').toLowerCase().trim();
         if(!email) return undefined;
-        return { triggers: { items: { "uWFKHUHf5iqU63Y0": { params: { email: email } } } } };
+        return { triggers: { items: { "FNkkg6CS104sjr8M": { params: { email: email } } } } };
       } catch(e){ return undefined; }
     })();
     (function (v, i, d, a, l, y, t, c, s) {
@@ -503,20 +503,19 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
         i.getElementsByTagName("head")[0].appendChild(s);
       };}
       vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a, vidalyticsCustomSettings);});});
-    })(window, document, 'Vidalytics', 'vidalytics_embed_EBKYAGcGXKkRj8mV', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/EBKYAGcGXKkRj8mV/');
+    })(window, document, 'Vidalytics', 'vidalytics_embed_BfxRRUhtLO72iSel', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/BfxRRUhtLO72iSel/');
     </script>
   </div>
 
-  <!-- Late CTA (5min) -->
+  <!-- Late CTA (10min) -->
   <div class="late-cta-wrap" id="lateCta">
     <div class="late-cta-badge"><span class="ddot"></span>Places limitées cette semaine</div>
     <button type="button" class="cta cta-late" id="lateCtaBtn"
             data-iclosed-link="https://app.iclosed.io/e/scalevision/appel-de-candidature-scalevision"
             data-embed-type="popup">
-      <span>Je réserve mon appel découverte</span>
+      <span>Je réserve mon appel</span>
       <span class="arrow">→</span>
     </button>
-    <span class="late-cta-sub">45 min · Gratuit</span>
   </div>
 
   <!-- Surprise encart -->
@@ -565,7 +564,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (7min) + injection iClosed widget.js (Lift sync) ----
+  // ---- Late CTA reveal (10min) + injection iClosed widget.js (Lift sync) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
@@ -577,7 +576,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     s.async=true;
     s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
     document.head.appendChild(s);
-  },420000);
+  },600000);
 
   // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
   document.getElementById('lateCtaBtn').addEventListener('click',function(){
