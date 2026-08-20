@@ -154,6 +154,14 @@ h1 .u::after{content:'';position:absolute;left:0;right:0;bottom:6%;height:12%;ba
 .hero-avatars-text{font-size:12px;font-weight:600;color:rgba(255,255,255,0.85);text-align:left;line-height:1.35}
 .hero-avatars-text .stars{color:var(--gold);font-size:11px;letter-spacing:1px;display:block}
 .hero-avatars-text strong{color:var(--pink-light);font-weight:700}
+/* Hero VSL (Loom) */
+.hero-video{max-width:640px;margin:38px auto 4px;animation:fadeUp .7s .58s ease forwards;opacity:0}
+.hero-video-label{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.hero-video-label i{color:var(--pink);font-size:10px}
+.hero-video-frame{position:relative;padding:10px;background:linear-gradient(135deg,rgba(255,60,142,0.3),rgba(255,60,142,0.06));border-radius:22px;box-shadow:0 26px 70px rgba(0,0,0,0.5)}
+.hero-video-frame::before{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(135deg,var(--pink),transparent 70%);opacity:.35;filter:blur(32px);z-index:-1}
+.hero-video-inner{position:relative;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,0.12);background:#000;padding-top:56.25%}
+.hero-video-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
@@ -403,6 +411,10 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
 
   /* Hero */
   .hero-chips{gap:6px}
+  .hero-video{margin:26px auto 2px}
+  .hero-video-frame{padding:6px;border-radius:18px}
+  .hero-video-inner{border-radius:12px}
+  .hero-video-label{font-size:10px;letter-spacing:1.3px;padding:6px 12px;margin-bottom:12px}
   .chip{padding:7px 11px;font-size:11px}
   .cta-main{padding:18px 30px;font-size:14px;letter-spacing:1.2px}
   .hero-avatars{gap:10px;padding:6px 14px 6px 6px;flex-wrap:nowrap}
@@ -506,6 +518,15 @@ footer{background:var(--bg-darker);padding:40px 0 30px;border-top:1px solid var(
         <div class="hero-avatars-text">
           <span class="stars">★★★★★</span>
           <strong>+150 créateurs</strong> déjà accompagnés
+        </div>
+      </div>
+
+      <div class="hero-video">
+        <span class="hero-video-label"><i class="fas fa-play"></i> En vidéo · Comment ça marche</span>
+        <div class="hero-video-frame">
+          <div class="hero-video-inner">
+            <iframe src="https://www.loom.com/embed/73abe57f4cfe4b4ca240a901cb695452?hideEmbedTopBar=true" title="Vidéo — On prospecte pour toi" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
       </div>
     </div>
