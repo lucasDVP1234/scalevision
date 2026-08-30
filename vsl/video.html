@@ -510,6 +510,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 
   <!-- Late CTA (7min) -->
   <div class="late-cta-wrap" id="lateCta">
+    <div class="late-cta-badge"><span class="ddot"></span>Places limitées cette semaine</div>
     <button type="button" class="cta cta-late" id="lateCtaBtn"
             data-iclosed-link="https://app.iclosed.io/e/scalevision/appel-de-candidature-scalevision"
             data-embed-type="popup">
@@ -573,11 +574,11 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(surprise)surprise.style.display='none';
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
-    // Charge widget.js maintenant → binding du data-iclosed-link du bouton (popup au clic).
-    // NB: pas de data-cta-widget => le Lift iClosed n'apparaît plus tout seul, on garde juste le bouton.
+    // Charge widget.js maintenant → init du Lift + binding des data-iclosed-link du bouton
     var s=document.createElement('script');
     s.src='https://app.iclosed.io/assets/widget.js';
     s.async=true;
+    s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
     document.head.appendChild(s);
   },420000);
 
