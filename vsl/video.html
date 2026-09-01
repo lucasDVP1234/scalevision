@@ -522,6 +522,14 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
+  // ---- Surprise block nudge at 5min (retenir avant l'apparition du CTA) ----
+  setTimeout(function(){
+    var icon=document.getElementById('surpriseIcon');
+    var txt=document.getElementById('surpriseText');
+    if(icon)icon.textContent='🔥';
+    if(txt)txt.innerHTML='Ne quitte pas tout de suite — <strong>c\'est le passage le plus intéressant</strong>';
+  },300000);
+
   // ---- Late CTA reveal (7min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
