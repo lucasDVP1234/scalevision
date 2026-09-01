@@ -93,15 +93,15 @@ h1 .emoji{-webkit-text-fill-color:initial;filter:drop-shadow(0 4px 16px rgba(34,
 .appt-widget .call-details-widget{display:block;border-radius:10px;overflow:hidden}
 
 /* Section cards */
-.section{max-width:720px;margin:0 auto 28px;padding:26px 26px;background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:20px;text-align:left;position:relative;overflow:hidden}
-.section-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:clamp(18px,2.6vw,24px);font-weight:400;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;line-height:1}
-.section-eyebrow.warn-eyebrow{color:var(--warn);text-shadow:0 0 20px rgba(255,122,62,0.3)}
-.section-eyebrow.pink-eyebrow{color:var(--pink);text-shadow:0 0 20px rgba(255,60,142,0.3)}
+.section{max-width:680px;margin:0 auto 34px;padding:30px 28px;background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:20px;text-align:left;position:relative;overflow:hidden}
+.section-eyebrow{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-size:clamp(25px,3.8vw,34px);font-weight:400;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:18px;line-height:1}
+.section-eyebrow.warn-eyebrow{color:var(--warn);text-shadow:0 0 24px rgba(255,122,62,0.35)}
+.section-eyebrow.pink-eyebrow{color:var(--pink);text-shadow:0 0 24px rgba(255,60,142,0.35)}
 .section-eyebrow.white-eyebrow{color:var(--white)}
-.section-eyebrow .emoji{-webkit-text-fill-color:initial;font-family:var(--font)}
-.section p{font-size:15.5px;line-height:1.65;color:var(--white);margin-bottom:8px}
+.section-eyebrow .emoji{-webkit-text-fill-color:initial;font-family:var(--font);font-size:.78em}
+.section p{font-size:15px;line-height:1.55;color:rgba(255,255,255,0.72);margin-bottom:8px}
 .section p:last-child{margin-bottom:0}
-.section p strong{font-weight:800}
+.section p strong{font-weight:800;color:var(--white)}
 .section p .muted-note{color:var(--muted);font-size:14px;display:block;margin-top:6px}
 
 .section.action{background:linear-gradient(135deg,rgba(255,122,62,0.12),rgba(255,122,62,0.02));border-color:rgba(255,122,62,0.35)}
@@ -172,9 +172,9 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
   h1{margin-bottom:18px}
   .appt-widget{padding:6px;border-radius:16px;margin-bottom:30px}
 
-  .section{padding:20px 18px;border-radius:16px;margin-bottom:20px}
+  .section{padding:22px 18px;border-radius:16px;margin-bottom:22px}
   .section p{font-size:14.5px}
-  .section-eyebrow{font-size:18px;letter-spacing:1.2px}
+  .section-eyebrow{font-size:23px;letter-spacing:1.3px;margin-bottom:15px}
   .section.action .cta-hint{font-size:13px;padding:9px 12px}
 
   .steps{gap:14px}
@@ -238,39 +238,32 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
   <div class="section">
     <div class="section-eyebrow pink-eyebrow"><span class="emoji">⚡</span> Puis, 30 secondes de plus</div>
     <ol class="steps">
-      <li>
-        <strong>Ajoute le rendez-vous à ton agenda</strong> (le lien est dans le mail de confirmation).
-        <span class="muted-note" style="color:rgba(255,255,255,0.55);display:block;margin-top:4px;font-size:13.5px">C'est la cause n°1 des rendez-vous oubliés.</span>
-      </li>
+      <li><strong>Ajoute le RDV à ton agenda</strong> — c'est la cause n°1 des oublis.</li>
       <li>
         <strong>Prépare l'appel :</strong>
         <ul class="bullets">
-          <li>Sois <strong>au calme, avec du réseau</strong></li>
-          <li>Ton <strong>compte Instagram ouvert</strong> — on va le regarder ensemble</li>
-          <li>Une idée de ce que tu veux <strong>gagner par mois</strong></li>
+          <li>Au <strong>calme, avec du réseau</strong></li>
+          <li>Ton <strong>compte Instagram ouvert</strong></li>
+          <li>Ce que tu veux <strong>gagner par mois</strong></li>
         </ul>
       </li>
-      <li>
-        <strong>Un empêchement ?</strong> Replanifie depuis le mail plutôt que de ne pas venir.
-        <span class="muted-note" style="color:rgba(255,255,255,0.55);display:block;margin-top:4px;font-size:13.5px">On préfère largement un report.</span>
-      </li>
+      <li><strong>Un empêchement ?</strong> Replanifie depuis le mail, on préfère un report.</li>
     </ol>
   </div>
 
   <!-- WHAT HAPPENS -->
   <div class="section">
-    <div class="section-eyebrow white-eyebrow"><span class="emoji">💬</span> Ce qui va se passer pendant l'appel</div>
-    <p>Un membre de l'équipe va analyser ton compte en direct : ta niche, ton audience, les marques qui peuvent devenir tes clients.</p>
-    <p>Tu repars avec une <strong>estimation concrète de ce que tu peux signer</strong>, même si on ne travaille pas ensemble.</p>
+    <div class="section-eyebrow white-eyebrow"><span class="emoji">💬</span> Ce qui va se passer</div>
+    <p>On analyse ton compte en direct — niche, audience, marques à signer — et tu repars avec une <strong>estimation concrète de ce que tu peux gagner</strong>.</p>
     <div class="no-sales">
-      <strong>Ce n'est pas un appel de vente déguisé.</strong> Si on ne pense pas pouvoir t'amener à <strong>3 000 €/mois</strong>, on te le dira.
+      <strong>Ce n'est pas un appel de vente déguisé.</strong> Si on ne peut pas t'amener à <strong>3 000 €/mois</strong>, on te le dira.
     </div>
   </div>
 
   <!-- FAIS TES RECHERCHES SUR NOUS -->
   <div class="section">
     <div class="section-eyebrow pink-eyebrow"><span class="emoji">🔎</span> Fais tes recherches sur nous</div>
-    <p>C'est important de savoir <strong>à qui tu parles</strong> avant l'appel. Ce que tu peux regarder sur nous&nbsp;:</p>
+    <p>Sache <strong>à qui tu parles</strong> avant l'appel&nbsp;:</p>
     <ul class="research-list">
       <li><span class="ic">▶️</span>Notre chaîne YouTube (interviews & coulisses)</li>
       <li><span class="ic">💼</span>Le LinkedIn de l'agence</li>
@@ -278,8 +271,8 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
       <li><span class="ic">🇫🇷</span>Nos sociétés, bien réelles et basées en France</li>
       <li><span class="ic">📸</span>Nos résultats créateurs, postés au quotidien</li>
     </ul>
-    <p class="research-insta">👉 Tout est à retrouver sur notre Instagram <strong>@ugcademie</strong>.</p>
-    <p class="research-note">Mais commence par regarder <strong>les interviews juste en dessous</strong> 👇 — comme ça tu arrives à l'appel avec toutes les réponses, et on se concentre direct sur <strong>ton plan d'action</strong>.</p>
+    <p class="research-insta">👉 Tout est sur notre Instagram <strong>@ugcademie</strong>.</p>
+    <p class="research-note">Mais commence par <strong>les interviews juste en dessous</strong> 👇</p>
   </div>
 
   <!-- VIDEO -->
@@ -305,7 +298,7 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
         allowfullscreen
       ></iframe>
     </div>
-    <p class="video-hint">Les créateurs qui regardent ces interviews avant l'appel gagnent en moyenne <strong>20 minutes de contexte</strong>. Tu arriveras avec de meilleures questions.</p>
+    <p class="video-hint">Ceux qui les regardent avant l'appel arrivent avec <strong>de meilleures questions</strong>.</p>
   </div>
 
   <!-- TRUST BAR -->
