@@ -122,6 +122,23 @@ h1 .emoji{-webkit-text-fill-color:initial;filter:drop-shadow(0 4px 16px rgba(34,
 .no-sales{margin-top:14px;padding:14px 16px;background:rgba(0,0,0,0.22);border-left:3px solid var(--green);border-radius:0 10px 10px 0;font-size:14px;line-height:1.55;color:var(--muted)}
 .no-sales strong{color:var(--white);font-weight:800}
 
+/* Research on us — non-clickable list + insta mention */
+.research-list{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
+.research-list li{display:flex;align-items:center;gap:11px;font-size:14.5px;color:var(--white);font-weight:600;line-height:1.4}
+.research-list li .ic{font-size:18px;flex-shrink:0;line-height:1;width:24px;text-align:center}
+.research-insta{margin-top:16px;padding:13px 16px;background:rgba(255,60,142,0.1);border:1px solid rgba(255,60,142,0.32);border-radius:12px;font-size:14.5px;line-height:1.5;color:var(--white)}
+.research-insta strong{color:var(--pink);font-weight:800}
+.research-note{margin-top:14px;font-size:14px;line-height:1.6;color:var(--muted)}
+.research-note strong{color:var(--white);font-weight:800}
+/* Spacing between the two interview videos */
+.video-block .video-wrap + .video-caption{margin-top:24px}
+@media (max-width:640px){
+  .research-list li{font-size:13.5px}
+  .research-insta{font-size:13.5px;padding:12px 14px}
+  .research-note{font-size:13px}
+  .video-block .video-wrap + .video-caption{margin-top:20px}
+}
+
 /* Video card */
 .video-block{max-width:720px;margin:0 auto 28px;text-align:center}
 .video-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);margin-bottom:8px;line-height:1.1}
@@ -243,16 +260,31 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
   <!-- WHAT HAPPENS -->
   <div class="section">
     <div class="section-eyebrow white-eyebrow"><span class="emoji">💬</span> Ce qui va se passer pendant l'appel</div>
-    <p>Un membre de l'équipe, <strong>basé à Paris</strong>, va analyser ton compte en direct : ta niche, ton audience, les marques qui peuvent devenir tes clients.</p>
+    <p>Un membre de l'équipe va analyser ton compte en direct : ta niche, ton audience, les marques qui peuvent devenir tes clients.</p>
     <p>Tu repars avec une <strong>estimation concrète de ce que tu peux signer</strong>, même si on ne travaille pas ensemble.</p>
     <div class="no-sales">
       <strong>Ce n'est pas un appel de vente déguisé.</strong> Si on ne pense pas pouvoir t'amener à <strong>3 000 €/mois</strong>, on te le dira.
     </div>
   </div>
 
+  <!-- FAIS TES RECHERCHES SUR NOUS -->
+  <div class="section">
+    <div class="section-eyebrow pink-eyebrow"><span class="emoji">🔎</span> Fais tes recherches sur nous</div>
+    <p>C'est important de savoir <strong>à qui tu parles</strong> avant l'appel. Ce que tu peux regarder sur nous&nbsp;:</p>
+    <ul class="research-list">
+      <li><span class="ic">▶️</span>Notre chaîne YouTube (interviews & coulisses)</li>
+      <li><span class="ic">💼</span>Le LinkedIn de l'agence</li>
+      <li><span class="ic">🎤</span>L'interview de nos fondateurs, Constantin &amp; Lucas</li>
+      <li><span class="ic">🇫🇷</span>Nos sociétés, bien réelles et basées en France</li>
+      <li><span class="ic">📸</span>Nos résultats créateurs, postés au quotidien</li>
+    </ul>
+    <p class="research-insta">👉 Tout est à retrouver sur notre Instagram <strong>@ugcademie</strong>.</p>
+    <p class="research-note">Mais commence par regarder <strong>les interviews juste en dessous</strong> 👇 — comme ça tu arrives à l'appel avec toutes les réponses, et on se concentre direct sur <strong>ton plan d'action</strong>.</p>
+  </div>
+
   <!-- VIDEO -->
   <div class="video-block">
-    <p class="video-title">En attendant, regarde ça <span class="accent">👇</span></p>
+    <p class="video-title">En attendant, regarde nos interviews <span class="accent">👇</span></p>
     <p class="video-caption"><strong>@emm_crd</strong> — 550 abonnés : Comment Emma gagne <strong>3 000€/mois</strong> en podcast</p>
     <div class="video-wrap">
       <iframe
@@ -263,7 +295,17 @@ footer{text-align:center;padding:16px 20px 30px;max-width:820px;margin:0 auto;po
         allowfullscreen
       ></iframe>
     </div>
-    <p class="video-hint">Les créateurs qui regardent cette vidéo avant l'appel gagnent en moyenne <strong>20 minutes de contexte</strong>. Tu arriveras avec de meilleures questions.</p>
+    <p class="video-caption"><strong>Éléa</strong>, coach Scalevision — 5 000 abonnés : <strong>8 000€ de CA/mois</strong></p>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/th912pF1_RU?rel=0&modestbranding=1"
+        title="Éléa, coach Scalevision — 5 000 abonnés : 8 000€ de CA/mois"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p class="video-hint">Les créateurs qui regardent ces interviews avant l'appel gagnent en moyenne <strong>20 minutes de contexte</strong>. Tu arriveras avec de meilleures questions.</p>
   </div>
 
   <!-- TRUST BAR -->

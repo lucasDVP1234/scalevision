@@ -13,50 +13,9 @@
 <link rel="preload" as="image" href="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fast.vidalytics.com" crossorigin>
 <link rel="dns-prefetch" href="https://fast.vidalytics.com">
-<link rel="preconnect" href="https://app.iclosed.io" crossorigin>
+<link rel="preconnect" href="https://tally.so" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Suppress iClosed missing pop-open-sound (404) — must run BEFORE widget.js -->
-<!-- TEMPORAIREMENT DESACTIVE pour debug Lift Widget (E27reyzkbqFi) — si Lift apparait, le shim Audio bloquait l'init
-<script>
-(function(){
-  var blocked=/pop-open-sound/i;
-  var oFetch=window.fetch;
-  if(oFetch){
-    window.fetch=function(u){
-      if((typeof u==='string'&&blocked.test(u))||(u&&u.url&&blocked.test(u.url))){
-        return Promise.resolve(new Response('',{status:204}));
-      }
-      return oFetch.apply(this,arguments);
-    };
-  }
-  var oOpen=XMLHttpRequest.prototype.open;
-  XMLHttpRequest.prototype.open=function(m,u){
-    this.__blk=typeof u==='string'&&blocked.test(u);
-    return oOpen.apply(this,arguments);
-  };
-  var oSend=XMLHttpRequest.prototype.send;
-  XMLHttpRequest.prototype.send=function(){
-    if(this.__blk){try{this.abort();}catch(e){}return;}
-    return oSend.apply(this,arguments);
-  };
-  var OAudio=window.Audio;
-  if(OAudio){
-    window.Audio=function(src){
-      if(typeof src==='string'&&blocked.test(src))return new OAudio();
-      return new OAudio(src);
-    };
-    window.Audio.prototype=OAudio.prototype;
-  }
-})();
-</script>
--->
-
-<!-- iClosed widget — chargé dynamiquement à 420s (cf setTimeout Late CTA) pour synchroniser l'apparition du Lift avec le bouton.
-     Dashboard iClosed : delay Lift = 0s (le timing est piloté par le moment où ce script est injecté). -->
-<!-- <script src="https://app.iclosed.io/assets/widget.js" data-cta-widget="ELKeQsy1A8Zq" async></script> -->
-
 
 <!-- Meta Pixel -->
 <script>
@@ -511,10 +470,8 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
   <!-- Late CTA (7min) -->
   <div class="late-cta-wrap" id="lateCta">
     <div class="late-cta-badge"><span class="ddot"></span>Places limitées cette semaine</div>
-    <button type="button" class="cta cta-late" id="lateCtaBtn"
-            data-iclosed-link="https://app.iclosed.io/e/scalevision/appel-de-candidature-scalevision"
-            data-embed-type="popup">
-      <span>Je réserve mon appel</span>
+    <button type="button" class="cta cta-late" id="lateCtaBtn">
+      <span>Réserver mon audit</span>
       <span class="arrow">→</span>
     </button>
   </div>
@@ -545,10 +502,10 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
 (function(){
   'use strict';
 
-  // ---- Read URL params (email, iclosedName, iclosedEmail, UTMs) — to forward to iClosed + Vidalytics ----
+  // ---- Read URL params (email, prénom, UTMs) — à transmettre au form Tally + Vidalytics ----
   var params=new URLSearchParams(window.location.search);
   var email=params.get('email')||params.get('iclosedEmail')||'';
-  var name=params.get('iclosedName')||'';
+  var name=params.get('iclosedName')||params.get('prenom')||'';
   var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid','msclkid'];
   var utms={};
   UTM_KEYS.forEach(function(k){
@@ -565,7 +522,7 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(txt)txt.innerHTML='<strong>Opportunité dévoilée</strong> dans quelques instants...';
   },120000);
 
-  // ---- Late CTA reveal (7min) + injection iClosed widget.js (Lift sync) ----
+  // ---- Late CTA reveal (7min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta)cta.classList.add('show');
@@ -574,18 +531,35 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
     if(surprise)surprise.style.display='none';
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
-    // Charge widget.js maintenant → init du Lift + binding des data-iclosed-link du bouton
-    var s=document.createElement('script');
-    s.src='https://app.iclosed.io/assets/widget.js';
-    s.async=true;
-    s.setAttribute('data-cta-widget','ELKeQsy1A8Zq');
-    document.head.appendChild(s);
   },420000);
 
-  // ---- Track CTA click (iClosed popup opens via widget.js, we just track) ----
+  // ---- CTA click → ouvre le form Tally (audit) en popup. La REDIRECTION post-submit est gérée DANS Tally. ----
+  var TALLY_FORM='lbEWq6';
+  // Préremplissage des hidden fields Tally — on couvre les 2 conventions de nommage possibles
+  // (email/prenom identiques à l'URL, ou IclosedEmail/IclosedName). Tally ignore les clés inconnues.
+  var hidden={email:email,prenom:name,IclosedEmail:email,IclosedName:name};
+  // Ajoute les UTMs (utm_source, utm_medium, ...) comme hidden fields Tally
+  Object.keys(utms).forEach(function(k){hidden[k]=utms[k];});
+  // Params du fallback (form hébergé) si embed.js indisponible
+  var hostedParams=new URLSearchParams();
+  Object.keys(hidden).forEach(function(k){if(hidden[k])hostedParams.set(k,hidden[k]);});
+
   document.getElementById('lateCtaBtn').addEventListener('click',function(){
     try{if(window.fbq){fbq('track','Lead');fbq('trackCustom','VSLCTAClick');}}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_click');}catch(e){}
+    // Secours pour la page 3 (préremplissage iClosed) au cas où le redirect Tally ne porte pas les params
+    try{
+      if(email)sessionStorage.setItem('sv_iclosed_email',email);
+      if(name)sessionStorage.setItem('sv_iclosed_name',name);
+    }catch(e){}
+    if(window.Tally&&typeof Tally.openPopup==='function'){
+      Tally.openPopup(TALLY_FORM,{layout:'modal',width:520,hideTitle:true,hiddenFields:hidden});
+    }else{
+      // Fallback si embed.js pas chargé : form hébergé Tally (redirect géré côté Tally)
+      hostedParams.set('hideTitle','1');
+      hostedParams.set('transparentBackground','1');
+      window.location.href='https://tally.so/r/'+TALLY_FORM+'?'+hostedParams.toString();
+    }
   });
 
   // ---- Watch time milestones (page-based, since Vidalytics is in iframe) ----
@@ -603,6 +577,9 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
   },5000);
 })();
 </script>
+
+<!-- Tally embed (popup du form audit lbEWq6) -->
+<script async src="https://tally.so/widgets/embed.js"></script>
 
 </body>
 </html>
