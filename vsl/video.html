@@ -533,7 +533,8 @@ footer{text-align:center;padding:50px 20px 30px;border-top:1px solid rgba(255,25
   // ---- Late CTA reveal (7min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
-    if(cta)cta.classList.add('show');
+    // révèle en slide (overflow hidden), puis libère l'overflow pour ne pas couper le halo du bouton
+    if(cta){cta.classList.add('show');setTimeout(function(){cta.style.overflow='visible';},750);}
     // Masque l'encart surprise (« Opportunité dévoilée... ») : plus de sens une fois le CTA affiché
     var surprise=document.querySelector('.surprise-wrap');
     if(surprise)surprise.style.display='none';
