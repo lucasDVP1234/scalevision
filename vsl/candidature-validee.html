@@ -319,10 +319,11 @@ footer{text-align:center;padding:44px 20px 30px;border-top:1px solid rgba(255,25
   }catch(e){}
 
   // ---- Construit l'URL iClosed avec prefill ----
+  // iClosed attend SES paramètres : iclosedEmail / iclosedName / iclosedPhone (pas email/name)
   var base='https://app.iclosed.io/e/scalevision/appel-de-candidature-scalevision';
   var qp=[];
-  if(email)qp.push('email='+encodeURIComponent(email));
-  if(name) qp.push('name='+encodeURIComponent(name));
+  if(email)qp.push('iclosedEmail='+encodeURIComponent(email));
+  if(name) qp.push('iclosedName='+encodeURIComponent(name));
   var dataUrl=base+(qp.length?('?'+qp.join('&')):'');
 
   var widget=document.createElement('div');
