@@ -118,6 +118,16 @@ a{color:inherit;text-decoration:none}
 .lc-name{font-family:var(--font-serif);font-style:normal;font-weight:400;font-size:clamp(46px,8.5vw,96px);line-height:.9;letter-spacing:-.02em;color:var(--ink);margin:0}
 .lc-name .p{font-style:italic;color:var(--pink)}
 @media(max-width:600px){.hero-top{margin-bottom:24px}.lc-name{font-size:clamp(42px,12vw,60px)}}
+/* Bandeau créateurs défilant (hero) */
+.hero-marquee{position:relative;z-index:2;margin-top:22px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.hm-track{display:flex;gap:28px;width:max-content;animation:hmscroll 40s linear infinite}
+.hero-marquee:hover .hm-track{animation-play-state:paused}
+@keyframes hmscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hm-item{display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0}
+.hm-item img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 5px 14px rgba(25,20,54,.16)}
+.hm-item span{font-size:10.5px;font-weight:700;color:var(--ink-2);white-space:nowrap;letter-spacing:.1px}
+@media(max-width:600px){.hero-marquee{margin-top:18px}.hm-track{gap:22px}.hm-item img{width:46px;height:46px}.hm-item span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.hm-track{animation:none}}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
 @media(min-width:940px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
 .hero-copy{animation:fadeUp .7s ease both}
@@ -268,18 +278,23 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .person{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
 .person:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .person .ph{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:3px solid #fff;box-shadow:0 8px 20px rgba(255,60,142,.25),0 0 0 3px rgba(255,60,142,.18)}
-.person .role{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
-.person h4{font-size:16px;font-weight:800;margin-bottom:4px}
-.person p{font-size:13px;color:var(--ink-2);line-height:1.45}
-/* Mur de créatrices (effet "coupé") */
-.people-wall{position:relative;max-width:900px;margin:26px auto 0;padding-bottom:8px}
-.people-avatars{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-height:154px;overflow:hidden}
-.people-avatars img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 16px rgba(25,20,54,.14)}
-.people-fade{position:absolute;left:0;right:0;bottom:0;height:118px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 80%);pointer-events:none}
-.people-more{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--pink);color:var(--pink);border-radius:999px;padding:12px 24px;font-weight:800;font-size:14.5px;box-shadow:0 10px 26px -8px rgba(255,60,142,.4);transition:transform .2s}
-.people-more:hover{transform:translateX(-50%) translateY(-2px)}
+.person h4{font-size:16px;font-weight:800;margin-bottom:3px}
+.person .handle{font-size:12.5px;font-weight:700;color:var(--pink);margin-bottom:9px;word-break:break-word}
+.person .foll{display:inline-block;font-size:11.5px;font-weight:800;color:var(--ink-2);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px;letter-spacing:.2px}
+/* Mur de créatrices — 2 rangées avec @handles */
+.creators-more{max-width:940px;margin:36px auto 0}
+.cm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px 14px}
+.cm{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center}
+.cm img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 8px 20px rgba(25,20,54,.14);transition:transform .25s,box-shadow .25s}
+.cm:hover img{transform:translateY(-4px);box-shadow:0 14px 30px rgba(255,60,142,.34)}
+.cm-h{font-size:12px;font-weight:700;color:var(--ink-2);line-height:1.2;word-break:break-word;transition:color .2s}
+.cm:hover .cm-h{color:var(--pink)}
+.cm-cta{text-align:center;margin-top:34px}
+.people-more{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--pink);color:var(--pink);border-radius:999px;padding:13px 26px;font-weight:800;font-size:14.5px;box-shadow:0 10px 26px -8px rgba(255,60,142,.4);transition:transform .2s}
+.people-more:hover{transform:translateY(-2px)}
 .people-more b{color:var(--pink);font-weight:900}
-@media(max-width:600px){.people-avatars{gap:9px;max-height:132px}.people-avatars img{width:54px;height:54px}.people-more{font-size:13px;padding:11px 20px}}
+@media(max-width:820px){.cm-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:520px){.cm-grid{grid-template-columns:repeat(3,1fr);gap:18px 10px}.cm img{width:76px;height:76px}.cm-h{font-size:11px}}
 
 /* Rules / how */
 .rules{display:grid;grid-template-columns:1fr;gap:14px;max-width:860px;margin:0 auto}
@@ -366,6 +381,34 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
   <div class="wrap hero-top">
     <span class="eyebrow"><span class="d"></span> Live gratuit · tous les lundis 20h00</span>
     <div class="lc-name">Les Lundis <span class="p">Créateurs</span></div>
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="hm-track">
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/barbara_ngana-1786567852685.jpg" alt="" loading="lazy"><span>@barbara_ngana</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy"><span>@aclafamily</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/laetitiarst-1784125127087.jpg" alt="" loading="lazy"><span>@laetitiarst</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/mijoteuse.campagnarde-1784110455885.jpg" alt="" loading="lazy"><span>@mijoteuse.campagnarde</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/morgane.osyssekreimer-1784110581972.jpg" alt="" loading="lazy"><span>@morgane.osyssekreimer</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/yolandegracelk-1784109917061.jpg" alt="" loading="lazy"><span>@yolandegracelk</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/jadecelerier-1784110396767.jpg" alt="" loading="lazy"><span>@jadecelerier</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/oceane_dmg-1784109703243.jpg" alt="" loading="lazy"><span>@oceane_dmg</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/bulles_de_vie-1784110441030.jpg" alt="" loading="lazy"><span>@bulles_de_vie</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/la_veronica_antonelli-1784109904609.jpg" alt="" loading="lazy"><span>@la_veronica_antonelli</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/cyrielfaitsoncinema-1784110397253.jpg" alt="" loading="lazy"><span>@cyrielfaitsoncinema</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/muriel.te.sublime-1787033535043.jpg" alt="" loading="lazy"><span>@muriel.te.sublime</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/barbara_ngana-1786567852685.jpg" alt="" loading="lazy"><span>@barbara_ngana</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy"><span>@aclafamily</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/laetitiarst-1784125127087.jpg" alt="" loading="lazy"><span>@laetitiarst</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/mijoteuse.campagnarde-1784110455885.jpg" alt="" loading="lazy"><span>@mijoteuse.campagnarde</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/morgane.osyssekreimer-1784110581972.jpg" alt="" loading="lazy"><span>@morgane.osyssekreimer</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/yolandegracelk-1784109917061.jpg" alt="" loading="lazy"><span>@yolandegracelk</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/jadecelerier-1784110396767.jpg" alt="" loading="lazy"><span>@jadecelerier</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/oceane_dmg-1784109703243.jpg" alt="" loading="lazy"><span>@oceane_dmg</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/bulles_de_vie-1784110441030.jpg" alt="" loading="lazy"><span>@bulles_de_vie</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/la_veronica_antonelli-1784109904609.jpg" alt="" loading="lazy"><span>@la_veronica_antonelli</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/cyrielfaitsoncinema-1784110397253.jpg" alt="" loading="lazy"><span>@cyrielfaitsoncinema</span></span>
+        <span class="hm-item"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/muriel.te.sublime-1787033535043.jpg" alt="" loading="lazy"><span>@muriel.te.sublime</span></span>
+      </div>
+    </div>
   </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -379,10 +422,10 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
       </div>
       <div class="proof-row">
         <div class="av-stack">
-          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="" loading="lazy">
-          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="" loading="lazy">
           <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy">
+          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/laetitiarst-1784125127087.jpg" alt="" loading="lazy">
+          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/morgane.osyssekreimer-1784110581972.jpg" alt="" loading="lazy">
+          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/mijoteuse.campagnarde-1784110455885.jpg" alt="" loading="lazy">
         </div>
         <div class="proof-txt"><span class="stars">★★★★★</span> <b>+1 000 créateurs</b> déjà inscrits</div>
       </div>
@@ -568,52 +611,49 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
     <div class="sec-head">
       <span class="kick">Qui intervient</span>
       <h2>Des créateurs qui <span class="serif">le vivent</span> vraiment</h2>
-      <p>Pas des théoriciens : des profils qui gagnent déjà leur vie avec leur contenu.</p>
+      <p>Des créatrices <strong style="color:var(--ink)">bien réelles</strong> de notre communauté — clique, va voir leurs comptes.</p>
     </div>
     <div class="people">
-      <div class="person">
-        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="Créatrice 100k" loading="lazy">
-        <div class="role">100k abonnés</div>
-        <h4>Le gros compte</h4>
-        <p>Partenariats, placements & négociation de tarifs.</p>
-      </div>
-      <div class="person">
-        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="Créatrice 10k" loading="lazy">
-        <div class="role">10k abonnés</div>
-        <h4>10 000€/mois</h4>
-        <p>Une audience moyenne, un vrai business derrière.</p>
-      </div>
-      <div class="person">
-        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="Créatrice 500 abonnés" loading="lazy">
-        <div class="role">500 abonnés</div>
-        <h4>+3 000€/mois</h4>
-        <p>La preuve qu'on n'a pas besoin d'être connu pour gagner.</p>
-      </div>
-      <div class="person">
-        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, fondateur de Scalevision" loading="lazy">
-        <div class="role">Fondateur</div>
-        <h4>Constantin</h4>
-        <p>Dirige l'agence & l'académie Scalevision (1M€ de CA en 2025).</p>
-      </div>
+      <a class="person" href="https://www.instagram.com/aclafamily/" target="_blank" rel="noopener">
+        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="Charlotte — @aclafamily" loading="lazy">
+        <h4>Charlotte</h4>
+        <div class="handle">@aclafamily</div>
+        <div class="foll">30K abonnés</div>
+      </a>
+      <a class="person" href="https://www.instagram.com/laetitiarst/" target="_blank" rel="noopener">
+        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/laetitiarst-1784125127087.jpg" alt="Laëtitia — @laetitiarst" loading="lazy">
+        <h4>Laëtitia</h4>
+        <div class="handle">@laetitiarst</div>
+        <div class="foll">34K abonnés</div>
+      </a>
+      <a class="person" href="https://www.instagram.com/morgane.osyssekreimer/" target="_blank" rel="noopener">
+        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/morgane.osyssekreimer-1784110581972.jpg" alt="Morgane — @morgane.osyssekreimer" loading="lazy">
+        <h4>Morgane</h4>
+        <div class="handle">@morgane.osyssekreimer</div>
+        <div class="foll">24K abonnés</div>
+      </a>
+      <a class="person" href="https://www.instagram.com/yolandegracelk/" target="_blank" rel="noopener">
+        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/yolandegracelk-1784109917061.jpg" alt="Grace LK — @yolandegracelk" loading="lazy">
+        <h4>Grace LK</h4>
+        <div class="handle">@yolandegracelk</div>
+        <div class="foll">25K abonnés</div>
+      </a>
     </div>
 
-    <div class="people-wall">
-      <div class="people-avatars">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/yamine.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/gaelle.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/anne.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/linda.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/melanie.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="" loading="lazy">
-        <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="" loading="lazy">
-        <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="lazy">
-        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" alt="" loading="lazy">
+    <div class="creators-more">
+      <div class="cm-grid">
+        <a class="cm" href="https://www.instagram.com/barbara_ngana/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/barbara_ngana-1786567852685.jpg" alt="@barbara_ngana" loading="lazy"><span class="cm-h">@barbara_ngana</span></a>
+        <a class="cm" href="https://www.instagram.com/mijoteuse.campagnarde/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/mijoteuse.campagnarde-1784110455885.jpg" alt="@mijoteuse.campagnarde" loading="lazy"><span class="cm-h">@mijoteuse.campagnarde</span></a>
+        <a class="cm" href="https://www.instagram.com/bulles_de_vie/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/bulles_de_vie-1784110441030.jpg" alt="@bulles_de_vie" loading="lazy"><span class="cm-h">@bulles_de_vie</span></a>
+        <a class="cm" href="https://www.instagram.com/la_veronica_antonelli/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/la_veronica_antonelli-1784109904609.jpg" alt="@la_veronica_antonelli" loading="lazy"><span class="cm-h">@la_veronica_antonelli</span></a>
+        <a class="cm" href="https://www.instagram.com/cherinette_et_cherinet/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/cherinette_et_cherinet-1787211522314.jpg" alt="@cherinette_et_cherinet" loading="lazy"><span class="cm-h">@cherinette_et_cherinet</span></a>
+        <a class="cm" href="https://www.instagram.com/cyrielfaitsoncinema/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/cyrielfaitsoncinema-1784110397253.jpg" alt="@cyrielfaitsoncinema" loading="lazy"><span class="cm-h">@cyrielfaitsoncinema</span></a>
+        <a class="cm" href="https://www.instagram.com/oceane_dmg/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/oceane_dmg-1784109703243.jpg" alt="@oceane_dmg" loading="lazy"><span class="cm-h">@oceane_dmg</span></a>
+        <a class="cm" href="https://www.instagram.com/hopexburn/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/hopexburn-1784110410392.jpg" alt="@hopexburn" loading="lazy"><span class="cm-h">@hopexburn</span></a>
+        <a class="cm" href="https://www.instagram.com/jadecelerier/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/jadecelerier-1784110396767.jpg" alt="@jadecelerier" loading="lazy"><span class="cm-h">@jadecelerier</span></a>
+        <a class="cm" href="https://www.instagram.com/muriel.te.sublime/" target="_blank" rel="noopener"><img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/muriel.te.sublime-1787033535043.jpg" alt="@muriel.te.sublime" loading="lazy"><span class="cm-h">@muriel.te.sublime</span></a>
       </div>
-      <div class="people-fade"></div>
-      <a href="#inscription" class="people-more">Et <b>+15 créatrices</b> déjà passées <span>→</span></a>
+      <div class="cm-cta"><a href="#inscription" class="people-more">Et <b>+15 créatrices</b> déjà passées <span>→</span></a></div>
     </div>
   </div>
 </section>
