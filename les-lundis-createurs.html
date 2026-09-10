@@ -39,7 +39,7 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -52,17 +52,19 @@ gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
   --green:#12b981;
   --gold:#F5A623;
   --bg:#ffffff;
-  --bg-soft:#faf8ff;
+  --bg-soft:#fff5fa;
   --line:rgba(25,20,54,.09);
   --shadow-sm:0 4px 16px rgba(25,20,54,.06);
   --shadow:0 22px 55px -24px rgba(25,20,54,.28);
   --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --font-serif:'Fraunces',Georgia,serif;
+  --font-serif:'Instrument Serif',Georgia,serif;
   --font-num:'Bebas Neue',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* Grain texture premium */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -84,15 +86,20 @@ a{color:inherit;text-decoration:none}
 /* Nav */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
-.brand{font-family:var(--font-num);font-size:26px;letter-spacing:1px;color:var(--ink)}
-.brand .dot{color:var(--pink)}
+.brand{display:inline-flex;align-items:baseline}
+.brand-full{font-family:var(--font-serif);font-size:25px;color:var(--ink);line-height:1;letter-spacing:.2px}
+.brand-full .c{font-style:italic;color:var(--pink)}
+.brand-mini{display:none;font-family:var(--font-serif);font-size:27px;color:var(--ink);line-height:1;letter-spacing:1px}
+.brand-mini .c{font-style:italic;color:var(--pink)}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:800;letter-spacing:.3px;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(25,20,54,.25)}
-@media (max-width:600px){.nav-cta{padding:10px 16px;font-size:12px}.brand{font-size:22px}}
+@media (max-width:600px){.nav-cta{padding:10px 16px;font-size:12px}.brand-full{display:none}.brand-mini{display:inline}}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#ff2e83,#ff6ba8);color:#fff;padding:18px 34px;border:none;border-radius:999px;font-family:var(--font-sans);font-weight:800;font-size:16px;letter-spacing:.3px;cursor:pointer;box-shadow:0 16px 38px -12px rgba(255,46,131,.7);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 22px 48px -12px rgba(255,46,131,.85)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#ff2e83,#ff6ba8);color:#fff;padding:18px 34px;border:none;border-radius:999px;font-family:var(--font-sans);font-weight:800;font-size:16px;letter-spacing:.3px;cursor:pointer;box-shadow:0 16px 38px -12px rgba(255,46,131,.7);transition:transform .2s,box-shadow .2s}
+.btn::before{content:'';position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:translateX(-160%);animation:btnshine 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes btnshine{0%{transform:translateX(-160%)}55%,100%{transform:translateX(280%)}}
+.btn:hover{transform:translateY(-3px);box-shadow:0 22px 52px -12px rgba(255,46,131,.9)}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translateX(4px)}
 .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--shadow-sm)}
@@ -106,19 +113,24 @@ a{color:inherit;text-decoration:none}
 .hero{position:relative;padding:60px 0 40px;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%)}
 .hero .blob-pink{width:460px;height:460px;top:-160px;right:-120px}
 .hero .blob-blue{width:380px;height:380px;bottom:-160px;left:-140px}
+.hero-top{position:relative;z-index:2;text-align:center;margin-bottom:32px}
+.hero-top .eyebrow{margin-bottom:16px}
+.lc-name{font-family:var(--font-serif);font-style:normal;font-weight:400;font-size:clamp(46px,8.5vw,96px);line-height:.9;letter-spacing:-.02em;color:var(--ink);margin:0}
+.lc-name .p{font-style:italic;color:var(--pink)}
+@media(max-width:600px){.hero-top{margin-bottom:24px}.lc-name{font-size:clamp(42px,12vw,60px)}}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
 @media(min-width:940px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
 .hero-copy{animation:fadeUp .7s ease both}
 h1{font-family:var(--font-sans);font-weight:900;font-size:clamp(34px,5.6vw,58px);line-height:1.04;letter-spacing:-.02em;margin:20px 0 16px}
 h1 .hl{position:relative;white-space:nowrap}
-h1 .hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:.06em;height:.34em;background:linear-gradient(90deg,var(--pink-2),var(--pink));border-radius:4px;z-index:-1;opacity:.85}
+h1 .hl::after{content:'';position:absolute;left:0;right:0;bottom:.02em;height:.18em;background:linear-gradient(90deg,var(--pink-2),var(--pink));border-radius:3px;z-index:-1;opacity:.55}
 h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--pink)}
 .hero-sub{font-size:clamp(16px,2vw,19px);color:var(--ink-2);max-width:520px;margin-bottom:14px}
 .hero-sub strong{color:var(--ink);font-weight:800}
 .money-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.money-tag{font-family:var(--font-num);font-size:20px;letter-spacing:.5px;padding:5px 14px;border-radius:10px;background:#fff;border:1.5px solid var(--line);color:var(--ink);box-shadow:var(--shadow-sm)}
-.money-tag.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.money-tag em{font-style:normal;color:var(--pink)}
+.money-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-sans);font-weight:700;font-size:13.5px;letter-spacing:.2px;padding:9px 16px;border-radius:999px;background:var(--pink-soft);border:1px solid rgba(255,60,142,.22);color:var(--ink)}
+.money-tag.on{background:var(--pink-soft);color:var(--ink);border-color:rgba(255,60,142,.22)}
+.money-tag em{font-style:normal;color:var(--pink);font-weight:800}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
 .partner{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);font-weight:600}
 .partner b{color:var(--ink);font-weight:800}
@@ -126,16 +138,16 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 /* Proposé par */
 .proposed-in{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 20px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
 .proposed-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2)}
-.pp-logo{height:40px;width:auto;display:inline-block}
-@media(max-width:600px){.pp-logo{height:32px}}
+.pp-logo{height:46px;width:auto;display:inline-block}
+@media(max-width:600px){.pp-logo{height:40px}}
 .wm{font-family:var(--font-sans);font-weight:800;letter-spacing:-.01em;line-height:1;color:var(--pink)}
 .wm .g{color:var(--pink);-webkit-text-fill-color:var(--pink);background:none}
 .wm-scale{font-family:var(--font-num);font-weight:400;font-size:26px;letter-spacing:1px}
 .wm-scale .dot{color:var(--pink-2)}
-.wm-ugc{font-size:23px}
-.wm-tiv{font-size:18px}
+.wm-ugc{font-size:21px}
+.wm-tiv{font-size:21px}
 .pp-dot{width:5px;height:5px;border-radius:50%;background:var(--line);flex-shrink:0}
-@media(max-width:600px){.proposed-in{gap:10px 14px;margin-top:30px;padding-top:22px}.wm-scale{font-size:22px}.wm-ugc{font-size:19px}.wm-tiv{font-size:15px}.pp-dot{display:none}}
+@media(max-width:600px){.proposed-in{gap:10px 14px;margin-top:30px;padding-top:22px}.wm-ugc{font-size:18px}.wm-tiv{font-size:18px}.pp-dot{display:none}}
 
 /* Social proof row */
 .proof-row{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 16px;box-shadow:var(--shadow-sm)}
@@ -147,7 +159,7 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .proof-txt b{color:var(--ink);font-weight:800}
 
 /* Hero card — places + countdown */
-.livecard{position:relative;z-index:2;background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow);animation:pop .6s .1s ease both}
+.livecard{position:relative;z-index:2;background:#fff;border:1px solid rgba(255,60,142,.14);border-radius:26px;padding:26px;box-shadow:0 30px 70px -34px rgba(255,46,131,.5),var(--shadow);animation:pop .6s .1s ease both}
 .livecard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .livecard-when{display:flex;align-items:center;gap:10px}
 .cal{width:46px;height:46px;border-radius:14px;background:var(--pink-soft);border:1px solid rgba(255,60,142,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;color:var(--pink)}
@@ -204,6 +216,22 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 @media(max-width:860px){.nm-right{border-left:0;border-top:1px solid rgba(255,60,142,.16)}}
 @media(max-width:600px){.nextmonday{padding:34px 0}.nm-left{padding:26px 22px}.nm-avatar,.nm-guest img{width:112px;height:112px}}
 
+/* Notre dernier live */
+.lastlive{padding:24px 0 56px}
+.ll-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
+@media(min-width:820px){.ll-grid{grid-template-columns:1.25fr .75fr;gap:44px}}
+.ll-video{position:relative;display:block;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:#000}
+.ll-video img{width:100%;height:100%;object-fit:cover;display:block}
+.ll-tag{position:absolute;left:14px;top:14px;z-index:2;background:var(--pink);color:#fff;border-radius:999px;padding:7px 14px;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:7px;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.ll-tag .d{width:7px;height:7px;border-radius:50%;background:#fff;animation:livePulse 1.6s infinite}
+.ll-side p{color:var(--ink-2);font-size:16px;line-height:1.65;margin-bottom:24px}
+.ll-side p b{color:var(--ink);font-weight:800}
+.ll-stats{display:flex;flex-direction:column;gap:16px}
+.ll-stat{display:flex;align-items:baseline;gap:12px;border-left:3px solid var(--pink);padding-left:15px}
+.ll-stat .n{font-family:var(--font-num);font-size:34px;line-height:1;color:var(--ink)}
+.ll-stat .l{font-size:13px;color:var(--ink-2);font-weight:600}
+@media(max-width:600px){.lastlive{padding:14px 0 46px}.ll-stat .n{font-size:30px}}
+
 /* Section */
 .section{padding:76px 0;position:relative}
 .section.soft{background:var(--bg-soft)}
@@ -243,6 +271,15 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .person .role{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
 .person h4{font-size:16px;font-weight:800;margin-bottom:4px}
 .person p{font-size:13px;color:var(--ink-2);line-height:1.45}
+/* Mur de créatrices (effet "coupé") */
+.people-wall{position:relative;max-width:900px;margin:26px auto 0;padding-bottom:8px}
+.people-avatars{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-height:154px;overflow:hidden}
+.people-avatars img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 16px rgba(25,20,54,.14)}
+.people-fade{position:absolute;left:0;right:0;bottom:0;height:118px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 80%);pointer-events:none}
+.people-more{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--pink);color:var(--pink);border-radius:999px;padding:12px 24px;font-weight:800;font-size:14.5px;box-shadow:0 10px 26px -8px rgba(255,60,142,.4);transition:transform .2s}
+.people-more:hover{transform:translateX(-50%) translateY(-2px)}
+.people-more b{color:var(--pink);font-weight:900}
+@media(max-width:600px){.people-avatars{gap:9px;max-height:132px}.people-avatars img{width:54px;height:54px}.people-more{font-size:13px;padding:11px 20px}}
 
 /* Rules / how */
 .rules{display:grid;grid-template-columns:1fr;gap:14px;max-width:860px;margin:0 auto}
@@ -254,8 +291,9 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .rule.full{grid-column:1/-1;background:linear-gradient(135deg,#fff,#fff6fb);border-color:rgba(255,60,142,.3)}
 
 /* Form */
-.formsec{background:linear-gradient(180deg,var(--bg-soft),#fff)}
-.form-wrap{max-width:640px;margin:0 auto;text-align:center}
+.formsec{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg-soft),#fff)}
+.formsec::before{content:'';position:absolute;top:6%;left:50%;transform:translateX(-50%);width:660px;height:660px;max-width:120vw;border-radius:50%;background:radial-gradient(circle,rgba(255,60,142,.18),transparent 66%);filter:blur(14px);pointer-events:none;z-index:0}
+.form-wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;text-align:center}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:14px;margin-top:26px;overflow:hidden}
 .form-card iframe{width:100%;border:0;display:block;border-radius:16px}
 .form-placeholder{border:2px dashed rgba(255,60,142,.35);border-radius:16px;background:var(--pink-soft);padding:46px 24px;color:var(--ink-2)}
@@ -266,6 +304,20 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .form-mini i{color:var(--green);font-weight:900}
 
 /* Footer */
+/* FAQ */
+.faq{padding:70px 0;background:var(--bg-soft)}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .25s}
+.faq-item[open]{border-color:rgba(255,60,142,.4)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:16px;font-weight:800;color:var(--ink)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{flex-shrink:0;width:30px;height:30px;border-radius:9px;background:var(--pink-soft);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;transition:transform .25s}
+.faq-item[open] summary .plus{transform:rotate(45deg)}
+.faq-item .a{padding:0 22px 20px;color:var(--ink-2);font-size:14.5px;line-height:1.6}
+.faq-item .a b{color:var(--ink);font-weight:800}
+.faq-item .a .pink{color:var(--pink);font-weight:800}
+@media(max-width:600px){.faq{padding:54px 0}.faq-item summary{padding:17px 18px;font-size:14.5px}.faq-item .a{padding:0 18px 18px;font-size:14px}}
+
 footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text-align:center}
 .foot-brand{font-family:var(--font-num);font-size:24px;letter-spacing:1px}
 .foot-brand .dot{color:var(--pink)}
@@ -299,7 +351,10 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
 <!-- Nav -->
 <div class="nav">
   <div class="wrap nav-in">
-    <div class="brand">SCALEVISION<span class="dot">.</span></div>
+    <a href="#" class="brand" aria-label="Les Lundis Créateurs">
+      <span class="brand-full">Les Lundis <span class="c">Créateurs</span></span>
+      <span class="brand-mini">L<span class="c">C</span></span>
+    </a>
     <a href="#inscription" class="nav-cta">Réserver ma place <span>→</span></a>
   </div>
 </div>
@@ -308,9 +363,12 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
 <section class="hero">
   <span class="blob blob-pink"></span>
   <span class="blob blob-blue"></span>
+  <div class="wrap hero-top">
+    <span class="eyebrow"><span class="d"></span> Live gratuit · tous les lundis 20h00</span>
+    <div class="lc-name">Les Lundis <span class="p">Créateurs</span></div>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="d"></span> Les Lundis Créateurs · Live gratuit</span>
       <h1>Transforme ton contenu <br>en <span class="hl">vrais revenus</span> <span class="serif">chaque lundi.</span></h1>
       <p class="hero-sub">1h30 en live avec l'équipe <strong>Scalevision</strong> : une créatrice invitée, du <strong>coaching en direct</strong>, et la méthode pour monétiser ton compte — <strong>peu importe ta taille</strong>.</p>
       <div class="money-row">
@@ -432,6 +490,30 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
   </div>
 </section>
 
+<!-- NOTRE DERNIER LIVE -->
+<section class="lastlive" id="dernier-live">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">🔴 Notre dernier live</span>
+      <h2>180 créatrices, en direct avec <span class="serif">@aclafamily</span></h2>
+    </div>
+    <div class="ll-grid">
+      <div class="ll-video">
+        <span class="ll-tag"><span class="d"></span> Dernier live · Famille ACLA</span>
+        <img src="assets/img/dernier-live-acla.jpg" alt="Dernier live Scalevision avec la Famille ACLA (@aclafamily)" loading="lazy">
+      </div>
+      <div class="ll-side">
+        <p>La <b>Famille ACLA</b> (22K abonnés) a raconté tout son parcours : de <b>18K abonnés et 0€</b> de revenus… à <b>10 000€/mois</b>.</p>
+        <div class="ll-stats">
+          <div class="ll-stat"><div class="n">180</div><div class="l">créatrices présentes</div></div>
+          <div class="ll-stat"><div class="n">22K</div><div class="l">abonnés @aclafamily</div></div>
+          <div class="ll-stat"><div class="n">10K€</div><div class="l">/mois généré en 6 mois</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROGRAMME -->
 <section class="section soft" id="programme">
   <div class="wrap">
@@ -514,6 +596,25 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
         <p>Dirige l'agence & l'académie Scalevision (1M€ de CA en 2025).</p>
       </div>
     </div>
+
+    <div class="people-wall">
+      <div class="people-avatars">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/yamine.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/gaelle.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/anne.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/linda.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/melanie.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="" loading="lazy">
+        <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="" loading="lazy">
+        <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/acla.jpg" alt="" loading="lazy">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/remi.jpg" alt="" loading="lazy">
+      </div>
+      <div class="people-fade"></div>
+      <a href="#inscription" class="people-more">Et <b>+15 créatrices</b> déjà passées <span>→</span></a>
+    </div>
   </div>
 </section>
 
@@ -558,6 +659,25 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
       <span><i>✓</i> 100% gratuit</span>
       <span><i>✓</i> Chaque lundi 20h00</span>
       <span><i>✓</i> +1 000 créateurs inscrits</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">On te répond</span>
+      <h2>Les questions <span class="serif">qu'on nous pose</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Combien de places par lundi ? <span class="plus">+</span></summary><div class="a"><b>200 places</b>, pas une de plus. Le compteur se met à jour en temps réel — quand c'est plein, c'est plein.</div></details>
+      <details class="faq-item"><summary>Et s'il n'y a plus de place ? <span class="plus">+</span></summary><div class="a">Une <span class="pink">liste d'attente</span> apparaît automatiquement. Tu t'y inscris, et tu reçois un <b>mail dès qu'une place se libère</b> — avec la priorité pour le lundi suivant.</div></details>
+      <details class="faq-item"><summary>C'est du blabla ou du concret ? <span class="plus">+</span></summary><div class="a"><b>Que du concret.</b> Coaching en direct, chiffres réels, méthode applicable dès le lendemain. <span class="pink">Zéro théorie fumeuse.</span></div></details>
+      <details class="faq-item"><summary>C'est vraiment gratuit ? <span class="plus">+</span></summary><div class="a">Oui, <b>100% gratuit.</b> C'est notre façon de te montrer ce qu'on sait faire, avant tout.</div></details>
+      <details class="faq-item"><summary>Il faut combien d'abonnés ? <span class="plus">+</span></summary><div class="a"><b>Minimum 500 abonnés.</b> Ton @Instagram est vérifié automatiquement à l'inscription — si tu es en dessous, on te le dit tout de suite.</div></details>
+      <details class="faq-item"><summary>Comment je confirme ma place ? <span class="plus">+</span></summary><div class="a">Tu reçois un <b>email + WhatsApp la veille</b> avec un lien « Je confirme ». Sans confirmation à <span class="pink">H-3</span>, ta place est libérée pour la liste d'attente.</div></details>
+      <details class="faq-item"><summary>Comment être coaché·e en direct ? <span class="plus">+</span></summary><div class="a">Coche l'option à l'inscription et réponds à 3 questions (niche, blocage, objectif). On sélectionne <b>5 créateurs</b> par semaine, prévenus <span class="pink">48h avant</span>.</div></details>
     </div>
   </div>
 </section>
