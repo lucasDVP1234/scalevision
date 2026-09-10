@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Les Lundis Créateurs — l'atelier live gratuit de Scalevision</title>
+<meta name="description" content="Chaque lundi 20h00, un atelier live gratuit pour transformer ton contenu en revenus (5k → 20k€/mois). Coaching en direct, créatrices invitées, +1000 créateurs déjà inscrits. 200 places par lundi.">
+<meta name="robots" content="noindex,nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Les Lundis Créateurs — atelier live gratuit chaque lundi">
+<meta property="og:description" content="Transforme ton contenu en revenus. Coaching en direct chaque lundi 20h. 200 places, +1000 créateurs inscrits.">
+<meta property="og:image" content="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png">
+
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
+<link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://video-createur.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://tally.so" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2290938654583850');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#191436;
+  --ink-2:#666090;
+  --pink:#FF3C8E;
+  --pink-2:#ff6ba8;
+  --pink-soft:#fff0f7;
+  --blue:#3a31d8;
+  --green:#12b981;
+  --gold:#F5A623;
+  --bg:#ffffff;
+  --bg-soft:#faf8ff;
+  --line:rgba(25,20,54,.09);
+  --shadow-sm:0 4px 16px rgba(25,20,54,.06);
+  --shadow:0 22px 55px -24px rgba(25,20,54,.28);
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-num:'Bebas Neue',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* Decorative blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;z-index:0}
+.blob-pink{background:radial-gradient(circle,rgba(255,60,142,.4),transparent 70%)}
+.blob-blue{background:radial-gradient(circle,rgba(58,49,216,.28),transparent 70%)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.5)}70%{box-shadow:0 0 0 10px rgba(255,60,142,0)}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-7px) rotate(var(--r,0deg))}}
+
+/* Announcement bar */
+.topbar{background:linear-gradient(90deg,var(--pink),#ff5fa6,var(--pink));color:#fff;text-align:center;font-size:13px;font-weight:700;letter-spacing:.3px;padding:9px 16px}
+.topbar .live-dot{display:inline-block;width:7px;height:7px;background:#fff;border-radius:50%;margin-right:7px;vertical-align:middle;animation:livePulse 1.6s infinite}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--font-num);font-size:26px;letter-spacing:1px;color:var(--ink)}
+.brand .dot{color:var(--pink)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:800;letter-spacing:.3px;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(25,20,54,.25)}
+@media (max-width:600px){.nav-cta{padding:10px 16px;font-size:12px}.brand{font-size:22px}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#ff2e83,#ff6ba8);color:#fff;padding:18px 34px;border:none;border-radius:999px;font-family:var(--font-sans);font-weight:800;font-size:16px;letter-spacing:.3px;cursor:pointer;box-shadow:0 16px 38px -12px rgba(255,46,131,.7);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 22px 48px -12px rgba(255,46,131,.85)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{border-color:var(--pink)}
+
+/* Eyebrow chip */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--pink-soft);color:var(--pink);border:1px solid rgba(255,60,142,.22);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.eyebrow .d{width:7px;height:7px;background:var(--pink);border-radius:50%;animation:livePulse 1.6s infinite}
+
+/* HERO */
+.hero{position:relative;padding:60px 0 40px;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%)}
+.hero .blob-pink{width:460px;height:460px;top:-160px;right:-120px}
+.hero .blob-blue{width:380px;height:380px;bottom:-160px;left:-140px}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+@media(min-width:940px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
+.hero-copy{animation:fadeUp .7s ease both}
+h1{font-family:var(--font-sans);font-weight:900;font-size:clamp(34px,5.6vw,58px);line-height:1.04;letter-spacing:-.02em;margin:20px 0 16px}
+h1 .hl{position:relative;white-space:nowrap}
+h1 .hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:.06em;height:.34em;background:linear-gradient(90deg,var(--pink-2),var(--pink));border-radius:4px;z-index:-1;opacity:.85}
+h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--pink)}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--ink-2);max-width:520px;margin-bottom:14px}
+.hero-sub strong{color:var(--ink);font-weight:800}
+.money-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.money-tag{font-family:var(--font-num);font-size:20px;letter-spacing:.5px;padding:5px 14px;border-radius:10px;background:#fff;border:1.5px solid var(--line);color:var(--ink);box-shadow:var(--shadow-sm)}
+.money-tag.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.money-tag em{font-style:normal;color:var(--pink)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px}
+.partner{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);font-weight:600}
+.partner b{color:var(--ink);font-weight:800}
+.partner .pi{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#F58529,#DD2A7B 55%,#8134AF);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+
+/* Social proof row */
+.proof-row{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 16px;box-shadow:var(--shadow-sm)}
+.av-stack{display:flex}
+.av-stack img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2.5px solid #fff;margin-left:-12px;box-shadow:0 3px 8px rgba(0,0,0,.14)}
+.av-stack img:first-child{margin-left:0}
+.proof-txt{font-size:13px;color:var(--ink-2);line-height:1.35}
+.proof-txt .stars{color:var(--gold);letter-spacing:1px;display:block;font-size:12px}
+.proof-txt b{color:var(--ink);font-weight:800}
+
+/* Hero card — places + countdown */
+.livecard{position:relative;z-index:2;background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow);animation:pop .6s .1s ease both}
+.livecard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.livecard-when{display:flex;align-items:center;gap:10px}
+.cal{width:46px;height:46px;border-radius:14px;background:var(--pink-soft);border:1px solid rgba(255,60,142,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;color:var(--pink)}
+.cal .m{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.cal .d{font-family:var(--font-num);font-size:22px}
+.livecard-when b{display:block;font-size:15px;font-weight:800;color:var(--ink)}
+.livecard-when span{font-size:12.5px;color:var(--ink-2)}
+.badge-live{display:inline-flex;align-items:center;gap:7px;background:#fff0f4;color:var(--pink);border:1px solid rgba(255,60,142,.25);border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+.badge-live .d{width:7px;height:7px;background:var(--pink);border-radius:50%;animation:livePulse 1.6s infinite}
+
+/* Countdown */
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.cd-cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:12px 4px;text-align:center}
+.cd-num{font-family:var(--font-num);font-size:clamp(28px,6vw,38px);line-height:1;color:var(--ink)}
+.cd-lab{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-2);margin-top:4px}
+
+/* Places bar */
+.places-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+.places-head .n{font-family:var(--font-num);font-size:26px;color:var(--pink);line-height:1}
+.places-head .n span{color:var(--ink-2);font-size:15px}
+.places-head .lab{font-size:12px;font-weight:700;color:var(--ink-2);text-transform:uppercase;letter-spacing:.5px}
+.bar{height:12px;border-radius:999px;background:#f0ecfa;overflow:hidden;border:1px solid var(--line)}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--pink-2));width:0;transition:width 1s ease}
+.places-note{margin-top:10px;font-size:12px;color:var(--ink-2);text-align:center}
+.livecard .btn{width:100%;margin-top:18px}
+
+/* Section */
+.section{padding:76px 0;position:relative}
+.section.soft{background:var(--bg-soft)}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 46px}
+.sec-head h2{font-family:var(--font-sans);font-weight:900;font-size:clamp(28px,4.4vw,44px);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.sec-head h2 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--pink)}
+.sec-head p{color:var(--ink-2);font-size:16px}
+.kick{display:block;font-size:12.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+
+/* Timeline (déroulé) */
+.timeline{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.tl-item{display:grid;grid-template-columns:78px 1fr;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.tl-item:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tl-time{font-family:var(--font-num);font-size:22px;color:var(--pink);letter-spacing:.5px;text-align:center;background:var(--pink-soft);border-radius:12px;padding:10px 4px}
+.tl-body h4{font-size:16px;font-weight:800;margin-bottom:3px}
+.tl-body p{font-size:14px;color:var(--ink-2);line-height:1.5}
+.tl-body .emoji{margin-right:6px}
+
+/* Programme cards */
+.prog-grid{display:grid;grid-template-columns:1fr;gap:18px;max-width:960px;margin:0 auto}
+@media(min-width:720px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
+.prog{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px 24px;box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(255,60,142,.35)}
+.prog-num{font-family:var(--font-num);font-size:56px;line-height:.8;color:var(--pink);opacity:.22;position:absolute;top:14px;right:20px}
+.prog .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--blue);background:#eef0ff;border-radius:999px;padding:5px 12px;margin-bottom:12px}
+.prog h4{font-size:18px;font-weight:800;margin-bottom:6px;max-width:88%}
+.prog p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.prog.partner-card{background:linear-gradient(135deg,#fff,#fff6fb);border-color:rgba(255,60,142,.3)}
+.prog.partner-card .tag{color:var(--pink);background:var(--pink-soft)}
+
+/* Intervenants */
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:940px;margin:0 auto}
+@media(min-width:820px){.people{grid-template-columns:repeat(4,1fr)}}
+.person{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.person:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.person .ph{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:3px solid #fff;box-shadow:0 8px 20px rgba(255,60,142,.25),0 0 0 3px rgba(255,60,142,.18)}
+.person .role{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
+.person h4{font-size:16px;font-weight:800;margin-bottom:4px}
+.person p{font-size:13px;color:var(--ink-2);line-height:1.45}
+
+/* Rules / how */
+.rules{display:grid;grid-template-columns:1fr;gap:14px;max-width:860px;margin:0 auto}
+@media(min-width:680px){.rules{grid-template-columns:repeat(2,1fr)}}
+.rule{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+.rule .ic{flex-shrink:0;width:44px;height:44px;border-radius:13px;background:var(--pink-soft);display:flex;align-items:center;justify-content:center;font-size:20px}
+.rule h4{font-size:15px;font-weight:800;margin-bottom:3px}
+.rule p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.rule.full{grid-column:1/-1;background:linear-gradient(135deg,#fff,#fff6fb);border-color:rgba(255,60,142,.3)}
+
+/* Form */
+.formsec{background:linear-gradient(180deg,var(--bg-soft),#fff)}
+.form-wrap{max-width:640px;margin:0 auto;text-align:center}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:14px;margin-top:26px;overflow:hidden}
+.form-card iframe{width:100%;border:0;display:block;border-radius:16px}
+.form-placeholder{border:2px dashed rgba(255,60,142,.35);border-radius:16px;background:var(--pink-soft);padding:46px 24px;color:var(--ink-2)}
+.form-placeholder .pi{font-size:34px;margin-bottom:10px}
+.form-placeholder b{color:var(--ink)}
+.form-mini{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:20px;font-size:13px;color:var(--ink-2);font-weight:600}
+.form-mini span{display:inline-flex;align-items:center;gap:7px}
+.form-mini i{color:var(--green);font-weight:900}
+
+/* Footer */
+footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text-align:center}
+.foot-brand{font-family:var(--font-num);font-size:24px;letter-spacing:1px}
+.foot-brand .dot{color:var(--pink)}
+.foot-copy{font-size:12px;color:var(--ink-2);margin-top:6px}
+.foot-links{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px}
+.foot-links a{font-size:12px;color:var(--ink-2);font-weight:600}
+.foot-links a:hover{color:var(--pink)}
+
+/* Sticky mobile CTA */
+.sticky{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;width:calc(100% - 28px);max-width:520px;display:none}
+.sticky .btn{width:100%}
+.sticky.show{display:block;animation:fadeUp .3s ease both}
+@media(min-width:940px){.sticky{display:none!important}}
+
+@media(max-width:600px){
+  .section{padding:58px 0}
+  .hero{padding:40px 0 30px}
+  .livecard{padding:20px}
+  .tl-item{grid-template-columns:64px 1fr;gap:12px;padding:14px 15px}
+  .tl-time{font-size:18px}
+  .proof-row{padding:9px 13px;gap:11px}
+  .av-stack img{width:33px;height:33px}
+}
+</style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="topbar"><span class="live-dot"></span> Atelier live gratuit · <b>tous les lundis 20h00</b> · 200 places seulement</div>
+
+<!-- Nav -->
+<div class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">SCALEVISION<span class="dot">.</span></div>
+    <a href="#inscription" class="nav-cta">Réserver ma place <span>→</span></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="blob blob-pink"></span>
+  <span class="blob blob-blue"></span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="d"></span> Les Lundis Créateurs · Live gratuit</span>
+      <h1>Transforme ton contenu <br>en <span class="hl">vrais revenus</span> <span class="serif">chaque lundi.</span></h1>
+      <p class="hero-sub">1h30 en live avec l'équipe <strong>Scalevision</strong> : une créatrice invitée, du <strong>coaching en direct</strong>, et la méthode pour monétiser ton compte — <strong>peu importe ta taille</strong>.</p>
+      <div class="money-row">
+        <span class="money-tag on">À partir de <em>500 abonnés</em></span>
+      </div>
+      <div class="hero-actions">
+        <a href="#inscription" class="btn">Je réserve ma place <span class="arr">→</span></a>
+        <span class="partner"><span class="pi">📊</span> avec <b>Combien vaut ton Insta</b></span>
+      </div>
+      <div class="proof-row">
+        <div class="av-stack">
+          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="" loading="lazy">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="" loading="lazy">
+          <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="" loading="lazy">
+          <img src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/aclafamily-1784110385229.jpg" alt="" loading="lazy">
+        </div>
+        <div class="proof-txt"><span class="stars">★★★★★</span> <b>+1 000 créateurs</b> déjà inscrits</div>
+      </div>
+    </div>
+
+    <!-- Live card -->
+    <div class="livecard" id="livecard">
+      <div class="livecard-top">
+        <div class="livecard-when">
+          <div class="cal"><span class="m">Lun</span><span class="d" id="calDay">—</span></div>
+          <div><b id="whenDate">Prochain lundi</b><span>Live à 20h00 · en ligne</span></div>
+        </div>
+        <span class="badge-live"><span class="d"></span> Live</span>
+      </div>
+
+      <div class="countdown" id="countdown" aria-label="Compte à rebours">
+        <div class="cd-cell"><div class="cd-num" id="cdD">0</div><div class="cd-lab">Jours</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cdH">0</div><div class="cd-lab">Heures</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cdM">0</div><div class="cd-lab">Min</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cdS">0</div><div class="cd-lab">Sec</div></div>
+      </div>
+
+      <div class="places-head">
+        <div class="n" id="placesN">— <span>/ 200</span></div>
+        <div class="lab">places restantes</div>
+      </div>
+      <div class="bar"><div class="bar-fill" id="placesBar"></div></div>
+      <div class="places-note" id="placesNote">Les places partent vite chaque semaine 👀</div>
+
+      <a href="#inscription" class="btn">Réserver gratuitement <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- DÉROULÉ -->
+<section class="section" id="deroule">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">Un lundi type · ~1h30</span>
+      <h2>Comment <span class="serif">ça se passe</span> ?</h2>
+      <p>Un format rythmé, concret, et 100% orienté résultats. Zéro théorie inutile.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">20h00</div>
+        <div class="tl-body"><h4><span class="emoji">👋</span>Intro par Constantin</h4><p>Le fondateur de l'académie ouvre le live et donne le cap du jour.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">20h10</div>
+        <div class="tl-body"><h4><span class="emoji">🎤</span>La créatrice invitée</h4><p>Une créatrice partage sa méthode sur le thème de la semaine — chiffres réels à l'appui.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">20h35</div>
+        <div class="tl-body"><h4><span class="emoji">🔥</span>Coaching en direct</h4><p>5 créateurs sélectionnés passent sur le grill (~8 min chacun). Feedback live et actionnable.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">21h15</div>
+        <div class="tl-body"><h4><span class="emoji">💬</span>Q&A + ta prochaine étape</h4><p>On répond à tes questions et tu repars avec un plan clair pour la semaine.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="section soft" id="programme">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">Le programme</span>
+      <h2>Un thème <span class="serif">différent</span> chaque lundi</h2>
+      <p>Une intervenante, un sujet, une méthode que tu peux appliquer dès le lendemain.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog">
+        <span class="prog-num">1</span>
+        <span class="tag">Petit compte</span>
+        <h4>3 000€/mois avec 500 abonnés</h4>
+        <p>Monétiser tôt, sans attendre la "grosse" audience.</p>
+      </div>
+      <div class="prog">
+        <span class="prog-num">2</span>
+        <span class="tag">Scaling</span>
+        <h4>De 10k abonnés à 10k€/mois</h4>
+        <p>Structurer son offre et enchaîner les contrats.</p>
+      </div>
+      <div class="prog">
+        <span class="prog-num">3</span>
+        <span class="tag">Business</span>
+        <h4>Ton propre business de créateur</h4>
+        <p>Du contenu au service de ton coaching, ton e-commerce ou ton resto.</p>
+      </div>
+      <div class="prog">
+        <span class="prog-num">4</span>
+        <span class="tag">Gros compte</span>
+        <h4>100k abonnés : partenariats & placements</h4>
+        <p>Négocier, fixer ses tarifs, signer les bonnes marques.</p>
+      </div>
+      <div class="prog partner-card">
+        <span class="prog-num">5</span>
+        <span class="tag">📊 Partenaire</span>
+        <h4>Combien vaut ton Insta ?</h4>
+        <p>Estime la valeur réelle de ton compte et fixe tes tarifs sans te sous-vendre.</p>
+      </div>
+      <div class="prog" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--ink);border-color:var(--ink)">
+        <h4 style="color:#fff;max-width:100%">…et ça recommence chaque semaine 🔁</h4>
+        <p style="color:rgba(255,255,255,.72);margin-bottom:16px">Nouveau thème, nouvelle invitée, nouveaux coachings live.</p>
+        <a href="#inscription" class="btn btn-ghost" style="color:var(--ink)">Voir le prochain lundi →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVENANTS -->
+<section class="section" id="intervenants">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">Qui intervient</span>
+      <h2>Des créateurs qui <span class="serif">le vivent</span> vraiment</h2>
+      <p>Pas des théoriciens : des profils qui gagnent déjà leur vie avec leur contenu.</p>
+    </div>
+    <div class="people">
+      <div class="person">
+        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/sharleyne.jpg" alt="Créatrice 100k" loading="lazy">
+        <div class="role">100k abonnés</div>
+        <h4>Le gros compte</h4>
+        <p>Partenariats, placements & négociation de tarifs.</p>
+      </div>
+      <div class="person">
+        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/elea.jpg" alt="Créatrice 10k" loading="lazy">
+        <div class="role">10k abonnés</div>
+        <h4>10 000€/mois</h4>
+        <p>Une audience moyenne, un vrai business derrière.</p>
+      </div>
+      <div class="person">
+        <img class="ph" src="https://video-createur.s3.eu-north-1.amazonaws.com/challenge-avatars/fioo_simon-1784110394195.jpg" alt="Créatrice 500 abonnés" loading="lazy">
+        <div class="role">500 abonnés</div>
+        <h4>+3 000€/mois</h4>
+        <p>La preuve qu'on n'a pas besoin d'être connu pour gagner.</p>
+      </div>
+      <div class="person">
+        <img class="ph" src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, fondateur de Scalevision" loading="lazy">
+        <div class="role">Fondateur</div>
+        <h4>Constantin</h4>
+        <p>Dirige l'agence & l'académie Scalevision (1M€ de CA en 2025).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÈGLES -->
+<section class="section soft" id="regles">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">Comment s'inscrire</span>
+      <h2>C'est gratuit, mais <span class="serif">sélectif</span></h2>
+      <p>200 places par lundi seulement. Voici les règles du jeu.</p>
+    </div>
+    <div class="rules">
+      <div class="rule"><div class="ic">🗓️</div><div><h4>200 places par lundi</h4><p>Compteur en temps réel. Quand c'est plein, c'est plein.</p></div></div>
+      <div class="rule"><div class="ic">📸</div><div><h4>Minimum 500 abonnés</h4><p>Ton @Instagram est vérifié automatiquement à l'inscription.</p></div></div>
+      <div class="rule"><div class="ic">✅</div><div><h4>Confirmation la veille</h4><p>Tu confirmes ta place par email + WhatsApp. Non confirmée à H-3 = libérée.</p></div></div>
+      <div class="rule"><div class="ic">⏳</div><div><h4>Complet ? Liste d'attente</h4><p>Tu es prioritaire pour le lundi suivant, et notifié dès qu'une place se libère.</p></div></div>
+      <div class="rule full"><div class="ic">🎤</div><div><h4>Envie d'être coaché·e en direct ?</h4><p>Coche l'option à l'inscription et réponds à 3 questions (niche, blocage, objectif). L'équipe sélectionne <b>5 créateurs</b> par semaine, prévenus 48h avant.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section class="section formsec" id="inscription">
+  <div class="wrap form-wrap">
+    <span class="eyebrow"><span class="d"></span> Réserve ta place</span>
+    <div class="sec-head" style="margin:16px auto 0">
+      <h2>Rejoins le <span class="serif">prochain lundi</span></h2>
+      <p>Remplis le formulaire — si des places sont dispo, tu reçois ta confirmation ; sinon tu passes sur la liste d'attente prioritaire.</p>
+    </div>
+
+    <div class="form-card">
+      <!-- TODO: remplacer ce placeholder par l'embed Tally quand le form sera prêt :
+      <iframe data-tally-src="https://tally.so/embed/FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Inscription — Les Lundis Créateurs"></iframe>
+      -->
+      <div class="form-placeholder">
+        <div class="pi">📝</div>
+        <p><b>Le formulaire d'inscription arrive ici.</b><br>(embed Tally à brancher)</p>
+      </div>
+    </div>
+
+    <div class="form-mini">
+      <span><i>✓</i> 100% gratuit</span>
+      <span><i>✓</i> Chaque lundi 20h00</span>
+      <span><i>✓</i> +1 000 créateurs inscrits</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">SCALEVISION<span class="dot">.</span></div>
+    <p class="foot-copy">© 2026 Scalevision — Paris · L'agence & l'académie des créateurs de contenu · en partenariat avec Combien vaut ton Insta</p>
+    <div class="foot-links">
+      <a href="/mentions-legales-ugcademie">Mentions légales</a>
+      <a href="/politique-de-confidentialite-ugcademie">Confidentialité</a>
+      <a href="/cgv">CGV</a>
+      <a href="mailto:contact@scalevision.fr">contact@scalevision.fr</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky" id="sticky"><a href="#inscription" class="btn">Réserver ma place gratuite <span class="arr">→</span></a></div>
+
+<!-- Tally loader (prêt pour quand l'embed sera collé) -->
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================================================
+     COMPTEUR DE PLACES — placeholder à brancher
+     TODO: remplace la valeur `left` par le vrai nombre de places
+     restantes (injecté par Tally/Make/API). Ex :
+        window.SV_PLACES = { total: 200, left: 27 };
+     Mets ce script AVANT ce bloc, ou modifie la ligne ci-dessous.
+     ============================================================ */
+  var PLACES = window.SV_PLACES || { total: 200, left: 43 }; // <-- 43 = valeur d'exemple à remplacer
+
+  var total = PLACES.total, left = Math.max(0, Math.min(PLACES.total, PLACES.left));
+  var nEl = document.getElementById('placesN');
+  var barEl = document.getElementById('placesBar');
+  var noteEl = document.getElementById('placesNote');
+  if (nEl) nEl.innerHTML = left + ' <span>/ ' + total + '</span>';
+  if (barEl) barEl.style.width = Math.round((total - left) / total * 100) + '%';
+  if (left <= 0 && noteEl) {
+    noteEl.innerHTML = '🔴 <b style="color:var(--pink)">Complet cette semaine</b> — inscris-toi en liste d\'attente';
+    if (nEl) nEl.innerHTML = 'Complet';
+  } else if (left <= 40 && noteEl) {
+    noteEl.innerHTML = '🔥 Plus que <b style="color:var(--pink)">' + left + ' places</b> pour ce lundi';
+  }
+
+  /* ============================================================
+     COMPTE À REBOURS jusqu'au prochain lundi 20h00
+     ============================================================ */
+  function nextMonday(){
+    var now = new Date();
+    var d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0, 0);
+    var add = (1 - d.getDay() + 7) % 7; // jours jusqu'à lundi
+    if (add === 0 && now.getTime() >= d.getTime()) add = 7; // lundi déjà passé 20h → semaine suivante
+    d.setDate(d.getDate() + add);
+    return d;
+  }
+  var target = nextMonday();
+  var MOIS = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  var calDay = document.getElementById('calDay');
+  var whenDate = document.getElementById('whenDate');
+  if (calDay) calDay.textContent = target.getDate();
+  if (whenDate) whenDate.textContent = 'Lundi ' + target.getDate() + ' ' + MOIS[target.getMonth()];
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tick(){
+    var diff = Math.max(0, target.getTime() - Date.now());
+    var s = Math.floor(diff / 1000);
+    var dd = Math.floor(s / 86400); s -= dd * 86400;
+    var hh = Math.floor(s / 3600); s -= hh * 3600;
+    var mm = Math.floor(s / 60); s -= mm * 60;
+    var set = function(id, v){ var e = document.getElementById(id); if (e) e.textContent = v; };
+    set('cdD', dd); set('cdH', pad(hh)); set('cdM', pad(mm)); set('cdS', pad(s));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* Sticky mobile CTA */
+  var sticky = document.getElementById('sticky');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 640) sticky.classList.add('show');
+    else sticky.classList.remove('show');
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
