@@ -123,6 +123,19 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .partner{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);font-weight:600}
 .partner b{color:var(--ink);font-weight:800}
 .partner .pi{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#F58529,#DD2A7B 55%,#8134AF);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+/* Proposé par */
+.proposed-in{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 20px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+.proposed-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2)}
+.pp-logo{height:40px;width:auto;display:inline-block}
+@media(max-width:600px){.pp-logo{height:32px}}
+.wm{font-family:var(--font-sans);font-weight:800;letter-spacing:-.01em;line-height:1;color:var(--pink)}
+.wm .g{color:var(--pink);-webkit-text-fill-color:var(--pink);background:none}
+.wm-scale{font-family:var(--font-num);font-weight:400;font-size:26px;letter-spacing:1px}
+.wm-scale .dot{color:var(--pink-2)}
+.wm-ugc{font-size:23px}
+.wm-tiv{font-size:18px}
+.pp-dot{width:5px;height:5px;border-radius:50%;background:var(--line);flex-shrink:0}
+@media(max-width:600px){.proposed-in{gap:10px 14px;margin-top:30px;padding-top:22px}.wm-scale{font-size:22px}.wm-ugc{font-size:19px}.wm-tiv{font-size:15px}.pp-dot{display:none}}
 
 /* Social proof row */
 .proof-row{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 16px;box-shadow:var(--shadow-sm)}
@@ -160,6 +173,36 @@ h1 .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:
 .bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--pink-2));width:0;transition:width 1s ease}
 .places-note{margin-top:10px;font-size:12px;color:var(--ink-2);text-align:center}
 .livecard .btn{width:100%;margin-top:18px}
+.livecard-theme{display:flex;align-items:center;gap:8px;background:var(--pink-soft);border:1px solid rgba(255,60,142,.2);border-radius:12px;padding:11px 14px;font-size:13.5px;color:var(--ink);margin-bottom:16px;line-height:1.35}
+.livecard-theme b{font-weight:800;color:var(--pink)}
+
+/* Prochain lundi — spotlight */
+.nextmonday{padding:44px 0}
+.nm-card{position:relative;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr;border-radius:28px;overflow:hidden;border:1px solid rgba(255,60,142,.28);box-shadow:var(--shadow);background:#fff}
+@media(min-width:860px){.nm-card{grid-template-columns:1.25fr .9fr}}
+.nm-left{padding:34px 34px 32px}
+.nm-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:999px;padding:7px 14px;font-size:12px;font-weight:700;letter-spacing:.3px;margin-bottom:16px}
+.nm-badge .d{width:7px;height:7px;border-radius:50%;background:var(--pink);animation:livePulse 1.6s infinite}
+.nm-badge b{font-weight:800;text-transform:capitalize}
+.nm-kick{display:block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
+.nm-title{font-family:var(--font-sans);font-weight:900;font-size:clamp(28px,4vw,42px);line-height:1.05;letter-spacing:-.02em;margin-bottom:10px}
+.nm-title .serif{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--pink)}
+.nm-sub{font-size:15.5px;color:var(--ink-2);margin-bottom:22px}
+.nm-sub b{color:var(--ink);font-weight:800}
+.nm-tlabel{display:block;font-size:13px;font-weight:800;color:var(--ink);margin-bottom:11px}
+.nm-topics ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.nm-topics li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);line-height:1.4}
+.nm-topics li .c{color:var(--green);font-weight:900;flex-shrink:0}
+.nm-right{position:relative;background:linear-gradient(160deg,#fff2f8,#ffe4ef);display:flex;align-items:center;justify-content:center;padding:32px 24px;border-left:1px solid rgba(255,60,142,.16)}
+.nm-guest{text-align:center;position:relative;z-index:2}
+.nm-gtag{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(255,60,142,.25);color:var(--pink);border-radius:999px;padding:6px 13px;font-size:11.5px;font-weight:800;letter-spacing:.3px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.nm-avatar{width:132px;height:132px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,#ff6ba8,#ff2e83);display:flex;align-items:center;justify-content:center;font-size:54px;border:4px solid #fff;box-shadow:0 14px 34px rgba(255,60,142,.35);animation:floaty 5s ease-in-out infinite}
+.nm-guest img{width:132px;height:132px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:4px solid #fff;box-shadow:0 14px 34px rgba(255,60,142,.35)}
+.nm-gname{font-family:var(--font-sans);font-weight:900;font-size:22px;line-height:1}
+.nm-gname span{display:block;font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:15px;color:var(--pink);margin-top:4px}
+.nm-gmeta{font-size:13px;color:var(--ink-2);margin-top:9px;font-weight:600}
+@media(max-width:860px){.nm-right{border-left:0;border-top:1px solid rgba(255,60,142,.16)}}
+@media(max-width:600px){.nextmonday{padding:34px 0}.nm-left{padding:26px 22px}.nm-avatar,.nm-guest img{width:112px;height:112px}}
 
 /* Section */
 .section{padding:76px 0;position:relative}
@@ -275,7 +318,6 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
       </div>
       <div class="hero-actions">
         <a href="#inscription" class="btn">Je réserve ma place <span class="arr">→</span></a>
-        <span class="partner"><span class="pi">📊</span> avec <b>Combien vaut ton Insta</b></span>
       </div>
       <div class="proof-row">
         <div class="av-stack">
@@ -298,6 +340,8 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
         <span class="badge-live"><span class="d"></span> Live</span>
       </div>
 
+      <div class="livecard-theme">🎯 <b>Ce lundi&nbsp;:</b>&nbsp;Monétiser un petit compte</div>
+
       <div class="countdown" id="countdown" aria-label="Compte à rebours">
         <div class="cd-cell"><div class="cd-num" id="cdD">0</div><div class="cd-lab">Jours</div></div>
         <div class="cd-cell"><div class="cd-num" id="cdH">0</div><div class="cd-lab">Heures</div></div>
@@ -313,6 +357,48 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
       <div class="places-note" id="placesNote">Les places partent vite chaque semaine 👀</div>
 
       <a href="#inscription" class="btn">Réserver gratuitement <span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <div class="wrap proposed-in">
+    <span class="proposed-label">Proposé par</span>
+    <img class="pp-logo" src="assets/img/logoscale-pink.png" alt="Scalevision" loading="lazy">
+    <span class="pp-dot"></span>
+    <span class="wm wm-ugc"><span class="b">UGC</span><span class="g">ademie</span></span>
+    <span class="pp-dot"></span>
+    <span class="wm wm-tiv">Ton Insta vaut <span class="g">combien&nbsp;?</span></span>
+  </div>
+</section>
+
+<!-- PROCHAIN LUNDI (spotlight) — TODO: mettre à jour chaque semaine (thème + invité + sujets) -->
+<section class="nextmonday" id="prochain-lundi">
+  <div class="wrap">
+    <div class="nm-card">
+      <div class="nm-left">
+        <span class="nm-badge"><span class="d"></span> Prochain live · <b id="nmDate">lundi</b> · 20h00</span>
+        <span class="nm-kick">Le thème de la semaine</span>
+        <h2 class="nm-title">Monétiser un <span class="serif">petit compte</span></h2>
+        <p class="nm-sub">Comment générer <b>3 000€/mois avec 500 abonnés</b> — sans attendre la grosse audience.</p>
+        <span class="nm-tlabel">Ce qu'on va voir ensemble 👇</span>
+        <div class="nm-topics">
+          <ul>
+            <li><span class="c">✓</span> Les 3 offres qui rapportent dès 500 abonnés</li>
+            <li><span class="c">✓</span> Trouver ses premières marques (et les relancer)</li>
+            <li><span class="c">✓</span> Fixer ses tarifs sans se sous-vendre</li>
+            <li><span class="c">✓</span> Le plan d'action pour signer sous 30 jours</li>
+          </ul>
+        </div>
+        <a href="#inscription" class="btn">Je réserve ma place <span class="arr">→</span></a>
+      </div>
+      <div class="nm-right">
+        <div class="nm-guest">
+          <span class="nm-gtag">🎤 Créatrice invitée</span>
+          <!-- TODO: remplacer par la vraie invitée (photo + nom) -->
+          <div class="nm-avatar">👀</div>
+          <div class="nm-gname">Invitée surprise<span>dévoilée 48h avant</span></div>
+          <div class="nm-gmeta">Créatrice · 500 abonnés → +3 000€/mois</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -539,6 +625,8 @@ footer{background:#fff;border-top:1px solid var(--line);padding:40px 0 34px;text
   var whenDate = document.getElementById('whenDate');
   if (calDay) calDay.textContent = target.getDate();
   if (whenDate) whenDate.textContent = 'Lundi ' + target.getDate() + ' ' + MOIS[target.getMonth()];
+  var nmDate = document.getElementById('nmDate');
+  if (nmDate) nmDate.textContent = 'lundi ' + target.getDate() + ' ' + MOIS[target.getMonth()];
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function tick(){
