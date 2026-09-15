@@ -262,14 +262,15 @@ function filterVideos(category) {
             grid.innerHTML += `
                 <div class="portfolio-card group cursor-pointer opacity-0 translate-y-4 rounded-3xl border border-white/10 bg-black overflow-hidden relative aspect-[9/16] transition-all duration-500">
                     
-                    <video 
-                        src="${item.src}" 
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                        muted 
-                        loop 
+                    <video
+                        src="${item.src}"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        muted
+                        loop
                         playsinline
-                        onmouseover="this.play(); this.muted=false; this.volume=1;" 
-                        onmouseout="this.pause(); this.muted=true;"
+                        preload="metadata"
+                        onmouseover="this.muted=false; this.volume=1; this.play();"
+                        onmouseout="this.muted=true;"
                         onclick="toggleSound(this)"
                     ></video>
                     
@@ -304,6 +305,18 @@ function filterVideos(category) {
         // Animations GSAP
         gsap.to(".portfolio-card", { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" });
         gsap.to(".logo-item", { opacity: 0.6, scale: 1, duration: 0.4, stagger: 0.05, delay: 0.2 });
+
+        // Lecture auto quand la vidéo est visible (mobile: pas de survol) + pause hors écran (perf)
+        try {
+            if (window._svVidObs) window._svVidObs.disconnect();
+            window._svVidObs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if (e.isIntersecting) { e.target.play().catch(function(){}); }
+                    else { e.target.pause(); }
+                });
+            }, { threshold: 0.4 });
+            document.querySelectorAll('#gallery-grid video').forEach(function(v){ window._svVidObs.observe(v); });
+        } catch(e) {}
     };
 
     if (grid && grid.children.length > 0) {
@@ -323,3 +336,22 @@ function toggleSound(video) {
         video.muted = true; // On coupe le son
     }
 }
+
+/* Vidéos du hero : lecture uniquement sur desktop (cachées sur mobile -> préchargement évité).
+   Lancées quand elles entrent dans le viewport pour ne pas tout charger d'un coup. */
+(function () {
+    if (!window.matchMedia || !window.matchMedia('(min-width:1024px)').matches) return;
+    var vids = document.querySelectorAll('.video-card-hero-vid');
+    if (!vids.length) return;
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.play().catch(function () {}); }
+                else { e.target.pause(); }
+            });
+        }, { threshold: 0.15 });
+        vids.forEach(function (v) { obs.observe(v); });
+    } else {
+        vids.forEach(function (v) { v.play().catch(function () {}); });
+    }
+})();
