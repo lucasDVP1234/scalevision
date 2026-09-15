@@ -1039,9 +1039,9 @@
                             <span class="text-5xl md:text-6xl font-black text-white">3 500€</span>
                             <span class="text-xl font-bold text-white/50">HT</span>
                         </div>
-                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">7 Concepts • 21 Vidéos</p>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">21 Vidéos</p>
                         <div class="inline-block bg-white/5 border border-white/10 px-3 py-1 rounded text-xs font-bold text-white/70">
-                            500€ / concept
+                            167€ / vidéo
                         </div>
                     </div>
 
@@ -1080,9 +1080,9 @@
                             <span class="text-5xl md:text-6xl font-black text-white">2 500€</span>
                             <span class="text-xl font-bold text-white/50">HT / MOIS</span>
                         </div>
-                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">5 Concepts / mois • 15 Vidéos</p>
+                        <p class="text-sm font-bold text-blue-200 uppercase tracking-widest mb-4">15 Vidéos / mois</p>
                         <div class="inline-block bg-scalePink/10 border border-scalePink/30 px-3 py-1 rounded text-xs font-bold text-white">
-                            <span class="price-strike mr-2 text-white/50">600€</span> <span class="text-scalePink">500€ / concept</span>
+                            <span class="text-scalePink">167€ / vidéo</span>
                         </div>
                     </div>
 
@@ -1279,6 +1279,26 @@
             .sv-gate-cta:hover{transform:translateY(-3px)}
             .sv-gate-back{display:inline-block;margin-top:18px;background:none;border:none;color:rgba(255,255,255,.55);font-size:13px;font-weight:700;cursor:pointer;text-decoration:underline}
             .sv-gate-back:hover{color:#fff}
+            .sv-gate-input{width:100%;max-width:420px;margin:0 auto 22px;display:block;padding:16px 20px;border-radius:16px;border:1.5px solid rgba(255,255,255,.16);background:rgba(0,0,0,.28);color:#fff;font-size:16px;font-weight:600;text-align:center;outline:none;transition:border-color .2s}
+            .sv-gate-input::placeholder{color:rgba(255,255,255,.4);font-weight:500}
+            .sv-gate-input:focus{border-color:#CE0089}
+            .sv-gate-btns--4{max-width:560px;margin:0 auto}
+            .sv-gate-btns--4 .sv-gate-btn{flex-direction:row;justify-content:flex-start;text-align:left;gap:12px;width:262px;padding:18px 20px}
+            .sv-gate-btns--4 .sv-gate-btn .ic{font-size:24px}
+            .sv-gate-btns--4 .sv-gate-btn .t{font-size:14px}
+            @media (max-width:640px){
+              .sv-gate,.sv-gate-msg{padding:34px 18px;border-radius:1.6rem}
+              .sv-gate-emoji{font-size:38px;margin-bottom:10px}
+              .sv-gate-title{font-size:21px}
+              .sv-gate-sub{font-size:13.5px;margin-bottom:20px}
+              .sv-gate-btns{gap:12px}
+              .sv-gate-btn{width:100%;max-width:320px;flex-direction:row;justify-content:center;gap:12px;padding:16px 18px}
+              .sv-gate-btn .d{display:none}
+              .sv-gate-btns--4{max-width:340px}
+              .sv-gate-btns--4 .sv-gate-btn{width:100%;max-width:320px;justify-content:flex-start}
+              .sv-gate-cta{font-size:13px;padding:14px 24px}
+              .sv-gate-input{font-size:15px;padding:14px 16px;margin-bottom:18px}
+            }
             </style>
 
             <div id="contactGate" class="sv-gate">
@@ -1299,6 +1319,27 @@
                 </div>
             </div>
 
+            <div id="contactBrandName" class="sv-gate" style="display:none">
+                <div class="sv-gate-emoji">🏢</div>
+                <h3 class="sv-gate-title">Le nom de votre entreprise ?</h3>
+                <input id="svBrandName" class="sv-gate-input" type="text" placeholder="Ex : Nike, Ma Boutique…" autocomplete="organization" onkeydown="if(event.key==='Enter')svBrandNameNext();">
+                <div><button type="button" class="sv-gate-cta" onclick="svBrandNameNext()">Continuer →</button></div>
+                <div><button type="button" class="sv-gate-back" onclick="svContactReset()">← Retour</button></div>
+            </div>
+
+            <div id="contactBrandGoal" class="sv-gate" style="display:none">
+                <div class="sv-gate-emoji">🎯</div>
+                <h3 class="sv-gate-title">Vous souhaitez… ?</h3>
+                <p class="sv-gate-sub">On oriente l'échange en fonction de votre objectif.</p>
+                <div class="sv-gate-btns sv-gate-btns--4">
+                    <button type="button" class="sv-gate-btn" onclick="svBrandGoal('Scaler mon organique')"><span class="ic">📈</span><span class="t">Scaler votre organique</span></button>
+                    <button type="button" class="sv-gate-btn sv-gate-btn--brand" onclick="svBrandGoal('Scaler mes publicités')"><span class="ic">🚀</span><span class="t">Scaler vos publicités</span></button>
+                    <button type="button" class="sv-gate-btn" onclick="svBrandGoal('Les deux')"><span class="ic">🔥</span><span class="t">Les deux</span></button>
+                    <button type="button" class="sv-gate-btn" onclick="svBrandGoal('Je ne sais pas encore')"><span class="ic">🤔</span><span class="t">Je ne sais pas</span></button>
+                </div>
+                <div><button type="button" class="sv-gate-back" onclick="svBrandBack()">← Retour</button></div>
+            </div>
+
             <div id="contactCreator" class="sv-gate-msg" style="display:none">
                 <div class="sv-gate-emoji">🎥</div>
                 <h3 class="sv-gate-title">Créateur ? On t'adore.</h3>
@@ -1310,9 +1351,42 @@
             <div id="iclosedMount"></div>
 
             <script>
+            var SV_WEBHOOK_MAKE = 'https://hook.eu1.make.com/aufv4rnpm8p1a8xhwdqrwe7c7d4qcwcs';
+            var svBrandData = { entreprise:'', reponse:'' };
+            function svHideAllGate(){
+                ['contactGate','contactBrandName','contactBrandGoal','contactCreator'].forEach(function(id){
+                    var el=document.getElementById(id); if(el) el.style.display='none';
+                });
+            }
             function svContactChoice(type){
-                var g=document.getElementById('contactGate'); if(g)g.style.display='none';
+                svHideAllGate();
                 if(type==='creator'){ var c=document.getElementById('contactCreator'); if(c)c.style.display='block'; return; }
+                var b=document.getElementById('contactBrandName');
+                if(b){ b.style.display='block'; var i=document.getElementById('svBrandName'); if(i) setTimeout(function(){i.focus();},60); }
+            }
+            function svBrandNameNext(){
+                var i=document.getElementById('svBrandName');
+                svBrandData.entreprise = i ? i.value.trim() : '';
+                svHideAllGate();
+                var q=document.getElementById('contactBrandGoal'); if(q)q.style.display='block';
+            }
+            function svBrandBack(){
+                svHideAllGate();
+                var b=document.getElementById('contactBrandName'); if(b)b.style.display='block';
+            }
+            function svBrandGoal(val){
+                svBrandData.reponse = val;
+                if(SV_WEBHOOK_MAKE){
+                    try{
+                        fetch(SV_WEBHOOK_MAKE,{method:'POST',headers:{'Content-Type':'application/json'},
+                            body:JSON.stringify({type:'marque',entreprise:svBrandData.entreprise,reponse:val,page:'scalevision.fr',date:Date.now()}),
+                            keepalive:true});
+                    }catch(e){}
+                }
+                svHideAllGate();
+                svMountIclosed();
+            }
+            function svMountIclosed(){
                 var m=document.getElementById('iclosedMount');
                 if(m && !m.getAttribute('data-loaded')){
                     m.setAttribute('data-loaded','1');
@@ -1328,7 +1402,7 @@
                 }
             }
             function svContactReset(){
-                var c=document.getElementById('contactCreator'); if(c)c.style.display='none';
+                svHideAllGate();
                 var g=document.getElementById('contactGate'); if(g)g.style.display='block';
             }
             </script>
