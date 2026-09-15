@@ -164,28 +164,31 @@
     .sv-title-pre .l2{color:#ff5fbf;margin-left:1.3em}
     .sv-title-pre .l3{color:rgba(255,255,255,.5);margin-left:2.6em}
     .clap-hero{display:inline-flex;flex-direction:column;align-items:flex-start;position:relative;line-height:.82}
-    .clap-top{position:relative;z-index:3;transform-origin:6% 100%;animation:svclap 3.6s cubic-bezier(.34,.85,.3,1) infinite;background:repeating-linear-gradient(118deg,#fff 0 .5em,#ff3ea5 .5em 1em);padding:.04em .34em .1em;border-radius:.07em;box-shadow:0 10px 22px rgba(0,0,0,.35);margin-bottom:.1em}
-    .clap-top>span{display:block;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;color:#120b34;font-size:clamp(3rem,12vw,7rem);line-height:.82}
-    .clap-body{position:relative;z-index:2;background:#0b0920;border:2px solid rgba(255,255,255,.12);border-radius:.07em;padding:.06em .4em .12em;box-shadow:0 22px 50px rgba(0,0,0,.45);animation:svjolt 3.6s ease infinite}
-    .clap-body>span{display:block;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(3.4rem,13.5vw,8rem);line-height:.82;background:linear-gradient(90deg,#fff,#d9c2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .clap-top{position:relative;z-index:3;transform-origin:6% 100%;animation:svclap 3.6s cubic-bezier(.34,.85,.3,1) infinite;background:repeating-linear-gradient(118deg,#fff 0 .5em,#CE0089 .5em 1em);padding:.04em .36em .1em;border-radius:.07em;box-shadow:0 10px 22px rgba(0,0,0,.35);margin-bottom:.12em}
+    .clap-top>span{display:block;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;color:#251EAF;text-shadow:0 1px 0 rgba(255,255,255,.4);font-size:clamp(3rem,12vw,7rem);line-height:.82}
+    .clap-body{position:relative;z-index:2;background:linear-gradient(180deg,#1c1266,#130b3c);border:2px solid rgba(255,255,255,.16);border-radius:.07em;padding:.06em .4em .12em;box-shadow:0 22px 50px rgba(0,0,0,.4),0 0 46px rgba(206,0,137,.28);animation:svjolt 3.6s ease infinite}
+    .clap-body::before{content:'';position:absolute;top:5px;left:8%;right:8%;height:3px;border-radius:2px;background:linear-gradient(90deg,#CE0089,#6a5bff)}
+    .clap-body>span{display:block;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(3.4rem,13.5vw,8rem);line-height:.82;background:linear-gradient(90deg,#fff,#ffd9ef);-webkit-background-clip:text;background-clip:text;color:transparent}
     .clap-body .pk{-webkit-text-fill-color:#ff3ea5;color:#ff3ea5}
     @keyframes svclap{0%,66%{transform:rotate(0deg)}77%{transform:rotate(-14deg)}86%{transform:rotate(2deg)}91%{transform:rotate(-3deg)}96%,100%{transform:rotate(0deg)}}
     @keyframes svjolt{0%,82%{transform:translateY(0)}87%{transform:translateY(2px) scale(1.006)}93%{transform:translateY(0)}100%{transform:translateY(0)}}
     .sv-titlewrap{margin-bottom:2.2rem}
-    .sv-claim{display:inline-flex;flex-direction:column;align-items:flex-start;text-align:left;gap:3px;margin:2px 0 30px}
-    .sv-claim span{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;color:#fff;font-size:clamp(18px,2.4vw,30px);display:block}
-    .sv-claim .cl2{margin-left:.9em}
-    .sv-claim .cl3{margin-left:1.8em;color:rgba(255,255,255,.6)}
-    .sv-claim .cl4{margin-left:2.7em;font-weight:900;font-size:clamp(22px,3vw,38px);position:relative;display:inline-block}
+    .sv-claim{display:inline-flex;flex-direction:column;align-items:center;text-align:center;gap:4px;margin:6px 0 34px}
+    .sv-claim > span{display:block;text-transform:uppercase;line-height:1.04}
+    .sv-claim .cl1{font-weight:700;letter-spacing:.03em;color:rgba(255,255,255,.62);font-size:clamp(15px,1.8vw,22px)}
+    .sv-claim .cl2{position:relative;font-weight:900;letter-spacing:-.02em;line-height:.94;color:#fff;font-size:clamp(28px,4.4vw,52px);margin:2px 0 6px}
+    .sv-claim .cl2::after{content:'';position:absolute;left:6%;right:6%;bottom:.02em;height:.12em;border-radius:5px;background:linear-gradient(90deg,#CE0089,#ff6bc0)}
+    .sv-claim .cl3{font-weight:800;letter-spacing:-.01em;color:rgba(255,255,255,.82);font-size:clamp(18px,2.3vw,30px)}
+    .sv-claim .cl4{position:relative;display:inline-block;font-weight:900}
     .sv-claim .cl4 .sizer{visibility:hidden;white-space:nowrap}
     .sv-claim .cl4 .cur{position:absolute;left:0;top:0;white-space:nowrap;background:linear-gradient(90deg,#CE0089,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .32s ease,transform .32s ease;will-change:opacity,transform}
-    .sv-claim .cl4 .emo{display:inline;-webkit-text-fill-color:initial;color:initial;background:none;-webkit-background-clip:border-box;background-clip:border-box}
+    .sv-claim .cl4 .emo{-webkit-text-fill-color:initial;color:initial;background:none;-webkit-background-clip:border-box;background-clip:border-box}
     .sv-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
     .sv-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px}
     .sv-badge-pink{background:rgba(206,0,137,.16);border-color:rgba(206,0,137,.4);color:#ff73c8}
     .sv-badge-ic{font-size:14px;line-height:1}
-    @media (max-width:640px){.sv-lead{margin-bottom:7px}.sv-titlewrap{margin-bottom:1rem}.sv-claim{margin-bottom:20px}.sv-claim .cl2{margin-left:.7em}.sv-claim .cl3{margin-left:1.4em}.sv-claim .cl4{margin-left:2.1em}.sv-badges{margin-bottom:20px;gap:8px}.sv-badge{font-size:12px;padding:8px 13px}.sv-cta-row a{padding:11px 15px;font-size:11.5px}}
-    @media (prefers-reduced-motion:reduce){.sv-claim .cl4{transition:none}.clap-top{animation:none;transform:rotate(0deg)}.clap-body{animation:none}}
+    @media (max-width:640px){.sv-lead{margin-bottom:7px}.sv-titlewrap{margin-bottom:1rem}.sv-claim{margin-bottom:22px}.sv-claim .cl2{font-size:clamp(24px,7vw,40px)}.sv-cta-row a{padding:11px 15px;font-size:11.5px}}
+    @media (prefers-reduced-motion:reduce){.sv-claim .cl4 .cur{transition:none}.clap-top{animation:none;transform:rotate(0deg)}.clap-body{animation:none}}
     </style>
     <section id="hero" class="relative h-screen w-full flex justify-between items-center overflow-hidden bg-scaleBlue z-0">
         
@@ -223,13 +226,9 @@
                 </div>
 
                 <div class="sv-claim">
-                    <span class="cl1">Les créatives vidéos</span>
-                    <span class="cl2">les plus performantes</span>
-                    <span class="cl3">du marché pour</span>
-                    <span class="cl4">
-                        <span class="sizer" aria-hidden="true">vos réseaux sociaux 📱</span>
-                        <span class="cur" id="svRotWord">vos publicités <span class="emo">📣</span></span>
-                    </span>
+                    <span class="cl1">Les créatives vidéos les plus</span>
+                    <span class="cl2">performantes</span>
+                    <span class="cl3">du marché, pour <span class="cl4"><span class="sizer" aria-hidden="true">vos réseaux sociaux 📱</span><span class="cur" id="svRotWord">vos publicités <span class="emo">📣</span></span></span></span>
                 </div>
 
                 <script>
@@ -541,15 +540,12 @@
         
 
                     <h2 class="text-5xl md:text-7xl font-black uppercase leading-[0.9] mb-8 text-white">
-                        PAS DE FREELANCES.<br>
-                        <span class="text-stroke">QUE DES TALENTS</span><br>
-                        <span class="text-scalePink drop-shadow-[0_0_20px_rgba(206,0,137,0.6)]">MAISON.</span>
+                        Nos créateurs<br>
+                        <span class="text-scalePink drop-shadow-[0_0_20px_rgba(206,0,137,0.6)]">maison.</span>
                     </h2>
 
                     <p class="text-blue-100 text-lg leading-relaxed font-medium mb-6 max-w-xl mx-auto lg:mx-0">
-                        Fini les castings hasardeux sur Internet. Nous formons nos propres créateurs dans notre <strong class="text-white">UGCadémie certifiée</strong>.
-                        
-                
+                        Ils s'occupent du tournage et sortent <strong class="text-white">les meilleurs rushs du marché</strong> — objectif <strong class="text-white">conversion &amp; viralité</strong>. Nous formons nos propres créateurs dans notre <strong class="text-white">UGCadémie certifiée</strong>.
                     </p>
 
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-6">
@@ -1246,7 +1242,7 @@
                 
                 <p class="text-lg md:text-xl text-blue-100 mb-8 font-medium max-w-2xl mx-auto leading-relaxed">
                     Ne laissez pas vos concurrents prendre le lead. <br>
-                    Sélectionnez un créneau ci-dessous pour votre audit offert.
+                    Votre audit stratégique offert vous attend juste en dessous.
                 </p>
 
                 <div class="flex flex-col items-center gap-3">
@@ -1266,12 +1262,76 @@
 
             <div class="relative w-full max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden">
             
-            <div class="absolute top-6 left-8 z-50 text-4xl animate-bounce cursor-default select-none pointer-events-none">
-                👋
+            <style>
+            .sv-gate,.sv-gate-msg{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:2.5rem;padding:52px 28px;text-align:center;backdrop-filter:blur(10px)}
+            .sv-gate-emoji{font-size:46px;margin-bottom:14px;line-height:1}
+            .sv-gate-title{font-size:clamp(24px,3.4vw,38px);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:8px}
+            .sv-gate-sub{color:rgba(255,255,255,.72);font-size:15px;line-height:1.55;margin:0 auto 28px;max-width:490px}
+            .sv-gate-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+            .sv-gate-btn{display:flex;flex-direction:column;align-items:center;gap:5px;width:250px;max-width:100%;padding:24px 20px;border-radius:20px;border:1.5px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:#fff;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+            .sv-gate-btn:hover{transform:translateY(-4px);border-color:#CE0089}
+            .sv-gate-btn .ic{font-size:32px;line-height:1}
+            .sv-gate-btn .t{font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.02em}
+            .sv-gate-btn .d{font-size:12px;color:rgba(255,255,255,.6);font-weight:600}
+            .sv-gate-btn--brand{border-color:rgba(206,0,137,.5);background:linear-gradient(180deg,rgba(206,0,137,.18),rgba(206,0,137,.05))}
+            .sv-gate-btn--brand:hover{background:rgba(206,0,137,.28)}
+            .sv-gate-cta{display:inline-flex;align-items:center;gap:10px;background:#CE0089;color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:14px;padding:16px 30px;border-radius:999px;box-shadow:0 16px 40px -10px rgba(206,0,137,.7);transition:transform .2s}
+            .sv-gate-cta:hover{transform:translateY(-3px)}
+            .sv-gate-back{display:inline-block;margin-top:18px;background:none;border:none;color:rgba(255,255,255,.55);font-size:13px;font-weight:700;cursor:pointer;text-decoration:underline}
+            .sv-gate-back:hover{color:#fff}
+            </style>
+
+            <div id="contactGate" class="sv-gate">
+                <div class="sv-gate-emoji">👋</div>
+                <h3 class="sv-gate-title">Vous êtes… ?</h3>
+                <p class="sv-gate-sub">Dites-nous qui vous êtes, on vous envoie au bon endroit.</p>
+                <div class="sv-gate-btns">
+                    <button type="button" class="sv-gate-btn sv-gate-btn--brand" onclick="svContactChoice('brand')">
+                        <span class="ic">🏢</span>
+                        <span class="t">Marque / Entreprise</span>
+                        <span class="d">Je veux booster mes vidéos</span>
+                    </button>
+                    <button type="button" class="sv-gate-btn" onclick="svContactChoice('creator')">
+                        <span class="ic">🎬</span>
+                        <span class="t">Créateur de contenu</span>
+                        <span class="d">Je veux bosser avec vous</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="iclosed-widget" data-url="https://app.iclosed.io/e/scalevision/point-social-ads-avec-scalevision" title="👋 Échanger avec un responsable de Scalevision" style="width: 100%; height: 650px"></div>
-            <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+            <div id="contactCreator" class="sv-gate-msg" style="display:none">
+                <div class="sv-gate-emoji">🎥</div>
+                <h3 class="sv-gate-title">Créateur ? On t'adore.</h3>
+                <p class="sv-gate-sub">Pour découvrir <strong style="color:#fff">comment on travaille avec les créateurs</strong> et nous rejoindre, tout se passe sur notre académie 👇</p>
+                <a href="https://www.ugcademie.fr?utm_source=formu_sur_scalevision" target="_blank" rel="noopener" class="sv-gate-cta">Aller sur ugcademie.fr →</a>
+                <div><button type="button" class="sv-gate-back" onclick="svContactReset()">← En fait, je suis une marque</button></div>
+            </div>
+
+            <div id="iclosedMount"></div>
+
+            <script>
+            function svContactChoice(type){
+                var g=document.getElementById('contactGate'); if(g)g.style.display='none';
+                if(type==='creator'){ var c=document.getElementById('contactCreator'); if(c)c.style.display='block'; return; }
+                var m=document.getElementById('iclosedMount');
+                if(m && !m.getAttribute('data-loaded')){
+                    m.setAttribute('data-loaded','1');
+                    var w=document.createElement('div');
+                    w.className='iclosed-widget';
+                    w.setAttribute('data-url','https://app.iclosed.io/e/scalevision/point-social-ads-avec-scalevision');
+                    w.setAttribute('title','👋 Échanger avec un responsable de Scalevision');
+                    w.style.width='100%'; w.style.height='650px';
+                    m.appendChild(w);
+                    var s=document.createElement('script');
+                    s.src='https://app.iclosed.io/assets/widget.js'; s.async=true;
+                    document.body.appendChild(s);
+                }
+            }
+            function svContactReset(){
+                var c=document.getElementById('contactCreator'); if(c)c.style.display='none';
+                var g=document.getElementById('contactGate'); if(g)g.style.display='block';
+            }
+            </script>
             
         </div>
 
@@ -1615,6 +1675,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="assets/js/script.js" defer></script>
+
+    <!-- CTA flottant : apparaît au scroll, descend vers la section marque/créateur -->
+    <style>
+    .sv-float-cta{position:fixed;right:20px;bottom:24px;z-index:70;display:inline-flex;align-items:center;gap:10px;background:#CE0089;color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:.03em;font-size:13px;padding:14px 22px;border-radius:999px;box-shadow:0 16px 40px -10px rgba(206,0,137,.7);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s,box-shadow .2s;text-decoration:none}
+    .sv-float-cta.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    .sv-float-cta:hover{transform:translateY(-3px);box-shadow:0 20px 46px -10px rgba(206,0,137,.9)}
+    .sv-float-cta .ar{font-size:15px;animation:svFloatBob 1.6s ease-in-out infinite}
+    @keyframes svFloatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @media (max-width:640px){.sv-float-cta{right:14px;bottom:16px;font-size:12px;padding:12px 18px;gap:8px}}
+    </style>
+    <a href="#contact" id="svFloatCta" class="sv-float-cta" aria-label="Lancer mon projet"
+       onclick="event.preventDefault();var c=document.getElementById('contact');if(c)c.scrollIntoView({behavior:'smooth'});">
+        <span class="t">Lancer mon projet</span>
+        <span class="ar">↓</span>
+    </a>
+    <script>
+    (function(){
+        var btn=document.getElementById('svFloatCta');
+        var contact=document.getElementById('contact');
+        if(!btn) return;
+        var contactVisible=false;
+        function update(){
+            if(window.scrollY>700 && !contactVisible) btn.classList.add('show');
+            else btn.classList.remove('show');
+        }
+        if(contact && 'IntersectionObserver' in window){
+            new IntersectionObserver(function(es){ contactVisible=es[0].isIntersecting; update(); },{threshold:0.12}).observe(contact);
+        }
+        window.addEventListener('scroll', update, {passive:true});
+        update();
+    })();
+    </script>
 
 </body>
 </html>
