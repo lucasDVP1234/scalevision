@@ -114,6 +114,11 @@ body {
 }
 .filter-btn-neon:hover { background: rgba(255, 255, 255, 0.1); color: white; transform: translateY(-3px); }
 .filter-btn-neon.active { background: var(--scale-pink); border-color: var(--scale-pink); color: white; box-shadow: 0 0 25px var(--scale-pink); transform: scale(1.05); }
+@media (max-width: 640px) {
+  .glass-control-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; max-width: 380px; border-radius: 22px; padding: 8px; }
+  .glass-control-bar .filter-btn-neon { width: 100%; justify-content: center; padding: 12px 8px; font-size: 11px; letter-spacing: .04em; }
+  .glass-control-bar .filter-btn-neon.active { transform: none; }
+}
 
 .hover-focus-grid:hover .portfolio-card { opacity: 0.4; filter: blur(2px); transform: scale(0.95); }
 .hover-focus-grid .portfolio-card:hover { opacity: 1; filter: blur(0); transform: scale(1.05); z-index: 10; border-color: var(--scale-pink); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
