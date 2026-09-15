@@ -105,15 +105,22 @@ body {
 @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 .glass-control-bar {
-    background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.5rem; border-radius: 999px; display: inline-flex; gap: 0.5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02));
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.14); padding: 8px; border-radius: 22px; display: inline-flex; gap: 8px;
+    box-shadow: 0 24px 60px -24px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 70px -26px rgba(206,0,137,0.55);
 }
 .filter-btn-neon {
-    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6); border-radius: 999px;
+    transition: transform .25s cubic-bezier(.34,1.45,.64,1), background .25s, color .25s, box-shadow .25s, border-color .25s;
 }
-.filter-btn-neon:hover { background: rgba(255, 255, 255, 0.1); color: white; transform: translateY(-3px); }
-.filter-btn-neon.active { background: var(--scale-pink); border-color: var(--scale-pink); color: white; box-shadow: 0 0 25px var(--scale-pink); transform: scale(1.05); }
+.filter-btn-neon:hover { background: rgba(255,255,255,0.09); color: #fff; transform: translateY(-2px); border-color: rgba(206,0,137,0.5); }
+.filter-btn-neon.active {
+    background: linear-gradient(135deg, #CE0089, #a855f7); border-color: transparent; color: #fff;
+    box-shadow: 0 12px 30px -6px rgba(206,0,137,0.75), inset 0 1px 0 rgba(255,255,255,0.25);
+    transform: translateY(-2px) scale(1.05);
+}
 @media (max-width: 640px) {
   .glass-control-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; max-width: 380px; border-radius: 22px; padding: 8px; }
   .glass-control-bar .filter-btn-neon { width: 100%; justify-content: center; padding: 12px 8px; font-size: 11px; letter-spacing: .04em; }
