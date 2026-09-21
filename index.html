@@ -1330,6 +1330,16 @@
                 <div><button type="button" class="sv-gate-back" onclick="svBrandBack()">← Retour</button></div>
             </div>
 
+            <div id="contactBrandEmail" class="sv-gate" style="display:none">
+                <div class="sv-gate-emoji">✉️</div>
+                <h3 class="sv-gate-title">Votre email pro ?</h3>
+                <p class="sv-gate-sub">Pour pré-remplir votre créneau et vous envoyer la confirmation.</p>
+                <input id="svBrandEmail" class="sv-gate-input" type="email" inputmode="email" autocomplete="email" placeholder="vous@votre-marque.com" onkeydown="if(event.key==='Enter')svBrandEmailNext();">
+                <p id="svBrandEmailErr" class="sv-gate-sub" style="display:none;color:#ff6b6b;margin-top:-4px">Merci d'entrer un email valide.</p>
+                <div><button type="button" class="sv-gate-cta" onclick="svBrandEmailNext()">Voir les créneaux →</button></div>
+                <div><button type="button" class="sv-gate-back" onclick="svBrandEmailBack()">← Retour</button></div>
+            </div>
+
             <div id="contactCreator" class="sv-gate-msg" style="display:none">
                 <div class="sv-gate-emoji">🎥</div>
                 <h3 class="sv-gate-title">Créateur ? On t'adore.</h3>
@@ -1342,9 +1352,9 @@
 
             <script>
             var SV_WEBHOOK_MAKE = 'https://hook.eu1.make.com/aufv4rnpm8p1a8xhwdqrwe7c7d4qcwcs';
-            var svBrandData = { entreprise:'', reponse:'' };
+            var svBrandData = { entreprise:'', reponse:'', email:'' };
             function svHideAllGate(){
-                ['contactGate','contactBrandName','contactBrandGoal','contactCreator'].forEach(function(id){
+                ['contactGate','contactBrandName','contactBrandGoal','contactBrandEmail','contactCreator'].forEach(function(id){
                     var el=document.getElementById(id); if(el) el.style.display='none';
                 });
             }
@@ -1366,15 +1376,42 @@
             }
             function svBrandGoal(val){
                 svBrandData.reponse = val;
+                svHideAllGate();
+                var e=document.getElementById('contactBrandEmail');
+                if(e){ e.style.display='block'; var i=document.getElementById('svBrandEmail'); if(i) setTimeout(function(){i.focus();},60); }
+            }
+            function svBrandEmailBack(){
+                svHideAllGate();
+                var q=document.getElementById('contactBrandGoal'); if(q)q.style.display='block';
+            }
+            function svBrandEmailNext(){
+                var i=document.getElementById('svBrandEmail');
+                var err=document.getElementById('svBrandEmailErr');
+                var email=i ? i.value.trim() : '';
+                if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+                    if(err) err.style.display='block';
+                    if(i){ i.style.borderColor='#ff6b6b'; i.focus(); }
+                    return;
+                }
+                if(err) err.style.display='none';
+                svBrandData.email = email;
                 if(SV_WEBHOOK_MAKE){
                     try{
                         fetch(SV_WEBHOOK_MAKE,{method:'POST',headers:{'Content-Type':'application/json'},
-                            body:JSON.stringify({type:'marque',entreprise:svBrandData.entreprise,reponse:val,page:'scalevision.fr',date:Date.now()}),
+                            body:JSON.stringify({type:'marque',entreprise:svBrandData.entreprise,reponse:svBrandData.reponse,email:email,page:'scalevision.fr',date:Date.now()}),
                             keepalive:true});
                     }catch(e){}
                 }
+                svSetIclosedPrefill(email);
                 svHideAllGate();
                 svMountIclosed();
+            }
+            function svSetIclosedPrefill(email){
+                try{
+                    var u=new URL(window.location.href);
+                    u.searchParams.set('iclosedEmail', email);
+                    window.history.replaceState(null,'',u.toString());
+                }catch(e){}
             }
             function svMountIclosed(){
                 var m=document.getElementById('iclosedMount');
