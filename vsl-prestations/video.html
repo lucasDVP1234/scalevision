@@ -248,8 +248,11 @@ h1 .ital{
 .kit-hl{
   display:inline-block;
   background:var(--pink);color:var(--ink);
-  padding:.04em .32em;border-radius:6px;font-weight:900;
+  padding:.08em .4em;border-radius:7px;
+  font-weight:900;letter-spacing:-.015em;
   white-space:nowrap;
+  transform:rotate(-1.2deg);
+  box-shadow:0 9px 22px -11px rgba(251,147,234,1);
 }
 .kit-list{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:13px}
 .kit-chip{
@@ -267,6 +270,7 @@ h1 .ital{
 @media (max-width:620px){
   .kit-wrap{margin:12px 0 16px;padding:14px 14px 13px;border-radius:16px}
   .kit-line{font-size:13px;gap:9px}
+  .kit-hl{padding:.06em .32em;border-radius:6px}
   .kit-ico{font-size:16px}
   .kit-list{gap:6px;margin-top:11px}
   .kit-chip{padding:6px 11px;font-size:10.5px;gap:6px}
@@ -369,7 +373,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
   <div class="kit-wrap reveal d4" id="kitCard">
     <p class="kit-line">
       <span class="kit-ico" id="kitIcon">🎁</span>
-      <span id="kitStatusText"><b>Regarde jusqu'au bout</b> pour savoir comment recevoir ton <span class="kit-hl">Kit Prestation</span></span>
+      <span id="kitStatusText"><b>Regarde jusqu'au bout</b> pour savoir comment recevoir ton <span class="kit-hl">Kit Prestation Complet</span></span>
     </p>
     <div class="kit-list">
       <span class="kit-chip">La prestation à vendre</span>
@@ -416,7 +420,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     if(t)t.innerHTML=html;
   }
   setTimeout(function(){
-    kitStatus('👀','<b>On y arrive</b> — garde la vidéo ouverte pour recevoir ton <span class="kit-hl">Kit Prestation</span>');
+    kitStatus('👀','<b>On y arrive</b> — garde la vidéo ouverte pour recevoir ton <span class="kit-hl">Kit Prestation Complet</span>');
   },120000);
 
   // ---- Relance à 5min ----
