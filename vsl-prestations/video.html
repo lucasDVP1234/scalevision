@@ -333,20 +333,10 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     </span>
   </div>
 
-  <!-- VSL Player (Vidalytics) — TODO : remplacer l'embed par celui de la nouvelle VSL -->
+  <!-- VSL Player (Vidalytics) — « 5 prestations » F1feqW_7sxFAgGfx -->
   <div class="player-wrap">
-    <div id="vidalytics_embed_BfxRRUhtLO72iSel" style="width:100%;position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;"></div>
+    <div id="vidalytics_embed_F1feqW_7sxFAgGfx" style="width:100%;position:relative;padding-top:65.06%;border-radius:14px;overflow:hidden;background:#000;"></div>
     <script type="text/javascript">
-    // Forward de l'email URL au tag Vidalytics (trigger ID zg4ZfhSqKzPGN1LZ)
-    // TODO : mettre à jour le trigger ID avec celui de la nouvelle vidéo
-    var vidalyticsCustomSettings = (function(){
-      try {
-        var p = new URLSearchParams(window.location.search);
-        var email = (p.get('email') || p.get('iclosedEmail') || '').toLowerCase().trim();
-        if(!email) return undefined;
-        return { triggers: { items: { "zg4ZfhSqKzPGN1LZ": { params: { email: email } } } } };
-      } catch(e){ return undefined; }
-    })();
     (function (v, i, d, a, l, y, t, c, s) {
       y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
       if (!vsl){vsl=function(u,cb){
@@ -354,8 +344,8 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
         if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
         i.getElementsByTagName("head")[0].appendChild(s);
       };}
-      vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a, vidalyticsCustomSettings);});});
-    })(window, document, 'Vidalytics', 'vidalytics_embed_BfxRRUhtLO72iSel', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/BfxRRUhtLO72iSel/');
+      vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+    })(window, document, 'Vidalytics', 'vidalytics_embed_F1feqW_7sxFAgGfx', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/F1feqW_7sxFAgGfx/');
     </script>
   </div>
 
