@@ -497,6 +497,18 @@ footer{
 .field input:focus{outline:none;border-color:var(--pink-cta);box-shadow:0 0 0 3px rgba(255,60,142,.12)}
 .field input.err{border-color:#e63946;background:#fff5f6}
 .err-msg{display:none;color:#e63946;font-size:12px;margin-top:4px;font-weight:600}
+.email-fix{
+  display:block;margin-top:7px;
+  background:var(--lav-soft);border:1px solid var(--lav);border-radius:9px;
+  padding:8px 12px;
+  font-family:var(--font-sans);font-size:12px;font-weight:700;
+  color:var(--ink);text-align:left;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease;
+  animation:fadeIn .2s ease-out;
+}
+.email-fix:hover{background:#fff;border-color:var(--pink-cta)}
+.email-fix b{color:var(--pink-cta)}
+.email-fix[hidden]{display:none}
 .err-msg.show{display:block;animation:fadeIn .2s ease-out}
 .field-hint{
   display:flex;align-items:flex-start;gap:6px;
@@ -662,6 +674,7 @@ footer{
         <label for="email">Ton meilleur email <span class="req">*</span></label>
         <input type="email" id="email" name="email" placeholder="louise@gmail.com" autocomplete="email" inputmode="email" required>
         <div class="err-msg" id="errEmail">Email invalide</div>
+        <button type="button" class="email-fix" id="emailFix" hidden></button>
         <p class="field-hint">
           <span class="hint-ico" aria-hidden="true">🔒</span>
           La vidéo se lance à l'écran suivant. On t'envoie aussi le lien par email pour la retrouver quand tu veux.
@@ -721,21 +734,94 @@ footer{
   var errEmail=document.getElementById('errEmail');
   var WEBHOOK='https://hook.eu1.make.com/ep3brz29jbctw4rpgfjsr6k045u4c1df';
 
-  function isValidEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);}
+  // Validation légère : structure correcte + extension alphabétique (2 à 24 lettres).
+  // Volontairement permissive — on bloque les saisies manifestement fausses, pas les
+  // domaines exotiques.
+  var EMAIL_RE=/^[^\s@,;]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,24}$/i;
+  function isValidEmail(v){return !v.includes('..')&&EMAIL_RE.test(v);}
+
+  function emailError(v){
+    if(!v)return "Merci d'indiquer ton email";
+    if(v.indexOf('@')===-1)return "Il manque le @";
+    var dom=v.split('@').pop();
+    if(!dom)return "Il manque le domaine après le @";
+    if(dom.indexOf('.')===-1)return "Il manque l'extension (.com, .fr…)";
+    return "Cet email ne semble pas valide";
+  }
+
+  // Suggestion de correction sur les domaines courants (distance d'édition <= 2).
+  var COMMON_DOMAINS=['gmail.com','hotmail.com','hotmail.fr','outlook.com','outlook.fr',
+    'yahoo.com','yahoo.fr','icloud.com','orange.fr','free.fr','sfr.fr','laposte.net',
+    'wanadoo.fr','live.fr','bbox.fr','me.com','protonmail.com','gmx.fr'];
+  function editDistance(a,b){
+    var prev=[],cur=[],i,j;
+    for(j=0;j<=b.length;j++)prev[j]=j;
+    for(i=1;i<=a.length;i++){
+      cur[0]=i;
+      for(j=1;j<=b.length;j++){
+        cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a.charAt(i-1)===b.charAt(j-1)?0:1));
+      }
+      prev=cur.slice();
+    }
+    return prev[b.length];
+  }
+  function suggestEmail(v){
+    var at=v.lastIndexOf('@');
+    if(at<1)return null;
+    var local=v.slice(0,at),dom=v.slice(at+1).toLowerCase();
+    if(!dom||COMMON_DOMAINS.indexOf(dom)!==-1)return null;
+    var best=null,bestD=3;
+    COMMON_DOMAINS.forEach(function(d){
+      var dist=editDistance(dom,d);
+      if(dist<bestD){bestD=dist;best=d;}
+    });
+    return best?local+'@'+best:null;
+  }
+
+  var emailFix=document.getElementById('emailFix');
+  function showSuggestion(){
+    var v=normalizeEmail(emailInput.value);
+    var sug=v?suggestEmail(v):null;
+    if(sug){
+      emailFix.innerHTML='Tu voulais dire <b>'+sug.replace(/[<>&]/g,'')+'</b> ? Corriger';
+      emailFix.dataset.fix=sug;
+      emailFix.hidden=false;
+    }else{
+      emailFix.hidden=true;
+    }
+  }
+  emailFix.addEventListener('click',function(){
+    emailInput.value=emailFix.dataset.fix||'';
+    emailFix.hidden=true;
+    emailInput.classList.remove('err');
+    errEmail.classList.remove('show');
+  });
+
+  function normalizeEmail(v){return v.replace(/\s+/g,'').toLowerCase();}
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(submitBtn.classList.contains('loading'))return;
 
     var prenom=prenomInput.value.trim();
-    var email=emailInput.value.trim();
+    var email=normalizeEmail(emailInput.value);
+    emailInput.value=email;
     var ok=true;
 
     if(!prenom){prenomInput.classList.add('err');errPrenom.classList.add('show');ok=false;}
     else{prenomInput.classList.remove('err');errPrenom.classList.remove('show');}
 
-    if(!isValidEmail(email)){emailInput.classList.add('err');errEmail.classList.add('show');ok=false;}
-    else{emailInput.classList.remove('err');errEmail.classList.remove('show');}
+    if(!isValidEmail(email)){
+      emailInput.classList.add('err');
+      errEmail.textContent=emailError(email);
+      errEmail.classList.add('show');
+      showSuggestion();
+      ok=false;
+    }else{
+      emailInput.classList.remove('err');
+      errEmail.classList.remove('show');
+      showSuggestion();
+    }
 
     if(!ok)return;
 
@@ -785,7 +871,19 @@ footer{
       inp.classList.remove('err');
       var errEl=document.getElementById('err'+inp.id.charAt(0).toUpperCase()+inp.id.slice(1));
       if(errEl)errEl.classList.remove('show');
+      if(inp===emailInput)emailFix.hidden=true;
     });
+  });
+  // Contrôle dès que la personne quitte le champ email
+  emailInput.addEventListener('blur',function(){
+    var v=normalizeEmail(emailInput.value);
+    if(v)emailInput.value=v;
+    if(v&&!isValidEmail(v)){
+      emailInput.classList.add('err');
+      errEmail.textContent=emailError(v);
+      errEmail.classList.add('show');
+    }
+    showSuggestion();
   });
 })();
 </script>
