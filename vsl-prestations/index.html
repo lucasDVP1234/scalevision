@@ -871,7 +871,13 @@ footer{
       inp.classList.remove('err');
       var errEl=document.getElementById('err'+inp.id.charAt(0).toUpperCase()+inp.id.slice(1));
       if(errEl)errEl.classList.remove('show');
-      if(inp===emailInput)emailFix.hidden=true;
+      if(inp===emailInput){
+        // La suggestion n'apparaît qu'une fois l'adresse structurellement complète :
+        // elle s'affiche donc pendant la frappe, pas au blur — pas de décalage de
+        // mise en page entre le mousedown et le mouseup sur « Envoyer ».
+        if(isValidEmail(normalizeEmail(inp.value)))showSuggestion();
+        else emailFix.hidden=true;
+      }
     });
   });
   // Contrôle dès que la personne quitte le champ email
