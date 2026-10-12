@@ -83,6 +83,7 @@ body{
 @keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 @keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(220%) skewX(-20deg)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes liveDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.85)}}
 @keyframes ctaBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-1px) scale(1.015)}}
 @keyframes floatBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
@@ -95,6 +96,23 @@ body{
 .brand{display:inline-flex;align-items:center;gap:10px}
 .brand img{height:52px;width:auto;display:block}
 @media (max-width:640px){.brand img{height:42px}}
+
+/* ---------- Eyebrow ---------- */
+.eyebrow-wrap{display:flex;justify-content:center;margin-bottom:16px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--lav-soft);
+  border:1px solid var(--lav);
+  border-radius:999px;
+  padding:8px 18px;
+  font-weight:700;font-size:11.5px;letter-spacing:1.6px;
+  color:var(--ink);text-transform:uppercase;
+}
+.eyebrow::before{
+  content:"";width:7px;height:7px;border-radius:50%;
+  background:var(--pink-cta);box-shadow:0 0 9px rgba(255,60,142,.8);
+  animation:liveDot 1.4s ease-in-out infinite;
+}
 
 /* ---------- Titre ---------- */
 .title-block{text-align:center;padding:0 2px}
@@ -164,6 +182,25 @@ h1 .ital{
   font-size:1.45em;
   color:var(--pink-cta);
   line-height:1;
+}
+
+/* ---------- Chips ---------- */
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  background:#fff;
+  border:1px solid var(--lav);
+  border-radius:999px;
+  padding:8px 15px;
+  font-size:12.5px;font-weight:600;
+  color:var(--ink);
+  box-shadow:0 2px 10px -6px rgba(37,30,175,.35);
+  transition:transform .25s ease,border-color .25s ease;
+}
+.chip:hover{transform:translateY(-2px);border-color:var(--pink)}
+@media (max-width:480px){
+  .chips{gap:6px}
+  .chip{padding:6px 11px;font-size:11px;gap:5px}
 }
 
 /* ---------- Bandeau autorité ---------- */
@@ -541,6 +578,10 @@ footer{
     </span>
   </div>
 
+  <div class="eyebrow-wrap reveal d1">
+    <span class="eyebrow">Création de contenu · 2026</span>
+  </div>
+
   <div class="title-block reveal d2">
     <h1>
       De 0&nbsp;€ à <span class="mark">3&nbsp;000&nbsp;€/mois</span> :<br>
@@ -551,6 +592,12 @@ footer{
       Débutant ou déjà lancé : <strong>les 5 offres exactes</strong>, à qui les vendre, quoi dire en rendez-vous
       et le calcul pour atteindre 3&nbsp;000&nbsp;€/mois. Zéro théorie, <strong>à appliquer dès aujourd'hui.</strong>
     </p>
+  </div>
+
+  <div class="chips reveal d3">
+    <span class="chip">🎯 Débutants &amp; avancés</span>
+    <span class="chip">📉 0 abonné requis</span>
+    <span class="chip">⚡ Applicable dès aujourd'hui</span>
   </div>
 
   <div class="authority reveal d3">
