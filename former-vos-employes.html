@@ -296,6 +296,23 @@ h1 .tail em{
   display:flex;align-items:center;justify-content:center;font-size:15px;
 }
 .shot-tile span{font-size:13px;font-weight:700;line-height:1.4;text-align:left;color:rgba(255,255,255,.92)}
+.shots-more{
+  display:none;margin:18px auto 0;
+  align-items:center;justify-content:center;gap:9px;
+  padding:13px 24px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);color:#fff;
+  font-family:var(--font-sans);font-size:12.5px;font-weight:800;letter-spacing:.4px;
+  transition:background .25s ease,border-color .25s ease;
+  position:relative;z-index:2;
+}
+.shots-more:hover{background:rgba(255,255,255,.17);border-color:var(--pink)}
+.shots-more i{font-size:10px;transition:transform .3s ease}
+.shots-more.open i{transform:rotate(180deg)}
+@media (max-width:700px){
+  .shots-more{display:flex}
+  .shots .shot-tile:nth-child(n+7){display:none}
+  .shots.open .shot-tile{display:flex}
+}
 .shots-note{
   max-width:820px;margin:30px auto 0;padding:24px 26px;border-radius:20px;
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
@@ -357,68 +374,6 @@ h1 .tail em{
   .vs{grid-template-columns:1fr;gap:14px}
   .vs-mid span{width:44px;height:44px;transform:rotate(90deg)}
 }
-.vs-note{
-  max-width:760px;margin:30px auto 0;padding:20px 24px;
-  background:var(--ink);color:#fff;border-radius:18px;text-align:center;
-  font-size:14.5px;font-weight:600;line-height:1.6;
-}
-.vs-note b{font-weight:900;color:var(--pink)}
-.vs-note .big{font-size:1.5em;font-weight:900;display:inline-block;line-height:1}
-
-/* ---------- Strip secteurs (hero) ---------- */
-.sectors-strip{
-  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px 10px;
-  max-width:720px;margin:0 auto 4px;
-}
-.sectors-strip span{
-  font-size:11.5px;font-weight:800;letter-spacing:.4px;color:var(--grey);
-  text-transform:uppercase;
-}
-.sectors-strip i{width:4px;height:4px;border-radius:50%;background:var(--pink);flex-shrink:0}
-
-/* ---------- Équation acquisition ---------- */
-.math{
-  max-width:1000px;margin:0 auto;padding:30px 26px;
-  background:var(--ink);border-radius:26px;color:#fff;text-align:center;
-  box-shadow:0 30px 70px -36px rgba(37,30,175,.95);position:relative;overflow:hidden;
-}
-.math::before{
-  content:'';position:absolute;top:-120px;right:-80px;width:360px;height:360px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,60,142,.38),transparent 68%);pointer-events:none;
-}
-.math-row{
-  display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px;
-  position:relative;z-index:2;
-}
-.math-cell{
-  flex:1 1 150px;min-width:132px;padding:16px 14px;border-radius:16px;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
-}
-.math-cell .v{
-  display:block;font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.05;
-  letter-spacing:-.03em;margin-bottom:5px;
-}
-.math-cell .k{display:block;font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.math-cell.hi{background:var(--pink-cta);border-color:var(--pink-cta);box-shadow:0 14px 34px -14px rgba(255,60,142,.9)}
-.math-cell.hi .k{color:rgba(255,255,255,.82)}
-.math-op{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--pink);flex:0 0 22px}
-@media (max-width:620px){
-  .math{padding:24px 18px;border-radius:20px}
-  .math-op{transform:rotate(90deg);flex-basis:100%;height:14px}
-  .math-cell{flex:1 1 100%}
-}
-.math-note{
-  position:relative;z-index:2;margin-top:22px;font-size:14px;font-weight:600;
-  line-height:1.65;color:rgba(255,255,255,.75);max-width:660px;margin-left:auto;margin-right:auto;
-}
-.math-note strong{color:#fff;font-weight:800}
-.math-note .pk{color:var(--pink);font-weight:900}
-.math-hyp{
-  display:inline-block;margin-top:14px;padding:6px 13px;border-radius:999px;
-  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
-  font-size:11px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.3px;
-}
-
 /* ---------- Secteurs ---------- */
 .sectors{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1020px;margin:0 auto}
 @media (max-width:700px){.sectors{grid-template-columns:1fr}}
@@ -788,11 +743,6 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
         </div>
       </div>
     </div>
-
-    <p class="vs-note rv d2">
-      Une agence à 3 000 €/mois qui livre 4 vidéos, c'est <span class="big">750 €</span> la vidéo.<br>
-      Un employé formé qui en sort 150 par mois, <b>c'est une autre économie.</b>
-    </p>
   </div>
 </section>
 
@@ -853,7 +803,7 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       </p>
     </div>
 
-    <div class="shots rv d1">
+    <div class="shots rv d1" id="shots">
       <span class="shot-tile"><span class="e">🔧</span><span>Le geste technique que personne ne comprend</span></span>
       <span class="shot-tile"><span class="e">🏗️</span><span>Un chantier du premier au dernier jour</span></span>
       <span class="shot-tile"><span class="e">👥</span><span>Vos équipes en train de travailler</span></span>
@@ -867,6 +817,11 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       <span class="shot-tile"><span class="e">📖</span><span>Votre histoire, pourquoi vous avez monté la boîte</span></span>
       <span class="shot-tile"><span class="e">🔍</span><span>Le détail que le client ne remarque jamais</span></span>
     </div>
+
+    <button type="button" class="shots-more" id="shotsMore" aria-expanded="false" aria-controls="shots">
+      <span class="lbl">Voir + d'idées</span>
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </button>
 
     <div class="shots-note rv d2">
       <span class="big">Une matinée de tournage = <em>30 à 50 vidéos</em> à publier.</span>
@@ -1292,6 +1247,16 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       el.alt = ''; el.loading = 'lazy';
     }
     slot.appendChild(el);
+  });
+
+  /* ---------- « Voir + d'idées » (mobile) ---------- */
+  var shots = document.getElementById('shots');
+  var shotsMore = document.getElementById('shotsMore');
+  shotsMore.addEventListener('click', function(){
+    var open = shots.classList.toggle('open');
+    shotsMore.classList.toggle('open', open);
+    shotsMore.setAttribute('aria-expanded', open ? 'true' : 'false');
+    shotsMore.querySelector('.lbl').textContent = open ? 'Voir moins' : "Voir + d'idées";
   });
 
   /* ---------- Reveal au scroll ---------- */
