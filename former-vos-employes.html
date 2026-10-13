@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scalevision — Formez vos employés à la création de contenu</title>
+<meta name="description" content="Comment une entreprise a fait ×5 sur son CA en 2026 en internalisant sa création de contenu — et comment former vos propres employés au tournage et au montage pour faire pareil. Fini les flyers, les influenceurs et l'agence à 3 000 €/mois.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.scalevision.fr/former-vos-employes">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.scalevision.fr/former-vos-employes">
+<meta property="og:title" content="×5 de CA en internalisant sa création de contenu — Scalevision">
+<meta property="og:description" content="Zéro agence, zéro flyer, zéro influenceur : des salariés formés au tournage et au montage, 20 vidéos par mois, et un vrai canal d'acquisition. On vous montre comment former vos équipes.">
+<meta property="og:image" content="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="×5 de CA en internalisant sa création de contenu — Scalevision">
+<meta name="twitter:description" content="Arrêtez l'agence à 3 000 €/mois. Formez vos équipes au tournage et au montage, gardez le savoir-faire.">
+<meta name="twitter:image" content="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png">
+
+<link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+<!-- ============================================================
+     TRACKING — cible ENTREPRISES, volontairement séparée du
+     tunnel créateurs. Aucun pixel du tunnel créateurs ici.
+     À brancher quand le pixel / dataset B2B sera créé :
+       1. coller le snippet du NOUVEAU pixel ci-dessous
+       2. événements prévus : PageView  →  LeadEntreprise (submit Tally)
+     ============================================================ -->
+
+<!-- Google tag (analytics site global — ne construit aucune audience pub) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FS6EYJTGQW');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://www.loom.com" crossorigin>
+<link rel="dns-prefetch" href="https://tally.so">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --paper:#FDFCFF;
+  --ink:#251EAF;
+  --ink-deep:#1A1580;
+  --pink:#FB93EA;
+  --pink-soft:#FDC4F3;
+  --pink-cta:#FF3C8E;
+  --pink-cta-2:#FF6BA8;
+  --lav:#E4E1FF;
+  --lav-soft:#F2F0FF;
+  --grey:#5B5880;
+  --grey-light:#8D8AAD;
+  --green:#12B981;
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-hand:'Caveat',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-sans);line-height:1.55;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--pink-soft);color:var(--ink)}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+section{position:relative}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}
+
+/* ---------- Titres partagés ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--lav-soft);border:1px solid var(--lav);border-radius:999px;
+  padding:8px 17px;
+  font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--ink);
+}
+.eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--pink-cta);
+  box-shadow:0 0 9px rgba(255,60,142,.8);animation:blink 1.5s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.84)}}
+
+h2{
+  font-size:clamp(28px,4.6vw,48px);font-weight:800;
+  line-height:1.1;letter-spacing:-.03em;color:var(--ink);
+}
+h2 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-variation-settings:"SOFT" 80,"WONK" 1}
+h2 .pink{color:var(--pink-cta)}
+.mark{
+  display:inline-block;background:var(--pink);color:var(--ink);
+  padding:.02em .24em .1em;border-radius:7px;transform:rotate(-1deg);
+  box-shadow:0 6px 18px -8px rgba(251,147,234,.9);
+}
+.lead{
+  font-size:clamp(15px,1.9vw,17.5px);line-height:1.65;font-weight:500;color:var(--grey);
+  max-width:640px;
+}
+.lead strong{color:var(--ink);font-weight:800}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 44px}
+.sec-head .eyebrow{margin-bottom:18px}
+.sec-head .lead{margin:16px auto 0}
+
+/* ---------- Hero ---------- */
+.hero{padding:30px 0 56px;text-align:center;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);
+  width:1100px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,147,234,.30),transparent 68%);
+  filter:blur(10px);pointer-events:none;z-index:0;
+}
+.hero-logo{display:flex;justify-content:center;margin-bottom:26px}
+.hero-logo img{height:56px;width:auto}
+@media (max-width:640px){.hero-logo img{height:44px}}
+
+/* Kill row — ce qu'on arrête de payer */
+.kill{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:9px;
+  max-width:720px;margin:22px auto 26px;
+}
+.kill-item{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:9px 15px;border-radius:11px;
+  background:#fff;border:1px solid var(--lav);
+  font-size:12.5px;font-weight:700;color:var(--grey-light);
+  box-shadow:0 2px 10px -6px rgba(37,30,175,.3);
+  overflow:hidden;
+}
+.kill-item i{font-size:11.5px;opacity:.65}
+.kill-item::after{
+  content:'';position:absolute;left:-6%;right:-6%;top:50%;height:2px;
+  background:var(--pink-cta);transform:rotate(-4deg) scaleX(0);transform-origin:left center;
+  box-shadow:0 0 10px rgba(255,60,142,.55);
+  transition:transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.kill.in .kill-item::after{transform:rotate(-4deg) scaleX(1)}
+.kill.in .kill-item:nth-child(2)::after{transition-delay:.12s}
+.kill.in .kill-item:nth-child(3)::after{transition-delay:.24s}
+.kill.in .kill-item:nth-child(4)::after{transition-delay:.36s}
+.kill.in .kill-item:nth-child(5)::after{transition-delay:.48s}
+
+h1{
+  font-size:clamp(31px,5.6vw,60px);font-weight:800;
+  line-height:1.1;letter-spacing:-.035em;color:var(--ink);
+  max-width:900px;margin:0 auto 18px;
+}
+h1 .stop{
+  display:block;font-family:var(--font-serif);font-style:italic;font-weight:800;
+  font-variation-settings:"SOFT" 90,"WONK" 1;
+  color:var(--pink-cta);margin-bottom:.12em;
+}
+h1 .x5{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.04em .3em .1em;margin:0 .04em;border-radius:12px;
+  background:linear-gradient(135deg,var(--pink-cta) 0%,var(--pink-cta-2) 100%);
+  color:#fff;font-weight:900;font-size:1.18em;line-height:1;
+  letter-spacing:-.04em;transform:rotate(-2deg);
+  box-shadow:0 12px 30px -12px rgba(255,60,142,.95);
+  animation:x5Pulse 2.8s ease-in-out infinite;
+}
+@keyframes x5Pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.42),0 12px 30px -12px rgba(255,60,142,.95)}
+  55%{box-shadow:0 0 0 14px rgba(255,60,142,0),0 12px 30px -12px rgba(255,60,142,.95)}
+}
+h1 .tail{
+  display:block;margin-top:.42em;
+  font-size:.46em;font-weight:800;letter-spacing:-.01em;line-height:1.3;
+  color:var(--grey);
+}
+h1 .tail em{
+  font-family:var(--font-serif);font-style:italic;font-weight:700;
+  font-size:1.08em;color:var(--ink);
+}
+@media (max-width:480px){h1 .tail{font-size:.52em}}
+.hero .lead{margin:0 auto 26px;text-align:center}
+.hand{
+  display:block;font-family:var(--font-hand);font-size:clamp(19px,2.6vw,25px);
+  font-weight:600;color:var(--pink-cta);transform:rotate(-1.2deg);margin-bottom:6px;
+}
+
+/* ---------- VSL (Loom) ---------- */
+.vsl{max-width:720px;margin:34px auto 0}
+.vsl-label{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;
+  padding:8px 16px;border-radius:999px;
+  background:var(--ink);color:#fff;
+  font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+}
+.vsl-label i{color:var(--pink);font-size:10px}
+.vsl-frame{
+  position:relative;padding:9px;border-radius:24px;
+  background:linear-gradient(135deg,var(--pink) 0%,var(--lav) 55%,var(--pink-soft) 100%);
+  box-shadow:0 34px 80px -30px rgba(37,30,175,.65);
+}
+.vsl-inner{
+  position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;
+  background:#0b0a1f;border:1px solid rgba(255,255,255,.4);
+}
+.vsl-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vsl-ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:12px;
+  color:#fff;text-align:center;padding:20px;
+}
+.vsl-ph .ico{
+  width:62px;height:62px;border-radius:50%;
+  background:var(--pink-cta);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 12px rgba(255,60,142,.18);
+}
+.vsl-ph .ico i{font-size:20px;margin-left:3px}
+.vsl-ph b{font-size:14px;font-weight:800;letter-spacing:.3px}
+.vsl-ph span{font-size:12px;opacity:.6;font-weight:600}
+.vsl-under{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 16px;
+  margin-top:15px;font-size:12px;font-weight:700;color:var(--grey);
+}
+.vsl-under i{color:var(--pink-cta);margin-right:5px}
+
+/* ---------- CTA ---------- */
+.cta{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:19px 36px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--pink-cta) 0%,var(--pink-cta-2) 100%);
+  color:#fff;border-radius:999px;
+  font-family:var(--font-sans);font-size:14.5px;font-weight:800;letter-spacing:.6px;
+  box-shadow:0 16px 40px -14px rgba(255,60,142,.85);
+  transition:transform .28s ease,box-shadow .28s ease;
+  position:relative;overflow:hidden;
+}
+.cta .arrow{transition:transform .28s ease}
+.cta:hover{transform:translateY(-3px);box-shadow:0 22px 50px -14px rgba(255,60,142,.95)}
+.cta:hover .arrow{transform:translateX(4px)}
+.cta::before{
+  content:'';position:absolute;top:0;left:0;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:translateX(-120%) skewX(-18deg);animation:shine 3.6s ease-in-out infinite;
+}
+@keyframes shine{0%{transform:translateX(-140%) skewX(-18deg)}55%,100%{transform:translateX(260%) skewX(-18deg)}}
+.cta-wrap{display:flex;flex-direction:column;align-items:center;gap:11px}
+.cta-sub{font-size:12px;font-weight:700;color:var(--grey);letter-spacing:.2px}
+.cta-sub i{color:var(--green);margin-right:5px}
+
+/* ---------- Marquee ---------- */
+.mq{
+  padding:26px 0;margin:10px 0 0;
+  border-top:1px solid var(--lav);border-bottom:1px solid var(--lav);
+  background:var(--lav-soft);overflow:hidden;
+}
+.mq-mask{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.mq-track{display:flex;align-items:center;gap:26px;width:max-content;animation:marquee 40s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{
+  font-size:clamp(22px,3.6vw,38px);font-weight:900;line-height:1;
+  letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1.4px var(--lav);
+}
+.mq-item--fill{color:var(--ink);-webkit-text-stroke:0}
+.mq-item--pink{color:var(--pink-cta);-webkit-text-stroke:0}
+.mq-item--serif{
+  font-family:var(--font-serif);font-style:italic;font-weight:800;text-transform:none;
+  color:var(--ink);-webkit-text-stroke:0;
+}
+.mq-star{
+  width:34px;height:34px;flex-shrink:0;border-radius:50%;
+  background:#fff;border:1px solid var(--lav);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--pink-cta);font-size:13px;
+}
+
+/* ---------- Section générique ---------- */
+.sec{padding:76px 0}
+.sec--tint{background:linear-gradient(180deg,#fff 0%,var(--lav-soft) 100%)}
+.sec--tint-out{background:linear-gradient(180deg,var(--lav-soft) 0%,#fff 100%)}
+
+/* ---------- Comparatif ---------- */
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;max-width:1000px;margin:0 auto}
+.vs-col{
+  background:#fff;border:1px solid var(--lav);border-radius:22px;padding:26px 24px;
+  box-shadow:0 18px 50px -34px rgba(37,30,175,.7);
+}
+.vs-col.out{background:#FBFAFE}
+.vs-col.in{
+  border-color:var(--pink-cta);
+  background:linear-gradient(180deg,#fff 0%,#FFF5FA 100%);
+  box-shadow:0 26px 60px -30px rgba(255,60,142,.55);
+}
+.vs-tag{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;
+  padding:7px 14px;border-radius:999px;
+  font-size:10.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+}
+.vs-col.out .vs-tag{background:var(--lav-soft);border:1px solid var(--lav);color:var(--grey)}
+.vs-col.in .vs-tag{background:var(--pink-cta);color:#fff}
+.vs-row{
+  display:flex;gap:13px;padding:14px 0;border-bottom:1px dashed var(--lav);
+}
+.vs-row:last-child{border-bottom:none;padding-bottom:0}
+.vs-row .ic{
+  width:34px;height:34px;flex-shrink:0;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.vs-col.out .vs-row .ic{background:var(--lav-soft);color:var(--grey-light)}
+.vs-col.in .vs-row .ic{background:#FFE6F1;color:var(--pink-cta)}
+.vs-row .tx{text-align:left}
+.vs-row .tx b{display:block;font-size:14px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.vs-col.out .vs-row .tx b{color:var(--grey);text-decoration:line-through;text-decoration-color:var(--pink-cta);text-decoration-thickness:2px}
+.vs-row .tx span{display:block;font-size:12.5px;font-weight:600;color:var(--grey);line-height:1.5}
+.vs-row .tx em{font-style:normal;color:var(--pink-cta);font-weight:800}
+.vs-mid{display:flex;align-items:center;justify-content:center}
+.vs-mid span{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:900;
+  box-shadow:0 14px 30px -14px rgba(37,30,175,.8);
+}
+@media (max-width:860px){
+  .vs{grid-template-columns:1fr;gap:14px}
+  .vs-mid span{width:44px;height:44px;transform:rotate(90deg)}
+}
+.vs-note{
+  max-width:760px;margin:30px auto 0;padding:20px 24px;
+  background:var(--ink);color:#fff;border-radius:18px;text-align:center;
+  font-size:14.5px;font-weight:600;line-height:1.6;
+}
+.vs-note b{font-weight:900;color:var(--pink)}
+.vs-note .big{font-size:1.5em;font-weight:900;display:inline-block;line-height:1}
+
+/* ---------- Strip secteurs (hero) ---------- */
+.sectors-strip{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px 10px;
+  max-width:720px;margin:0 auto 4px;
+}
+.sectors-strip span{
+  font-size:11.5px;font-weight:800;letter-spacing:.4px;color:var(--grey);
+  text-transform:uppercase;
+}
+.sectors-strip i{width:4px;height:4px;border-radius:50%;background:var(--pink);flex-shrink:0}
+
+/* ---------- Équation acquisition ---------- */
+.math{
+  max-width:1000px;margin:0 auto 40px;padding:30px 26px;
+  background:var(--ink);border-radius:26px;color:#fff;text-align:center;
+  box-shadow:0 30px 70px -36px rgba(37,30,175,.95);position:relative;overflow:hidden;
+}
+.math::before{
+  content:'';position:absolute;top:-120px;right:-80px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,60,142,.38),transparent 68%);pointer-events:none;
+}
+.math-row{
+  display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px;
+  position:relative;z-index:2;
+}
+.math-cell{
+  flex:1 1 150px;min-width:132px;padding:16px 14px;border-radius:16px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+}
+.math-cell .v{
+  display:block;font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.05;
+  letter-spacing:-.03em;margin-bottom:5px;
+}
+.math-cell .k{display:block;font-size:11px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.math-cell.hi{background:var(--pink-cta);border-color:var(--pink-cta);box-shadow:0 14px 34px -14px rgba(255,60,142,.9)}
+.math-cell.hi .k{color:rgba(255,255,255,.82)}
+.math-op{display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--pink);flex:0 0 22px}
+@media (max-width:620px){
+  .math{padding:24px 18px;border-radius:20px}
+  .math-op{transform:rotate(90deg);flex-basis:100%;height:14px}
+  .math-cell{flex:1 1 100%}
+}
+.math-note{
+  position:relative;z-index:2;margin-top:22px;font-size:14px;font-weight:600;
+  line-height:1.65;color:rgba(255,255,255,.75);max-width:660px;margin-left:auto;margin-right:auto;
+}
+.math-note strong{color:#fff;font-weight:800}
+.math-note .pk{color:var(--pink);font-weight:900}
+.math-hyp{
+  display:inline-block;margin-top:14px;padding:6px 13px;border-radius:999px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.3px;
+}
+
+/* ---------- Secteurs ---------- */
+.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1020px;margin:0 auto}
+@media (max-width:900px){.sectors{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.sectors{grid-template-columns:1fr}}
+.sec-card{
+  background:#fff;border:1px solid var(--lav);border-radius:20px;padding:24px 22px;
+  box-shadow:0 16px 44px -34px rgba(37,30,175,.75);
+  transition:transform .3s ease,border-color .3s ease;
+  display:flex;flex-direction:column;gap:11px;
+}
+.sec-card:hover{transform:translateY(-4px);border-color:var(--pink)}
+.sec-card .ic{
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
+  background:var(--lav-soft);border:1px solid var(--lav);
+  display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:15px;
+}
+.sec-card h3{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;color:var(--ink)}
+.sec-card .shot{
+  font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:15px;line-height:1.45;
+  color:var(--pink-cta);
+}
+.sec-card p{font-size:13.3px;line-height:1.6;font-weight:500;color:var(--grey)}
+.sec-card p strong{color:var(--ink);font-weight:800}
+.sec-card .film{
+  margin-top:auto;padding-top:12px;border-top:1px dashed var(--lav);
+  font-size:12px;font-weight:700;color:var(--grey);line-height:1.55;
+}
+.sec-card .film b{color:var(--ink);text-transform:uppercase;letter-spacing:.8px;font-size:10px;display:block;margin-bottom:4px}
+
+/* ---------- Bandeau B2B ---------- */
+.b2b{
+  max-width:1020px;margin:22px auto 0;padding:34px 32px;border-radius:26px;
+  background:linear-gradient(135deg,var(--ink) 0%,var(--ink-deep) 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.b2b::before{
+  content:'';position:absolute;bottom:-140px;left:-60px;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,147,234,.3),transparent 68%);pointer-events:none;
+}
+.b2b .tag{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 14px;
+  border-radius:999px;background:var(--pink-cta);
+  font-size:10.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+  position:relative;z-index:2;
+}
+.b2b h3{
+  font-size:clamp(21px,3.2vw,30px);font-weight:800;line-height:1.2;letter-spacing:-.025em;
+  margin-bottom:14px;position:relative;z-index:2;
+}
+.b2b h3 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;color:var(--pink)}
+.b2b p{font-size:14.5px;line-height:1.7;font-weight:500;color:rgba(255,255,255,.75);max-width:760px;position:relative;z-index:2}
+.b2b p + p{margin-top:12px}
+.b2b p strong{color:#fff;font-weight:800}
+.b2b p em{font-style:normal;color:var(--pink);font-weight:800}
+@media (max-width:620px){.b2b{padding:26px 20px;border-radius:20px}}
+
+/* ---------- Grille « pourquoi » ---------- */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1000px;margin:0 auto}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+.why-card{
+  background:#fff;border:1px solid var(--lav);border-radius:20px;padding:26px 24px;
+  box-shadow:0 16px 44px -34px rgba(37,30,175,.75);
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.why-card:hover{transform:translateY(-4px);border-color:var(--pink);box-shadow:0 24px 54px -32px rgba(37,30,175,.8)}
+.why-card .n{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:12px;margin-bottom:15px;
+  background:var(--lav-soft);border:1px solid var(--lav);
+  font-size:16px;
+}
+.why-card h3{font-size:17.5px;font-weight:800;line-height:1.3;letter-spacing:-.02em;margin-bottom:9px;color:var(--ink)}
+.why-card h3 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700}
+.why-card p{font-size:13.8px;line-height:1.65;font-weight:500;color:var(--grey)}
+.why-card p strong{color:var(--ink);font-weight:800}
+.why-card.wide{grid-column:1/-1;background:linear-gradient(135deg,var(--ink) 0%,var(--ink-deep) 100%);border-color:var(--ink)}
+.why-card.wide:hover{transform:none;border-color:var(--ink)}
+.why-card.wide h3{color:#fff;font-size:clamp(19px,2.6vw,26px)}
+.why-card.wide p{color:rgba(255,255,255,.72);max-width:700px}
+.why-card.wide p strong{color:var(--pink)}
+.why-card.wide .n{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+
+/* ---------- Étapes « comment » ---------- */
+.steps{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.step{
+  display:flex;gap:20px;align-items:flex-start;
+  background:#fff;border:1px solid var(--lav);border-radius:20px;padding:24px 26px;
+  box-shadow:0 16px 44px -36px rgba(37,30,175,.75);
+  position:relative;
+}
+.step .idx{
+  flex-shrink:0;width:46px;height:46px;border-radius:14px;
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:900;
+  box-shadow:0 10px 24px -10px rgba(255,60,142,.85);
+}
+.step .bd{text-align:left}
+.step .bd h3{font-size:17.5px;font-weight:800;letter-spacing:-.02em;margin-bottom:7px;color:var(--ink)}
+.step .bd p{font-size:13.8px;line-height:1.65;font-weight:500;color:var(--grey)}
+.step .bd p strong{color:var(--ink);font-weight:800}
+.step .bd .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.step .bd .tags span{
+  padding:5px 11px;border-radius:8px;background:var(--lav-soft);border:1px solid var(--lav);
+  font-size:11.5px;font-weight:700;color:var(--ink);
+}
+@media (max-width:560px){
+  .step{gap:14px;padding:20px 18px}
+  .step .idx{width:38px;height:38px;border-radius:11px;font-size:16px}
+}
+.steps-out{
+  max-width:880px;margin:22px auto 0;text-align:center;
+  font-family:var(--font-serif);font-style:italic;font-weight:700;
+  font-size:clamp(17px,2.4vw,23px);line-height:1.4;color:var(--ink);
+}
+.steps-out em{font-style:normal;color:var(--pink-cta)}
+
+/* ---------- Bandeau autorité ---------- */
+.auth{
+  max-width:880px;margin:0 auto;
+  display:flex;align-items:center;gap:22px;
+  background:#fff;border:1px solid var(--lav);border-radius:22px;padding:24px 28px;
+  box-shadow:0 20px 54px -36px rgba(37,30,175,.8);
+}
+.auth-faces{display:flex;flex-shrink:0}
+.auth-faces img{
+  width:60px;height:60px;border-radius:50%;object-fit:cover;
+  border:3px solid #fff;box-shadow:0 6px 18px -8px rgba(37,30,175,.7);margin-left:-16px;
+}
+.auth-faces img:first-child{margin-left:0}
+.auth-tx{text-align:left}
+.auth-tx b{display:block;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.auth-tx p{font-size:13px;font-weight:600;color:var(--grey);line-height:1.6}
+.auth-tx p em{font-style:normal;color:var(--pink-cta);font-weight:800}
+@media (max-width:620px){
+  .auth{flex-direction:column;text-align:center;gap:16px;padding:22px 20px}
+  .auth-tx{text-align:center}
+}
+
+/* ---------- Formulaire ---------- */
+.form-sec{
+  padding:80px 0 88px;
+  background:linear-gradient(180deg,var(--lav-soft) 0%,#fff 100%);
+  border-top:1px solid var(--lav);
+}
+.form-inner{max-width:760px;margin:0 auto;text-align:center}
+.form-steps{display:flex;flex-direction:column;gap:9px;max-width:300px;margin:0 auto 22px}
+.form-steps .lbl{
+  display:flex;align-items:center;gap:7px;justify-content:center;
+  font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--grey);
+}
+.form-steps .lbl b{color:var(--pink-cta);font-weight:900}
+.form-steps .seg{display:flex;gap:6px}
+.form-steps .seg i{flex:1;height:5px;border-radius:999px;background:var(--lav);position:relative;overflow:hidden}
+.form-steps .seg i::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--pink-cta),var(--pink));
+  transition:width 1s cubic-bezier(.22,.61,.36,1);
+}
+.form-steps.in .seg i.a::before{width:100%}
+.form-shell{
+  margin-top:26px;padding:10px;background:#fff;
+  border:1px solid var(--lav);border-radius:24px;
+  box-shadow:0 30px 70px -40px rgba(37,30,175,.9);
+}
+.form-shell iframe{width:100%;border:0;display:block;border-radius:16px;background:#fff}
+.form-ph{
+  padding:46px 22px;border:2px dashed var(--lav);border-radius:16px;
+  background:var(--lav-soft);color:var(--grey);
+}
+.form-ph b{display:block;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:7px}
+.form-ph span{font-size:12.5px;font-weight:600}
+.form-ph code{
+  display:inline-block;margin-top:10px;padding:5px 9px;border-radius:7px;
+  background:#fff;border:1px solid var(--lav);
+  font-size:11.5px;color:var(--pink-cta);font-weight:700;
+}
+.form-after{
+  display:inline-flex;align-items:center;gap:9px;margin-top:20px;
+  padding:12px 20px;border-radius:999px;
+  background:#fff;border:1px solid var(--lav);
+  font-size:12.5px;font-weight:700;color:var(--grey);
+}
+.form-after i{color:var(--pink-cta)}
+
+/* ---------- FAQ ---------- */
+.faq{padding:76px 0 84px;background:#fff;border-top:1px solid var(--lav)}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:11px}
+.faq-item{
+  background:var(--paper);border:1px solid var(--lav);border-radius:16px;overflow:hidden;
+  transition:border-color .3s ease,box-shadow .3s ease;
+}
+.faq-item[open]{border-color:var(--pink);box-shadow:0 14px 40px -32px rgba(37,30,175,.8)}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:20px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:15px;font-weight:800;color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{
+  flex-shrink:0;width:30px;height:30px;border-radius:9px;
+  background:var(--lav-soft);border:1px solid var(--lav);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--pink-cta);font-size:11px;transition:transform .3s ease;
+}
+.faq-item[open] summary .plus{transform:rotate(45deg)}
+.faq-item .a{padding:0 22px 20px;font-size:14px;line-height:1.7;font-weight:500;color:var(--grey)}
+.faq-item .a strong{color:var(--ink);font-weight:800}
+.faq-item .a .pink{color:var(--pink-cta);font-weight:800}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
+.foot-logo img{height:40px;width:auto;margin:0 auto 14px;opacity:.95}
+.foot-copy{font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;max-width:620px;margin:0 auto}
+.foot-copy strong{color:rgba(255,255,255,.9);font-weight:700}
+.foot-links{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.foot-links a{
+  font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  color:rgba(255,255,255,.55);transition:color .2s ease;
+}
+.foot-links a:hover{color:var(--pink)}
+
+/* ---------- Sticky CTA mobile ---------- */
+.sticky{
+  position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(140%);
+  z-index:90;padding:15px 26px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
+  font-size:12.5px;font-weight:800;letter-spacing:.6px;white-space:nowrap;
+  box-shadow:0 16px 40px -12px rgba(255,60,142,.9);
+  display:inline-flex;align-items:center;gap:9px;
+  transition:transform .35s cubic-bezier(.2,.9,.3,1.2);
+  max-width:calc(100vw - 28px);
+}
+.sticky.show{transform:translateX(-50%) translateY(0)}
+@media (min-width:900px){.sticky{display:none!important}}
+
+@media (max-width:640px){
+  .sec{padding:58px 0}
+  .form-sec{padding:60px 0 70px}
+  .faq{padding:58px 0 64px}
+  .hero{padding:22px 0 44px}
+  .vsl-frame{padding:6px;border-radius:18px}
+  .cta{padding:17px 28px;font-size:13.5px}
+  .kill-item{font-size:11.5px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero">
+  <div class="wrap">
+
+    <div class="hero-logo rv">
+      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png" alt="Scalevision" width="300" height="56">
+    </div>
+
+    <div style="display:flex;justify-content:center">
+      <span class="eyebrow rv"><span class="dot"></span> Pour les entreprises · 2026</span>
+    </div>
+
+    <div class="kill rv d1" id="killRow">
+      <span class="kill-item"><i class="fa-regular fa-newspaper"></i> Flyers &amp; print</span>
+      <span class="kill-item"><i class="fa-regular fa-comments"></i> Bouche-à-oreille</span>
+      <span class="kill-item"><i class="fa-solid fa-user-tag"></i> Influenceurs à 1 500 € le post</span>
+      <span class="kill-item"><i class="fa-solid fa-building"></i> Agence à 3 000 €/mois</span>
+    </div>
+
+    <h1 class="rv d2">
+      Comment cette entreprise a fait <span class="x5">×5</span> sur son CA
+      en&nbsp;2026 <span class="stop">en arrêtant tout ça.</span>
+      <span class="tail">
+        <em>Et comment</em> former <span class="mark">vos employés</span> <em>pour faire pareil.</em>
+      </span>
+    </h1>
+
+    <p class="lead rv d3">
+      Zéro agence, zéro flyer, zéro influenceur. Deux salariés formés au tournage et au montage,
+      <strong>20 vidéos par mois</strong>. C'est ça, un canal d'acquisition.
+    </p>
+
+    <div class="sectors-strip rv d3">
+      <span>Magasin</span><i></i><span>Restaurant</span><i></i><span>Atelier</span><i></i>
+      <span>Artisan</span><i></i><span>BTP</span><i></i><span>Industrie</span><i></i>
+      <span>Services B2B</span>
+    </div>
+
+    <!-- VSL Loom -->
+    <div class="vsl rv d4" id="video">
+      <span class="vsl-label"><i class="fa-solid fa-circle"></i> Je vous explique tout en vidéo</span>
+      <div class="vsl-frame">
+        <div class="vsl-inner" id="loomSlot">
+          <!-- iframe Loom injectée par JS (voir LOOM_ID en bas de page) -->
+        </div>
+      </div>
+      <div class="vsl-under">
+        <span><i class="fa-solid fa-video"></i> Le cas complet + comment on forme nos équipes</span>
+        <span><i class="fa-solid fa-mobile-screen"></i> Avec un simple iPhone</span>
+        <span><i class="fa-solid fa-lock-open"></i> Aucune inscription</span>
+      </div>
+    </div>
+
+    <div class="cta-wrap rv d4" style="margin-top:34px">
+      <span class="hand">on en parle 20 minutes ?</span>
+      <a href="#form" class="cta">
+        <span>Réserver un appel</span>
+        <span class="arrow">→</span>
+      </a>
+      <span class="cta-sub"><i class="fa-solid fa-check"></i> Sans engagement · On vous dit franchement si c'est pour vous</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= MARQUEE ============================= -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-mask">
+    <div class="mq-track">
+      <span class="mq-item mq-item--fill">Fini le bouche-à-oreille</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item">Fini les flyers</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item mq-item--pink">Fini les agences à 3 000 €/mois</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item mq-item--serif">place à vos équipes</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <!-- duplicata pour la boucle infinie -->
+      <span class="mq-item mq-item--fill">Fini le bouche-à-oreille</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item">Fini les flyers</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item mq-item--pink">Fini les agences à 3 000 €/mois</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+      <span class="mq-item mq-item--serif">place à vos équipes</span>
+      <span class="mq-star"><i class="fa-solid fa-bolt"></i></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 1. LE VRAI PROBLÈME ============================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Le vrai problème</span>
+      <h2>Vous ne payez pas trop cher.<br><span class="ital">Vous payez la mauvaise chose.</span></h2>
+      <p class="lead">Ce n'est pas votre budget le problème. C'est là où il part.</p>
+    </div>
+
+    <div class="vs rv d1">
+      <div class="vs-col out">
+        <span class="vs-tag"><i class="fa-solid fa-xmark"></i> Ce que ça coûte aujourd'hui</span>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-regular fa-newspaper"></i></span>
+          <span class="tx">
+            <b>Flyers, print, affichage</b>
+            <span>Distribués, jetés le jour même. <em>Zéro mesure</em>, zéro suivi.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-regular fa-comments"></i></span>
+          <span class="tx">
+            <b>Le bouche-à-oreille</b>
+            <span>Vous ne le contrôlez pas, et il ne vous ouvre <em>aucun nouveau marché</em>.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-user-tag"></i></span>
+          <span class="tx">
+            <b>Un influenceur à 1 500 € le post</b>
+            <span>Un pic, puis plus rien. Et <em>ce n'est pas votre audience</em> : vous la louez.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-building"></i></span>
+          <span class="tx">
+            <b>Une agence à 3 000 €/mois</b>
+            <span>4 vidéos par mois. Le jour où vous arrêtez, <em>il ne reste rien</em>.</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="vs-mid"><span>VS</span></div>
+
+      <div class="vs-col in">
+        <span class="vs-tag"><i class="fa-solid fa-check"></i> Ce qu'on vous propose</span>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span class="tx">
+            <b>Vous formez 1 à 3 employés</b>
+            <span>Une formation, une fois. Ils repartent avec une compétence, <em>pas une facture mensuelle</em>.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-film"></i></span>
+          <span class="tx">
+            <b>15 à 20 vidéos par mois</b>
+            <span>Au lieu de 4. Celui qui filme est <em>déjà sur place</em>, tous les jours.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-bolt"></i></span>
+          <span class="tx">
+            <b>Une réactivité immédiate</b>
+            <span>Un chantier, une livraison, un client content : <em>filmé dans l'heure</em>.</span>
+          </span>
+        </div>
+
+        <div class="vs-row">
+          <span class="ic"><i class="fa-solid fa-vault"></i></span>
+          <span class="tx">
+            <b>Le savoir-faire reste chez vous</b>
+            <span>Dans un an, vous produisez toujours. <em>Sans nous, sans budget mensuel.</em></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="vs-note rv d2">
+      Une agence à 3 000 €/mois qui livre 4 vidéos, c'est <span class="big">750 €</span> la vidéo.<br>
+      Un employé formé qui en sort 15 par mois, <b>c'est une autre économie.</b>
+    </p>
+  </div>
+</section>
+
+<!-- ============================= 2. POURQUOI : CANAL D'ACQUISITION ============================= -->
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Pourquoi</span>
+      <h2>Ce n'est pas de la visibilité.<br>C'est un <span class="pink">canal d'acquisition</span>.</h2>
+      <p class="lead">
+        Pas « gagner en notoriété ». <strong>Aller chercher des clients que vous n'auriez jamais eus.</strong>
+        Et ça se calcule.
+      </p>
+    </div>
+
+    <div class="math rv">
+      <div class="math-row">
+        <div class="math-cell">
+          <span class="v">1</span>
+          <span class="k">vidéo publiée</span>
+        </div>
+        <div class="math-op">→</div>
+        <div class="math-cell">
+          <span class="v">1 000</span>
+          <span class="k">personnes la voient</span>
+        </div>
+        <div class="math-op">→</div>
+        <div class="math-cell">
+          <span class="v">1 %</span>
+          <span class="k">vous contactent</span>
+        </div>
+        <div class="math-op">=</div>
+        <div class="math-cell hi">
+          <span class="v">10</span>
+          <span class="k">nouveaux clients</span>
+        </div>
+      </div>
+      <p class="math-note">
+        Et 1 000 vues, c'est une vidéo <strong>moyenne</strong>. Celle qui part, c'est 200 000 vues.
+        Maintenant : <span class="pk">20 vidéos par mois</span>, pendant un an. <strong>Refaites le calcul.</strong>
+      </p>
+      <span class="math-hyp">Ordre de grandeur, pas une promesse — à ajuster selon votre panier moyen et votre zone</span>
+    </div>
+
+    <div class="why">
+      <div class="why-card rv">
+        <span class="n">🎯</span>
+        <h3>Vous ne touchez plus vos clients, <span class="ital">vous allez les chercher</span></h3>
+        <p>
+          Un flyer attend qu'on le ramasse. Une vidéo est <strong>poussée par l'algorithme</strong>
+          vers des gens de votre zone qui ne vous cherchaient même pas. De la prospection,
+          pendant que vous travaillez.
+        </p>
+      </div>
+
+      <div class="why-card rv d1">
+        <span class="n">🤖</span>
+        <h3>À l'ère de l'IA, <span class="ital">l'humain devient rare</span></h3>
+        <p>
+          Tout est généré, lissé, dupliqué. <strong>Les gens n'achètent pas de l'IA, ils achètent de l'humain.</strong>
+          Et l'humain, chez vous, il est déjà là.
+        </p>
+      </div>
+
+      <div class="why-card rv d2">
+        <span class="n">📈</span>
+        <h3>C'est le <span class="ital">volume</span> qui décide</h3>
+        <p>
+          2 vidéos par mois : invisible. 20 : incontournable. Il suffit d'<strong>une seule qui parte</strong>
+          pour remplir votre agenda — et personne ne peut deviner laquelle. À 750 € la vidéo,
+          ça ne se sous-traite pas.
+        </p>
+      </div>
+
+      <div class="why-card rv d3">
+        <span class="n">🏦</span>
+        <h3>Une vidéo est <span class="ital">un actif</span>, un flyer est une dépense</h3>
+        <p>
+          Le flyer finit à la poubelle. La vidéo sert encore dans six mois : pub Meta, preuve sur votre site,
+          argument en rendez-vous. <strong>Payée une fois, elle travaille des années.</strong>
+        </p>
+      </div>
+
+      <div class="why-card wide rv d4">
+        <span class="n">🎬</span>
+        <h3>Et il y a déjà tout à filmer chez vous.</h3>
+        <p>
+          Vos chantiers, vos coulisses, vos équipes, le geste technique que personne ne comprend.
+          <strong>Vous n'avez pas besoin d'idées : vous avez besoin de quelqu'un, en interne, qui sache filmer et monter.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 3. TOUS LES SECTEURS ============================= -->
+<section class="sec sec--tint-out">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Tous les secteurs</span>
+      <h2>Ça marche pour <span class="pink">tout le monde</span>.<br><span class="ital">Vraiment tout le monde.</span></h2>
+      <p class="lead">
+        <strong>Plus votre métier est concret, mieux ça marche.</strong>
+        Et personne dans votre secteur ne le filme encore.
+      </p>
+    </div>
+
+    <div class="sectors">
+
+      <div class="sec-card rv">
+        <span class="ic"><i class="fa-solid fa-wrench"></i></span>
+        <h3>Plombier, électricien, chauffagiste</h3>
+        <p class="shot">« Celui qui filme ses interventions devient celui qu'on appelle. »</p>
+        <p>
+          Une fuite trouvée en 30 secondes, une erreur que tout le monde fait.
+          <strong>Vous devenez le pro connu de votre ville.</strong>
+        </p>
+        <span class="film"><b>À filmer</b>Interventions, avant/après, « ne faites jamais ça chez vous »</span>
+      </div>
+
+      <div class="sec-card rv d1">
+        <span class="ic"><i class="fa-solid fa-utensils"></i></span>
+        <h3>Restaurant, bar, boulangerie</h3>
+        <p class="shot">« Un resto qui ouvre peut passer devant les institutions du quartier. »</p>
+        <p>
+          Un plat filmé de près, une cuisine en service. <strong>Les gens viennent le soir même</strong>,
+          pour commander ce qu'ils ont vu.
+        </p>
+        <span class="film"><b>À filmer</b>Le geste en cuisine, les arrivages, la salle qui se remplit</span>
+      </div>
+
+      <div class="sec-card rv d2">
+        <span class="ic"><i class="fa-solid fa-store"></i></span>
+        <h3>Magasin, commerce, concept store</h3>
+        <p class="shot">« Les gens entrent pour le produit qu'ils ont vu la veille. »</p>
+        <p>
+          Chaque arrivage est une vidéo. <strong>Votre zone de chalandise passe de deux rues
+          à toute l'agglomération.</strong>
+        </p>
+        <span class="film"><b>À filmer</b>Arrivages, conseils, coups de cœur, l'envers du magasin</span>
+      </div>
+
+      <div class="sec-card rv">
+        <span class="ic"><i class="fa-solid fa-helmet-safety"></i></span>
+        <h3>BTP, rénovation, paysagiste, pisciniste</h3>
+        <p class="shot">« L'avant/après est le format le plus regardé d'internet. »</p>
+        <p>
+          Vous avez déjà le meilleur contenu entre les mains, et il part à la poubelle tous les soirs.
+          <strong>Un chantier bien filmé vous en ramène trois.</strong>
+        </p>
+        <span class="film"><b>À filmer</b>Avant/après, timelapse de chantier, le détail que le client ne voit jamais</span>
+      </div>
+
+      <div class="sec-card rv d1">
+        <span class="ic"><i class="fa-solid fa-industry"></i></span>
+        <h3>Industrie, usine, atelier</h3>
+        <p class="shot">« Personne n'a jamais vu comment c'est fabriqué. »</p>
+        <p>
+          Les machines, les process, la précision : c'est hypnotique, et ça fait des millions de vues.
+          <strong>C'est aussi ce qui vous fait recruter.</strong>
+        </p>
+        <span class="film"><b>À filmer</b>La ligne de production, le contrôle qualité, la pièce qui sort</span>
+      </div>
+
+      <div class="sec-card rv d2">
+        <span class="ic"><i class="fa-solid fa-scissors"></i></span>
+        <h3>Esthétique, coiffure, santé, sport, auto</h3>
+        <p class="shot">« Le résultat se filme. Donc il se vend. »</p>
+        <p>
+          Transformation, soin, réparation : tout ce qui se voit en fin de prestation
+          <strong>est une raison de prendre rendez-vous.</strong>
+        </p>
+        <span class="film"><b>À filmer</b>Transformations, gestes techniques, questions fréquentes</span>
+      </div>
+
+    </div>
+
+    <div class="b2b rv d2">
+      <span class="tag"><i class="fa-solid fa-briefcase"></i> Et si vous vendez à des entreprises ?</span>
+      <h3>Le B2B, c'est là où <span class="ital">la place est encore libre</span>.</h3>
+      <p>
+        Dans la plupart des secteurs B2B, <em>personne ne publie</em>. Or l'acheteur, le directeur technique,
+        le chef de chantier <strong>scrollent le soir comme tout le monde</strong>.
+      </p>
+      <p>
+        Une vidéo qui explique un problème que seuls vos clients comprennent, c'est
+        <strong>le meilleur commercial que vous aurez jamais eu</strong> : 24 h/24, et il ne démissionne pas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 4. COMMENT ON FORME ============================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Comment</span>
+      <h2>Comment on forme <span class="pink">vos employés</span>.</h2>
+      <p class="lead">Pas de théorie. On filme avec eux, on monte avec eux, jusqu'à ce que ça tourne sans nous.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step rv">
+        <span class="idx">1</span>
+        <span class="bd">
+          <h3>On vient voir ce qui est filmable chez vous</h3>
+          <p>
+            On regarde votre métier, vos locaux, vos équipes. On en ressort
+            <strong>les 20 premières vidéos, listées et prêtes à tourner</strong>.
+          </p>
+          <span class="tags"><span>Audit terrain</span><span>Angles</span><span>Plan de 20 vidéos</span></span>
+        </span>
+      </div>
+
+      <div class="step rv d1">
+        <span class="idx">2</span>
+        <span class="bd">
+          <h3>On les forme au tournage</h3>
+          <p>
+            Cadrer, éclairer, le son, parler face caméra sans se crisper.
+            <strong>Avec un iPhone, pas 4 000 € de matériel.</strong>
+          </p>
+          <span class="tags"><span>Cadrage</span><span>Lumière</span><span>Son</span><span>Face caméra</span><span>iPhone</span></span>
+        </span>
+      </div>
+
+      <div class="step rv d2">
+        <span class="idx">3</span>
+        <span class="bd">
+          <h3>On les forme au montage et aux accroches</h3>
+          <p>
+            CapCut, le rythme, les sous-titres. Et surtout les <strong>hooks</strong> :
+            les trois secondes qui décident entre 200 vues et 200 000.
+          </p>
+          <span class="tags"><span>CapCut</span><span>Rythme</span><span>Sous-titres</span><span>Hooks</span></span>
+        </span>
+      </div>
+
+      <div class="step rv d3">
+        <span class="idx">4</span>
+        <span class="bd">
+          <h3>On installe la routine, puis on s'efface</h3>
+          <p>
+            Un créneau de tournage par semaine, et on relit les premières vidéos une par une.
+            <strong>On reste le temps que ça devienne une habitude.</strong>
+          </p>
+          <span class="tags"><span>Calendrier</span><span>Retours vidéo par vidéo</span><span>Suivi</span></span>
+        </span>
+      </div>
+    </div>
+
+    <p class="steps-out rv d4">
+      À la fin, vous n'avez plus besoin de nous.<br><em>C'est tout l'intérêt.</em>
+    </p>
+  </div>
+</section>
+
+<!-- ============================= AUTORITÉ ============================= -->
+<section class="sec sec--tint" style="padding-top:0">
+  <div class="wrap">
+    <div class="auth rv">
+      <span class="auth-faces">
+        <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin Kovriga, co-fondateur de Scalevision" loading="lazy">
+        <img src="./assets/img/vsl-presta/lucas.jpg" alt="Lucas Daval, co-fondateur de Scalevision" loading="lazy">
+      </span>
+      <span class="auth-tx">
+        <b>Qui vous forme : Lucas Daval &amp; Constantin Kovriga</b>
+        <p>
+          Agence de création de contenu à Paris. <em>+ 2 000 000 €</em> de CA généré,
+          <em>150 créateurs</em> accompagnés, des équipes qui filment et montent en interne tous les jours.
+          <strong>On vous apprend exactement ce qu'on fait chez nous.</strong>
+        </p>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FORMULAIRE ============================= -->
+<section class="form-sec" id="form">
+  <div class="wrap">
+    <div class="form-inner">
+
+      <div class="form-steps rv" id="formSteps">
+        <span class="lbl">Étape <b>1</b>/2 · votre entreprise</span>
+        <span class="seg" aria-hidden="true"><i class="a"></i><i></i></span>
+      </div>
+
+      <h2 class="rv d1">Dites-nous où vous en êtes.<br><span class="ital">On vous rappelle sous 24 h.</span></h2>
+      <p class="lead rv d1" style="margin:16px auto 0">
+        2 minutes de questions simples. Ensuite <strong>un appel de 20 minutes</strong> :
+        comment on formerait vos équipes, et combien ça coûte.
+      </p>
+
+      <div class="form-shell rv d2">
+        <div id="tallySlot">
+          <!-- iframe Tally injectée par JS (voir TALLY_ID en bas de page) -->
+        </div>
+      </div>
+
+      <span class="form-after rv d3">
+        <i class="fa-regular fa-clock"></i> 2 minutes · aucune carte bancaire · aucun engagement
+      </span>
+
+      <div style="margin-top:18px">
+        <a href="#video" class="cta-sub" style="display:inline-flex;align-items:center;gap:8px">
+          <i class="fa-solid fa-play" style="color:var(--pink-cta)"></i> Revoir la vidéo
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FAQ ============================= -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">On vous répond</span>
+      <h2>Les questions <span class="ital">qu'on nous pose</span>.</h2>
+    </div>
+
+    <div class="faq-list rv d1">
+      <details class="faq-item">
+        <summary>Ça marche pour mon secteur ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          Plomberie, restauration, BTP, immobilier, santé, industrie, artisanat, commerce, auto, esthétique,
+          services aux entreprises. <strong>On n'a jamais trouvé un métier qui n'avait rien à montrer.</strong>
+          Et <span class="pink">le B2B marche très bien</span>, justement parce que personne n'y publie.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Il faut acheter du matériel ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          Non. <span class="pink">Un iPhone récent suffit.</span> Pour aller plus loin : un micro à 60 € et une lumière.
+          Pas de caméra à 3 000 €.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mes employés ne sont pas à l'aise face caméra. <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          C'est le cas de tout le monde au début. Beaucoup des vidéos qui marchent le mieux
+          <strong>ne montrent aucun visage</strong> : des mains, un geste, une machine, un avant/après.
+          On commence par là.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Combien de temps ça prend, pour eux ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          La formation : quelques sessions. Ensuite <strong>une à deux heures par semaine</strong> pour sortir
+          plusieurs vidéos d'un coup. Pas un poste à temps plein.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>C'est quel budget ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          Ça dépend du nombre de personnes à former. Ce qui est sûr :
+          <span class="pink">c'est ponctuel</span>, pas un abonnement d'agence à vie.
+          Le chiffre exact pendant l'appel.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Vous intervenez sur place ou à distance ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          Les deux. <strong>Sur place</strong> en Île-de-France et dans les grandes villes,
+          <strong>à distance</strong> partout ailleurs — avec des retours sur chaque vidéo qu'ils produisent.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Et si la personne formée quitte l'entreprise ? <span class="plus"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="a">
+          C'est pour ça qu'on recommande d'en former <strong>deux ou trois</strong>. Et le plan de contenu,
+          les process, les modèles de montage <strong>restent dans l'entreprise</strong>.
+        </div>
+      </details>
+    </div>
+
+    <div class="cta-wrap rv d2" style="margin-top:44px">
+      <a href="#form" class="cta">
+        <span>Réserver mon appel de 20 min</span>
+        <span class="arrow">→</span>
+      </a>
+      <span class="cta-sub"><i class="fa-solid fa-check"></i> On vous dit franchement si on peut vous aider</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-logo">
+      <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/logoscale.png" alt="Scalevision" loading="lazy">
+    </div>
+    <div class="foot-copy">
+      <strong>Scalevision</strong> — 4 rue Martel, 75010 Paris<br>
+      SIRET 899&nbsp;355&nbsp;192&nbsp;00019 · Société enregistrée en France, fondée par Lucas&nbsp;Daval &amp; Constantin&nbsp;Kovriga.<br>
+      © 2026 scalevision.fr — Tous droits réservés.
+    </div>
+    <div class="foot-links">
+      <a href="/mentions-legales-ugcademie">Mentions légales</a>
+      <a href="/politique-de-confidentialite-ugcademie">Confidentialité</a>
+      <a href="/cgv">CGV</a>
+      <a href="mailto:contact@scalevision.fr">contact@scalevision.fr</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA MOBILE -->
+<a href="#form" class="sticky" id="sticky">
+  <i class="fa-solid fa-bolt"></i> Réserver un appel
+</a>
+
+<script>
+(function(){
+  'use strict';
+
+  /* =====================================================================
+     À REMPLACER — les 2 seules valeurs à changer sur cette page
+     ---------------------------------------------------------------------
+     LOOM_ID  : l'identifiant du Loom. Dans https://www.loom.com/share/ab12cd34...
+                c'est la partie après /share/ (avant le « ? » s'il y en a un).
+     TALLY_ID : l'identifiant du formulaire Tally entreprises (ex. vGBWP4).
+                ⚠️ créer un NOUVEAU form : ne pas réutiliser celui des créateurs.
+     Tant qu'elles valent REPLACE_*, un encart d'attente s'affiche à la place.
+     ===================================================================== */
+  var LOOM_ID  = 'REPLACE_LOOM_ID';
+  var TALLY_ID = 'REPLACE_TALLY_ID';
+
+  /* ---------- Loom ---------- */
+  var loomSlot = document.getElementById('loomSlot');
+  if (LOOM_ID.indexOf('REPLACE_') === 0) {
+    loomSlot.innerHTML =
+      '<div class="vsl-ph">' +
+        '<span class="ico"><i class="fa-solid fa-play"></i></span>' +
+        '<b>La vidéo arrive ici</b>' +
+        '<span>Coller l\'ID du Loom dans LOOM_ID (bas de page)</span>' +
+      '</div>';
+  } else {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.loom.com/embed/' + LOOM_ID + '?hideEmbedTopBar=true';
+    f.title = 'Vidéo — Former vos employés à la création de contenu';
+    f.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('loading', 'lazy');
+    loomSlot.appendChild(f);
+  }
+
+  /* ---------- Tally ---------- */
+  var tallySlot = document.getElementById('tallySlot');
+  if (TALLY_ID.indexOf('REPLACE_') === 0) {
+    tallySlot.innerHTML =
+      '<div class="form-ph">' +
+        '<b>Le formulaire arrive ici</b>' +
+        '<span>Créer le form Tally « entreprises », puis coller son ID dans&nbsp;:</span>' +
+        '<code>TALLY_ID</code>' +
+      '</div>';
+  } else {
+    var t = document.createElement('iframe');
+    t.setAttribute('data-tally-src',
+      'https://tally.so/embed/' + TALLY_ID +
+      '?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1');
+    t.setAttribute('loading', 'lazy');
+    t.setAttribute('height', '420');
+    t.setAttribute('frameborder', '0');
+    t.title = 'Scalevision — Former vos employés à la création de contenu';
+    t.style.width = '100%';
+    tallySlot.appendChild(t);
+
+    // loader officiel Tally
+    var d = document, w = 'https://tally.so/widgets/embed.js';
+    var load = function(){
+      if (typeof Tally !== 'undefined') { Tally.loadEmbeds(); return; }
+      d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(el){
+        el.src = el.dataset.tallySrc;
+      });
+    };
+    if (typeof Tally !== 'undefined') { load(); }
+    else if (d.querySelector('script[src="' + w + '"]') === null) {
+      var s = d.createElement('script');
+      s.src = w; s.onload = load; s.onerror = load;
+      d.body.appendChild(s);
+    }
+
+    /* Submit du Tally → event de conversion.
+       Quand le pixel B2B sera en place, décommenter le fbq ci-dessous. */
+    window.addEventListener('message', function(e){
+      if (typeof e.data !== 'string' || e.data.indexOf('Tally.FormSubmitted') === -1) return;
+      if (typeof gtag === 'function') {
+        gtag('event', 'lead_entreprise', { form_id: TALLY_ID, page: 'former-vos-employes' });
+      }
+      // if (typeof fbq === 'function') fbq('track', 'LeadEntreprise');
+    });
+  }
+
+  /* ---------- Reveal au scroll ---------- */
+  var targets = document.querySelectorAll('.rv, #killRow, #formSteps');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- Sticky CTA mobile ---------- */
+  var sticky = document.getElementById('sticky');
+  var formSec = document.getElementById('form');
+  window.addEventListener('scroll', function(){
+    var past = window.scrollY > 520;
+    var atForm = formSec.getBoundingClientRect().top < window.innerHeight * 0.75;
+    sticky.classList.toggle('show', past && !atForm);
+  }, { passive: true });
+
+})();
+</script>
+
+</body>
+</html>
