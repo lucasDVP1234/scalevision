@@ -420,60 +420,57 @@ h1 .tail em{
 }
 
 /* ---------- Secteurs ---------- */
-.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:1020px;margin:0 auto}
-@media (max-width:900px){.sectors{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:600px){.sectors{grid-template-columns:1fr}}
+.sectors{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1020px;margin:0 auto}
+@media (max-width:700px){.sectors{grid-template-columns:1fr}}
 .sec-card{
-  background:#fff;border:1px solid var(--lav);border-radius:20px;padding:24px 22px;
+  display:flex;gap:16px;align-items:stretch;
+  background:#fff;border:1px solid var(--lav);border-radius:20px;padding:16px;
   box-shadow:0 16px 44px -34px rgba(37,30,175,.75);
   transition:transform .3s ease,border-color .3s ease;
-  display:flex;flex-direction:column;gap:11px;
 }
 .sec-card:hover{transform:translateY(-4px);border-color:var(--pink)}
-.sec-card .ic{
-  width:40px;height:40px;border-radius:12px;flex-shrink:0;
-  background:var(--lav-soft);border:1px solid var(--lav);
-  display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:15px;
-}
-.sec-card h3{font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;color:var(--ink)}
-.sec-card .shot{
-  font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:15px;line-height:1.45;
-  color:var(--pink-cta);
-}
-.sec-card p{font-size:13.3px;line-height:1.6;font-weight:500;color:var(--grey)}
-.sec-card p strong{color:var(--ink);font-weight:800}
-.sec-card .film{
-  margin-top:auto;padding-top:12px;border-top:1px dashed var(--lav);
-  font-size:12px;font-weight:700;color:var(--grey);line-height:1.55;
-}
-.sec-card .film b{color:var(--ink);text-transform:uppercase;letter-spacing:.8px;font-size:10px;display:block;margin-bottom:4px}
 
-/* ---------- Bandeau B2B ---------- */
-.b2b{
-  max-width:1020px;margin:22px auto 0;padding:34px 32px;border-radius:26px;
-  background:linear-gradient(135deg,var(--ink) 0%,var(--ink-deep) 100%);
-  color:#fff;position:relative;overflow:hidden;
+/* Encart vidéo vertical (9:16) — rempli depuis SECTOR_MEDIA en bas de page */
+.sec-vid{
+  position:relative;flex:0 0 108px;width:108px;aspect-ratio:9/16;
+  border-radius:14px;overflow:hidden;
+  background:linear-gradient(160deg,var(--ink) 0%,var(--ink-deep) 100%);
 }
-.b2b::before{
-  content:'';position:absolute;bottom:-140px;left:-60px;width:400px;height:400px;border-radius:50%;
-  background:radial-gradient(circle,rgba(251,147,234,.3),transparent 68%);pointer-events:none;
+.sec-vid video,.sec-vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sec-vid::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);border-radius:14px;
 }
-.b2b .tag{
-  display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 14px;
-  border-radius:999px;background:var(--pink-cta);
-  font-size:10.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
-  position:relative;z-index:2;
+.sec-vid .ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:7px;color:#fff;
 }
-.b2b h3{
-  font-size:clamp(21px,3.2vw,30px);font-weight:800;line-height:1.2;letter-spacing:-.025em;
-  margin-bottom:14px;position:relative;z-index:2;
+.sec-vid .ph i{
+  width:30px;height:30px;border-radius:50%;background:var(--pink-cta);
+  display:flex;align-items:center;justify-content:center;font-size:10px;padding-left:2px;
+  box-shadow:0 0 0 7px rgba(255,60,142,.16);
 }
-.b2b h3 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;color:var(--pink)}
-.b2b p{font-size:14.5px;line-height:1.7;font-weight:500;color:rgba(255,255,255,.75);max-width:760px;position:relative;z-index:2}
-.b2b p + p{margin-top:12px}
-.b2b p strong{color:#fff;font-weight:800}
-.b2b p em{font-style:normal;color:var(--pink);font-weight:800}
-@media (max-width:620px){.b2b{padding:26px 20px;border-radius:20px}}
+.sec-vid .ph b{font-size:9.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;opacity:.65}
+@media (max-width:460px){.sec-vid{flex-basis:88px;width:88px}}
+
+.sec-bd{display:flex;flex-direction:column;gap:9px;text-align:left;min-width:0;padding:4px 4px 4px 0}
+.sec-bd h3{
+  font-size:14.5px;font-weight:800;letter-spacing:-.02em;line-height:1.3;color:var(--ink);
+  display:flex;align-items:baseline;gap:7px;
+}
+.sec-bd h3 .e{font-size:1.25em;line-height:1;flex-shrink:0}
+.sec-bd .shot{
+  font-family:var(--font-serif);font-style:italic;font-weight:700;
+  font-size:15px;line-height:1.4;color:var(--pink-cta);
+}
+.sec-bd .film{
+  margin-top:auto;padding-top:11px;border-top:1px dashed var(--lav);
+  font-size:11.5px;font-weight:700;color:var(--grey);line-height:1.5;
+}
+.sec-bd .film b{
+  display:block;margin-bottom:3px;
+  color:var(--ink);text-transform:uppercase;letter-spacing:.9px;font-size:9.5px;
+}
 
 /* ---------- Étapes « comment » ---------- */
 .steps{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
@@ -897,85 +894,61 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     <div class="sectors">
 
       <div class="sec-card rv">
-        <span class="ic"><i class="fa-solid fa-wrench"></i></span>
-        <h3>Plombier, électricien, chauffagiste</h3>
-        <p class="shot">« Celui qui filme ses interventions devient celui qu'on appelle. »</p>
-        <p>
-          Une fuite trouvée en 30 secondes, une erreur que tout le monde fait.
-          <strong>Vous devenez le pro connu de votre ville.</strong>
-        </p>
-        <span class="film"><b>À filmer</b>Interventions, avant/après, « ne faites jamais ça chez vous »</span>
+        <span class="sec-vid" data-sector="plombier"></span>
+        <span class="sec-bd">
+          <h3><span class="e">🔧</span> Plombier, électricien, chauffagiste</h3>
+          <p class="shot">« Celui qui filme ses interventions devient celui qu'on appelle. »</p>
+          <span class="film"><b>À filmer</b>Interventions · avant/après · « ne faites jamais ça chez vous »</span>
+        </span>
       </div>
 
       <div class="sec-card rv d1">
-        <span class="ic"><i class="fa-solid fa-utensils"></i></span>
-        <h3>Restaurant, bar, boulangerie</h3>
-        <p class="shot">« Un resto qui ouvre peut passer devant les institutions du quartier. »</p>
-        <p>
-          Un plat filmé de près, une cuisine en service. <strong>Les gens viennent le soir même</strong>,
-          pour commander ce qu'ils ont vu.
-        </p>
-        <span class="film"><b>À filmer</b>Le geste en cuisine, les arrivages, la salle qui se remplit</span>
+        <span class="sec-vid" data-sector="restaurant"></span>
+        <span class="sec-bd">
+          <h3><span class="e">🍕</span> Restaurant, bar, boulangerie</h3>
+          <p class="shot">« Les gens viennent le soir même pour ce qu'ils ont vu. »</p>
+          <span class="film"><b>À filmer</b>Le geste en cuisine · les arrivages · la salle qui se remplit</span>
+        </span>
       </div>
 
       <div class="sec-card rv d2">
-        <span class="ic"><i class="fa-solid fa-store"></i></span>
-        <h3>Magasin, commerce, concept store</h3>
-        <p class="shot">« Les gens entrent pour le produit qu'ils ont vu la veille. »</p>
-        <p>
-          Chaque arrivage est une vidéo. <strong>Votre zone de chalandise passe de deux rues
-          à toute l'agglomération.</strong>
-        </p>
-        <span class="film"><b>À filmer</b>Arrivages, conseils, coups de cœur, l'envers du magasin</span>
+        <span class="sec-vid" data-sector="magasin"></span>
+        <span class="sec-bd">
+          <h3><span class="e">🛍️</span> Magasin, commerce, concept store</h3>
+          <p class="shot">« Ils entrent pour le produit vu la veille. »</p>
+          <span class="film"><b>À filmer</b>Arrivages · conseils · coups de cœur · l'envers du magasin</span>
+        </span>
       </div>
 
       <div class="sec-card rv">
-        <span class="ic"><i class="fa-solid fa-helmet-safety"></i></span>
-        <h3>BTP, rénovation, paysagiste, pisciniste</h3>
-        <p class="shot">« L'avant/après est le format le plus regardé d'internet. »</p>
-        <p>
-          Vous avez déjà le meilleur contenu entre les mains, et il part à la poubelle tous les soirs.
-          <strong>Un chantier bien filmé vous en ramène trois.</strong>
-        </p>
-        <span class="film"><b>À filmer</b>Avant/après, timelapse de chantier, le détail que le client ne voit jamais</span>
+        <span class="sec-vid" data-sector="btp"></span>
+        <span class="sec-bd">
+          <h3><span class="e">🏗️</span> BTP, rénovation, paysagiste, pisciniste</h3>
+          <p class="shot">« L'avant/après est le format le plus regardé d'internet. »</p>
+          <span class="film"><b>À filmer</b>Avant/après · timelapse de chantier · le détail invisible</span>
+        </span>
       </div>
 
       <div class="sec-card rv d1">
-        <span class="ic"><i class="fa-solid fa-industry"></i></span>
-        <h3>Industrie, usine, atelier</h3>
-        <p class="shot">« Personne n'a jamais vu comment c'est fabriqué. »</p>
-        <p>
-          Les machines, les process, la précision : c'est hypnotique, et ça fait des millions de vues.
-          <strong>C'est aussi ce qui vous fait recruter.</strong>
-        </p>
-        <span class="film"><b>À filmer</b>La ligne de production, le contrôle qualité, la pièce qui sort</span>
+        <span class="sec-vid" data-sector="industrie"></span>
+        <span class="sec-bd">
+          <h3><span class="e">🏭</span> Industrie, usine, atelier</h3>
+          <p class="shot">« Personne n'a jamais vu comment c'est fabriqué. »</p>
+          <span class="film"><b>À filmer</b>La ligne de production · le contrôle qualité · la pièce qui sort</span>
+        </span>
       </div>
 
       <div class="sec-card rv d2">
-        <span class="ic"><i class="fa-solid fa-scissors"></i></span>
-        <h3>Esthétique, coiffure, santé, sport, auto</h3>
-        <p class="shot">« Le résultat se filme. Donc il se vend. »</p>
-        <p>
-          Transformation, soin, réparation : tout ce qui se voit en fin de prestation
-          <strong>est une raison de prendre rendez-vous.</strong>
-        </p>
-        <span class="film"><b>À filmer</b>Transformations, gestes techniques, questions fréquentes</span>
+        <span class="sec-vid" data-sector="beaute"></span>
+        <span class="sec-bd">
+          <h3><span class="e">💅</span> Esthétique, coiffure, santé, sport, auto</h3>
+          <p class="shot">« Le résultat se filme. Donc il se vend. »</p>
+          <span class="film"><b>À filmer</b>Transformations · gestes techniques · questions fréquentes</span>
+        </span>
       </div>
 
     </div>
 
-    <div class="b2b rv d2">
-      <span class="tag"><i class="fa-solid fa-briefcase"></i> Et si vous vendez à des entreprises ?</span>
-      <h3>Le B2B, c'est là où <span class="ital">la place est encore libre</span>.</h3>
-      <p>
-        Dans la plupart des secteurs B2B, <em>personne ne publie</em>. Or l'acheteur, le directeur technique,
-        le chef de chantier <strong>scrollent le soir comme tout le monde</strong>.
-      </p>
-      <p>
-        Une vidéo qui explique un problème que seuls vos clients comprennent, c'est
-        <strong>le meilleur commercial que vous aurez jamais eu</strong> : 24 h/24, et il ne démissionne pas.
-      </p>
-    </div>
   </div>
 </section>
 
@@ -1285,6 +1258,41 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       // if (typeof fbq === 'function') fbq('track', 'LeadEntreprise');
     });
   }
+
+  /* =====================================================================
+     VIDÉOS D'EXEMPLE PAR SECTEUR — optionnel
+     Coller un .mp4 (lecture auto, muette, en boucle) ou une image
+     verticale (9:16) pour illustrer chaque carte. Laisser '' affiche
+     l'encart « Exemple » avec le bouton play.
+     ===================================================================== */
+  var SECTOR_MEDIA = {
+    plombier:   '',
+    restaurant: '',
+    magasin:    '',
+    btp:        '',
+    industrie:  '',
+    beaute:     ''
+  };
+
+  document.querySelectorAll('.sec-vid').forEach(function(slot){
+    var src = SECTOR_MEDIA[slot.dataset.sector] || '';
+    if (!src) {
+      slot.innerHTML = '<span class="ph"><i class="fa-solid fa-play"></i><b>Exemple</b></span>';
+      return;
+    }
+    var isVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src);
+    var el = document.createElement(isVideo ? 'video' : 'img');
+    el.src = src;
+    if (isVideo) {
+      el.muted = true; el.loop = true; el.autoplay = true;
+      el.playsInline = true;
+      el.setAttribute('playsinline', '');
+      el.setAttribute('preload', 'metadata');
+    } else {
+      el.alt = ''; el.loading = 'lazy';
+    }
+    slot.appendChild(el);
+  });
 
   /* ---------- Reveal au scroll ---------- */
   var targets = document.querySelectorAll('.rv, #killRow, #formSteps');
