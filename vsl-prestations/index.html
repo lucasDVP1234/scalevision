@@ -249,6 +249,15 @@ h1 .ital{
   z-index:3;
 }
 .deck-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* --- Bascule A/B du visuel : changer data-variant sur .deck --- */
+.deck-variant{display:contents}
+.deck[data-variant="mini"] .deck-variant--slides{display:none}
+.deck[data-variant="slides"] .deck-variant--mini{display:none}
+.deck[data-variant="mini"]{padding:4px 0 14px}
+@media (max-width:640px){
+  .deck[data-variant="mini"]{padding:2px 0 10px}
+}
 /* slides en arrière-plan, en éventail */
 .deck-back{
   position:absolute;
@@ -610,16 +619,33 @@ footer{
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
   </div>
 
-  <div class="deck reveal d4" id="videoTrigger" role="button" tabindex="0" aria-label="Voir la vidéo : ce qu'Eléa vend aux marques">
-    <div class="deck-back b3" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-3.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="deck-back b2" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-2.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="deck-back b1" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-1.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="deck-card">
-      <img src="/assets/img/vsl-presta/slide-hero.jpg" alt="Les 5 prestations qu'Eléa vend aux marques — lance la vidéo" fetchpriority="high" decoding="async">
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  <!-- Visuel du deck — A/B test.
+       data-variant="mini"   → la miniature (variante B, active)
+       data-variant="slides" → l'éventail de slides (variante A, d'origine)
+       Un seul mot à changer pour basculer. -->
+  <div class="deck reveal d4" id="videoTrigger" data-variant="mini" role="button" tabindex="0" aria-label="Voir la vidéo : ce qu'Eléa vend aux marques">
+
+    <!-- Variante A — éventail de slides (conservée pour l'A/B) -->
+    <div class="deck-variant deck-variant--slides">
+      <div class="deck-back b3" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-3.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="deck-back b2" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-2.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="deck-back b1" aria-hidden="true"><img src="/assets/img/vsl-presta/slide-stack-1.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="deck-card">
+        <img src="/assets/img/vsl-presta/slide-hero.jpg" alt="Les 5 prestations qu'Eléa vend aux marques — lance la vidéo" loading="lazy" decoding="async">
+        <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
+      <img class="deck-face" src="/assets/img/vsl-presta/elea.jpg" alt="" aria-hidden="true">
+      <span class="deck-count"><span class="dot"></span>Tout est dedans</span>
     </div>
-    <img class="deck-face" src="/assets/img/vsl-presta/elea.jpg" alt="" aria-hidden="true">
-    <span class="deck-count"><span class="dot"></span>Tout est dedans</span>
+
+    <!-- Variante B — miniature -->
+    <div class="deck-variant deck-variant--mini">
+      <div class="deck-card">
+        <img src="/assets/img/vsl-presta/miniature-elea.jpg" alt="Eléa, créatrice de contenu — 6 à 7 000 €/mois avec ses 5 prestations : UGC, influence, prod sur place, community manager, creative strategist" fetchpriority="high" decoding="async" width="1440" height="810">
+        <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
+    </div>
+
   </div>
 
   <div class="cta-wrap reveal d5">
@@ -627,7 +653,6 @@ footer{
       <span>Je veux voir la vidéo</span>
       <span class="arrow">→</span>
     </button>
-    <span class="cta-sub">gratuit · je t'envoie le lien par mail</span>
     <p class="handnote">reste jusqu'au bout, j'ai mis un doc à la fin</p>
   </div>
 
