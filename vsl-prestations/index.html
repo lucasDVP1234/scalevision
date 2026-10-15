@@ -37,6 +37,28 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);
 gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
 </script>
 
+<!-- ============================================================
+     A/B TEST du bloc titre — doit rester AVANT tout rendu, sinon
+     l'ancien titre clignote avant d'être remplacé.
+       lp_1 = variante A (« On me demande tout le temps… »)
+       lp_2 = variante B (« 5 622 abonnés. 6 à 7 000 € par mois. »)
+     ?lp=lp_2 dans l'URL force une variante (prévisualisation).
+     Le tirage est collant : une visiteuse revoit toujours le même titre.
+     ============================================================ -->
+<script>
+(function(){
+  var KEY='sv_lp_presta',lp='';
+  try{var q=new URLSearchParams(window.location.search).get('lp');
+      if(q==='lp_1'||q==='lp_2')lp=q;}catch(e){}
+  if(!lp){try{var st=localStorage.getItem(KEY);
+              if(st==='lp_1'||st==='lp_2')lp=st;}catch(e){}}
+  if(!lp)lp=Math.random()<0.5?'lp_1':'lp_2';
+  try{localStorage.setItem(KEY,lp);}catch(e){}
+  document.documentElement.setAttribute('data-lp',lp);
+  window.SV_LP=lp;
+})();
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -111,6 +133,13 @@ body{
   background:var(--pink-cta);box-shadow:0 0 9px rgba(255,60,142,.8);
   animation:liveDot 1.4s ease-in-out infinite;
 }
+
+/* ---------- A/B du bloc titre ---------- */
+.v-lp2{display:none}
+html[data-lp="lp_2"] .v-lp1{display:none}
+html[data-lp="lp_2"] .v-lp2{display:block}
+h1 .tail.wrap{display:inline-block;white-space:normal;max-width:19em;line-height:1.45}
+h1 .tail.wrap em{display:inline-block}
 
 /* ---------- Titre ---------- */
 .title-block{text-align:center;padding:0 2px}
@@ -589,16 +618,35 @@ footer{
   </div>
 
   <div class="title-block reveal d2">
-    <h1>
-      On me demande tout le temps<br>
-      comment je <span class="mark">gagne ma vie</span>.<br>
-      <span class="tail"><em>alors voilà</em> ma réponse, en entier</span>
-    </h1>
-    <p class="subtitle">
-      <strong>Les 5 prestations que je vends aux marques</strong>, ce que je demande pour chacune,
-      et ce que je dis pour les vendre. Entre 6 et 7 000 € les bons mois —
-      avec un compte sur lequel je ne poste presque plus.
-    </p>
+
+    <!-- Variante A — lp_1 -->
+    <div class="v-lp1">
+      <h1>
+        On me demande tout le temps<br>
+        comment je <span class="mark">gagne ma vie</span>.<br>
+        <span class="tail"><em>alors voilà</em> ma réponse, en entier</span>
+      </h1>
+      <p class="subtitle">
+        <strong>Les 5 prestations que je vends aux marques</strong>, ce que je demande pour chacune,
+        et ce que je dis pour les vendre. Entre 6 et 7 000 € les bons mois —
+        avec un compte sur lequel je ne poste presque plus.
+      </p>
+    </div>
+
+    <!-- Variante B — lp_2 -->
+    <div class="v-lp2">
+      <h1>
+        <span class="num">5 622</span> abonnés.<br>
+        <span class="mark">6 à 7 000 €</span> par mois.<br>
+        <span class="tail wrap"><em>et un compte</em> sur lequel je ne poste presque plus</span>
+      </h1>
+      <p class="subtitle">
+        <strong>Les 5 prestations que je vends aux marques</strong>, ce que je demande pour chacune,
+        et ce que je dis pour les vendre. Tout ce que j'aurais aimé qu'on m'explique
+        quand j'ai commencé.
+      </p>
+    </div>
+
   </div>
 
   <div class="chips reveal d3">
@@ -744,6 +792,22 @@ footer{
     else{try{var s=sessionStorage.getItem('sv_'+k);if(s)utms[k]=s;}catch(e){}}
   });
 
+  // ---- Variante A/B : voyage comme une UTM ----
+  var LP=window.SV_LP||'lp_1';
+  var LPN=(LP==='lp_2')?'2':'1';
+  utms.lp=LP;
+  try{sessionStorage.setItem('sv_lp',LP);}catch(e){}
+  // visible dans l'URL, donc partageable et lisible dans les rapports
+  try{
+    if(qs.get('lp')!==LP&&window.history&&history.replaceState){
+      qs.set('lp',LP);
+      history.replaceState(null,'',window.location.pathname+'?'+qs.toString()+window.location.hash);
+    }
+  }catch(e){}
+  // dénominateur du test : une vue par variante
+  try{if(window.fbq)fbq('trackCustom','ViewLP'+LPN,{lp:LP});}catch(e){}
+  try{if(window.gtag)gtag('event','vsl_view',{lp:LP});}catch(e){}
+
   // ---- Modal ----
   var backdrop=document.getElementById('modalBackdrop');
   var openers=[document.getElementById('ctaBtn'),document.getElementById('ctaBtn2'),document.getElementById('videoTrigger')];
@@ -880,8 +944,12 @@ footer{
       user_agent:navigator.userAgent
     },utms);
 
-    try{if(window.fbq){fbq('track','Lead');fbq('track','LeadOptinWebi');}}catch(e){}
-    try{if(window.gtag){gtag('event','generate_lead',{event_category:'optin',event_label:'vsl_prestations_optin'});}}catch(e){}
+    try{if(window.fbq){
+      fbq('track','Lead');
+      fbq('track','LeadOptinWebi');
+      fbq('trackCustom','OptinLP'+LPN,{lp:LP});
+    }}catch(e){}
+    try{if(window.gtag){gtag('event','generate_lead',{event_category:'optin',event_label:'vsl_prestations_optin',lp:LP});}}catch(e){}
 
     try{
       var formBody=new URLSearchParams();
