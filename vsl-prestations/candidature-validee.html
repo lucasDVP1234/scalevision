@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<title>Eléa — choisis ton créneau</title>
+<meta name="description" content="J'ai bien reçu tes réponses. Il reste juste à bloquer ton créneau pour qu'on échange 30 minutes.">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://app.iclosed.io" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2290938654583850');
+fbq('track','PageView');
+fbq('track','SubmitApplication');
+fbq('trackCustom','PrestaFormSubmitted');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
+gtag('event','application_submitted',{event_category:'conversion',event_label:'vsl_prestations_booking'});
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FDFCFF;
+  --ink:#251EAF;
+  --ink-deep:#1A1580;
+  --pink:#FB93EA;
+  --pink-soft:#FDC4F3;
+  --pink-cta:#FF3C8E;
+  --pink-cta-2:#FF6BA8;
+  --lav:#E4E1FF;
+  --lav-soft:#F2F0FF;
+  --grey:#5B5880;
+  --green:#12B981;
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-hand:'Caveat',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 85% -5%,rgba(251,147,234,.28),transparent 62%),
+    radial-gradient(ellipse 60% 45% at 5% 18%,rgba(228,225,255,.8),transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 105%,rgba(251,147,234,.14),transparent 60%);
+  background-attachment:fixed;
+  color:var(--ink);min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.84)}}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes floatFlower{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(4deg) translateY(-7px)}}
+@keyframes pulseRing{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.42),0 12px 30px -12px rgba(255,60,142,.9)}
+  55%{box-shadow:0 0 0 14px rgba(255,60,142,0),0 12px 30px -12px rgba(255,60,142,.9)}
+}
+.reveal{opacity:0;animation:fadeUp .7s ease-out forwards}
+.d1{animation-delay:.06s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}
+.d4{animation-delay:.42s}.d5{animation-delay:.54s}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;animation:none}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}
+
+.container{max-width:720px;margin:0 auto;padding:0 18px 40px}
+
+/* ---------- Bandeau ---------- */
+.strip{
+  background:linear-gradient(90deg,var(--pink-cta),#ff5fa6,var(--pink-cta));
+  padding:11px 16px;text-align:center;
+  box-shadow:0 4px 22px -6px rgba(255,60,142,.5);
+}
+.strip span{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;text-transform:uppercase;
+}
+.strip .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.5s ease-in-out infinite}
+
+/* ---------- Header ---------- */
+.top{display:flex;justify-content:center;margin:26px 0 22px}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.025em;color:var(--ink);line-height:1.2}
+@media (max-width:640px){.brand{font-size:18px}}
+
+/* ---------- Titre ---------- */
+h1{
+  text-align:center;
+  font-size:clamp(29px,5.4vw,46px);font-weight:800;
+  line-height:1.14;letter-spacing:-.035em;color:var(--ink);margin-bottom:14px;
+}
+h1 .flower{display:inline-block;animation:floatFlower 4.5s ease-in-out infinite}
+h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-variation-settings:"SOFT" 80,"WONK" 1}
+.mark{
+  display:inline-block;background:var(--pink);color:var(--ink);
+  padding:.02em .26em .08em;border-radius:7px;transform:rotate(-1.1deg);
+  box-shadow:0 6px 18px -8px rgba(251,147,234,.9);
+}
+.sub{
+  text-align:center;font-size:clamp(14.5px,2vw,17px);line-height:1.65;
+  font-weight:500;color:var(--grey);max-width:520px;margin:0 auto 26px;
+}
+.sub strong{color:var(--ink);font-weight:800}
+
+/* ---------- Stepper ---------- */
+.stepper{
+  display:flex;align-items:flex-start;justify-content:center;gap:0;
+  max-width:420px;margin:0 auto 26px;
+}
+.step{flex:1;text-align:center;position:relative}
+.step .bullet{
+  width:38px;height:38px;border-radius:50%;margin:0 auto 9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;position:relative;z-index:2;
+}
+.step.done .bullet{background:var(--green);color:#fff;box-shadow:0 10px 24px -12px rgba(18,185,129,.9)}
+.step.now .bullet{
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
+  animation:pulseRing 2.6s ease-in-out infinite;
+}
+.step .lbl{font-size:13px;font-weight:800;color:var(--ink);line-height:1.25}
+.step .tag{font-size:10.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-top:3px}
+.step.done .tag{color:var(--green)}
+.step.now .tag{color:var(--pink-cta)}
+/* trait de liaison */
+.step + .step::before{
+  content:'';position:absolute;top:19px;left:-50%;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--pink-cta));
+  border-radius:3px;z-index:1;
+}
+
+/* ---------- Flèche ---------- */
+.arrow{
+  text-align:center;color:var(--pink-cta);font-size:26px;font-weight:900;
+  animation:bounceDown 1.8s ease-in-out infinite;margin-bottom:12px;
+}
+
+/* ---------- Carte du calendrier ---------- */
+.booking{
+  position:relative;
+  background:#fff;border:1px solid var(--lav);border-radius:22px;padding:10px;
+  box-shadow:0 30px 70px -38px rgba(37,30,175,.9);
+  margin-bottom:20px;
+}
+.booking .iclosed-widget{display:block;border-radius:14px;overflow:hidden}
+.iclosed-loader{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  min-height:420px;padding:28px 20px;text-align:center;
+}
+.iclosed-loader .spin{
+  width:34px;height:34px;border-radius:50%;
+  border:3px solid var(--lav);border-top-color:var(--pink-cta);
+  animation:spin .8s linear infinite;
+}
+.loader-text{font-size:14.5px;font-weight:800;color:var(--ink)}
+.loader-sub{font-size:12.5px;font-weight:600;color:var(--grey)}
+.loader-fallback{
+  margin-top:6px;font-size:12.5px;font-weight:800;color:var(--pink-cta);text-decoration:underline;
+}
+
+/* ---------- Réassurance ---------- */
+.reassure{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:8px;
+}
+.reassure span{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  background:#fff;border:1px solid var(--lav);border-radius:999px;
+  padding:8px 15px;font-size:12.5px;font-weight:700;color:var(--ink);
+  box-shadow:0 2px 10px -6px rgba(37,30,175,.35);
+}
+
+/* ---------- Note manuscrite ---------- */
+.handnote{
+  text-align:center;font-family:var(--font-hand);
+  font-size:clamp(20px,3.2vw,25px);font-weight:600;color:var(--pink-cta);
+  transform:rotate(-1.5deg);margin:20px 0 4px;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  text-align:center;padding:28px 18px 34px;
+  border-top:1px solid var(--lav);
+}
+.foot-name{font-size:21px;font-weight:900;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.foot-name .dot{color:var(--pink-cta)}
+.foot-handle{font-size:12.5px;font-weight:700;color:var(--grey);margin-bottom:16px}
+.legal{font-size:11px;line-height:1.7;color:var(--grey);max-width:580px;margin:0 auto}
+.legal a{color:var(--ink);font-weight:700;text-decoration:none}
+.legal a:hover{text-decoration:underline}
+
+@media (max-width:560px){
+  .booking{border-radius:18px;padding:7px}
+  .stepper{max-width:340px}
+  .step .lbl{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <span><span class="dot"></span> Dernière étape — ton créneau n'est pas encore bloqué</span>
+</div>
+
+<main class="container">
+
+  <div class="top reveal">
+    <span class="brand">Eléa Richoux</span>
+  </div>
+
+  <h1 class="reveal d1">
+    J'ai bien reçu tes réponses <span class="flower">🌸</span><br>
+    Il reste juste à <span class="mark">bloquer ton créneau</span>.
+  </h1>
+
+  <p class="sub reveal d2">
+    Choisis le moment qui t'arrange ci-dessous. On prend <strong>30 minutes</strong> ensemble
+    pour regarder ce que tu peux vendre, à qui, et à quel prix.
+  </p>
+
+  <!-- STEPPER -->
+  <div class="stepper reveal d2">
+    <div class="step done">
+      <div class="bullet">✓</div>
+      <div class="lbl">Tes réponses</div>
+      <div class="tag">Reçues</div>
+    </div>
+    <div class="step now">
+      <div class="bullet">2</div>
+      <div class="lbl">Ton créneau</div>
+      <div class="tag">À choisir</div>
+    </div>
+  </div>
+
+  <div class="arrow reveal d3" aria-hidden="true">↓</div>
+
+  <!-- CALENDRIER -->
+  <div class="booking reveal d3">
+    <div class="iclosed-loader" id="iclosedLoader">
+      <div class="spin"></div>
+      <div class="loader-text">Chargement de ton calendrier…</div>
+      <div class="loader-sub">Ça prend quelques secondes.</div>
+      <a href="https://app.iclosed.io/e/scalevision/appel-elea" target="_blank" rel="noopener" class="loader-fallback">
+        Le calendrier n'apparaît pas ? Clique ici
+      </a>
+    </div>
+    <!-- Widget iClosed — data-url construite en JS avec le préremplissage email/prénom -->
+    <div id="iclosedMount"></div>
+  </div>
+
+  <div class="reassure reveal d4">
+    <span>⏱️ 30 minutes</span>
+    <span>💬 Avec moi ou mon équipe</span>
+    <span>🎁 Gratuit, sans engagement</span>
+  </div>
+
+  <p class="handnote reveal d5">à très vite 🌸</p>
+
+</main>
+
+<footer>
+  <div class="foot-name">Eléa<span class="dot">.</span></div>
+  <div class="foot-handle">@elearichoux · créatrice de contenu</div>
+  <div class="legal">
+    <a href="/mentions-legales-ugcademie.html">Mentions légales</a> |
+    <a href="/politique-de-confidentialite-ugcademie.html">Politique de confidentialité</a><br>
+    Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.<br>
+    En outre, ce site n'est pas endossé par Facebook en aucune façon ni par Google Inc.<br>
+    Facebook est une marque déposée de Facebook, Inc. © 2026 — Tous droits réservés.
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Récupère email + prénom (params du redirect Tally → fallback sessionStorage) ---- */
+  var p=new URLSearchParams(location.search);
+  function pick(keys){
+    for(var i=0;i<keys.length;i++){var v=p.get(keys[i]);if(v&&v.trim())return v.trim();}
+    return '';
+  }
+  var email=pick(['IclosedEmail','iclosedEmail','email']);
+  var name =pick(['IclosedName','iclosedName','prenom','name']);
+  try{
+    if(!email)email=(sessionStorage.getItem('sv_iclosed_email')||'').trim();
+    if(!name) name =(sessionStorage.getItem('sv_iclosed_name') ||'').trim();
+  }catch(e){}
+
+  /* ---- URL iClosed avec préremplissage.
+          iClosed attend SES noms de paramètres : iclosedEmail / iclosedName. ---- */
+  var base='https://app.iclosed.io/e/scalevision/appel-elea';
+  var qp=[];
+  if(email)qp.push('iclosedEmail='+encodeURIComponent(email));
+  if(name) qp.push('iclosedName='+encodeURIComponent(name));
+  var dataUrl=base+(qp.length?('?'+qp.join('&')):'');
+
+  var widget=document.createElement('div');
+  widget.className='iclosed-widget';
+  widget.setAttribute('data-url',dataUrl);
+  widget.setAttribute('title','Réserve ton appel avec Eléa');
+  widget.style.width='100%';
+  widget.style.height='620px';
+  document.getElementById('iclosedMount').appendChild(widget);
+
+  /* ---- Le loader iClosed se charge APRÈS que le widget soit posé ---- */
+  var s=document.createElement('script');
+  s.type='text/javascript';
+  s.src='https://app.iclosed.io/assets/widget.js';
+  s.async=true;
+  document.body.appendChild(s);
+
+  /* ---- Masque le spinner dès que l'iframe iClosed est injectée ---- */
+  var loader=document.getElementById('iclosedLoader');
+  var watcher=setInterval(function(){
+    if(widget.querySelector('iframe')){
+      if(loader)loader.style.display='none';
+      clearInterval(watcher);
+    }
+  },400);
+  setTimeout(function(){clearInterval(watcher);},15000);
+
+  /* ---- A/B du bloc titre : on suit aussi qui arrive jusqu'au calendrier ---- */
+  var lp='';
+  try{var q=p.get('lp'); if(q==='lp_1'||q==='lp_2')lp=q;}catch(e){}
+  if(!lp){try{var st=localStorage.getItem('sv_lp_presta');
+              if(st==='lp_1'||st==='lp_2')lp=st;}catch(e){}}
+  if(lp){
+    var n=(lp==='lp_2')?'2':'1';
+    try{if(window.fbq)fbq('trackCustom','BookingPageLP'+n,{lp:lp});}catch(e){}
+    try{if(window.gtag)gtag('event','booking_page_variant',{lp:lp});}catch(e){}
+  }
+})();
+</script>
+
+</body>
+</html>
