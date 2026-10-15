@@ -97,24 +97,8 @@ body{
 
 /* ---------- Header ---------- */
 .top{display:flex;justify-content:center;margin-bottom:16px}
-.brand{
-  display:inline-flex;align-items:center;gap:11px;
-  background:#fff;border:1px solid var(--lav);border-radius:999px;
-  padding:7px 22px 7px 7px;
-  box-shadow:0 10px 26px -18px rgba(37,30,175,.8);
-}
-.brand-face{
-  width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;
-  border:2.5px solid var(--pink);
-}
-.brand-tx{display:flex;flex-direction:column;line-height:1.15;text-align:left}
-.brand-tx b{font-size:16px;font-weight:900;letter-spacing:-.01em;color:var(--ink)}
-.brand-tx span{font-size:11.5px;font-weight:700;color:var(--grey)}
-@media (max-width:640px){
-  .brand{padding:6px 18px 6px 6px;gap:9px}
-  .brand-face{width:38px;height:38px}
-  .brand-tx b{font-size:14.5px}
-}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.025em;color:var(--ink);line-height:1.2}
+@media (max-width:640px){.brand{font-size:18px}}
 
 /* ---------- Titre ---------- */
 .title-block{text-align:center;padding:0 2px}
@@ -327,13 +311,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
 <main class="container">
 
   <div class="top reveal d1">
-    <span class="brand">
-      <img class="brand-face" src="/assets/img/vsl-presta/elea.jpg" alt="Eléa, créatrice de contenu" width="44" height="44">
-      <span class="brand-tx">
-        <b>Eléa</b>
-        <span>@elearichoux</span>
-      </span>
-    </span>
+    <span class="brand">Eléa Richoux</span>
   </div>
 
   <div class="title-block reveal d2">
