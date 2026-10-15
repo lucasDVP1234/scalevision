@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<title>Eléa — ton appel est réservé</title>
+<meta name="description" content="Ton appel avec Eléa et son équipe est réservé. Voilà comment le préparer.">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://app.iclosed.io" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2290938654583850');
+fbq('track','PageView');
+fbq('track','Schedule');
+fbq('trackCustom','BookedPresta');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
+gtag('event','call_booked',{event_category:'conversion',event_label:'vsl_prestations_merci'});
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FDFCFF;
+  --ink:#251EAF;
+  --ink-deep:#1A1580;
+  --pink:#FB93EA;
+  --pink-soft:#FDC4F3;
+  --pink-cta:#FF3C8E;
+  --pink-cta-2:#FF6BA8;
+  --lav:#E4E1FF;
+  --lav-soft:#F2F0FF;
+  --grey:#5B5880;
+  --green:#12B981;
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-hand:'Caveat',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 85% -5%,rgba(251,147,234,.28),transparent 62%),
+    radial-gradient(ellipse 60% 45% at 5% 18%,rgba(228,225,255,.8),transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 105%,rgba(251,147,234,.14),transparent 60%);
+  background-attachment:fixed;
+  color:var(--ink);min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.84)}}
+@keyframes floatFlower{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(4deg) translateY(-7px)}}
+.reveal{opacity:0;animation:fadeUp .7s ease-out forwards}
+.d1{animation-delay:.06s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}
+.d4{animation-delay:.42s}.d5{animation-delay:.54s}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;animation:none}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}
+
+.wrap{max-width:700px;margin:0 auto;padding:0 18px}
+
+/* ---------- Bandeau confirmation ---------- */
+.strip{
+  background:linear-gradient(90deg,var(--pink-cta),#ff5fa6,var(--pink-cta));
+  background-size:200% 100%;
+  padding:11px 16px;text-align:center;
+  box-shadow:0 4px 22px -6px rgba(255,60,142,.5);
+}
+.strip span{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;text-transform:uppercase;
+}
+.strip .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.5s ease-in-out infinite}
+
+/* ---------- Header ---------- */
+.top{display:flex;justify-content:center;margin:26px 0 20px}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.025em;color:var(--ink);line-height:1.2}
+@media (max-width:640px){.brand{font-size:18px}}
+
+/* ---------- Hero ---------- */
+.hero{text-align:center;padding:4px 0 10px}
+h1{
+  font-size:clamp(31px,6vw,50px);font-weight:800;
+  line-height:1.12;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;
+}
+h1 .flower{display:inline-block;animation:floatFlower 4.5s ease-in-out infinite}
+.mark{
+  display:inline-block;background:var(--pink);color:var(--ink);
+  padding:.02em .26em .08em;border-radius:7px;transform:rotate(-1.1deg);
+  box-shadow:0 6px 18px -8px rgba(251,147,234,.9);
+}
+.hero .lead{
+  font-size:clamp(15px,2vw,17.5px);line-height:1.65;font-weight:500;color:var(--grey);
+  max-width:520px;margin:0 auto;
+}
+.hero .lead strong{color:var(--ink);font-weight:800}
+
+/* ---------- Widget iClosed ----------
+   Carte blanche + hauteur fixe en inline : leur script ne gère pas
+   le redimensionnement automatique, donc pas d'auto-resize ici. */
+.appt{
+  max-width:620px;margin:26px auto 34px;padding:10px;
+  background:#fff;border:1px solid var(--lav);border-radius:20px;
+  box-shadow:0 26px 60px -34px rgba(37,30,175,.85);
+}
+.appt .call-details-widget{display:block;border-radius:13px;overflow:hidden}
+
+/* ---------- Cartes ---------- */
+.card{
+  background:#fff;border:1px solid var(--lav);border-radius:22px;
+  padding:28px 26px;margin:0 auto 18px;
+  box-shadow:0 20px 54px -40px rgba(37,30,175,.9);
+}
+.card-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:16px;
+  background:var(--lav-soft);border:1px solid var(--lav);border-radius:999px;
+  padding:8px 16px;
+  font-size:11px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;color:var(--ink);
+}
+.card h2{
+  font-size:clamp(21px,3.4vw,27px);font-weight:800;
+  line-height:1.2;letter-spacing:-.03em;color:var(--ink);margin-bottom:12px;
+}
+.card h2 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-variation-settings:"SOFT" 80,"WONK" 1}
+.card p{font-size:14.5px;line-height:1.7;font-weight:500;color:var(--grey)}
+.card p + p{margin-top:11px}
+.card p strong{color:var(--ink);font-weight:800}
+.card p em{font-style:normal;color:var(--pink-cta);font-weight:800}
+
+/* ---------- Liste de préparation ---------- */
+.prep{display:flex;flex-direction:column;gap:13px;margin-top:4px}
+.prep-item{display:flex;gap:13px;align-items:flex-start}
+.prep-item .n{
+  flex-shrink:0;width:30px;height:30px;border-radius:10px;
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13.5px;font-weight:900;
+  box-shadow:0 8px 18px -8px rgba(255,60,142,.9);
+}
+.prep-item .tx{font-size:14.5px;line-height:1.6;font-weight:600;color:var(--grey);padding-top:3px}
+.prep-item .tx b{display:block;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:2px}
+
+/* ---------- Carte franchise ---------- */
+.card--honest{
+  background:linear-gradient(165deg,var(--ink) 0%,var(--ink-deep) 100%);
+  border-color:var(--ink);color:#fff;position:relative;overflow:hidden;
+}
+.card--honest::before{
+  content:'';position:absolute;top:-130px;right:-90px;width:330px;height:330px;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,147,234,.32),transparent 68%);pointer-events:none;
+}
+.card--honest .card-eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;position:relative;z-index:2}
+.card--honest h2{color:#fff;position:relative;z-index:2}
+.card--honest h2 .ital{color:var(--pink)}
+.card--honest p{color:rgba(255,255,255,.76);position:relative;z-index:2}
+.card--honest p strong{color:#fff}
+.card--honest p em{color:var(--pink)}
+
+/* ---------- Note manuscrite ---------- */
+.handnote{
+  text-align:center;font-family:var(--font-hand);
+  font-size:clamp(21px,3.4vw,27px);font-weight:600;color:var(--pink-cta);
+  transform:rotate(-1.5deg);margin:26px 0 34px;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  text-align:center;padding:30px 18px 36px;
+  border-top:1px solid var(--lav);margin-top:10px;
+}
+.foot-name{font-size:21px;font-weight:900;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.foot-name .dot{color:var(--pink-cta)}
+.foot-handle{font-size:12.5px;font-weight:700;color:var(--grey);margin-bottom:16px}
+.legal{font-size:11px;line-height:1.7;color:var(--grey);max-width:580px;margin:0 auto}
+.legal a{color:var(--ink);font-weight:700;text-decoration:none}
+.legal a:hover{text-decoration:underline}
+
+@media (max-width:560px){
+  .card{padding:24px 20px;border-radius:18px}
+  .appt{margin:20px auto 26px;border-radius:17px}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <span><span class="dot"></span> Réservation confirmée</span>
+</div>
+
+<div class="top reveal">
+  <span class="brand">Eléa Richoux</span>
+</div>
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <h1 class="reveal d1">
+      Bravo <span class="flower">🌸</span><br>
+      Ton appel est <span class="mark">réservé</span>.
+    </h1>
+    <p class="lead reveal d2">
+      Tu vas échanger avec <strong>moi ou avec une fille de mon équipe</strong>.
+      Hâte de te parler !
+    </p>
+  </section>
+
+  <!-- ============ DÉTAILS DE L'APPEL (iClosed) ============ -->
+  <div class="appt reveal d2">
+    <!-- iClosed widget begin — affiche le créneau et la personne qui t'appelle -->
+    <div class="call-details-widget" data-url="https://app.iclosed.io/embed" style="width: 100%; height: 420px"></div>
+    <!-- iClosed widget end -->
+  </div>
+
+  <!-- ============ PRÉPARER L'APPEL ============ -->
+  <div class="card reveal d3">
+    <span class="card-eyebrow">Avant l'appel</span>
+    <h2>Prépare-le un minimum, <span class="ital">ça change tout.</span></h2>
+    <p>
+      On a 30 minutes. Si tu arrives avec ces quatre choses en tête, on passe direct
+      au concret au lieu de perdre dix minutes à faire connaissance.
+    </p>
+
+    <div class="prep">
+      <div class="prep-item">
+        <span class="n">1</span>
+        <span class="tx">
+          <b>Ton compte sous la main</b>
+          Ton @, ce que tu publies en ce moment, et ce qui marche le mieux chez toi.
+        </span>
+      </div>
+      <div class="prep-item">
+        <span class="n">2</span>
+        <span class="tx">
+          <b>Où tu en es vraiment</b>
+          Combien d'abonnés, et si tu as déjà vendu quelque chose à une marque — ou pas du tout.
+          Les deux réponses vont très bien.
+        </span>
+      </div>
+      <div class="prep-item">
+        <span class="n">3</span>
+        <span class="tx">
+          <b>Ce que tu veux atteindre</b>
+          Un chiffre et une échéance. « Gagner plus » c'est trop flou pour qu'on t'aide vraiment.
+        </span>
+      </div>
+      <div class="prep-item">
+        <span class="n">4</span>
+        <span class="tx">
+          <b>30 minutes au calme</b>
+          Avec du réseau et de quoi noter. Pas entre deux rendez-vous, pas dans le métro.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FRANCHISE ============ -->
+  <div class="card card--honest reveal d4">
+    <span class="card-eyebrow">À savoir</span>
+    <h2>On ne peut pas accompagner <span class="ital">tout le monde.</span></h2>
+    <p>
+      Je préfère te le dire maintenant plutôt que de te le sortir à la fin :
+      on ne prend pas tout le monde. Si pendant l'appel on se rend compte que
+      <strong>ce n'est pas le bon moment pour toi</strong>, on te le dira franchement.
+    </p>
+    <p>
+      Mais tu ne repartiras pas les mains vides. Même dans ce cas, on prend le temps de
+      <em>te donner une piste de départ claire</em> : la prestation par laquelle commencer,
+      à qui la proposer, et à quel prix. <strong>De quoi te lancer de ton côté, sans nous.</strong>
+    </p>
+  </div>
+
+  <p class="handnote reveal d5">à très vite 🌸</p>
+
+</main>
+
+<footer>
+  <div class="foot-name">Eléa<span class="dot">.</span></div>
+  <div class="foot-handle">@elearichoux · créatrice de contenu</div>
+  <div class="legal">
+    <a href="/mentions-legales-ugcademie.html">Mentions légales</a> |
+    <a href="/politique-de-confidentialite-ugcademie.html">Politique de confidentialité</a><br>
+    Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.<br>
+    En outre, ce site n'est pas endossé par Facebook en aucune façon ni par Google Inc.<br>
+    Facebook est une marque déposée de Facebook, Inc. © 2026 — Tous droits réservés.
+  </div>
+</footer>
+
+<!-- iClosed widget loader -->
+<script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+
+<script>
+(function(){
+  'use strict';
+  // Referme la boucle de l'A/B test du bloc titre : on sait quelle
+  // variante produit des réservations, pas seulement des opt-ins.
+  var lp='';
+  try{var q=new URLSearchParams(window.location.search).get('lp');
+      if(q==='lp_1'||q==='lp_2')lp=q;}catch(e){}
+  if(!lp){try{var st=localStorage.getItem('sv_lp_presta');
+              if(st==='lp_1'||st==='lp_2')lp=st;}catch(e){}}
+  if(!lp)return;
+  var n=(lp==='lp_2')?'2':'1';
+  try{if(window.fbq)fbq('trackCustom','BookedLP'+n,{lp:lp});}catch(e){}
+  try{if(window.gtag)gtag('event','call_booked_variant',{lp:lp});}catch(e){}
+})();
+</script>
+
+</body>
+</html>
