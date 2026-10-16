@@ -402,7 +402,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     else{try{var s=sessionStorage.getItem('sv_'+k);if(s)utms[k]=s;}catch(e){}}
   });
 
-  // ---- Statut du Kit : relance à 5 min ----
+  // ---- Statut du Kit : relance à 4 min ----
   function kitStatus(ico,html){
     var i=document.getElementById('kitIcon'),t=document.getElementById('kitStatusText');
     if(i)i.textContent=ico;
@@ -410,14 +410,14 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
   }
   setTimeout(function(){
     kitStatus('👀','<b>On y arrive</b> — garde la vidéo ouverte, je parle de <span class="kit-hl">mon doc</span> juste après');
-  },300000);
+  },240000);
 
-  // ---- Relance à 10 min ----
+  // ---- Relance à 8 min ----
   setTimeout(function(){
     kitStatus('🔥','<b>Reste là</b> — c\'est le passage que je préfère');
-  },600000);
+  },480000);
 
-  // ---- Late CTA reveal (14 min) ----
+  // ---- Late CTA reveal (11 min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta){cta.classList.add('show');setTimeout(function(){cta.style.overflow='visible';},750);}
@@ -425,7 +425,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     if(kit)kit.style.display='none';
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
-  },840000);
+  },660000);
 
   // ---- CTA click → ouvre le form Tally (audit) en popup. La REDIRECTION post-submit est gérée DANS Tally. ----
   var TALLY_FORM='lbEWq6';
@@ -455,7 +455,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
   var fired={};
   setInterval(function(){
     var elapsed=Math.floor((Date.now()-pageStart)/1000);
-    [30,60,120,300,600,840,1080].forEach(function(m){
+    [30,60,120,240,480,660,900].forEach(function(m){
       if(elapsed>=m&&!fired[m]){
         fired[m]=true;
         try{if(window.fbq)fbq('trackCustom','VSLWatch'+m+'s');}catch(e){}
