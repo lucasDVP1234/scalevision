@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
 <title>Eléa — choisis ton créneau</title>
 <meta name="description" content="J'ai bien reçu tes réponses. Il reste juste à bloquer ton créneau pour qu'on échange 30 minutes.">
 <meta name="robots" content="noindex,nofollow">
@@ -74,6 +75,7 @@ a{color:inherit}
 @keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes floatFlower{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(4deg) translateY(-7px)}}
+@keyframes fadeUpTilt{from{opacity:0;transform:translateY(22px) rotate(-1.5deg)}to{opacity:1;transform:translateY(0) rotate(-1.5deg)}}
 @keyframes pulseRing{
   0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.42),0 12px 30px -12px rgba(255,60,142,.9)}
   55%{box-shadow:0 0 0 14px rgba(255,60,142,0),0 12px 30px -12px rgba(255,60,142,.9)}
@@ -154,7 +156,8 @@ h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-va
 /* ---------- Flèche ---------- */
 .arrow{
   text-align:center;color:var(--pink-cta);font-size:26px;font-weight:900;
-  animation:bounceDown 1.8s ease-in-out infinite;margin-bottom:12px;
+  animation:fadeUp .7s ease-out .3s forwards,bounceDown 1.8s ease-in-out .3s infinite;
+  margin-bottom:12px;
 }
 
 /* ---------- Carte du calendrier ---------- */
@@ -162,12 +165,14 @@ h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-va
   position:relative;
   background:#fff;border:1px solid var(--lav);border-radius:22px;padding:10px;
   box-shadow:0 30px 70px -38px rgba(37,30,175,.9);
-  margin-bottom:20px;
+  margin-bottom:20px;min-height:440px;
 }
 .booking .iclosed-widget{display:block;border-radius:14px;overflow:hidden}
 .iclosed-loader{
+  position:absolute;inset:10px;z-index:2;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
-  min-height:420px;padding:28px 20px;text-align:center;
+  background:#fff;border-radius:14px;
+  padding:28px 20px;text-align:center;
 }
 .iclosed-loader .spin{
   width:34px;height:34px;border-radius:50%;
@@ -195,7 +200,7 @@ h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-va
 .handnote{
   text-align:center;font-family:var(--font-hand);
   font-size:clamp(20px,3.2vw,25px);font-weight:600;color:var(--pink-cta);
-  transform:rotate(-1.5deg);margin:20px 0 4px;
+  transform:rotate(-1.5deg);animation:fadeUpTilt .7s ease-out .54s forwards;margin:20px 0 4px;
 }
 
 /* ---------- Footer ---------- */
@@ -212,6 +217,7 @@ footer{
 
 @media (max-width:560px){
   .booking{border-radius:18px;padding:7px}
+  .iclosed-loader{inset:7px}
   .stepper{max-width:340px}
   .step .lbl{font-size:12px}
 }
