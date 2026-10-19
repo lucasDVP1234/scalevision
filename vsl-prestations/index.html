@@ -191,6 +191,13 @@ h1 .tail .zero{
 @media (max-width:420px){
   h1 .tail{font-size:.62em;gap:.32em}
 }
+/* Soulignement tracé à la main : accentue un mot sans surligneur, parce que le
+   .mark rose est déjà pris par le chiffre de la ligne du dessus. Le trait est en
+   em, donc il suit la taille de police sans réglage par breakpoint. */
+h1 .scribble{position:relative;display:inline-block;padding-bottom:.18em}
+h1 .scribble svg{position:absolute;left:-4%;bottom:-.1em;width:108%;height:.42em;overflow:visible}
+h1 .scribble path{fill:none;stroke:var(--pink-cta);stroke-width:2.6;stroke-linecap:round}
+
 /* lp_2 : la queue manuscrite porte l'essentiel de l'accroche, on la grossit sur
    téléphone. Scopé à .v-lp2 pour ne PAS toucher au rendu de lp_1 en cours d'A/B. */
 @media (max-width:560px){
@@ -642,8 +649,8 @@ footer{
     <div class="v-lp2">
       <h1>
         J'ai <span class="num">5 622</span> abonnés<br>
-        et je fais <span class="mark">6 à 7 000 €</span> par mois<br>
-        <span class="tail wrap"><em>en vendant</em> des « simples » vidéos</span>
+        et je fais <span class="mark">7&nbsp;000&nbsp;€/mois</span><br>
+        <span class="tail wrap"><em>en vendant</em> des <span class="scribble">simples<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M1,7 C18,2.5 34,8.5 52,4.5 C68,1 84,7.5 99,3.5"/></svg></span> vidéos</span>
       </h1>
       <p class="subtitle">
         <strong>Les 5 prestations que je vends aux marques</strong>, ce que je demande pour chacune,
