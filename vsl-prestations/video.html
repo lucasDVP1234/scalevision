@@ -180,6 +180,9 @@ h1 .ital{
   transition:opacity .7s ease,max-height .7s ease,transform .7s ease,margin .7s ease;
 }
 .late-cta-wrap.show{opacity:1;max-height:340px;transform:translateY(0)}
+/* Inutilisé depuis le retrait du badge « si tu veux qu'on en parle ».
+   Conservé (avec .ddot et les keyframes badgePulse/liveDot) pour pouvoir le
+   recoller sans le réécrire. */
 .late-cta-badge{
   display:inline-flex;align-items:center;gap:7px;
   background:rgba(255,60,142,.1);border:1px solid rgba(255,60,142,.4);
@@ -349,9 +352,8 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     </script>
   </div>
 
-  <!-- Late CTA (7 min) -->
+  <!-- Late CTA (11 min — voir le setTimeout 660000 plus bas) -->
   <div class="late-cta-wrap" id="lateCta">
-    <div class="late-cta-badge"><span class="ddot"></span>si tu veux qu'on en parle</div>
     <button type="button" class="cta cta-late" id="lateCtaBtn">
       <span>Prendre 30 min avec moi</span>
       <span class="arrow">→</span>
