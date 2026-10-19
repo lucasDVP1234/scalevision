@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<title>Eléa — choisis ton créneau</title>
-<meta name="description" content="J'ai bien reçu tes réponses. Il reste juste à bloquer ton créneau pour qu'on échange 30 minutes.">
+<title>Eléa — candidature pas terminée · choisis ton créneau</title>
+<meta name="description" content="Ton profil a été retenu. Dernière étape pour finaliser ta candidature : choisis ton créneau pour qu'on échange 30 minutes.">
 <meta name="robots" content="noindex,nofollow">
 
 <link rel="preconnect" href="https://app.iclosed.io" crossorigin>
@@ -101,6 +101,12 @@ a{color:inherit}
   font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;text-transform:uppercase;
 }
 .strip .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.5s ease-in-out infinite}
+.strip.warn{
+  background:linear-gradient(90deg,#F59E0B,#FBBF24 50%,#F59E0B);
+  box-shadow:0 4px 22px -6px rgba(245,158,11,.55);
+}
+.strip.warn span{color:#4A2D00}
+.strip.warn .dot{background:#4A2D00}
 
 /* ---------- Header ---------- */
 .top{display:flex;justify-content:center;margin:26px 0 22px}
@@ -111,10 +117,15 @@ a{color:inherit}
 h1{
   text-align:center;
   font-size:clamp(29px,5.4vw,46px);font-weight:800;
-  line-height:1.14;letter-spacing:-.035em;color:var(--ink);margin-bottom:14px;
+  line-height:1.14;letter-spacing:-.035em;color:var(--ink);margin-bottom:26px;
 }
 h1 .flower{display:inline-block;animation:floatFlower 4.5s ease-in-out infinite}
 h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-variation-settings:"SOFT" 80,"WONK" 1}
+h1 .grad{
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2) 55%,var(--pink));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
 .mark{
   display:inline-block;background:var(--pink);color:var(--ink);
   padding:.02em .26em .08em;border-radius:7px;transform:rotate(-1.1deg);
@@ -152,6 +163,24 @@ h1 .ital{font-family:var(--font-serif);font-style:italic;font-weight:700;font-va
   background:linear-gradient(90deg,var(--green),var(--pink-cta));
   border-radius:3px;z-index:1;
 }
+
+/* ---------- Dernière étape ---------- */
+.laststep{
+  max-width:540px;margin:0 auto 14px;padding:16px 20px;text-align:center;
+  background:#fff;border:1px solid var(--pink-soft);border-radius:18px;
+  box-shadow:0 18px 44px -28px rgba(37,30,175,.75);
+}
+.ls-badge{
+  display:inline-block;margin-bottom:9px;padding:6px 14px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
+  font-size:11.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;
+  box-shadow:0 10px 24px -12px rgba(255,60,142,.9);
+}
+.ls-text{
+  display:block;font-size:clamp(15.5px,2.5vw,19px);font-weight:700;
+  color:var(--ink);line-height:1.45;
+}
+.ls-text strong{font-weight:900;background:linear-gradient(180deg,transparent 62%,var(--pink-soft) 62%)}
 
 /* ---------- Flèche ---------- */
 .arrow{
@@ -225,8 +254,8 @@ footer{
 </head>
 <body>
 
-<div class="strip">
-  <span><span class="dot"></span> Dernière étape — ton créneau n'est pas encore bloqué</span>
+<div class="strip warn">
+  <span><span class="dot"></span> ⚠️ Attention — ta candidature n'est pas terminée</span>
 </div>
 
 <main class="container">
@@ -236,28 +265,29 @@ footer{
   </div>
 
   <h1 class="reveal d1">
-    J'ai bien reçu tes réponses <span class="flower">🌸</span><br>
-    Il reste juste à <span class="mark">bloquer ton créneau</span>.
+    <span class="flower">🎉</span> Félicitations,<br>
+    <span class="ital grad">ton profil a été retenu&nbsp;!</span>
   </h1>
-
-  <p class="sub reveal d2">
-    Choisis le moment qui t'arrange ci-dessous. On prend <strong>30 minutes</strong> ensemble
-    pour regarder ce que tu peux vendre, à qui, et à quel prix.
-  </p>
 
   <!-- STEPPER -->
   <div class="stepper reveal d2">
     <div class="step done">
       <div class="bullet">✓</div>
-      <div class="lbl">Tes réponses</div>
-      <div class="tag">Reçues</div>
+      <div class="lbl">Ta candidature</div>
+      <div class="tag">Validée</div>
     </div>
     <div class="step now">
       <div class="bullet">2</div>
       <div class="lbl">Ton créneau</div>
-      <div class="tag">À choisir</div>
+      <div class="tag">Dernière étape</div>
     </div>
   </div>
+
+  <!-- DERNIÈRE ÉTAPE -->
+  <p class="laststep reveal d3">
+    <span class="ls-badge">🚨 Dernière étape</span>
+    <span class="ls-text">Ta candidature n'est pas encore terminée&nbsp;:<br><strong>choisis ton créneau pour la finaliser</strong></span>
+  </p>
 
   <div class="arrow reveal d3" aria-hidden="true">↓</div>
 
