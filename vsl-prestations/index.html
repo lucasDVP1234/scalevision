@@ -191,6 +191,11 @@ h1 .tail .zero{
 @media (max-width:420px){
   h1 .tail{font-size:.62em;gap:.32em}
 }
+/* lp_2 : la queue manuscrite porte l'essentiel de l'accroche, on la grossit sur
+   téléphone. Scopé à .v-lp2 pour ne PAS toucher au rendu de lp_1 en cours d'A/B. */
+@media (max-width:560px){
+  .v-lp2 h1 .tail{font-size:.76em;line-height:1.38}
+}
 h1 .ital{
   font-family:var(--font-serif);
   font-style:italic;font-weight:700;
@@ -636,9 +641,9 @@ footer{
     <!-- Variante B — lp_2 -->
     <div class="v-lp2">
       <h1>
-        <span class="num">5 622</span> abonnés.<br>
-        <span class="mark">6 à 7 000 €</span> par mois.<br>
-        <span class="tail wrap"><em>et un compte</em> sur lequel je ne poste presque plus</span>
+        J'ai <span class="num">5 622</span> abonnés<br>
+        et je fais <span class="mark">6 à 7 000 €</span> par mois<br>
+        <span class="tail wrap"><em>en vendant</em> des « simples » vidéos</span>
       </h1>
       <p class="subtitle">
         <strong>Les 5 prestations que je vends aux marques</strong>, ce que je demande pour chacune,
