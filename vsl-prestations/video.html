@@ -352,7 +352,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     </script>
   </div>
 
-  <!-- Late CTA (11 min — voir le setTimeout 660000 plus bas) -->
+  <!-- Late CTA (9 min — voir le setTimeout 540000 plus bas) -->
   <div class="late-cta-wrap" id="lateCta">
     <button type="button" class="cta cta-late" id="lateCtaBtn">
       <span>Prendre 30 min avec moi</span>
@@ -419,7 +419,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     kitStatus('🔥','<b>Reste là</b> — c\'est le passage que je préfère');
   },480000);
 
-  // ---- Late CTA reveal (11 min) ----
+  // ---- Late CTA reveal (9 min) ----
   setTimeout(function(){
     var cta=document.getElementById('lateCta');
     if(cta){cta.classList.add('show');setTimeout(function(){cta.style.overflow='visible';},750);}
@@ -427,7 +427,7 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     if(kit)kit.style.display='none';
     try{if(window.fbq)fbq('trackCustom','VSLCTAReveal');}catch(e){}
     try{if(window.gtag)gtag('event','vsl_cta_reveal');}catch(e){}
-  },660000);
+  },540000);
 
   // ---- CTA click → ouvre le form Tally (audit) en popup. La REDIRECTION post-submit est gérée DANS Tally. ----
   var TALLY_FORM='lbEWq6';
