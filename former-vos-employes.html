@@ -8,6 +8,30 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://www.scalevision.fr/former-vos-employes">
 
+<!-- ============================================================
+     A/B TEST DU BLOC TITRE — démarré le 2026-10-20
+       a = « Comment faire ×5 sur son CA en 2026 »
+       b = « Comment une vidéo a rapporté 43 clients à cette entreprise »
+     Seul le titre change : une seule variable, sinon l'écart n'est
+     pas attribuable. ?ab=a / ?ab=b force une variante (prévisualisation).
+     Le tirage est collé en localStorage : un visiteur qui revient revoit
+     la même. Ce script est AVANT le rendu exprès — sinon le titre A
+     s'afficherait une fraction de seconde avant d'être remplacé.
+     ============================================================ -->
+<script>
+(function(){
+  var KEY='sv_ab_b2b', ab='';
+  try{var q=new URLSearchParams(location.search).get('ab');
+      if(q==='a'||q==='b')ab=q;}catch(e){}
+  if(!ab){try{var st=localStorage.getItem(KEY);
+              if(st==='a'||st==='b')ab=st;}catch(e){}}
+  if(!ab)ab=Math.random()<0.5?'a':'b';
+  try{localStorage.setItem(KEY,ab);}catch(e){}
+  document.documentElement.setAttribute('data-ab',ab);
+  window.SV_AB=ab;
+})();
+</script>
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.scalevision.fr/former-vos-employes">
@@ -164,6 +188,11 @@ h2 .pink{color:var(--pink-cta)}
 .kill.in .kill-item:nth-child(3)::after{transition-delay:.24s}
 .kill.in .kill-item:nth-child(4)::after{transition-delay:.36s}
 .kill.in .kill-item:nth-child(5)::after{transition-delay:.48s}
+
+/* A/B du bloc titre — voir le script du <head> */
+.v-b{display:none}
+html[data-ab="b"] .v-a{display:none}
+html[data-ab="b"] .v-b{display:block}
 
 h1{
   font-size:clamp(31px,5.6vw,60px);font-weight:800;
@@ -813,13 +842,27 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       <span class="eyebrow rv"><span class="dot"></span> Pour les entreprises · 2026</span>
     </div>
 
-    <h1 class="rv d2">
-      Comment faire <span class="x5">×5</span> sur son CA en&nbsp;2026
-      <span class="stop">avec la création de contenu.</span>
-      <span class="tail">
-        <em>Et comment</em> former <span class="mark">vos employés</span> <em>pour faire pareil.</em>
-      </span>
-    </h1>
+    <!-- Variante A — le ×5 sur le CA -->
+    <div class="v-a">
+      <h1 class="rv d2">
+        Comment faire <span class="x5">×5</span> sur son CA en&nbsp;2026
+        <span class="stop">avec la création de contenu.</span>
+        <span class="tail">
+          <em>Et comment</em> former <span class="mark">vos employés</span> <em>pour faire pareil.</em>
+        </span>
+      </h1>
+    </div>
+
+    <!-- Variante B — les 43 clients d'une seule vidéo -->
+    <div class="v-b">
+      <h1 class="rv d2">
+        Comment une vidéo a rapporté <span class="x5">43</span> clients
+        <span class="stop">à cette entreprise.</span>
+        <span class="tail">
+          <em>Faite par</em> <span class="mark">un employé</span><em>, pas par un influenceur.</em>
+        </span>
+      </h1>
+    </div>
 
     <p class="lead rv d3">
       Zéro agence, zéro flyer, zéro influenceur. Deux salariés formés au tournage et au montage,
@@ -1312,6 +1355,21 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   var LOOM_ID  = 'REPLACE_LOOM_ID';
   var TALLY_ID = 'rjN9Wv';
 
+  /* ---------- A/B : variante tirée dans le <head> ---------- */
+  var AB = (window.SV_AB === 'b') ? 'b' : 'a';
+  // visible dans l'URL : partageable, et lisible dans GA4 sans dimension perso
+  try{
+    var qs = new URLSearchParams(location.search);
+    if (qs.get('ab') !== AB && window.history && history.replaceState) {
+      qs.set('ab', AB);
+      history.replaceState(null, '', location.pathname + '?' + qs.toString() + location.hash);
+    }
+  }catch(e){}
+  // dénominateur du test : une vue par variante
+  if (typeof gtag === 'function') gtag('event', 'b2b_view', { ab: AB });
+  // Pas de fbq ici : aucun pixel sur cette page, et surtout pas celui des créateurs.
+  // Quand le pixel B2B existera : fbq('trackCustom','B2BViewAB',{ab:AB});
+
   /* ---------- Loom ---------- */
   var loomSlot = document.getElementById('loomSlot');
   if (LOOM_ID.indexOf('REPLACE_') === 0) {
@@ -1344,7 +1402,8 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     var t = document.createElement('iframe');
     t.setAttribute('data-tally-src',
       'https://tally.so/embed/' + TALLY_ID +
-      '?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1');
+      '?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1' +
+      '&ab=' + AB);
     t.setAttribute('loading', 'lazy');
     t.setAttribute('height', '420');
     t.setAttribute('frameborder', '0');
@@ -1372,7 +1431,7 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     window.addEventListener('message', function(e){
       if (typeof e.data !== 'string' || e.data.indexOf('Tally.FormSubmitted') === -1) return;
       if (typeof gtag === 'function') {
-        gtag('event', 'lead_entreprise', { form_id: TALLY_ID, page: 'former-vos-employes' });
+        gtag('event', 'lead_entreprise', { form_id: TALLY_ID, page: 'former-vos-employes', ab: AB });
       }
       // if (typeof fbq === 'function') fbq('track', 'LeadEntreprise');
     });
