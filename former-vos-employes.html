@@ -330,6 +330,64 @@ h1 .tail em{
 @media (max-width:620px){.shots-note{padding:20px 18px}}
 .sec--tint{background:linear-gradient(180deg,#fff 0%,var(--lav-soft) 100%)}
 
+/* Lecteur inline. Le lecteur officiel TikTok a une taille plancher de
+   325×578, donc on le met à l'échelle de la vignette : --tk-scale est
+   calculé en JS depuis la largeur réelle du créneau (elle change au
+   breakpoint 460px). pointer-events:none laisse le clic au bouton au-dessus. */
+.sec-vid-live{position:absolute;inset:0;overflow:hidden;display:block;--tk-scale:.332}
+.sec-vid-live iframe{
+  position:absolute;top:50%;left:50%;width:325px;height:578px;border:0;
+  transform:translate(-50%,-50%) scale(var(--tk-scale));
+  transform-origin:center center;pointer-events:none;
+}
+
+/* La vignette reste un bouton par-dessus le lecteur : le clic ouvre la
+   grande modale, où la vidéo est lisible et créditée. */
+.sec-vid-btn{
+  position:absolute;inset:0;width:100%;height:100%;
+  border:none;padding:0;margin:0;background:transparent;cursor:pointer;display:block;
+}
+.sec-vid-btn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sec-vid-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(26,21,128,0) 45%,rgba(26,21,128,.5) 100%);
+}
+.tk-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.93);color:var(--pink-cta);font-size:10px;
+  box-shadow:0 6px 16px -6px rgba(0,0,0,.6);
+  transition:transform .25s ease;
+}
+.sec-vid-btn:hover .tk-play{transform:translate(-50%,-50%) scale(1.12)}
+
+/* modale d'embed TikTok */
+.tk-modal{
+  position:fixed;inset:0;z-index:200;display:none;
+  align-items:center;justify-content:center;padding:18px;
+  background:rgba(14,10,54,.82);backdrop-filter:blur(5px);
+}
+.tk-modal.open{display:flex}
+.tk-box{
+  position:relative;width:100%;max-width:340px;
+  background:#000;border-radius:16px;overflow:hidden;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.9);
+}
+.tk-box iframe{display:block;width:100%;height:min(78vh,740px);border:0}
+.tk-close{
+  position:absolute;top:-46px;right:0;
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.12);color:#fff;font-size:17px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+}
+.tk-close:hover{background:rgba(255,255,255,.24)}
+.tk-credit{
+  position:absolute;bottom:-34px;left:0;right:0;text-align:center;
+  font-size:11.5px;font-weight:700;color:rgba(255,255,255,.75);
+}
+.tk-credit a{color:#fff;text-decoration:underline}
+
 /* ---------- Le basculement : fini tout ça → machine à clients ---------- */
 .switch-dead{
   position:relative;z-index:2;
@@ -871,11 +929,11 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       </div>
 
       <div class="sec-card rv d2">
-        <span class="sec-vid" data-sector="magasin"></span>
+        <span class="sec-vid" data-sector="barbier"></span>
         <span class="sec-bd">
-          <h3><span class="e">🛍️</span> Magasin, commerce, concept store</h3>
-          <p class="shot">« Ils entrent pour le produit vu la veille. »</p>
-          <span class="film"><b>À filmer</b>Arrivages · conseils · coups de cœur · l'envers du magasin</span>
+          <h3><span class="e">💈</span> Barbier, barbershop, tatoueur</h3>
+          <p class="shot">« Le dégradé se filme. Donc le fauteuil se remplit. »</p>
+          <span class="film"><b>À filmer</b>Dégradés en accéléré · avant/après · le détail à la tondeuse</span>
         </span>
       </div>
 
@@ -1199,6 +1257,15 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   </div>
 </section>
 
+<!-- Modale d'embed TikTok — partagée par les cartes secteurs et la case study -->
+<div class="tk-modal" id="tkModal" role="dialog" aria-modal="true" aria-label="Vidéo TikTok">
+  <div class="tk-box">
+    <button type="button" class="tk-close" id="tkClose" aria-label="Fermer la vidéo">✕</button>
+    <div id="tkSlot"></div>
+    <p class="tk-credit" id="tkCredit"></p>
+  </div>
+</div>
+
 <!-- Bouton flottant — apparaît passé le hero, s'efface sur le formulaire -->
 <a href="#form" class="sticky" id="stickyCta" aria-hidden="true" tabindex="-1">
   <span>Réserver un appel</span><span class="arrow">→</span>
@@ -1320,14 +1387,125 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   var SECTOR_MEDIA = {
     plombier:   '',
     restaurant: '',
-    magasin:    '',
+    barbier:    '',
     btp:        '',
     industrie:  '',
     beaute:     ''
   };
 
+  /* =====================================================================
+     LES 6 TIKTOKS — le SEUL endroit à remplir
+     ---------------------------------------------------------------------
+     url   : l'URL complète de la vidéo (les paramètres ?q= et &t= de la
+             recherche TikTok sont inutiles, on garde l'URL propre).
+     thumb : URL d'une miniature verticale (9:16). Vide = encart sombre
+             avec le bouton play. L'oEmbed de TikTok ne renvoie pas de
+             miniature, donc il faut une capture de la première frame.
+     Une entrée sans `url` garde l'encart « Exemple » de la carte.
+     Aucun chiffre de vues n'est affiché : volonté de Lucas le 2026-10-20.
+     ===================================================================== */
+  var SECTOR_TIKTOK = {
+    plombier:   { url:'https://www.tiktok.com/@keikei_leplombier/video/7604904858935790850', thumb:'' },
+    restaurant: { url:'https://www.tiktok.com/@silyon69/video/7567696791068757251',          thumb:'' },
+    barbier:    { url:'https://www.tiktok.com/@_phoenixbarber_/video/7450526967088106774',    thumb:'' },
+    btp:        { url:'https://www.tiktok.com/@90e.minutes/video/7659450062413581600',       thumb:'' },
+    industrie:  { url:'https://www.tiktok.com/@wecandoo/video/7640152694585347360',          thumb:'' },
+    beaute:     { url:'https://www.tiktok.com/@unique.lyon/video/7696939478367079713',       thumb:'' }
+  };
+  var NICHE_LABEL = {
+    plombier:'Plomberie', restaurant:'Restauration', barbier:'Barbier',
+    btp:'BTP', industrie:'Industrie', beaute:'Esthétique'
+  };
+
+  function tkId(url){ var m = /\/video\/(\d+)/.exec(url || ''); return m ? m[1] : ''; }
+  function tkAuthor(e){
+    if (e.author) return e.author.charAt(0) === '@' ? e.author : '@' + e.author;
+    var m = /tiktok\.com\/@([\w.\-]+)/.exec(e.url || '');
+    return m ? '@' + m[1] : '';
+  }
+
+  /* ---------- Modale : l'iframe TikTok n'existe que pendant l'ouverture ---------- */
+  var tkModal  = document.getElementById('tkModal');
+  var tkSlot   = document.getElementById('tkSlot');
+  var tkCredit = document.getElementById('tkCredit');
+  var tkCloseB = document.getElementById('tkClose');
+  var tkOpener = null;
+
+  function closeTk(){
+    tkModal.classList.remove('open');
+    tkSlot.textContent = '';    // décharge l'iframe : plus aucune requête vers TikTok
+    tkCredit.textContent = '';
+    if (tkOpener) { tkOpener.focus(); tkOpener = null; }
+  }
+  function openTk(entry, opener){
+    var id = tkId(entry.url);
+    if (!id) return;
+    tkOpener = opener || null;
+    tkSlot.textContent = '';
+    tkCredit.textContent = '';
+    var f = document.createElement('iframe');
+    // endpoint officiel, celui que l'oEmbed de TikTok émet lui-même
+    f.src = 'https://www.tiktok.com/player/v1/' + id +
+            '?embed_from=oembed&music_info=1&description=1';
+    f.title = 'Vidéo TikTok ' + tkAuthor(entry);
+    f.setAttribute('allow', 'encrypted-media; fullscreen; picture-in-picture');
+    f.setAttribute('allowfullscreen', '');
+    tkSlot.appendChild(f);
+    var who = tkAuthor(entry);
+    if (who) {
+      var a = document.createElement('a');
+      a.href = entry.url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = who;
+      tkCredit.appendChild(document.createTextNode('Vidéo de '));
+      tkCredit.appendChild(a);
+    }
+    tkModal.classList.add('open');
+    tkCloseB.focus();
+  }
+  if (tkModal) {
+    tkCloseB.addEventListener('click', closeTk);
+    tkModal.addEventListener('click', function(e){ if (e.target === tkModal) closeTk(); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && tkModal.classList.contains('open')) closeTk();
+    });
+  }
+
+  function tkThumbBtn(entry, sector, cls){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = cls;
+    b.setAttribute('aria-label',
+      'Voir la vidéo TikTok ' + (tkAuthor(entry) || NICHE_LABEL[sector] || ''));
+    if (entry.thumb) {
+      var img = document.createElement('img');
+      img.src = entry.thumb; img.alt = ''; img.loading = 'lazy';
+      b.appendChild(img);
+    }
+    var play = document.createElement('span');
+    play.className = 'tk-play';
+    play.innerHTML = '<i class="fa-solid fa-play"></i>';
+    b.appendChild(play);
+    b.addEventListener('click', function(){ openTk(entry, b); });
+    return b;
+  }
+
+  var tkSlots = [];
+
   document.querySelectorAll('.sec-vid').forEach(function(slot){
-    var src = SECTOR_MEDIA[slot.dataset.sector] || '';
+    var sector = slot.dataset.sector;
+    var tk = SECTOR_TIKTOK[sector];
+    // un TikTok renseigné prend le pas sur le .mp4 auto-hébergé
+    if (tk && tkId(tk.url)) {
+      slot.textContent = '';
+      var live = document.createElement('span');
+      live.className = 'sec-vid-live';
+      slot.appendChild(live);
+      slot.appendChild(tkThumbBtn(tk, sector, 'sec-vid-btn'));
+      slot.__tk = { slot: slot, live: live, entry: tk, loaded: false };
+      tkSlots.push(slot.__tk);
+      return;
+    }
+    var src = SECTOR_MEDIA[sector] || '';
     if (!src) {
       slot.innerHTML = '<span class="ph"><i class="fa-solid fa-play"></i><b>Exemple</b></span>';
       return;
@@ -1345,6 +1523,53 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     }
     slot.appendChild(el);
   });
+
+  /* ---------- Lecteurs inline : chargés quand la carte arrive à l'écran ----------
+     Pas au chargement de la page : TikTok ne voit le visiteur que s'il
+     descend jusqu'aux cartes secteurs. Et pas du tout si la personne a
+     demandé à son système de réduire les animations. */
+  var tkReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function tkScale(o){
+    var w = o.slot.clientWidth || 108;
+    o.live.style.setProperty('--tk-scale', (w / 325).toFixed(4));
+  }
+  function tkLoadPlayer(o){
+    if (o.loaded) return;
+    o.loaded = true;
+    tkScale(o);
+    var f = document.createElement('iframe');
+    f.src = 'https://www.tiktok.com/player/v1/' + tkId(o.entry.url) +
+            '?embed_from=oembed&autoplay=1&muted=1&loop=1&controls=0&description=0&music_info=0';
+    f.setAttribute('allow', 'autoplay; encrypted-media');
+    f.setAttribute('scrolling', 'no');
+    f.setAttribute('tabindex', '-1');
+    f.setAttribute('aria-hidden', 'true');   // décoratif : le bouton au-dessus porte le libellé
+    f.setAttribute('loading', 'lazy');
+    o.live.appendChild(f);
+  }
+
+  if (tkSlots.length && !tkReduce) {
+    if ('IntersectionObserver' in window) {
+      var pio = new IntersectionObserver(function(ents){
+        ents.forEach(function(en){
+          if (!en.isIntersecting) return;
+          if (en.target.__tk) tkLoadPlayer(en.target.__tk);
+          pio.unobserve(en.target);
+        });
+      }, { threshold: 0.25 });
+      tkSlots.forEach(function(o){ pio.observe(o.slot); });
+    } else {
+      tkSlots.forEach(tkLoadPlayer);
+    }
+    var tkResize = null;
+    window.addEventListener('resize', function(){
+      clearTimeout(tkResize);
+      tkResize = setTimeout(function(){
+        tkSlots.forEach(function(o){ if (o.loaded) tkScale(o); });
+      }, 150);
+    });
+  }
 
   /* ---------- « Voir + d'idées » (mobile) ---------- */
   var shots = document.getElementById('shots');
