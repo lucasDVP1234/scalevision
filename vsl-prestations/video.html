@@ -443,12 +443,53 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
       if(email)sessionStorage.setItem('sv_iclosed_email',email);
       if(name)sessionStorage.setItem('sv_iclosed_name',name);
     }catch(e){}
-    if(window.Tally&&typeof Tally.openPopup==='function'){
-      Tally.openPopup(TALLY_FORM,{layout:'modal',width:520,hideTitle:true,hiddenFields:hidden});
-    }else{
+    // Repli : page Tally hébergée, avec le préremplissage dans l'URL.
+    function tallyFallback(){
       hostedParams.set('hideTitle','1');
       hostedParams.set('transparentBackground','1');
       window.location.href='https://tally.so/r/'+TALLY_FORM+'?'+hostedParams.toString();
+    }
+    var opened=false;
+    if(window.Tally&&typeof Tally.openPopup==='function'){
+      try{
+        Tally.openPopup(TALLY_FORM,{
+          layout:'modal',width:520,hideTitle:true,hiddenFields:hidden,
+          // on veut savoir si le popup s'ouvre vraiment, et s'il est envoyé
+          onOpen:function(){
+            opened=true;
+            try{if(window.fbq)fbq('trackCustom','VSLTallyOpen');}catch(e){}
+            try{if(window.gtag)gtag('event','vsl_tally_open');}catch(e){}
+          },
+          onSubmit:function(){
+            try{if(window.fbq)fbq('trackCustom','VSLTallySubmit');}catch(e){}
+            try{if(window.gtag)gtag('event','vsl_tally_submit');}catch(e){}
+          }
+        });
+      }catch(err){
+        // openPopup qui lève = clic mort : sans ce filet, il ne se passait RIEN
+        try{if(window.fbq)fbq('trackCustom','VSLTallyError');}catch(e){}
+        tallyFallback();
+        return;
+      }
+      /* Si le popup ne s'est pas ouvert, on bascule sur la page hébergée.
+         On ne se fie PAS au seul onOpen : si Tally venait à ne pas supporter
+         ce nom d'option, `opened` resterait faux alors que le popup est là,
+         et on partirait en détruisant un formulaire qui fonctionne. D'où la
+         vérification directe dans le DOM, qui ne dépend d'aucune API, et
+         plusieurs passes pour laisser le temps à une connexion lente. */
+      var tries=0;
+      var watch=setInterval(function(){
+        tries++;
+        var present=opened||!!document.querySelector('iframe[src*="tally.so"]');
+        if(present){clearInterval(watch);return;}
+        if(tries>=6){                      // ~3 s
+          clearInterval(watch);
+          try{if(window.fbq)fbq('trackCustom','VSLTallyNoOpen');}catch(e){}
+          tallyFallback();
+        }
+      },500);
+    }else{
+      tallyFallback();
     }
   });
 
