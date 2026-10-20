@@ -137,7 +137,9 @@ h2 .pink{color:var(--pink-cta)}
 .hero-logo img{height:56px;width:auto}
 @media (max-width:640px){.hero-logo img{height:44px}}
 
-/* Kill row — ce qu'on arrête de payer */
+/* Kill row — INUTILISÉE depuis que la liste est passée dans la section
+   « Le basculement » (voir .switch-dead). Conservée pour pouvoir la recoller
+   dans le hero sans la réécrire. */
 .kill{
   display:flex;flex-wrap:wrap;justify-content:center;gap:9px;
   max-width:720px;margin:22px auto 26px;
@@ -328,7 +330,86 @@ h1 .tail em{
 @media (max-width:620px){.shots-note{padding:20px 18px}}
 .sec--tint{background:linear-gradient(180deg,#fff 0%,var(--lav-soft) 100%)}
 
-/* ---------- Comparatif ---------- */
+/* ---------- Le basculement : fini tout ça → machine à clients ---------- */
+.switch-dead{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(218px,1fr));
+  gap:11px;max-width:900px;margin:0 auto;
+}
+.dead-item{
+  position:relative;display:flex;align-items:center;gap:11px;
+  padding:14px 16px;border-radius:14px;overflow:hidden;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  transition:opacity .6s ease .75s,filter .6s ease .75s;
+}
+.dead-item .e{
+  width:34px;height:34px;flex:none;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+}
+.dead-item .t{font-size:13px;font-weight:700;line-height:1.35;text-align:left;color:rgba(255,255,255,.9)}
+/* le trait se trace au scroll, décalé item par item */
+.dead-item::after{
+  content:'';position:absolute;left:10px;right:10px;top:50%;height:2.5px;border-radius:2px;
+  background:var(--pink-cta);box-shadow:0 0 12px rgba(255,60,142,.75);
+  transform:rotate(-2.2deg) scaleX(0);transform-origin:left center;
+  transition:transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.switch-dead.in .dead-item::after{transform:rotate(-2.2deg) scaleX(1)}
+.switch-dead.in .dead-item{opacity:.5;filter:saturate(.25)}
+.switch-dead.in .dead-item:nth-child(2)::after{transition-delay:.08s}
+.switch-dead.in .dead-item:nth-child(3)::after{transition-delay:.16s}
+.switch-dead.in .dead-item:nth-child(4)::after{transition-delay:.24s}
+.switch-dead.in .dead-item:nth-child(5)::after{transition-delay:.32s}
+.switch-dead.in .dead-item:nth-child(6)::after{transition-delay:.40s}
+.switch-dead.in .dead-item:nth-child(7)::after{transition-delay:.48s}
+
+.switch-arrow{display:flex;justify-content:center;margin:28px 0 24px;position:relative;z-index:2}
+.switch-arrow span{
+  width:46px;height:46px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);
+  color:#fff;font-size:20px;font-weight:900;line-height:1;
+  animation:bobDown 1.9s ease-in-out infinite;
+}
+@keyframes bobDown{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+.switch-alive{
+  position:relative;z-index:2;max-width:900px;margin:0 auto;
+  padding:36px 32px;border-radius:26px;text-align:center;overflow:hidden;
+  background:linear-gradient(135deg,var(--pink-cta) 0%,var(--pink-cta-2) 52%,#FF9FC9 100%);
+  box-shadow:0 30px 70px -30px rgba(255,60,142,.8);
+}
+.switch-alive::before{
+  content:'';position:absolute;top:0;left:0;width:45%;height:100%;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);
+  animation:shine 4.6s ease-in-out infinite;
+}
+.switch-alive .big{
+  position:relative;display:block;color:#fff;
+  font-size:clamp(23px,4.1vw,40px);font-weight:900;line-height:1.12;letter-spacing:-.03em;
+  text-wrap:balance;
+}
+.switch-alive .big em{
+  font-style:normal;font-family:var(--font-serif);font-weight:800;
+  font-variation-settings:"SOFT" 90,"WONK" 1;
+}
+.switch-proof{
+  position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:24px;
+}
+.switch-proof span{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.36);
+  border-radius:999px;padding:9px 16px;
+  font-size:12.5px;font-weight:800;color:#fff;
+}
+@media (max-width:620px){
+  .switch-alive{padding:26px 20px;border-radius:22px}
+  .switch-proof span{font-size:11.5px;padding:8px 13px}
+}
+
+/* ---------- Comparatif — INUTILISÉ depuis la suppression de la section
+     « Vous payez la mauvaise chose ». Conservé pour pouvoir la recoller. ---------- */
 .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;max-width:1000px;margin:0 auto}
 .vs-col{
   background:#fff;border:1px solid var(--lav);border-radius:22px;padding:26px 24px;
@@ -380,9 +461,12 @@ h1 .tail em{
   max-width:720px;margin:0 auto 4px;
 }
 .sectors-strip span{
+  display:inline-flex;align-items:center;gap:5px;
   font-size:11.5px;font-weight:800;letter-spacing:.4px;color:var(--grey);
   text-transform:uppercase;
 }
+/* l'emoji est un peu plus gros que le libellé et sans interlettrage */
+.sectors-strip span .e{font-size:14px;font-style:normal;line-height:1;letter-spacing:0}
 .sectors-strip i{width:4px;height:4px;border-radius:50%;background:var(--pink);flex-shrink:0}
 
 /* ---------- Équation acquisition ---------- */
@@ -663,16 +747,9 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
       <span class="eyebrow rv"><span class="dot"></span> Pour les entreprises · 2026</span>
     </div>
 
-    <div class="kill rv d1" id="killRow">
-      <span class="kill-item"><i class="fa-regular fa-newspaper"></i> Flyers &amp; print</span>
-      <span class="kill-item"><i class="fa-regular fa-comments"></i> Bouche-à-oreille</span>
-      <span class="kill-item"><i class="fa-solid fa-user-tag"></i> Influenceurs à 1 500 € le post</span>
-      <span class="kill-item"><i class="fa-solid fa-building"></i> Agence à 3 000 €/mois</span>
-    </div>
-
     <h1 class="rv d2">
-      Comment cette entreprise a fait <span class="x5">×5</span> sur son CA
-      en&nbsp;2026 <span class="stop">en arrêtant tout ça.</span>
+      Comment faire <span class="x5">×5</span> sur son CA en&nbsp;2026
+      <span class="stop">avec la création de contenu.</span>
       <span class="tail">
         <em>Et comment</em> former <span class="mark">vos employés</span> <em>pour faire pareil.</em>
       </span>
@@ -684,9 +761,13 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     </p>
 
     <div class="sectors-strip rv d3">
-      <span>Magasin</span><i></i><span>Restaurant</span><i></i><span>Atelier</span><i></i>
-      <span>Artisan</span><i></i><span>BTP</span><i></i><span>Industrie</span><i></i>
-      <span>Services B2B</span>
+      <span><em class="e">🛍️</em>Magasin</span><i></i>
+      <span><em class="e">🍕</em>Restaurant</span><i></i>
+      <span><em class="e">🔨</em>Atelier</span><i></i>
+      <span><em class="e">🧰</em>Artisan</span><i></i>
+      <span><em class="e">🏗️</em>BTP</span><i></i>
+      <span><em class="e">🏭</em>Industrie</span><i></i>
+      <span><em class="e">💼</em>Services B2B</span>
     </div>
 
     <!-- VSL Loom -->
@@ -716,182 +797,40 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   </div>
 </section>
 
-<!-- ============================= 1. LE VRAI PROBLÈME ============================= -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Le vrai problème</span>
-      <h2>Vous ne payez pas trop cher.<br><span class="ital">Vous payez la mauvaise chose.</span></h2>
-      <p class="lead">Ce n'est pas votre budget le problème. C'est là où il part.</p>
-    </div>
-
-    <div class="vs rv d1">
-      <div class="vs-col out">
-        <span class="vs-tag"><i class="fa-solid fa-xmark"></i> Ce que ça coûte aujourd'hui</span>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-regular fa-newspaper"></i></span>
-          <span class="tx">
-            <b>Flyers, print, affichage</b>
-            <span>Distribués, jetés le jour même. <em>Zéro mesure</em>, zéro suivi.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-regular fa-comments"></i></span>
-          <span class="tx">
-            <b>Le bouche-à-oreille</b>
-            <span>Vous ne le contrôlez pas, et il ne vous ouvre <em>aucun nouveau marché</em>.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-user-tag"></i></span>
-          <span class="tx">
-            <b>Un influenceur à 1 500 € le post</b>
-            <span>Un pic, puis plus rien. Et <em>ce n'est pas votre audience</em> : vous la louez.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-building"></i></span>
-          <span class="tx">
-            <b>Une agence à 3 000 €/mois</b>
-            <span>4 vidéos par mois. Le jour où vous arrêtez, <em>il ne reste rien</em>.</span>
-          </span>
-        </div>
-      </div>
-
-      <div class="vs-mid"><span>VS</span></div>
-
-      <div class="vs-col in">
-        <span class="vs-tag"><i class="fa-solid fa-check"></i> Ce qu'on vous propose</span>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-graduation-cap"></i></span>
-          <span class="tx">
-            <b>Vous formez 1 à 3 employés</b>
-            <span>Une formation, une fois. Ils repartent avec une compétence, <em>pas une facture mensuelle</em>.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-film"></i></span>
-          <span class="tx">
-            <b>100 à 200 vidéos par mois</b>
-            <span>Au lieu de 4. Celui qui filme est <em>déjà sur place</em>, tous les jours.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-bolt"></i></span>
-          <span class="tx">
-            <b>Une réactivité immédiate</b>
-            <span>Un chantier, une livraison, un client content : <em>filmé dans l'heure</em>.</span>
-          </span>
-        </div>
-
-        <div class="vs-row">
-          <span class="ic"><i class="fa-solid fa-vault"></i></span>
-          <span class="tx">
-            <b>Le savoir-faire reste chez vous</b>
-            <span>Dans un an, vous produisez toujours. <em>Sans nous, sans budget mensuel.</em></span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= 2. POURQUOI : CANAL D'ACQUISITION ============================= -->
-<section class="sec sec--tint">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Pourquoi</span>
-      <h2>Ce n'est pas de la visibilité.<br>C'est un <span class="pink">canal d'acquisition</span>.</h2>
-      <p class="lead">
-        Pas « gagner en notoriété ». <strong>Aller chercher des clients que vous n'auriez jamais eus.</strong>
-        Et ça se calcule.
-      </p>
-    </div>
-
-    <div class="math rv">
-      <div class="math-row">
-        <div class="math-cell">
-          <span class="v">1</span>
-          <span class="k">vidéo publiée</span>
-        </div>
-        <div class="math-op">→</div>
-        <div class="math-cell">
-          <span class="v">1 000</span>
-          <span class="k">personnes la voient</span>
-        </div>
-        <div class="math-op">→</div>
-        <div class="math-cell">
-          <span class="v">1 %</span>
-          <span class="k">vous contactent</span>
-        </div>
-        <div class="math-op">=</div>
-        <div class="math-cell hi">
-          <span class="v">10</span>
-          <span class="k">nouveaux clients</span>
-        </div>
-      </div>
-      <p class="math-note">
-        Et 1 000 vues, c'est une vidéo <strong>moyenne</strong>. Celle qui part, c'est 200 000 vues.
-        Maintenant : <span class="pk">100 vidéos par mois</span>, pendant un an. <strong>Refaites le calcul.</strong>
-      </p>
-      <span class="math-hyp">Ordre de grandeur, pas une promesse — à ajuster selon votre panier moyen et votre zone</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================= 3. QUOI FILMER ============================= -->
+<!-- ============================= 1. LE BASCULEMENT ============================= -->
 <section class="sec sec--ink">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Quoi filmer ?</span>
-      <h2>Et il y a déjà <span class="pink">tout à filmer</span> chez vous.</h2>
-      <p class="lead">
-        Vos chantiers, vos coulisses, vos équipes, le geste technique que personne ne comprend.
-        <strong>Vous n'avez pas besoin d'idées : vous avez besoin de quelqu'un, en interne,
-        qui sache filmer et monter.</strong>
-      </p>
+      <span class="eyebrow">Le basculement</span>
+      <h2>Fini tout ça.<br><span class="ital">Place à une machine à clients.</span></h2>
+      <p class="lead">Tout ce que vous payez aujourd'hui s'arrête le jour où vous arrêtez de payer. Une compétence, non.</p>
     </div>
 
-    <div class="shots rv d1" id="shots">
-      <span class="shot-tile"><span class="e">🔧</span><span>Le geste technique que personne ne comprend</span></span>
-      <span class="shot-tile"><span class="e">🏗️</span><span>Un chantier du premier au dernier jour</span></span>
-      <span class="shot-tile"><span class="e">👥</span><span>Vos équipes en train de travailler</span></span>
-      <span class="shot-tile"><span class="e">🎬</span><span>Les coulisses, l'envers du décor</span></span>
-      <span class="shot-tile"><span class="e">↔️</span><span>Les avant / après</span></span>
-      <span class="shot-tile"><span class="e">❓</span><span>Les questions que vos clients posent tous les jours</span></span>
-      <span class="shot-tile"><span class="e">🚫</span><span>Les erreurs que tout le monde fait</span></span>
-      <span class="shot-tile"><span class="e">📦</span><span>Les arrivages, les livraisons, les nouveautés</span></span>
-      <span class="shot-tile"><span class="e">🤝</span><span>Un client qui repart content</span></span>
-      <span class="shot-tile"><span class="e">💰</span><span>Un prix, un devis expliqué honnêtement</span></span>
-      <span class="shot-tile"><span class="e">📖</span><span>Votre histoire, pourquoi vous avez monté la boîte</span></span>
-      <span class="shot-tile"><span class="e">🔍</span><span>Le détail que le client ne remarque jamais</span></span>
+    <div class="switch-dead" id="deadRow">
+      <span class="dead-item"><span class="e">🧊</span><span class="t">La prospection à froid</span></span>
+      <span class="dead-item"><span class="e">📧</span><span class="t">L'emailing</span></span>
+      <span class="dead-item"><span class="e">☎️</span><span class="t">Les appels dans le vide</span></span>
+      <span class="dead-item"><span class="e">💬</span><span class="t">Le bouche-à-oreille qu'on subit</span></span>
+      <span class="dead-item"><span class="e">📄</span><span class="t">Les flyers jetés le jour même</span></span>
+      <span class="dead-item"><span class="e">⭐</span><span class="t">L'influenceur à 1 500 € le post</span></span>
+      <span class="dead-item"><span class="e">🏢</span><span class="t">L'agence à 3 000 €/mois</span></span>
     </div>
 
-    <button type="button" class="shots-more" id="shotsMore" aria-expanded="false" aria-controls="shots">
-      <span class="lbl">Voir + d'idées</span>
-      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-    </button>
+    <div class="switch-arrow rv" aria-hidden="true"><span>↓</span></div>
 
-    <div class="shots-note rv d2">
-      <span class="big">Une matinée de tournage = <em>30 à 50 vidéos</em> à publier.</span>
-      <p>
-        C'est tout le principe : on ne tourne pas une vidéo à la fois, on tourne par série.
-        Un salarié formé sort <strong>100 à 200 vidéos par mois</strong> sans y passer ses journées —
-        là où une agence vous en livre quatre.
-      </p>
+    <div class="switch-alive rv">
+      <span class="big">Devenez une <em>machine à clients</em><br>avec des vidéos.</span>
+      <div class="switch-proof">
+        <span>🎥 100 à 200 vidéos par mois</span>
+        <span>🎓 Vos employés, formés une fois</span>
+        <span>🔒 Le savoir-faire reste chez vous</span>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- ============================= 4. TOUS LES SECTEURS ============================= -->
+<!-- ============================= 2. TOUS LES SECTEURS ============================= -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
@@ -961,6 +900,94 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
 
     </div>
 
+  </div>
+</section>
+
+<!-- ============================= 3. POURQUOI : CANAL D'ACQUISITION ============================= -->
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Pourquoi</span>
+      <h2>Ce n'est pas de la visibilité.<br>C'est un <span class="pink">canal d'acquisition</span>.</h2>
+      <p class="lead">
+        Pas « gagner en notoriété ». <strong>Aller chercher des clients que vous n'auriez jamais eus.</strong>
+        Et ça se calcule.
+      </p>
+    </div>
+
+    <div class="math rv">
+      <div class="math-row">
+        <div class="math-cell">
+          <span class="v">1</span>
+          <span class="k">vidéo publiée</span>
+        </div>
+        <div class="math-op">→</div>
+        <div class="math-cell">
+          <span class="v">1 000</span>
+          <span class="k">personnes la voient</span>
+        </div>
+        <div class="math-op">→</div>
+        <div class="math-cell">
+          <span class="v">1 %</span>
+          <span class="k">vous contactent</span>
+        </div>
+        <div class="math-op">=</div>
+        <div class="math-cell hi">
+          <span class="v">10</span>
+          <span class="k">nouveaux clients</span>
+        </div>
+      </div>
+      <p class="math-note">
+        Et 1 000 vues, c'est une vidéo <strong>moyenne</strong>. Celle qui part, c'est 200 000 vues.
+        Maintenant : <span class="pk">100 vidéos par mois</span>, pendant un an. <strong>Refaites le calcul.</strong>
+      </p>
+      <span class="math-hyp">Ordre de grandeur, pas une promesse — à ajuster selon votre panier moyen et votre zone</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= 4. QUOI FILMER ============================= -->
+<section class="sec sec--ink">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Quoi filmer ?</span>
+      <h2>Et il y a déjà <span class="pink">tout à filmer</span> chez vous.</h2>
+      <p class="lead">
+        Vos chantiers, vos coulisses, vos équipes, le geste technique que personne ne comprend.
+        <strong>Vous n'avez pas besoin d'idées : vous avez besoin de quelqu'un, en interne,
+        qui sache filmer et monter.</strong>
+      </p>
+    </div>
+
+    <div class="shots rv d1" id="shots">
+      <span class="shot-tile"><span class="e">🔧</span><span>Le geste technique que personne ne comprend</span></span>
+      <span class="shot-tile"><span class="e">🏗️</span><span>Un chantier du premier au dernier jour</span></span>
+      <span class="shot-tile"><span class="e">👥</span><span>Vos équipes en train de travailler</span></span>
+      <span class="shot-tile"><span class="e">🎬</span><span>Les coulisses, l'envers du décor</span></span>
+      <span class="shot-tile"><span class="e">↔️</span><span>Les avant / après</span></span>
+      <span class="shot-tile"><span class="e">❓</span><span>Les questions que vos clients posent tous les jours</span></span>
+      <span class="shot-tile"><span class="e">🚫</span><span>Les erreurs que tout le monde fait</span></span>
+      <span class="shot-tile"><span class="e">📦</span><span>Les arrivages, les livraisons, les nouveautés</span></span>
+      <span class="shot-tile"><span class="e">🤝</span><span>Un client qui repart content</span></span>
+      <span class="shot-tile"><span class="e">💰</span><span>Un prix, un devis expliqué honnêtement</span></span>
+      <span class="shot-tile"><span class="e">📖</span><span>Votre histoire, pourquoi vous avez monté la boîte</span></span>
+      <span class="shot-tile"><span class="e">🔍</span><span>Le détail que le client ne remarque jamais</span></span>
+    </div>
+
+    <button type="button" class="shots-more" id="shotsMore" aria-expanded="false" aria-controls="shots">
+      <span class="lbl">Voir + d'idées</span>
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </button>
+
+    <div class="shots-note rv d2">
+      <span class="big">Une matinée de tournage = <em>30 à 50 vidéos</em> à publier.</span>
+      <p>
+        C'est tout le principe : on ne tourne pas une vidéo à la fois, on tourne par série.
+        Un salarié formé sort <strong>100 à 200 vidéos par mois</strong> sans y passer ses journées —
+        là où une agence vous en livre quatre.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -1317,7 +1344,7 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   });
 
   /* ---------- Reveal au scroll ---------- */
-  var targets = document.querySelectorAll('.rv, #killRow, #formSteps');
+  var targets = document.querySelectorAll('.rv, #deadRow, #formSteps');
   if (!('IntersectionObserver' in window)) {
     targets.forEach(function(el){ el.classList.add('in'); });
   } else {
