@@ -710,7 +710,8 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
 
 /* ---------- Sticky CTA mobile ---------- */
 .sticky{
-  position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(140%);
+  position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  left:50%;transform:translateX(-50%) translateY(160%);
   z-index:90;padding:15px 26px;border-radius:999px;
   background:linear-gradient(135deg,var(--pink-cta),var(--pink-cta-2));color:#fff;
   font-size:12.5px;font-weight:800;letter-spacing:.6px;white-space:nowrap;
@@ -720,7 +721,14 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   max-width:calc(100vw - 28px);
 }
 .sticky.show{transform:translateX(-50%) translateY(0)}
-@media (min-width:900px){.sticky{display:none!important}}
+.sticky .arrow{transition:transform .25s ease}
+.sticky:hover .arrow{transform:translateX(4px)}
+/* sur grand écran il se range en bas à droite plutôt qu'au centre */
+@media (min-width:900px){
+  .sticky{left:auto;right:26px;bottom:calc(26px + env(safe-area-inset-bottom,0px));
+    transform:translateY(170%);padding:16px 28px;font-size:13px}
+  .sticky.show{transform:translateY(0)}
+}
 
 @media (max-width:640px){
   .sec{padding:58px 0}
@@ -1191,6 +1199,11 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
   </div>
 </section>
 
+<!-- Bouton flottant — apparaît passé le hero, s'efface sur le formulaire -->
+<a href="#form" class="sticky" id="stickyCta" aria-hidden="true" tabindex="-1">
+  <span>Réserver un appel</span><span class="arrow">→</span>
+</a>
+
 <!-- ============================= FOOTER ============================= -->
 <footer>
   <div class="wrap">
@@ -1342,6 +1355,39 @@ footer{background:var(--ink);color:#fff;padding:44px 0 34px;text-align:center}
     shotsMore.setAttribute('aria-expanded', open ? 'true' : 'false');
     shotsMore.querySelector('.lbl').textContent = open ? 'Voir moins' : "Voir + d'idées";
   });
+
+  /* ---------- Bouton flottant ---------- */
+  var sticky = document.getElementById('stickyCta');
+  var heroCta = document.querySelector('.hero .cta');
+  var formSec = document.getElementById('form');
+  if (sticky) {
+    var queued = false;
+    var syncSticky = function(){
+      queued = false;
+      // passé le CTA du hero : avant, le bouton ferait doublon
+      var pastHero = heroCta
+        ? heroCta.getBoundingClientRect().bottom < 0
+        : window.pageYOffset > 600;
+      // masqué dès que le formulaire entre en scène : il est déjà là
+      var onForm = false;
+      if (formSec) {
+        var r = formSec.getBoundingClientRect();
+        onForm = r.top < window.innerHeight * 0.8 && r.bottom > 0;
+      }
+      var show = pastHero && !onForm;
+      sticky.classList.toggle('show', show);
+      sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+      sticky.tabIndex = show ? 0 : -1;
+    };
+    var onScroll = function(){
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(syncSticky);
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    syncSticky();
+  }
 
   /* ---------- Reveal au scroll ---------- */
   var targets = document.querySelectorAll('.rv, #deadRow, #formSteps');
