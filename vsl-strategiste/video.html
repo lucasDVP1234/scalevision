@@ -9,10 +9,9 @@
 <meta name="robots" content="noindex,nofollow">
 
 <link rel="icon" href="/assets/img/favicon.png">
-<link rel="preconnect" href="https://www.loom.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdn.loom.com">
+<link rel="preconnect" href="https://fast.vidalytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://fast.vidalytics.com">
 <link rel="preconnect" href="https://tally.so" crossorigin>
-<link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -196,25 +195,7 @@ h1 .noface .em{
   animation:pulseGlow 2.8s ease-in-out infinite,gradientShift 6s ease infinite;
   margin:18px 0 22px;
 }
-.player-slot{
-  position:relative;width:100%;padding-top:56.25%;
-  border-radius:14px;overflow:hidden;background:#0B0A1F;
-}
-.player-slot iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-/* Encart d'attente tant que LOOM_ID n'est pas renseigné */
-.player-todo{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
-  padding:24px;text-align:center;
-  background:repeating-linear-gradient(45deg,#13113A 0 14px,#0B0A1F 14px 28px);
-  color:#fff;font-size:13px;font-weight:600;line-height:1.55;
-}
-.player-todo b{font-family:var(--font-display);font-size:30px;letter-spacing:1.4px;color:#fff}
-.player-todo code{
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
-  background:rgba(255,255,255,.12);border-radius:7px;padding:5px 9px;
-}
-@media (max-width:560px){.player-todo b{font-size:22px}.player-todo{font-size:11.5px;padding:16px}}
+.player-wrap > div[id^="vidalytics_embed"]{display:block}
 
 /* ---------- Late CTA ---------- */
 .late-cta-wrap{
@@ -372,16 +353,30 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
   </div>
 
   <div class="authority reveal d3">
-    <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, fondateur de Scalevision">
+    <img src="/assets/img/vsl-strat/constantin.jpg" alt="Constantin, fondateur de Scalevision">
     <span class="who">
       <b>Moi c'est Constantin.</b>
-      <span>J'ai monté Scalevision, <em>une agence à plus de 2 millions</em>.</span>
+      <span>J'ai monté Scalevision, <em>une agence à 1 M€ de CA</em>.</span>
     </span>
   </div>
 
-  <!-- VSL — iframe injectée en JS depuis CFG.LOOM_ID (bloc de config en bas) -->
+  <!-- VSL (Vidalytics) — fXfJ9sQhPuPlCZHg.
+       Le padding-top 66.67% est le ratio fourni par Vidalytics pour cette
+       vidéo : c'est lui qui réserve la hauteur, ne pas y toucher sans
+       réexporter l'embed. -->
   <div class="player-wrap">
-    <div class="player-slot" id="playerSlot"></div>
+    <div id="vidalytics_embed_fXfJ9sQhPuPlCZHg" style="width:100%;position:relative;padding-top:66.67%;border-radius:14px;overflow:hidden;background:#0B0A1F;"></div>
+    <script type="text/javascript">
+    (function (v, i, d, a, l, y, t, c, s) {
+      y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+      if (!vsl){vsl=function(u,cb){
+        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+        i.getElementsByTagName("head")[0].appendChild(s);
+      };}
+      vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+    })(window, document, 'Vidalytics', 'vidalytics_embed_fXfJ9sQhPuPlCZHg', 'https://fast.vidalytics.com/embeds/SCUwz8Lj/fXfJ9sQhPuPlCZHg/');
+    </script>
   </div>
 
   <!-- Late CTA — apparaît après CFG.CTA_MIN minutes.
@@ -432,19 +427,24 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
   /* ============================================================
      BLOC DE CONFIG — les seules valeurs à remplir
 
-     LOOM_ID    dans https://www.loom.com/share/ab12cd34ef..., la partie
-                après /share/ (sans les paramètres après le ?).
+     La VSL est posée en dur plus haut dans la page (embed Vidalytics
+     fXfJ9sQhPuPlCZHg), pas ici : son script doit être inline à côté de sa
+     div pour que le player se monte.
+
      TALLY_FORM l'identifiant du formulaire de candidature de CE tunnel.
-                ⚠️ En créer un NOUVEAU : lbEWq6 est déjà partagé par vsl/,
-                vsl-acla/ et vsl-prestations/, et un formulaire Tally n'a
-                qu'une seule redirection post-envoi.
-     CTA_MIN    minutes avant l'apparition du bouton. À caler sur la vraie
-                durée de la VSL : sur le tunnel d'Eléa, le spectateur moyen
-                partait AVANT le CTA, et on n'a rien eu.
+                Propre à vsl-strategiste : ne pas y remettre lbEWq6, déjà
+                partagé par vsl/, vsl-acla/ et vsl-prestations/, alors qu'un
+                formulaire Tally n'a qu'UNE seule redirection post-envoi.
+                ⚠️ La redirection de J9112R doit pointer sur
+                /vsl-strategiste/candidature-validee — elle se règle dans
+                Tally, pas ici.
+     CTA_MIN    minutes avant l'apparition du bouton. À caler sur la courbe
+                de rétention Vidalytics, pas sur la durée de la vidéo : sur
+                le tunnel d'Eléa le spectateur moyen partait AVANT le CTA,
+                et on n'a rien eu.
      ============================================================ */
   var CFG={
-    LOOM_ID   : 'REPLACE_LOOM_ID',
-    TALLY_FORM: 'REPLACE_TALLY_ID',
+    TALLY_FORM: 'J9112R',
     CTA_MIN   : 9,
     RELANCE_1 : 4,
     RELANCE_2 : 8
@@ -463,25 +463,6 @@ footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);
     if(v){utms[k]=v;try{sessionStorage.setItem('sv_'+k,v);}catch(e){}}
     else{try{var s=sessionStorage.getItem('sv_'+k);if(s)utms[k]=s;}catch(e){}}
   });
-
-  // ---- Player ----
-  var slot=document.getElementById('playerSlot');
-  if(pending(CFG.LOOM_ID)){
-    slot.innerHTML='<div class="player-todo">'+
-      '<b>Vidéo à brancher</b>'+
-      '<span>Coller l\'identifiant du Loom dans</span>'+
-      '<code>CFG.LOOM_ID</code>'+
-      '<span>bloc de config, en bas de cette page</span>'+
-      '</div>';
-  }else{
-    var f=document.createElement('iframe');
-    f.src='https://www.loom.com/embed/'+CFG.LOOM_ID+
-          '?hideEmbedTopBar=true&hide_owner=true&hide_share=true&hide_title=true';
-    f.title='Comment faire 3 à 5 000 €/mois en vendant des vidéos';
-    f.allow='autoplay; fullscreen; picture-in-picture';
-    f.allowFullscreen=true;
-    slot.appendChild(f);
-  }
 
   // ---- Relances sur le doc, pour tenir jusqu'au CTA ----
   function kitStatus(ico,html){
