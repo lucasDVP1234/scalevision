@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Candidature pas terminée — choisis ton créneau</title>
+<meta name="description" content="Ton profil a été retenu. Dernière étape pour finaliser ta candidature : choisis ton créneau.">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="preconnect" href="https://app.iclosed.io" crossorigin>
+<link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2290938654583850');
+fbq('track','PageView');
+fbq('track','SubmitApplication',{content_name:'vsl-strategiste'});
+fbq('trackCustom','StratFormSubmitted');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
+gtag('event','application_submitted',{event_category:'conversion',event_label:'vsl_strategiste_booking'});
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F7F6FF;
+  --ink:#251EAF;
+  --ink-deep:#1A1580;
+  --pink:#FF3C8E;
+  --pink-2:#FF6BA8;
+  --pink-wash:#FFF0F7;
+  --lav:#E4E1FF;
+  --lav-soft:#F2F0FF;
+  --grey:#5B5880;
+  --green:#0E9E6E;
+  --font-display:'Bebas Neue',Impact,Haettenschweiler,sans-serif;
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 85% -8%,rgba(255,60,142,.12),transparent 62%),
+    radial-gradient(ellipse 62% 46% at 2% 14%,rgba(37,30,175,.09),transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 104%,rgba(37,30,175,.08),transparent 60%);
+  background-attachment:fixed;
+  color:var(--ink);min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.84)}}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes popConfetti{0%,100%{transform:rotate(-7deg) translateY(0)}50%{transform:rotate(5deg) translateY(-7px)}}
+@keyframes pulseRing{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.42),0 12px 30px -12px rgba(255,60,142,.9)}
+  55%{box-shadow:0 0 0 14px rgba(255,60,142,0),0 12px 30px -12px rgba(255,60,142,.9)}
+}
+.reveal{opacity:0;animation:fadeUp .7s ease-out forwards}
+.d1{animation-delay:.06s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}
+.d4{animation-delay:.42s}.d5{animation-delay:.54s}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;animation:none}
+  .arrow{opacity:1}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}
+
+.container{max-width:720px;margin:0 auto;padding:0 18px 40px}
+
+/* ---------- Bandeau ---------- */
+.strip{
+  background:linear-gradient(90deg,var(--pink),#ff5fa6,var(--pink));
+  padding:11px 16px;text-align:center;
+  box-shadow:0 4px 22px -6px rgba(255,60,142,.5);
+}
+.strip span{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:800;letter-spacing:.6px;color:#fff;text-transform:uppercase;
+}
+.strip .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.5s ease-in-out infinite}
+.strip.warn{
+  background:linear-gradient(90deg,#F59E0B,#FBBF24 50%,#F59E0B);
+  box-shadow:0 4px 22px -6px rgba(245,158,11,.55);
+}
+.strip.warn span{color:#4A2D00}
+.strip.warn .dot{background:#4A2D00}
+
+/* ---------- Logo ---------- */
+.top{display:flex;justify-content:center;margin:26px 0 22px}
+.top img{height:34px;width:auto}
+@media (max-width:640px){.top img{height:28px}}
+
+/* ---------- Titre ---------- */
+h1{
+  text-align:center;
+  font-family:var(--font-display);
+  font-size:clamp(40px,8vw,74px);font-weight:400;
+  line-height:.9;letter-spacing:-.4px;color:var(--ink);margin-bottom:26px;
+}
+h1 .pop{display:inline-block;animation:popConfetti 4.5s ease-in-out infinite;font-family:var(--font-sans)}
+h1 .grad{
+  background:linear-gradient(135deg,var(--pink),var(--pink-2) 55%,#ff8ec4);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* ---------- Stepper ---------- */
+.stepper{
+  display:flex;align-items:flex-start;justify-content:center;gap:0;
+  max-width:420px;margin:0 auto 26px;
+}
+.step{flex:1;text-align:center;position:relative}
+.step .bullet{
+  width:38px;height:38px;border-radius:50%;margin:0 auto 9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;position:relative;z-index:2;
+}
+.step.done .bullet{background:var(--green);color:#fff;box-shadow:0 10px 24px -12px rgba(14,158,110,.9)}
+.step.now .bullet{
+  background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#fff;
+  animation:pulseRing 2.6s ease-in-out infinite;
+}
+.step .lbl{font-size:13px;font-weight:800;color:var(--ink);line-height:1.25}
+.step .tag{font-size:10.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-top:3px}
+.step.done .tag{color:var(--green)}
+.step.now .tag{color:var(--pink)}
+.step + .step::before{
+  content:'';position:absolute;top:19px;left:-50%;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--pink));
+  border-radius:3px;z-index:1;
+}
+
+/* ---------- Dernière étape ---------- */
+.laststep{
+  max-width:540px;margin:0 auto 14px;padding:16px 20px;text-align:center;
+  background:#fff;border:1px solid rgba(255,60,142,.3);border-radius:18px;
+  box-shadow:0 18px 44px -28px rgba(37,30,175,.75);
+}
+.ls-badge{
+  display:inline-block;margin-bottom:9px;padding:6px 14px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-2));color:#fff;
+  font-size:11.5px;font-weight:900;letter-spacing:1px;text-transform:uppercase;
+  box-shadow:0 10px 24px -12px rgba(255,60,142,.9);
+}
+.ls-text{
+  display:block;font-size:clamp(15.5px,2.5vw,19px);font-weight:700;
+  color:var(--ink);line-height:1.45;
+}
+.ls-text strong{font-weight:900;background:linear-gradient(180deg,transparent 62%,var(--pink-wash) 62%)}
+
+/* ---------- Flèche ---------- */
+.arrow{
+  text-align:center;color:var(--pink);font-size:26px;font-weight:900;opacity:0;
+  animation:fadeUp .7s ease-out .3s forwards,bounceDown 1.8s ease-in-out .3s infinite;
+  margin-bottom:12px;
+}
+
+/* ---------- Carte du calendrier ---------- */
+.booking{
+  position:relative;
+  background:#fff;border:1px solid var(--lav);border-radius:22px;padding:10px;
+  box-shadow:0 30px 70px -38px rgba(37,30,175,.9);
+  margin-bottom:20px;min-height:440px;
+}
+.booking .iclosed-widget{display:block;border-radius:14px;overflow:hidden}
+.iclosed-loader{
+  position:absolute;inset:10px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  background:#fff;border-radius:14px;
+  padding:28px 20px;text-align:center;
+}
+.iclosed-loader .spin{
+  width:34px;height:34px;border-radius:50%;
+  border:3px solid var(--lav);border-top-color:var(--pink);
+  animation:spin .8s linear infinite;
+}
+.loader-text{font-size:14.5px;font-weight:800;color:var(--ink)}
+.loader-sub{font-size:12.5px;font-weight:600;color:var(--grey)}
+.loader-fallback{margin-top:6px;font-size:12.5px;font-weight:800;color:var(--pink);text-decoration:underline}
+
+/* ---------- Réassurance ---------- */
+.reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:8px}
+.reassure span{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  background:#fff;border:1px solid var(--lav);border-radius:999px;
+  padding:8px 15px;font-size:12.5px;font-weight:700;color:var(--ink);
+  box-shadow:0 2px 10px -6px rgba(37,30,175,.35);
+}
+
+/* ---------- Note de fin ---------- */
+.endnote{
+  text-align:center;margin:20px 0 4px;
+  font-family:var(--font-display);font-size:clamp(22px,3.6vw,30px);
+  letter-spacing:1.4px;color:var(--pink);
+}
+
+/* ---------- Footer ---------- */
+footer{text-align:center;padding:28px 18px 34px;border-top:1px solid var(--lav)}
+.foot-name{font-family:var(--font-display);font-size:28px;letter-spacing:2.2px;color:var(--ink);margin-bottom:6px}
+.foot-name .dot{color:var(--pink)}
+.foot-handle{font-size:12.5px;font-weight:700;color:var(--grey);margin-bottom:16px}
+.legal{font-size:11px;line-height:1.7;color:var(--grey);max-width:580px;margin:0 auto}
+.legal a{color:var(--ink);font-weight:700;text-decoration:none}
+.legal a:hover{text-decoration:underline}
+
+@media (max-width:560px){
+  .booking{border-radius:18px;padding:7px}
+  .iclosed-loader{inset:7px}
+  .stepper{max-width:340px}
+  .step .lbl{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="strip warn">
+  <span><span class="dot"></span> ⚠️ Attention — ta candidature n'est pas terminée</span>
+</div>
+
+<main class="container">
+
+  <div class="top reveal">
+    <img src="/assets/img/logoscale-pink.png" alt="Scalevision" width="240" height="70">
+  </div>
+
+  <h1 class="reveal d1">
+    <span class="pop">🎉</span> Félicitations,<br>
+    <span class="grad">ton profil a été retenu&nbsp;!</span>
+  </h1>
+
+  <!-- STEPPER -->
+  <div class="stepper reveal d2">
+    <div class="step done">
+      <div class="bullet">✓</div>
+      <div class="lbl">Ta candidature</div>
+      <div class="tag">Validée</div>
+    </div>
+    <div class="step now">
+      <div class="bullet">2</div>
+      <div class="lbl">Ton créneau</div>
+      <div class="tag">Dernière étape</div>
+    </div>
+  </div>
+
+  <!-- DERNIÈRE ÉTAPE -->
+  <p class="laststep reveal d3">
+    <span class="ls-badge">🚨 Dernière étape</span>
+    <span class="ls-text">Ta candidature n'est pas encore terminée&nbsp;:<br><strong>choisis ton créneau pour la finaliser</strong></span>
+  </p>
+
+  <div class="arrow" aria-hidden="true">↓</div>
+
+  <!-- CALENDRIER -->
+  <div class="booking reveal d3">
+    <div class="iclosed-loader" id="iclosedLoader">
+      <div class="spin"></div>
+      <div class="loader-text">Chargement de ton calendrier…</div>
+      <div class="loader-sub">Ça prend quelques secondes.</div>
+      <a href="#" target="_blank" rel="noopener" class="loader-fallback" id="iclosedFallback">
+        Le calendrier n'apparaît pas ? Clique ici
+      </a>
+    </div>
+    <!-- Widget iClosed — data-url construite en JS avec le préremplissage email/prénom -->
+    <div id="iclosedMount"></div>
+  </div>
+
+  <div class="reassure reveal d4">
+    <span>⏱️ 30 minutes</span>
+    <span>💬 Avec un membre de l'équipe</span>
+    <span>🎁 Gratuit, sans engagement</span>
+  </div>
+
+  <p class="endnote reveal d5">À très vite.</p>
+
+</main>
+
+<footer>
+  <div class="foot-name">SCALEVISION<span class="dot">.</span></div>
+  <div class="foot-handle">Agence de création de contenu · Paris</div>
+  <div class="legal">
+    <a href="/mentions-legales-ugcademie.html">Mentions légales</a> |
+    <a href="/politique-de-confidentialite-ugcademie.html">Politique de confidentialité</a><br>
+    Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.<br>
+    En outre, ce site n'est pas endossé par Facebook en aucune façon ni par Google Inc.<br>
+    Facebook est une marque déposée de Facebook, Inc. © 2026 — Tous droits réservés.
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Événement iClosed du tunnel. Par défaut l'appel de candidature générique
+     Scalevision, celui de vsl/. Créer un événement dédié si les appels
+     « stratégiste » doivent partir sur un autre calendrier ou un autre closer :
+     il suffit de changer ce slug. */
+  var ICLOSED_SLUG='appel-de-candidature-scalevision';
+  var base='https://app.iclosed.io/e/scalevision/'+ICLOSED_SLUG;
+
+  /* ---- Récupère email + prénom (params du redirect Tally → repli sessionStorage) ---- */
+  var p=new URLSearchParams(location.search);
+  function pick(keys){
+    for(var i=0;i<keys.length;i++){var v=p.get(keys[i]);if(v&&v.trim())return v.trim();}
+    return '';
+  }
+  var email=pick(['IclosedEmail','iclosedEmail','email']);
+  var name =pick(['IclosedName','iclosedName','prenom','name']);
+  try{
+    if(!email)email=(sessionStorage.getItem('sv_iclosed_email')||'').trim();
+    if(!name) name =(sessionStorage.getItem('sv_iclosed_name') ||'').trim();
+  }catch(e){}
+
+  /* ---- URL iClosed avec préremplissage.
+          iClosed attend SES noms de paramètres : iclosedEmail / iclosedName. ---- */
+  var qp=[];
+  if(email)qp.push('iclosedEmail='+encodeURIComponent(email));
+  if(name) qp.push('iclosedName='+encodeURIComponent(name));
+  var dataUrl=base+(qp.length?('?'+qp.join('&')):'');
+
+  var fb=document.getElementById('iclosedFallback');
+  if(fb)fb.href=dataUrl;
+
+  var widget=document.createElement('div');
+  widget.className='iclosed-widget';
+  widget.setAttribute('data-url',dataUrl);
+  widget.setAttribute('title','Réserve ton appel avec Scalevision');
+  widget.style.width='100%';
+  widget.style.height='620px';
+  document.getElementById('iclosedMount').appendChild(widget);
+
+  /* ---- Le script iClosed se charge APRÈS que le widget soit posé ---- */
+  var s=document.createElement('script');
+  s.type='text/javascript';
+  s.src='https://app.iclosed.io/assets/widget.js';
+  s.async=true;
+  document.body.appendChild(s);
+
+  /* ---- Masque le spinner dès que l'iframe iClosed est injectée ---- */
+  var loader=document.getElementById('iclosedLoader');
+  var watcher=setInterval(function(){
+    if(widget.querySelector('iframe')){
+      if(loader)loader.style.display='none';
+      clearInterval(watcher);
+    }
+  },400);
+  setTimeout(function(){clearInterval(watcher);},15000);
+})();
+</script>
+
+</body>
+</html>

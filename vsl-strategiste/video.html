@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>3 à 5 000 €/mois en vendant des vidéos — la vidéo</title>
+<meta name="description" content="Le métier, les offres à proposer, où sont les clients, et le message à envoyer. Expliqué par Constantin.">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="preconnect" href="https://www.loom.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.loom.com">
+<link rel="preconnect" href="https://tally.so" crossorigin>
+<link rel="preconnect" href="https://ugcademie.s3.eu-north-1.amazonaws.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Meta Pixel — même pixel que le tunnel créateurs, événements custom
+     préfixés « Strat » pour rester lisibles à côté de ceux de vsl-prestations. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2290938654583850');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'vsl-strategiste'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2290938654583850&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6EYJTGQW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-FS6EYJTGQW');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F7F6FF;
+  --ink:#251EAF;
+  --ink-deep:#1A1580;
+  --pink:#FF3C8E;
+  --pink-2:#FF6BA8;
+  --pink-wash:#FFF0F7;
+  --lav:#E4E1FF;
+  --lav-soft:#F2F0FF;
+  --grey:#5B5880;
+  --grey-2:#8D8AAD;
+  --font-display:'Bebas Neue',Impact,Haettenschweiler,sans-serif;
+  --font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 85% -8%,rgba(255,60,142,.12),transparent 62%),
+    radial-gradient(ellipse 62% 46% at 2% 14%,rgba(37,30,175,.09),transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 104%,rgba(37,30,175,.08),transparent 60%);
+  background-attachment:fixed;
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ---------- Barre débloqué ---------- */
+.unlock-bar{
+  position:relative;
+  background:linear-gradient(90deg,var(--pink),#ff5fa6,var(--pink));
+  background-size:200% 100%;
+  animation:gradientShift 5s ease infinite;
+  padding:11px 16px;text-align:center;overflow:hidden;
+  box-shadow:0 4px 22px -6px rgba(255,60,142,.55);
+}
+.unlock-text{display:inline-block;font-weight:800;font-size:14px;color:#fff;letter-spacing:.2px}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+.container{max-width:880px;margin:0 auto;padding:24px 18px 40px}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.3),0 18px 50px -14px rgba(255,60,142,.35)}50%{box-shadow:0 0 0 12px rgba(255,60,142,0),0 22px 60px -12px rgba(255,60,142,.55)}}
+@keyframes liveDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(220%) skewX(-20deg)}}
+@keyframes ctaBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-1px) scale(1.015)}}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,60,142,.4)}50%{box-shadow:0 0 0 8px rgba(255,60,142,0)}}
+@keyframes arrowNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.reveal{opacity:0;animation:fadeUp .7s ease-out forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}
+
+/* ---------- Logo ---------- */
+.top{display:flex;justify-content:center;margin-bottom:18px}
+.top img{height:34px;width:auto;display:block}
+@media (max-width:640px){.top img{height:28px}}
+
+/* ---------- Titre ---------- */
+.title-block{text-align:center;padding:0 2px}
+h1{
+  font-family:var(--font-display);
+  font-size:clamp(34px,6.6vw,64px);
+  font-weight:400;line-height:.92;letter-spacing:-.4px;
+  color:var(--ink);margin:0 0 16px;
+  text-wrap:balance;
+}
+h1 .hl{
+  display:inline-block;
+  background:var(--pink);color:#fff;
+  line-height:.82;padding:.09em .15em;
+  border-radius:8px;transform:rotate(-1.4deg);
+  box-shadow:0 14px 34px -14px var(--pink);
+}
+/* « Sans montrer ta tête » — quatrième ligne du titre, même traitement que
+   sur l'opt-in : buste barré en SVG, pas un emoji. */
+h1 .noface{
+  display:inline-flex;align-items:center;gap:.42em;
+  margin-top:.5em;
+  font-size:.5em;letter-spacing:1.3px;
+  color:var(--ink);
+}
+h1 .noface-ico{width:1.2em;height:1.2em;flex-shrink:0}
+h1 .noface-ico .disc{fill:var(--lav-soft)}
+h1 .noface-ico .bust{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}
+h1 .noface-ico .cut{stroke:var(--lav-soft);stroke-width:5.6;stroke-linecap:round}
+h1 .noface-ico .bar{stroke:var(--pink);stroke-width:3;stroke-linecap:round}
+@media (max-width:480px){
+  h1 .noface{font-size:.6em;letter-spacing:.8px;gap:.36em;margin-top:.42em}
+}
+
+.nope-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 18px}
+.nope{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  background:#fff;border:1.5px solid var(--lav);border-radius:999px;
+  padding:7px 15px 7px 11px;
+  font-size:12.5px;font-weight:700;color:var(--ink);
+  box-shadow:0 4px 14px -8px rgba(37,30,175,.4);
+}
+.nope::before{
+  content:"✕";flex-shrink:0;
+  width:17px;height:17px;border-radius:50%;
+  background:var(--pink-wash);color:var(--pink);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:9.5px;font-weight:900;line-height:1;
+}
+@media (max-width:480px){
+  .nope-row{gap:6px}
+  .nope{padding:6px 12px 6px 8px;font-size:11px;gap:6px}
+  .nope::before{width:15px;height:15px;font-size:9px}
+}
+
+/* ---------- Bandeau autorité ---------- */
+.authority{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#fff;border:1px solid var(--lav);border-radius:999px;
+  padding:7px 18px 7px 8px;max-width:max-content;margin:0 auto 6px;
+  box-shadow:0 10px 30px -18px rgba(37,30,175,.55);
+}
+.authority img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2.5px solid var(--pink)}
+.authority .who{text-align:left;line-height:1.3}
+.authority .who b{display:block;font-size:13px;font-weight:800;color:var(--ink)}
+.authority .who span{font-size:11.5px;font-weight:600;color:var(--grey)}
+.authority .who span em{font-style:normal;color:var(--pink);font-weight:800}
+@media (max-width:480px){
+  .authority{gap:9px;padding:6px 14px 6px 6px}
+  .authority img{width:34px;height:34px}
+  .authority .who b{font-size:11.5px}
+  .authority .who span{font-size:10px}
+}
+
+/* ---------- Player ---------- */
+.player-wrap{
+  position:relative;border-radius:18px;padding:5px;
+  background:linear-gradient(135deg,var(--pink),var(--ink),var(--pink));
+  background-size:200% 200%;
+  animation:pulseGlow 2.8s ease-in-out infinite,gradientShift 6s ease infinite;
+  margin:18px 0 22px;
+}
+.player-slot{
+  position:relative;width:100%;padding-top:56.25%;
+  border-radius:14px;overflow:hidden;background:#0B0A1F;
+}
+.player-slot iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+/* Encart d'attente tant que LOOM_ID n'est pas renseigné */
+.player-todo{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  padding:24px;text-align:center;
+  background:repeating-linear-gradient(45deg,#13113A 0 14px,#0B0A1F 14px 28px);
+  color:#fff;font-size:13px;font-weight:600;line-height:1.55;
+}
+.player-todo b{font-family:var(--font-display);font-size:30px;letter-spacing:1.4px;color:#fff}
+.player-todo code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+  background:rgba(255,255,255,.12);border-radius:7px;padding:5px 9px;
+}
+@media (max-width:560px){.player-todo b{font-size:22px}.player-todo{font-size:11.5px;padding:16px}}
+
+/* ---------- Late CTA ---------- */
+.late-cta-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:13px;
+  text-align:center;margin:32px 0 24px;
+  opacity:0;max-height:0;overflow:hidden;transform:translateY(-10px);
+  transition:opacity .7s ease,max-height .7s ease,transform .7s ease,margin .7s ease;
+}
+.late-cta-wrap.show{opacity:1;max-height:360px;transform:translateY(0)}
+.late-cta-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--pink-wash);border:1px solid rgba(255,60,142,.4);
+  border-radius:999px;padding:6px 14px;
+  font-size:11.5px;font-weight:800;color:var(--pink);
+  letter-spacing:.5px;text-transform:uppercase;
+  animation:badgePulse 1.8s ease-in-out infinite;
+}
+.late-cta-badge .ddot{
+  width:7px;height:7px;border-radius:50%;background:var(--pink);
+  box-shadow:0 0 10px var(--pink);animation:liveDot 1.2s ease-in-out infinite;
+}
+.cta{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:13px;
+  background:linear-gradient(135deg,#ff2e83,#ff5fa6 55%,#ff8ec4);
+  color:#fff;font-family:var(--font-sans);
+  font-weight:800;font-size:18px;letter-spacing:.2px;
+  padding:20px 36px;border:none;border-radius:999px;
+  cursor:pointer;overflow:hidden;white-space:nowrap;text-decoration:none;
+  max-width:calc(100% - 8px);
+  box-shadow:0 18px 44px -12px rgba(255,46,131,.65),inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .18s ease,box-shadow .2s ease;
+  animation:ctaBreath 2.6s ease-in-out infinite;
+  isolation:isolate;-webkit-appearance:none;appearance:none;
+}
+.cta::before{
+  content:"";position:absolute;top:0;left:0;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:shine 3.2s ease-in-out infinite;z-index:1;pointer-events:none;
+}
+.cta>*{position:relative;z-index:2}
+.cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 24px 54px -12px rgba(255,46,131,.8)}
+.cta .arrow{font-size:18px;transition:transform .25s ease;animation:arrowNudge 1.6s ease-in-out infinite}
+@media (max-width:560px){
+  .cta{font-size:15px;padding:16px 22px;gap:10px;white-space:normal;line-height:1.25;text-align:center}
+  .cta .arrow{font-size:16px}
+}
+@media (max-width:380px){.cta{font-size:14px;padding:14px 18px}}
+
+/* Avertissement si le Tally n'est pas encore branché */
+.cta-todo{
+  display:none;max-width:420px;margin:0 auto;
+  background:#FFF8E6;border:1px solid #F0D89B;border-radius:12px;
+  padding:12px 16px;font-size:12.5px;font-weight:700;color:#5A4200;line-height:1.5;
+}
+.cta-todo.show{display:block}
+.cta-todo code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+
+/* ---------- Doc (rétention) ---------- */
+.kit-wrap{
+  width:max-content;max-width:100%;
+  margin:16px auto 18px;padding:16px 22px 15px;
+  background:var(--lav-soft);border:1px solid var(--lav);border-radius:20px;
+  text-align:center;
+  box-shadow:0 16px 40px -30px rgba(37,30,175,.7);
+}
+.kit-line{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:15px;font-weight:700;line-height:1.45;
+  color:var(--ink);text-align:left;
+}
+.kit-ico{font-size:18px;line-height:1;flex-shrink:0}
+.kit-line b{font-weight:900}
+.kit-hl{
+  display:inline-block;background:var(--pink);color:#fff;
+  padding:.1em .4em;border-radius:7px;
+  font-weight:900;letter-spacing:-.015em;white-space:nowrap;
+  transform:rotate(-1.2deg);
+  box-shadow:0 9px 22px -11px var(--pink);
+}
+.kit-list{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:13px}
+.kit-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:1px solid var(--lav);border-radius:999px;
+  padding:7px 14px;
+  font-size:11.5px;font-weight:700;color:var(--ink);white-space:nowrap;
+  box-shadow:0 3px 12px -8px rgba(37,30,175,.5);
+}
+.kit-chip::before{
+  content:"";flex-shrink:0;width:5px;height:5px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 6px rgba(255,60,142,.6);
+}
+@media (max-width:620px){
+  .kit-wrap{margin:12px 0 16px;padding:14px 14px 13px;border-radius:16px}
+  .kit-line{font-size:13px;gap:9px}
+  .kit-hl{padding:.08em .32em;border-radius:6px}
+  .kit-ico{font-size:16px}
+  .kit-list{gap:6px;margin-top:11px}
+  .kit-chip{padding:6px 11px;font-size:10.5px;gap:6px}
+}
+
+/* ---------- Footer ---------- */
+footer{text-align:center;padding:48px 20px 30px;border-top:1px solid var(--lav);margin-top:42px}
+.foot-name{font-family:var(--font-display);font-size:28px;letter-spacing:2.2px;color:var(--ink);margin-bottom:6px}
+.foot-name .dot{color:var(--pink)}
+.foot-handle{font-size:12.5px;font-weight:700;color:var(--grey);margin-bottom:18px}
+.legal{font-size:11px;color:var(--grey);line-height:1.6;max-width:640px;margin:0 auto;opacity:.85}
+.legal a{color:var(--ink);text-decoration:underline}
+
+@media (max-width:520px){.container{padding:20px 14px 30px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- Barre débloqué (personnalisée au prénom) -->
+<div class="unlock-bar">
+  <span class="unlock-text">🎥 Bon visionnage<span class="name" id="unlockName"></span></span>
+</div>
+<script>
+(function(){
+  try{
+    var p=new URLSearchParams(location.search);
+    var n=(p.get('prenom')||'').trim();
+    if(n){
+      n=n.charAt(0).toUpperCase()+n.slice(1);
+      var el=document.getElementById('unlockName');
+      if(el)el.textContent=', '+n;
+    }
+  }catch(e){}
+})();
+</script>
+
+<main class="container">
+
+  <div class="top reveal d1">
+    <img src="/assets/img/logoscale-pink.png" alt="Scalevision" width="240" height="70">
+  </div>
+
+  <div class="title-block reveal d2">
+    <h1>
+      Comment faire <span class="hl">3 à 5 000 €/mois</span><br>
+      en vendant des vidéos<br>
+      <span class="noface">
+        <svg class="noface-ico" viewBox="0 0 32 32" aria-hidden="true">
+          <circle class="disc" cx="16" cy="16" r="15.5"/>
+          <circle class="bust" cx="16" cy="11.6" r="4.9"/>
+          <path class="bust" d="M6.4 27.9c0-5.3 4.3-8.4 9.6-8.4s9.6 3.1 9.6 8.4"/>
+          <line class="cut" x1="5.6" y1="26.4" x2="26.4" y2="5.6"/>
+          <line class="bar" x1="5.6" y1="26.4" x2="26.4" y2="5.6"/>
+        </svg>
+        sans montrer ta tête
+      </span>
+    </h1>
+    <div class="nope-row">
+      <span class="nope">sans te filmer</span>
+      <span class="nope">sans IA</span>
+    </div>
+  </div>
+
+  <div class="authority reveal d3">
+    <img src="https://ugcademie.s3.eu-north-1.amazonaws.com/const.jpeg" alt="Constantin, fondateur de Scalevision">
+    <span class="who">
+      <b>Moi c'est Constantin.</b>
+      <span>J'ai monté Scalevision, <em>une agence à plus de 2 millions</em>.</span>
+    </span>
+  </div>
+
+  <!-- VSL — iframe injectée en JS depuis CFG.LOOM_ID (bloc de config en bas) -->
+  <div class="player-wrap">
+    <div class="player-slot" id="playerSlot"></div>
+  </div>
+
+  <!-- Late CTA — apparaît après CFG.CTA_MIN minutes.
+       Pour le voir tout de suite en préparation : ajouter ?cta=1 à l'URL. -->
+  <div class="late-cta-wrap" id="lateCta">
+    <div class="late-cta-badge"><span class="ddot"></span>Places limitées cette semaine</div>
+    <button type="button" class="cta" id="lateCtaBtn">
+      <span>Réserver mon appel</span>
+      <span class="arrow">→</span>
+    </button>
+    <p class="cta-todo" id="ctaTodo">
+      Formulaire pas encore branché : renseigner <code>TALLY_FORM</code> dans le bloc de
+      config, en bas de <code>vsl-strategiste/video.html</code>.
+    </p>
+  </div>
+
+  <!-- Le doc : ce qui retient jusqu'au bout -->
+  <div class="kit-wrap reveal d4" id="kitCard">
+    <p class="kit-line">
+      <span class="kit-ico" id="kitIcon">🎁</span>
+      <span id="kitStatusText"><b>Reste jusqu'au bout</b> — je dis comment récupérer <span class="kit-hl">mon doc</span></span>
+    </p>
+    <div class="kit-list">
+      <span class="kit-chip">Le métier, en clair</span>
+      <span class="kit-chip">Comment démarrer</span>
+      <span class="kit-chip">Les offres à proposer</span>
+      <span class="kit-chip">Le DM, mot pour mot</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-name">SCALEVISION<span class="dot">.</span></div>
+  <div class="foot-handle">Agence de création de contenu · Paris</div>
+  <div class="legal">
+    <a href="/mentions-legales-ugcademie.html">Mentions légales</a> | <a href="/politique-de-confidentialite-ugcademie.html">Politique de confidentialité</a><br>
+    Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. ni de Google Inc.<br>
+    En outre, ce site n'est pas endossé par Facebook en aucune façon ni par Google Inc.<br>
+    Facebook est une marque déposée de Facebook, Inc. © 2026 — Tous droits réservés.
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================================================
+     BLOC DE CONFIG — les seules valeurs à remplir
+
+     LOOM_ID    dans https://www.loom.com/share/ab12cd34ef..., la partie
+                après /share/ (sans les paramètres après le ?).
+     TALLY_FORM l'identifiant du formulaire de candidature de CE tunnel.
+                ⚠️ En créer un NOUVEAU : lbEWq6 est déjà partagé par vsl/,
+                vsl-acla/ et vsl-prestations/, et un formulaire Tally n'a
+                qu'une seule redirection post-envoi.
+     CTA_MIN    minutes avant l'apparition du bouton. À caler sur la vraie
+                durée de la VSL : sur le tunnel d'Eléa, le spectateur moyen
+                partait AVANT le CTA, et on n'a rien eu.
+     ============================================================ */
+  var CFG={
+    LOOM_ID   : 'REPLACE_LOOM_ID',
+    TALLY_FORM: 'REPLACE_TALLY_ID',
+    CTA_MIN   : 9,
+    RELANCE_1 : 4,
+    RELANCE_2 : 8
+  };
+
+  function pending(v){return !v||v.indexOf('REPLACE_')===0;}
+
+  // ---- Paramètres d'URL (email, prénom, UTM) à transmettre au Tally ----
+  var params=new URLSearchParams(window.location.search);
+  var email=params.get('email')||params.get('iclosedEmail')||'';
+  var name=params.get('iclosedName')||params.get('prenom')||'';
+  var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid','msclkid'];
+  var utms={};
+  UTM_KEYS.forEach(function(k){
+    var v=params.get(k);
+    if(v){utms[k]=v;try{sessionStorage.setItem('sv_'+k,v);}catch(e){}}
+    else{try{var s=sessionStorage.getItem('sv_'+k);if(s)utms[k]=s;}catch(e){}}
+  });
+
+  // ---- Player ----
+  var slot=document.getElementById('playerSlot');
+  if(pending(CFG.LOOM_ID)){
+    slot.innerHTML='<div class="player-todo">'+
+      '<b>Vidéo à brancher</b>'+
+      '<span>Coller l\'identifiant du Loom dans</span>'+
+      '<code>CFG.LOOM_ID</code>'+
+      '<span>bloc de config, en bas de cette page</span>'+
+      '</div>';
+  }else{
+    var f=document.createElement('iframe');
+    f.src='https://www.loom.com/embed/'+CFG.LOOM_ID+
+          '?hideEmbedTopBar=true&hide_owner=true&hide_share=true&hide_title=true';
+    f.title='Comment faire 3 à 5 000 €/mois en vendant des vidéos';
+    f.allow='autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen=true;
+    slot.appendChild(f);
+  }
+
+  // ---- Relances sur le doc, pour tenir jusqu'au CTA ----
+  function kitStatus(ico,html){
+    var i=document.getElementById('kitIcon'),t=document.getElementById('kitStatusText');
+    if(i)i.textContent=ico;
+    if(t)t.innerHTML=html;
+  }
+  setTimeout(function(){
+    kitStatus('👀','<b>On y arrive</b> — garde la vidéo ouverte, je parle de <span class="kit-hl">mon doc</span> juste après');
+  },CFG.RELANCE_1*60000);
+  setTimeout(function(){
+    kitStatus('🔥','<b>Reste là</b> — c\'est le passage que je préfère');
+  },CFG.RELANCE_2*60000);
+
+  // ---- Apparition du CTA ----
+  function revealCta(){
+    var cta=document.getElementById('lateCta');
+    if(!cta||cta.classList.contains('show'))return;
+    cta.classList.add('show');
+    setTimeout(function(){cta.style.overflow='visible';},750);
+    var kit=document.getElementById('kitCard');
+    if(kit)kit.style.display='none';
+    try{if(window.fbq)fbq('trackCustom','StratCTAReveal');}catch(e){}
+    try{if(window.gtag)gtag('event','strat_cta_reveal');}catch(e){}
+  }
+  // ?cta=1 → tout de suite ; ?cta=30 → au bout de 30 secondes.
+  // Sert à valider le rendu sans attendre la durée réelle.
+  var force=params.get('cta');
+  var delayMs=CFG.CTA_MIN*60000;
+  if(force!==null){
+    var sec=parseInt(force,10);
+    delayMs=(isNaN(sec)||sec<=1)?0:sec*1000;
+  }
+  if(delayMs===0)revealCta();else setTimeout(revealCta,delayMs);
+
+  // ---- Clic CTA → formulaire Tally en popup.
+  //      La redirection post-envoi est configurée DANS Tally. ----
+  var hidden={email:email,prenom:name,IclosedEmail:email,IclosedName:name,source:'vsl-strategiste'};
+  Object.keys(utms).forEach(function(k){hidden[k]=utms[k];});
+  var hostedParams=new URLSearchParams();
+  Object.keys(hidden).forEach(function(k){if(hidden[k])hostedParams.set(k,hidden[k]);});
+
+  document.getElementById('lateCtaBtn').addEventListener('click',function(){
+    try{if(window.fbq){fbq('track','Lead',{content_name:'vsl-strategiste'});fbq('trackCustom','StratCTAClick');}}catch(e){}
+    try{if(window.gtag)gtag('event','strat_cta_click');}catch(e){}
+    try{
+      if(email)sessionStorage.setItem('sv_iclosed_email',email);
+      if(name)sessionStorage.setItem('sv_iclosed_name',name);
+    }catch(e){}
+
+    // Tally pas encore renseigné : on le dit au lieu d'envoyer sur une
+    // page tally.so inexistante.
+    if(pending(CFG.TALLY_FORM)){
+      var todo=document.getElementById('ctaTodo');
+      if(todo)todo.classList.add('show');
+      return;
+    }
+
+    // Repli : page Tally hébergée, avec le préremplissage dans l'URL.
+    function tallyFallback(){
+      hostedParams.set('hideTitle','1');
+      hostedParams.set('transparentBackground','1');
+      window.location.href='https://tally.so/r/'+CFG.TALLY_FORM+'?'+hostedParams.toString();
+    }
+
+    var opened=false;
+    if(window.Tally&&typeof Tally.openPopup==='function'){
+      try{
+        Tally.openPopup(CFG.TALLY_FORM,{
+          layout:'modal',width:520,hideTitle:true,hiddenFields:hidden,
+          onOpen:function(){
+            opened=true;
+            try{if(window.fbq)fbq('trackCustom','StratTallyOpen');}catch(e){}
+            try{if(window.gtag)gtag('event','strat_tally_open');}catch(e){}
+          },
+          onSubmit:function(){
+            try{if(window.fbq)fbq('trackCustom','StratTallySubmit');}catch(e){}
+            try{if(window.gtag)gtag('event','strat_tally_submit');}catch(e){}
+          }
+        });
+      }catch(err){
+        // openPopup qui lève = clic mort : sans ce filet, il ne se passe RIEN
+        try{if(window.fbq)fbq('trackCustom','StratTallyError');}catch(e){}
+        tallyFallback();
+        return;
+      }
+      /* Si le popup ne s'est pas ouvert, on bascule sur la page hébergée.
+         On ne se fie PAS au seul onOpen : si Tally venait à ne pas supporter
+         ce nom d'option, `opened` resterait faux alors que le popup est là,
+         et on partirait en détruisant un formulaire qui fonctionne. D'où la
+         vérification directe dans le DOM, qui ne dépend d'aucune API, et
+         plusieurs passes pour laisser le temps à une connexion lente. */
+      var tries=0;
+      var watch=setInterval(function(){
+        tries++;
+        var present=opened||!!document.querySelector('iframe[src*="tally.so"]');
+        if(present){clearInterval(watch);return;}
+        if(tries>=6){                      // ~3 s
+          clearInterval(watch);
+          try{if(window.fbq)fbq('trackCustom','StratTallyNoOpen');}catch(e){}
+          tallyFallback();
+        }
+      },500);
+    }else{
+      tallyFallback();
+    }
+  });
+
+  // ---- Jalons de temps passé sur la page (le player est en iframe) ----
+  var pageStart=Date.now();
+  var fired={};
+  setInterval(function(){
+    var elapsed=Math.floor((Date.now()-pageStart)/1000);
+    [30,60,120,240,480,660,900].forEach(function(m){
+      if(elapsed>=m&&!fired[m]){
+        fired[m]=true;
+        try{if(window.fbq)fbq('trackCustom','StratWatch'+m+'s');}catch(e){}
+        try{if(window.gtag)gtag('event','strat_watch',{seconds:m});}catch(e){}
+      }
+    });
+  },5000);
+})();
+</script>
+
+<!-- Tally embed (popup du formulaire de candidature) -->
+<script async src="https://tally.so/widgets/embed.js"></script>
+
+</body>
+</html>
